@@ -1,5 +1,6 @@
 using UnityEngine;
 using IJunior.TypedScenes;
+using UnityEngine.SceneManagement;
 
 public class GameLoader : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class GameLoader : MonoBehaviour
         MainMenu.Load();
     }
 
-    public void LoadGame()
+    public void LoadGame(int levelNumber)
     {
-        Game.Load();
+        SceneManager.LoadScene($"Level{levelNumber}");
     }
 }

@@ -6,7 +6,6 @@ public class MenuSwitcher : MonoBehaviour
     [SerializeField] private Canvas _levelMenu;
     [SerializeField] private Canvas _settings;
     [SerializeField] private Canvas _leaderboard;
-    [SerializeField] private Canvas _authors;
 
     public void EnableMainMenu()
     {
@@ -32,12 +31,6 @@ public class MenuSwitcher : MonoBehaviour
     public void EnableLeaderboard()
     {
         _leaderboard.gameObject.SetActive(true);
-        _mainMenu.gameObject.SetActive(false);
-    }
-
-    public void EnableAuthorsMenu()
-    {
-        _authors.gameObject.SetActive(true);
         _mainMenu.gameObject.SetActive(false);
     }
 }
