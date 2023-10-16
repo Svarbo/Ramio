@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Orange : MonoBehaviour
+public class Collectable : MonoBehaviour
 {
     private int reward = 1;
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d2ceb4de2a713147abc06da178fec62
+guid: 7cfbe1a29ddc33242981258a17eaa19e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,11 +44,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteExtrude: 22
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -107,32 +107,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -149,34 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_0
+      name: Dance3_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 64
-        width: 46
-        height: 15
-      alignment: 9
-      pivot: {x: 0.49457628, y: 0.54158276}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 283f40715b6be7f43918e523b8df4ada
-      internalID: -605743813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui-large-buttons-horizontal_1
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 64
-        width: 46
-        height: 13
+        x: 0
+        y: 1
+        width: 26
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d96e1d6a58da18244904c413b206f051
-      internalID: -1163074989
+      spriteID: 024d0cb8d9e10a74cbfa2cba9fcc7e36
+      internalID: 649199512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_10
+      name: Dance3_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 48
-        width: 46
-        height: 15
+        x: 26
+        y: 1
+        width: 26
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f38ab9aeedc2eb54387b0e48e2434098
-      internalID: -972588244
+      spriteID: aeb6d4a1fac9a0c4297cf4ad2c007c75
+      internalID: 1383610621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_11
+      name: Dance3_2
       rect:
         serializedVersion: 2
-        x: 49
-        y: 48
-        width: 46
-        height: 13
+        x: 52
+        y: 1
+        width: 25
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b825e656f802ef4c9764507248f5de1
-      internalID: 1018065717
+      spriteID: 696ef55085b5e8343b9aef93fa5f32f6
+      internalID: 1004741558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_20
+      name: Dance3_3
       rect:
         serializedVersion: 2
-        x: 1
-        y: 32
-        width: 46
-        height: 15
+        x: 77
+        y: 1
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 157356c4f5bc4464592b5a3776df0c80
-      internalID: 905452260
+      spriteID: 14635aca19a6fb9448ec688ba296f8b9
+      internalID: -177488094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_21
+      name: Dance3_4
       rect:
         serializedVersion: 2
-        x: 49
-        y: 32
-        width: 46
-        height: 13
+        x: 101
+        y: 1
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d41053a74b2ea64482b754763ae6f81
-      internalID: 1224231665
+      spriteID: ea00b73e185ef31498393b7fddfd7fa7
+      internalID: 392728359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_30
+      name: Dance3_5
       rect:
         serializedVersion: 2
-        x: 1
-        y: 16
-        width: 46
-        height: 15
+        x: 125
+        y: 1
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d34d700db9ea544bc040fa63224efa
-      internalID: 914790216
+      spriteID: 7b8edb7ef4558da41b3e1d75da0fbca7
+      internalID: -85087124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_31
+      name: Dance3_6
       rect:
         serializedVersion: 2
-        x: 49
-        y: 16
-        width: 46
-        height: 13
+        x: 173
+        y: 1
+        width: 25
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +263,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7c8586d3b8665c4fae35bdcb26f6645
-      internalID: 357629756
+      spriteID: a8396d9753970fd45be3ce19be569fcd
+      internalID: 438419725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_40
+      name: Dance3_7
       rect:
         serializedVersion: 2
-        x: 1
+        x: 198
+        y: 1
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b92748016f8e54cbdcd64564a5e452
+      internalID: -1367288862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance3_8
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06725873e34f51d48abc43251ef0fdee
+      internalID: -1534979337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance3_9
+      rect:
+        serializedVersion: 2
+        x: 250
         y: 0
-        width: 46
-        height: 15
+        width: 26
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,20 +326,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 978b62a5bcacb5841819117cbb63ee37
-      internalID: 1342308112
+      spriteID: caef9af3805b9c14ab7b253607261c12
+      internalID: -972473738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_41
+      name: Dance3_10
       rect:
         serializedVersion: 2
-        x: 49
+        x: 299
         y: 0
-        width: 46
-        height: 13
+        width: 28
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,8 +347,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04fbee80f3e3bd9429550592c0af04c5
-      internalID: -580542111
+      spriteID: 3c2b93decff284f47b27fe0ad3d2c1cc
+      internalID: -399797771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance3_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 994c78020daa43d4b9718c6e24ded57e
+      internalID: -917901760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance3_12
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb3e45ab50263045abacf09f1fe0adc
+      internalID: -2007825746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance3_13
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1326cc273414e4a46b075a44edd44ac7
+      internalID: -775325938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance3_14
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485e93507b771be44ac86f8ac16dc63e
+      internalID: -968867653
       vertices: []
       indices: 
       edges: []
@@ -369,56 +448,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui-large-buttons-horizontal_0: -605743813
-      ui-large-buttons-horizontal_1: -1163074989
-      ui-large-buttons-horizontal_10: -972588244
-      ui-large-buttons-horizontal_11: 1018065717
-      ui-large-buttons-horizontal_12: -1585022832
-      ui-large-buttons-horizontal_13: -101572127
-      ui-large-buttons-horizontal_14: -1141525365
-      ui-large-buttons-horizontal_15: -1372712073
-      ui-large-buttons-horizontal_16: 295183264
-      ui-large-buttons-horizontal_17: -1245067698
-      ui-large-buttons-horizontal_18: -515570440
-      ui-large-buttons-horizontal_19: -2042872009
-      ui-large-buttons-horizontal_2: 992894307
-      ui-large-buttons-horizontal_20: 905452260
-      ui-large-buttons-horizontal_21: 1224231665
-      ui-large-buttons-horizontal_22: 1965463608
-      ui-large-buttons-horizontal_23: 576362695
-      ui-large-buttons-horizontal_24: -1411545266
-      ui-large-buttons-horizontal_25: 1497966087
-      ui-large-buttons-horizontal_26: 674231080
-      ui-large-buttons-horizontal_27: 1096967158
-      ui-large-buttons-horizontal_28: -394226050
-      ui-large-buttons-horizontal_29: -1984780344
-      ui-large-buttons-horizontal_3: 2088381033
-      ui-large-buttons-horizontal_30: 914790216
-      ui-large-buttons-horizontal_31: 357629756
-      ui-large-buttons-horizontal_32: 693704263
-      ui-large-buttons-horizontal_33: 1513852824
-      ui-large-buttons-horizontal_34: 1577162918
-      ui-large-buttons-horizontal_35: 927024474
-      ui-large-buttons-horizontal_36: 601942247
-      ui-large-buttons-horizontal_37: -1193724902
-      ui-large-buttons-horizontal_38: 1586986048
-      ui-large-buttons-horizontal_39: 2058372533
-      ui-large-buttons-horizontal_4: -1592345316
-      ui-large-buttons-horizontal_40: 1342308112
-      ui-large-buttons-horizontal_41: -580542111
-      ui-large-buttons-horizontal_42: 222515754
-      ui-large-buttons-horizontal_43: 180056506
-      ui-large-buttons-horizontal_44: -285376901
-      ui-large-buttons-horizontal_45: 2031548982
-      ui-large-buttons-horizontal_46: 215697050
-      ui-large-buttons-horizontal_47: -1946416850
-      ui-large-buttons-horizontal_48: 1661152175
-      ui-large-buttons-horizontal_49: -483170407
-      ui-large-buttons-horizontal_5: 1444623868
-      ui-large-buttons-horizontal_6: -1592269688
-      ui-large-buttons-horizontal_7: 2061863126
-      ui-large-buttons-horizontal_8: -553355164
-      ui-large-buttons-horizontal_9: -2041027251
+      Dance3_0: 649199512
+      Dance3_1: 1383610621
+      Dance3_10: -399797771
+      Dance3_11: -917901760
+      Dance3_12: -2007825746
+      Dance3_13: -775325938
+      Dance3_14: -968867653
+      Dance3_2: 1004741558
+      Dance3_3: -177488094
+      Dance3_4: 392728359
+      Dance3_5: -85087124
+      Dance3_6: 438419725
+      Dance3_7: -1367288862
+      Dance3_8: -1534979337
+      Dance3_9: -972473738
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

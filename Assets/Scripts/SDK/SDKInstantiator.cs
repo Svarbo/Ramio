@@ -1,25 +1,16 @@
-using UnityEngine;
 using System.Collections;
 using Agava.YandexGames;
+using UnityEngine;
 
-public class SDKInstantiator : MonoBehaviour
+namespace SDK
 {
-    [SerializeField] private Sounds _sounds;
-    [SerializeField] private LanguageDefiner _languageDefiner;
-
-    private void Awake()
+    public class SDKInstantiator : MonoBehaviour
     {
-        YandexGamesSdk.CallbackLogging = true;
-    }
+        [SerializeField] private Sounds _sounds;
 
-    private IEnumerator Start()
-    {
-        yield return YandexGamesSdk.Initialize();
-
-        if (PlayerAccount.IsAuthorized == false)
-            PlayerAccount.StartAuthorizationPolling(1500);
-
-        _sounds.SetVolumeValues();
-        _languageDefiner.TryDefineLanguage();
+        private void Start()
+        {
+             _sounds.SetVolumeValues();
+        }
     }
 }

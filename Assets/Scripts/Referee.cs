@@ -1,3 +1,4 @@
+using Players;
 using UnityEngine;
 
 public class Referee : MonoBehaviour
@@ -17,11 +18,11 @@ public class Referee : MonoBehaviour
 
     public void DeclairWin()
     {
-        _playerMover.Stop();
+        //_playerMover.Stop();
     }
 
     public void DeclairLose()
     {
-        _playerMover.Stop();
+        //_playerMover.Stop();
     }
 }

@@ -1,3 +1,4 @@
+using Players;
 using UnityEngine;
 
 public class WallHookChecker : MonoBehaviour
@@ -7,13 +8,13 @@ public class WallHookChecker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _playerAnimationSetter.SetWallHookedParameter(true);
+        _playerAnimationSetter.PlayWallHooked(true);
         _playerMover.SetWallHookValues(true, true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _playerAnimationSetter.SetWallHookedParameter(false);
+        _playerAnimationSetter.PlayWallHooked(false);
         _playerMover.SetWallHookValues(false, false);
     }
 }
