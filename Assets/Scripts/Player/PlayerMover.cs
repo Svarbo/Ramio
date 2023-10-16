@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 public class PlayerMover : MonoBehaviour
 {
@@ -14,7 +13,6 @@ public class PlayerMover : MonoBehaviour
 
     private PlayerAnimationSetter _playerAnimationSetter;
     private Rigidbody2D _rigidbody2D;
-    private SpriteRenderer _spriteRenderer;
     private Transform _transform;
     private Vector2 _motionVector;
     private bool _isGrounded;
@@ -23,12 +21,9 @@ public class PlayerMover : MonoBehaviour
     private bool _isFacingRight = true;
     private int _currentExtraJumpsCount = 0;
 
-    public bool IsFliped => _spriteRenderer.flipX;
-
     private void Start()
     {
         _playerAnimationSetter = GetComponent<PlayerAnimationSetter>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _transform = GetComponent<Transform>();
     }
@@ -51,11 +46,7 @@ public class PlayerMover : MonoBehaviour
     private void Move()
     {
         _rigidbody2D.velocity = new Vector2(_motionVector.x * _motionSpeed, _rigidbody2D.velocity.y);
-
-        if(_motionVector.x != 0)
-            _playerAnimationSetter.SetSpeedParameter(1);
-        else
-            _playerAnimationSetter.SetSpeedParameter(0);
+        _playerAnimationSetter.SetRunParameter(_motionVector.x != 0);
     }
 
     private void TryJump()
@@ -135,7 +126,7 @@ public class PlayerMover : MonoBehaviour
         _currentExtraJumpsCount = 0;
     }
 
-    public void On()
+    public void Enable()
     {
         enabled = true;
     }

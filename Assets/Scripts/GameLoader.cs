@@ -9,8 +9,13 @@ public class GameLoader : MonoBehaviour
         MainMenu.Load();
     }
 
-    public void LoadGame(int levelNumber)
+    public void LoadLevel(int levelNumber)
     {
         SceneManager.LoadScene($"Level{levelNumber}");
+    }
+
+    public void RestartCurrentLevel()
+    {
+
     }
 }

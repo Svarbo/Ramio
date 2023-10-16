@@ -8,16 +8,16 @@ public class PlayerAnimationSetter : MonoBehaviour
     private int _doubleJumpAnimation = Animator.StringToHash("DoubleJump");
     private int _isGroundedParameter = Animator.StringToHash("IsGrounded");
     private int _isWallHookedParameter = Animator.StringToHash("IsWallHooked");
-    private int _speedParameter = Animator.StringToHash("Speed");
+    private int _isRunParameter = Animator.StringToHash("IsRun");
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
     }
 
-    public void SetSpeedParameter(int value)
+    public void SetRunParameter(bool value)
     {
-        _animator.SetInteger(_speedParameter, value);
+        _animator.SetBool(_isRunParameter, value);
     }
 
     public void SetGroundedParameter(bool value)

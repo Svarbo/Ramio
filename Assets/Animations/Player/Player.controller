@@ -58,10 +58,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsGrounded
+    m_ConditionEvent: IsRun
     m_EventTreshold: 0
-  - m_ConditionMode: 7
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5567022261366611199}
@@ -88,8 +88,8 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: IsGrounded
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsRun
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -9082307757826551016}
@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WallHook
+  m_Name: WallJump
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -195,8 +195,8 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: IsGrounded
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsRun
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -9082307757826551016}
@@ -220,11 +220,11 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsRun
+    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: IsGrounded
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: Speed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -9082307757826551016}
@@ -249,10 +249,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsGrounded
+    m_ConditionEvent: IsRun
     m_EventTreshold: 0
-  - m_ConditionMode: 7
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6142610245521937863}
@@ -362,8 +362,8 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: IsWallHooked
     m_EventTreshold: 0
-  - m_ConditionMode: 7
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsRun
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6142610245521937863}
@@ -465,25 +465,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsWallHooked
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Speed
-    m_Type: 3
+    m_Controller: {fileID: 0}
+  - m_Name: IsRun
+    m_Type: 4
     m_DefaultFloat: 0
-    m_DefaultInt: 1
+    m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsAttacked
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -614,7 +614,7 @@ AnimatorStateMachine:
     m_Position: {x: 500, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5567022261366611199}
-    m_Position: {x: 640, y: 320, z: 0}
+    m_Position: {x: 660, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1607546906820073608}
     m_Position: {x: 300, y: 400, z: 0}
@@ -626,7 +626,7 @@ AnimatorStateMachine:
     m_Position: {x: 800, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7609944803654210436}
-    m_Position: {x: 660, y: 560, z: 0}
+    m_Position: {x: 660, y: 570, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -884714280245734935}
     m_Position: {x: 200, y: 200, z: 0}
@@ -683,8 +683,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 7
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsRun
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: IsGrounded
