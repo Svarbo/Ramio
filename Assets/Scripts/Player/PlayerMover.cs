@@ -6,8 +6,8 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _motionSpeed;
     [SerializeField] private float _jumpForce;
-    [SerializeField] private float _wallSlidingSpeed;
     [SerializeField] private float _wallJumpForce;
+    [SerializeField] private float _wallSlidingSpeed;
     [SerializeField] private float _extraJumpForce;
     [SerializeField] private int _extraJumpsCount  = 1;
 
@@ -34,15 +34,45 @@ public class PlayerMover : MonoBehaviour
 
         Move();
 
-        SetFlip(_motionVector.x);
+        Flip(_motionVector.x);
 
         if (Input.GetKeyDown(KeyCode.W))
             TryJump();
-
-        if (_isWallHooked)
-            Slide();
     }
 
+    public void SetWallHookValues(bool wallHookedValue, bool wallJumpReadyValue)
+    {
+        _isWallHooked = wallHookedValue;
+        _isWallJumpReady = wallJumpReadyValue;
+    }
+
+    public void SetDrag(float value)
+    {
+        _rigidbody2D.drag = value;
+    }
+
+    public void SetGroundedStatus(bool value)
+    {
+        _isGrounded = value;
+        
+        if (_isWallHooked)
+            Slide();
+        
+        _currentExtraJumpsCount = 0;
+    }
+
+    public void Enable()
+    {
+        enabled = true;
+    }
+
+    public void Stop()
+    {
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.gravityScale = 0;
+        enabled = false;
+    }
+    
     private void Move()
     {
         _rigidbody2D.velocity = new Vector2(_motionVector.x * _motionSpeed, _rigidbody2D.velocity.y);
@@ -53,10 +83,10 @@ public class PlayerMover : MonoBehaviour
     {
         if (_isGrounded)
             Jump();
-        else if(_currentExtraJumpsCount < _extraJumpsCount)
-            ActivateDoubleJump();
         else if (_isWallHooked && _isWallJumpReady)
             ActivateWallJump();
+        else if(_currentExtraJumpsCount < _extraJumpsCount)
+            ActivateDoubleJump();
     }
 
     private void Jump()
@@ -79,7 +109,7 @@ public class PlayerMover : MonoBehaviour
         SetJumpVelocity(_wallJumpForce, -5f);
 
         _isWallJumpReady = false;
-        _currentExtraJumpsCount = _extraJumpsCount;
+        _currentExtraJumpsCount = 0;
     }
 
     private void SetJumpVelocity(float jumpForce)
@@ -92,49 +122,28 @@ public class PlayerMover : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(jumpForce2, jumpForce);
     }
 
-    private void SetFlip(float directionIndicator)
+    private void Flip(float direction)
     {
-        if (_isFacingRight && directionIndicator < 0 || !_isFacingRight && directionIndicator > 0)
-        {
-            _isFacingRight = !_isFacingRight;
-            Vector3 localScale = _transform.localScale;
-            localScale.x *= -1f;
-            _transform.localScale = localScale;
-        }
-    }
+        #region сложно
 
+        // if (_isFacingRight && directionIndicator < 0 || !_isFacingRight && directionIndicator > 0)
+        // {
+        //     _isFacingRight = !_isFacingRight;
+        //     Vector3 localScale = _transform.localScale;
+        //     localScale.x *= -1f;
+        //     _transform.localScale = localScale;
+        // }
+
+        #endregion
+        
+        if (direction > 0)
+            _transform.rotation = Quaternion.Euler(Vector3.zero);
+        else if (direction < 0)
+            _transform.rotation = Quaternion.Euler(0, 180, 0);
+    }
+    
     private void Slide()
     {
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, Mathf.Clamp(_rigidbody2D.velocity.y, -_wallSlidingSpeed, float.MaxValue));
-    }
-
-    public void SetWallHookValues(bool wallHookedValue, bool wallJumpReadyValue)
-    {
-        _isWallHooked = wallHookedValue;
-        _isWallJumpReady = wallJumpReadyValue;
-    }
-
-    public void SetDrag(float value)
-    {
-        _rigidbody2D.drag = value;
-    }
-
-    public void SetGroundedStatus(bool value)
-    {
-        _isGrounded = value;
-
-        _currentExtraJumpsCount = 0;
-    }
-
-    public void Enable()
-    {
-        enabled = true;
-    }
-
-    public void Stop()
-    {
-        _rigidbody2D.velocity = Vector2.zero;
-        _rigidbody2D.gravityScale = 0;
-        enabled = false;
     }
 }
