@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level4.unity
     guid: bf56d921550640a42a2e90fe113a319f
-  - enabled: 1
+  - enabled: 0
     path: Assets/VOiD1 Gaming/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

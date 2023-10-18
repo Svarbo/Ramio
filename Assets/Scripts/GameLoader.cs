@@ -1,9 +1,20 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using IJunior.TypedScenes;
+using UI;
 using UnityEngine.SceneManagement;
 
 public class GameLoader : MonoBehaviour
 {
+    [SerializeField] private PlayerDance _playerDance;
+    [SerializeField] private Curtain _curtain;
+
+    private void Start()
+    {
+        _playerDance?.PlayDance();
+    }
+
     public void LoadMainMenu()
     {
         MainMenu.Load();
@@ -11,7 +22,7 @@ public class GameLoader : MonoBehaviour
 
     public void LoadLevel(int levelNumber)
     {
-        SceneManager.LoadScene($"Level{levelNumber}");
+        _curtain.Show(() => SceneManager.LoadScene($"Level{levelNumber}"));
     }
 
     public void RestartCurrentLevel()
