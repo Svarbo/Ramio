@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d2ceb4de2a713147abc06da178fec62
+guid: 457f47a84eb90ea42ae84df7c6fe83fe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -107,32 +107,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -149,211 +123,316 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_0
+      name: Dance2_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 64
-        width: 46
-        height: 15
+        x: 0
+        y: 9
+        width: 26
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 283f40715b6be7f43918e523b8df4ada
-      internalID: -605743813
+      spriteID: 3ffec62643d327c4b8d63629e3e7737c
+      internalID: 1189043746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_1
+      name: Dance2_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 64
-        width: 46
-        height: 13
+        x: 28
+        y: 9
+        width: 26
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d96e1d6a58da18244904c413b206f051
-      internalID: -1163074989
+      spriteID: 8e9a5162d9516fb4ca6c96dea5cf6c11
+      internalID: -691848317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_10
+      name: Dance2_2
       rect:
         serializedVersion: 2
-        x: 1
-        y: 48
-        width: 46
-        height: 15
+        x: 57
+        y: 9
+        width: 25
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f38ab9aeedc2eb54387b0e48e2434098
-      internalID: -972588244
+      spriteID: 0b8c8b388c0d58448894646af4faf2da
+      internalID: 661440607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_11
+      name: Dance2_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 48
-        width: 46
-        height: 13
+        x: 87
+        y: 9
+        width: 24
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b825e656f802ef4c9764507248f5de1
-      internalID: 1018065717
+      spriteID: 61e1ef1778949e541ae29f4a1399483d
+      internalID: 91905189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_20
+      name: Dance2_4
       rect:
         serializedVersion: 2
-        x: 1
-        y: 32
-        width: 46
-        height: 15
+        x: 114
+        y: 9
+        width: 24
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 157356c4f5bc4464592b5a3776df0c80
-      internalID: 905452260
+      spriteID: 6989883c075dacc478a2349bbd4c1e86
+      internalID: 583781382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_21
+      name: Dance2_5
       rect:
         serializedVersion: 2
-        x: 49
-        y: 32
-        width: 46
-        height: 13
+        x: 142
+        y: 9
+        width: 24
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 3, z: 2, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d41053a74b2ea64482b754763ae6f81
-      internalID: 1224231665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui-large-buttons-horizontal_30
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 16
-        width: 46
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d34d700db9ea544bc040fa63224efa
-      internalID: 914790216
+      spriteID: 4a24ed3f4153aae488bbb8a8de8cfd9e
+      internalID: -1957795387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_31
+      name: Dance2_6
       rect:
         serializedVersion: 2
-        x: 49
-        y: 16
-        width: 46
-        height: 13
+        x: 169
+        y: 9
+        width: 24
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7c8586d3b8665c4fae35bdcb26f6645
-      internalID: 357629756
+      spriteID: c152035fb8ba34b46a7cabf17dd85049
+      internalID: -1608946514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-large-buttons-horizontal_40
+      name: Dance2_7
       rect:
         serializedVersion: 2
-        x: 1
+        x: 198
+        y: 9
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615ba437a7511104ebd007c2675c4640
+      internalID: -1616011564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance2_8
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 9
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28dade42101790f4e87fe261b3dab07a
+      internalID: 1919248678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance2_9
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 9
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 770d8e692f46d144793d84543261d779
+      internalID: -1977141335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance2_10
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 8
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4838bb9bcc76a419c6058a5dbb5d2c
+      internalID: -480514694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance2_11
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 7
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0765fcc95065ee419327346135a92eb
+      internalID: 1416124039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance2_12
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 13
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e57e075139bc8a4c8b9e495ef6d00d3
+      internalID: -451156770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance2_13
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 8
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6cd466c0ec0d446a4eebda55baed9d
+      internalID: 468227014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dance2_14
+      rect:
+        serializedVersion: 2
+        x: 364
         y: 0
-        width: 46
-        height: 15
+        width: 25
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 978b62a5bcacb5841819117cbb63ee37
-      internalID: 1342308112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui-large-buttons-horizontal_41
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 0
-        width: 46
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04fbee80f3e3bd9429550592c0af04c5
-      internalID: -580542111
+      spriteID: 8b9b744f85a51d34db330e3b85fd44b5
+      internalID: 1697884993
       vertices: []
       indices: 
       edges: []
@@ -369,56 +448,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui-large-buttons-horizontal_0: -605743813
-      ui-large-buttons-horizontal_1: -1163074989
-      ui-large-buttons-horizontal_10: -972588244
-      ui-large-buttons-horizontal_11: 1018065717
-      ui-large-buttons-horizontal_12: -1585022832
-      ui-large-buttons-horizontal_13: -101572127
-      ui-large-buttons-horizontal_14: -1141525365
-      ui-large-buttons-horizontal_15: -1372712073
-      ui-large-buttons-horizontal_16: 295183264
-      ui-large-buttons-horizontal_17: -1245067698
-      ui-large-buttons-horizontal_18: -515570440
-      ui-large-buttons-horizontal_19: -2042872009
-      ui-large-buttons-horizontal_2: 992894307
-      ui-large-buttons-horizontal_20: 905452260
-      ui-large-buttons-horizontal_21: 1224231665
-      ui-large-buttons-horizontal_22: 1965463608
-      ui-large-buttons-horizontal_23: 576362695
-      ui-large-buttons-horizontal_24: -1411545266
-      ui-large-buttons-horizontal_25: 1497966087
-      ui-large-buttons-horizontal_26: 674231080
-      ui-large-buttons-horizontal_27: 1096967158
-      ui-large-buttons-horizontal_28: -394226050
-      ui-large-buttons-horizontal_29: -1984780344
-      ui-large-buttons-horizontal_3: 2088381033
-      ui-large-buttons-horizontal_30: 914790216
-      ui-large-buttons-horizontal_31: 357629756
-      ui-large-buttons-horizontal_32: 693704263
-      ui-large-buttons-horizontal_33: 1513852824
-      ui-large-buttons-horizontal_34: 1577162918
-      ui-large-buttons-horizontal_35: 927024474
-      ui-large-buttons-horizontal_36: 601942247
-      ui-large-buttons-horizontal_37: -1193724902
-      ui-large-buttons-horizontal_38: 1586986048
-      ui-large-buttons-horizontal_39: 2058372533
-      ui-large-buttons-horizontal_4: -1592345316
-      ui-large-buttons-horizontal_40: 1342308112
-      ui-large-buttons-horizontal_41: -580542111
-      ui-large-buttons-horizontal_42: 222515754
-      ui-large-buttons-horizontal_43: 180056506
-      ui-large-buttons-horizontal_44: -285376901
-      ui-large-buttons-horizontal_45: 2031548982
-      ui-large-buttons-horizontal_46: 215697050
-      ui-large-buttons-horizontal_47: -1946416850
-      ui-large-buttons-horizontal_48: 1661152175
-      ui-large-buttons-horizontal_49: -483170407
-      ui-large-buttons-horizontal_5: 1444623868
-      ui-large-buttons-horizontal_6: -1592269688
-      ui-large-buttons-horizontal_7: 2061863126
-      ui-large-buttons-horizontal_8: -553355164
-      ui-large-buttons-horizontal_9: -2041027251
+      Dance2_0: 1189043746
+      Dance2_1: -691848317
+      Dance2_10: -480514694
+      Dance2_11: 1416124039
+      Dance2_12: -451156770
+      Dance2_13: 468227014
+      Dance2_14: 1697884993
+      Dance2_2: 661440607
+      Dance2_3: 91905189
+      Dance2_4: 583781382
+      Dance2_5: -1957795387
+      Dance2_6: -1608946514
+      Dance2_7: -1616011564
+      Dance2_8: 1919248678
+      Dance2_9: -1977141335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

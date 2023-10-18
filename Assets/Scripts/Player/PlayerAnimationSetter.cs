@@ -9,12 +9,18 @@ public class PlayerAnimationSetter : MonoBehaviour
     private int _isGroundedParameter = Animator.StringToHash("IsGrounded");
     private int _isWallHookedParameter = Animator.StringToHash("IsWallHooked");
     private int _isRunParameter = Animator.StringToHash("IsRun");
-
-    private void Start()
+    private int _danceStateHash = Animator.StringToHash("Dance");
+    
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
 
+    public void PlayDance()
+    {
+        _animator.Play(_danceStateHash);
+    }
+    
     public void SetRunParameter(bool value)
     {
         _animator.SetBool(_isRunParameter, value);
