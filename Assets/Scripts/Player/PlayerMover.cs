@@ -124,18 +124,6 @@ public class PlayerMover : MonoBehaviour
 
     private void Flip(float direction)
     {
-        #region сложно
-
-        // if (_isFacingRight && directionIndicator < 0 || !_isFacingRight && directionIndicator > 0)
-        // {
-        //     _isFacingRight = !_isFacingRight;
-        //     Vector3 localScale = _transform.localScale;
-        //     localScale.x *= -1f;
-        //     _transform.localScale = localScale;
-        // }
-
-        #endregion
-        
         if (direction > 0)
             _transform.rotation = Quaternion.Euler(Vector3.zero);
         else if (direction < 0)
