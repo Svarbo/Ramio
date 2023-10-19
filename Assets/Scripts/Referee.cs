@@ -17,7 +17,6 @@ public class Referee : MonoBehaviour
 
     public void DeclairWin()
     {
-        _playerMover.Stop();
     }
 
     public void DeclairLose()

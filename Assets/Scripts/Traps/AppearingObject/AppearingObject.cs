@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class AppearingObject : MonoBehaviour
 {
-    private void Start()
+    private GameObject _gameObject;
+
+    private void Awake()
     {
-        gameObject.SetActive(false);
+        _gameObject = gameObject;
+        _gameObject.SetActive(false);
     }
 
     public void Appear()
     {
-        gameObject.SetActive(true);
+        _gameObject.SetActive(true);
     }
 }
