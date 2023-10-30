@@ -4,6 +4,8 @@ using UnityEngine;
 public class SoundSource : MonoBehaviour
 {
     [SerializeField] private AudioClip _transitionSound;
+    [SerializeField] private AudioClip _appearingSound;
+    [SerializeField] private AudioClip _deathSound;
 
     private AudioSource _audioSource;
 
@@ -15,5 +17,15 @@ public class SoundSource : MonoBehaviour
     public void PlayTransitionSound()
     {
         _audioSource.PlayOneShot(_transitionSound);
+    }
+
+    public void PlayAppearingSound()
+    {
+        _audioSource.PlayOneShot(_appearingSound);
+    }
+
+    public void PlayDeathSound()
+    {
+        _audioSource.PlayOneShot(_deathSound);
     }
 }

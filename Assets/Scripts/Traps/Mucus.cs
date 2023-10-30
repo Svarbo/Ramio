@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class Mucus : MonoBehaviour
 {
-    private float _dragValue = 50f;
+    [SerializeField] private float _decelerateValue = 70f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<PlayerMover>(out PlayerMover playerMover))
-            playerMover.SetDrag(_dragValue);
+            playerMover.Decelerate(_decelerateValue);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<PlayerMover>(out PlayerMover playerMover))
-            playerMover.SetDrag(0);
+            playerMover.NormalizeSpeed();
     }
 }
