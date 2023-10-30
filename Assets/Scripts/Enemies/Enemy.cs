@@ -1,20 +1,19 @@
-using System;
-using Enemies;
+using Interfaces;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : IDamageable, IAttack, ICharacter
 {
-    private Animator _animator;
-    protected UnitAnimation UnitAnimation;
-
-    private void Awake()
+    private int _damage = 2;
+    
+    public virtual void Attack(IDamageable damageable)
     {
-        _animator = GetComponent<Animator>();
-        UnitAnimation = new UnitAnimation(_animator);
+        damageable.TakeDamage(_damage);
     }
 
-    public abstract void Attack(Player player);
+    public virtual void TakeDamage(int damage)
+    {
+        Debug.Log("Уничтожен");
+    }
 
-    public abstract void Move();
+    protected abstract void CreateStateMachine();
 }

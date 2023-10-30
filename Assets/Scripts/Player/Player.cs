@@ -1,9 +1,11 @@
+using Infrastructure.Payloads;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent (typeof(PlayerMover))]
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour, IDamageable, IPayloadForState
 {
     [SerializeField] private int _maxHealth;
 
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour, IDamageable
         _currentHealth -= damage;
 
         _animator.SetTrigger(_isAttackedParameter);
+        //  высключить объект
     }
 
     public void IncreaseScore(int reward)
@@ -47,4 +50,5 @@ public class Player : MonoBehaviour, IDamageable
     {
         PlayerDied?.Invoke();
     }
+
 }

@@ -1,3 +1,6 @@
+using System;
+using Infrastructure.Inputs;
+using Interfaces;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,7 +12,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _wallJumpForce;
     [SerializeField] private float _wallSlidingSpeed;
     [SerializeField] private float _extraJumpForce;
-    [SerializeField] private int _extraJumpsCount  = 1;
+    [SerializeField] private int _extraJumpsCount = 1;
 
     private PlayerAnimationSetter _playerAnimationSetter;
     private Rigidbody2D _rigidbody2D;
@@ -21,6 +24,15 @@ public class PlayerMover : MonoBehaviour
     private bool _isFacingRight = true;
     private int _currentExtraJumpsCount = 0;
 
+    private InputService _inputService;
+
+    private void Awake()
+    {
+        //_inputService = new StandaloneInputService();
+
+        _inputService = new MobileInputService();
+    }
+
     private void Start()
     {
         _playerAnimationSetter = GetComponent<PlayerAnimationSetter>();
@@ -30,13 +42,13 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
-        _motionVector.x = Input.GetAxis("Horizontal");
+        _motionVector.x = _inputService.Direction;
 
         Move();
 
         Flip(_motionVector.x);
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (_inputService.IsPressButtonJump())
             TryJump();
     }
 
@@ -54,10 +66,10 @@ public class PlayerMover : MonoBehaviour
     public void SetGroundedStatus(bool value)
     {
         _isGrounded = value;
-        
+
         if (_isWallHooked)
             Slide();
-        
+
         _currentExtraJumpsCount = 0;
     }
 
@@ -72,7 +84,7 @@ public class PlayerMover : MonoBehaviour
         _rigidbody2D.gravityScale = 0;
         enabled = false;
     }
-    
+
     private void Move()
     {
         _rigidbody2D.velocity = new Vector2(_motionVector.x * _motionSpeed, _rigidbody2D.velocity.y);
@@ -85,7 +97,7 @@ public class PlayerMover : MonoBehaviour
             Jump();
         else if (_isWallHooked && _isWallJumpReady)
             ActivateWallJump();
-        else if(_currentExtraJumpsCount < _extraJumpsCount)
+        else if (_currentExtraJumpsCount < _extraJumpsCount)
             ActivateDoubleJump();
     }
 
@@ -129,9 +141,10 @@ public class PlayerMover : MonoBehaviour
         else if (direction < 0)
             _transform.rotation = Quaternion.Euler(0, 180, 0);
     }
-    
+
     private void Slide()
     {
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, Mathf.Clamp(_rigidbody2D.velocity.y, -_wallSlidingSpeed, float.MaxValue));
     }
+
 }

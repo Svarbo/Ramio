@@ -1,8 +1,9 @@
+using Interfaces;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class UnitAnimation
+    public class UnitAnimation : IUnitAnimation
     {
         private readonly Animator _animator;
 
@@ -26,4 +27,5 @@ namespace Enemies
             _animator.Play(hashState);
         }
     }
+
 }
