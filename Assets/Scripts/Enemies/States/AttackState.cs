@@ -34,11 +34,11 @@ namespace Enemies.States
         {
         }
 
-        public void Enter(AttackStatePayload payload)
+        public void Enter(AttackStatePayload direction)
         {
-            _payload = payload;
+            _payload = direction;
             _animationController.Attack();
-            _attacker.Attack(payload.Damageable);
+            _attacker.Attack(direction.Damageable);
         }
 
         public void Exit()

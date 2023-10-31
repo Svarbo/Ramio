@@ -1,19 +1,22 @@
+using System;
 using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    [SerializeField] private PlayerMover _playerMover;
-    [SerializeField] private PlayerAnimationSetter _playerAnimationSetter;
+    //[SerializeField] private PlayerAnimationSetter _playerAnimationSetter;
 
+    public event Action<bool> OnGrounded; 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _playerMover.SetGroundedStatus(true);
-        _playerAnimationSetter.SetGroundedParameter(true);
+        OnGrounded?.Invoke(true);
+        //_playerMover.SetGroundedStatus(true);
+        //_playerAnimationSetter.SetGroundedParameter(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _playerMover.SetGroundedStatus(false);
-        _playerAnimationSetter.SetGroundedParameter(false);
+        OnGrounded?.Invoke(false);
+        //_playerMover.SetGroundedStatus(false);
+        //_playerAnimationSetter.SetGroundedParameter(false);
     }
 }

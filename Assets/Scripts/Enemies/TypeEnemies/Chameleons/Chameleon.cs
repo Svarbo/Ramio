@@ -27,7 +27,7 @@ namespace Enemies.TypeEnemies.Chameleons
 
         public void Attack(IDamageable damageable)
         {
-            _stateMachine.Enter<AttackStatePayload>(new AttackStatePayload(damageable, this));
+            _stateMachine.Enter<AttackStatePayload>(typeof(AttackState),new AttackStatePayload(damageable, this));
         }
 
         public void Idle()
@@ -37,7 +37,7 @@ namespace Enemies.TypeEnemies.Chameleons
 
         public void Run(Vector2 target)
         {
-            _stateMachine.Enter<RunStatePayload>(new RunStatePayload(_rigidbody2D, target, _speed));
+            _stateMachine.Enter<RunStatePayload>(typeof(MoveState), new RunStatePayload(_rigidbody2D, target, _speed));
         }
 
         public void Die()
@@ -49,7 +49,7 @@ namespace Enemies.TypeEnemies.Chameleons
         {
             Dictionary<Type, IState> states = new Dictionary<Type, IState>()
             {
-                [typeof(IdleState)] = new IdleState(_animationController),
+                [typeof(IdleState)] = new Enemies.States.IdleState(_animationController),
                 [typeof(AttackState)] = new AttackState(this, _animationController),
                 [typeof(MoveState)] = new MoveState(_animationController),
                 [typeof(DieState)] = new DieState(_animationController)

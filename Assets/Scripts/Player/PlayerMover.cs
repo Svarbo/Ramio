@@ -1,150 +1,158 @@
 using System;
+using System.Collections.Generic;
 using Infrastructure.Inputs;
-using Interfaces;
+using Unity.VisualScripting;
 using UnityEngine;
+using IState = Infrastructure.States.IState;
+using StateMachine = Infrastructure.StateMachines.StateMachine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class PlayerMover : MonoBehaviour
 {
+    [SerializeField] private GroundChecker _groundChecker;
+    [SerializeField] private WallHookChecker _wallHookChecker;
+
     [SerializeField] private float _motionSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _wallJumpForce;
     [SerializeField] private float _wallSlidingSpeed;
     [SerializeField] private float _extraJumpForce;
     [SerializeField] private int _extraJumpsCount = 1;
-
+    [SerializeField] private Vector2 _forceToWallJump;
+    [SerializeField] private WallJumpParametr _wallJumpParametr;
     private PlayerAnimationSetter _playerAnimationSetter;
     private Rigidbody2D _rigidbody2D;
     private Transform _transform;
     private Vector2 _motionVector;
-    private bool _isGrounded;
     private bool _isWallHooked;
     private bool _isWallJumpReady;
     private bool _isFacingRight = true;
     private int _currentExtraJumpsCount = 0;
 
+    private bool _isGrounded = true;
+    private bool _isWall = false;
+
     private InputService _inputService;
+    private StateMachine _stateMachine;
+    private Type _currentState;
+    private float _collisionPosition;
 
     private void Awake()
-    {
-        //_inputService = new StandaloneInputService();
-
-        _inputService = new MobileInputService();
-    }
-
-    private void Start()
     {
         _playerAnimationSetter = GetComponent<PlayerAnimationSetter>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _transform = GetComponent<Transform>();
+
+        _stateMachine = new StateMachine(new Dictionary<Type, IState>()
+        {
+            [typeof(MoveComponent)] = new MoveComponent(_playerAnimationSetter, _transform, _rigidbody2D, _motionSpeed),
+            [typeof(JumpComponent)] = new JumpComponent(_playerAnimationSetter, _rigidbody2D, _jumpForce),
+            [typeof(DoubleJumpState)] = new DoubleJumpState(_playerAnimationSetter, _rigidbody2D, _jumpForce),
+            [typeof(SlideComponent)] = new SlideComponent(_playerAnimationSetter, _rigidbody2D, _wallSlidingSpeed),
+            [typeof(WallJumpComponent)] = new WallJumpComponent(_playerAnimationSetter, _rigidbody2D, _forceToWallJump),
+            [typeof(IdleState)] = new IdleState(),
+        });
+
+        _inputService = new StandaloneInputService();
+        //_inputService = new MobileInputService();
+
+        _currentState = typeof(IdleState);
+        _stateMachine.Enter(typeof(IdleState));
+    }
+
+    private void OnEnable()
+    {
+        _wallHookChecker.OnWalled += SetWallStatus;
+        _groundChecker.OnGrounded += OnGroundStatus;
+    }
+
+
+    private void OnDisable()
+    {
+        _wallHookChecker.OnWalled -= SetWallStatus;
+        _groundChecker.OnGrounded -= OnGroundStatus;
     }
 
     private void Update()
     {
+        _stateMachine.Update(Time.deltaTime);
+
         _motionVector.x = _inputService.Direction;
-
-        Move();
-
-        Flip(_motionVector.x);
-
-        if (_inputService.IsPressButtonJump())
-            TryJump();
-    }
-
-    public void SetWallHookValues(bool wallHookedValue, bool wallJumpReadyValue)
-    {
-        _isWallHooked = wallHookedValue;
-        _isWallJumpReady = wallJumpReadyValue;
-    }
-
-    public void SetDrag(float value)
-    {
-        _rigidbody2D.drag = value;
-    }
-
-    public void SetGroundedStatus(bool value)
-    {
-        _isGrounded = value;
-
-        if (_isWallHooked)
-            Slide();
-
-        _currentExtraJumpsCount = 0;
-    }
-
-    public void Enable()
-    {
-        enabled = true;
-    }
-
-    public void Stop()
-    {
-        _rigidbody2D.velocity = Vector2.zero;
-        _rigidbody2D.gravityScale = 0;
-        enabled = false;
-    }
-
-    private void Move()
-    {
-        _rigidbody2D.velocity = new Vector2(_motionVector.x * _motionSpeed, _rigidbody2D.velocity.y);
-        _playerAnimationSetter.SetRunParameter(_motionVector.x != 0);
-    }
-
-    private void TryJump()
-    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _rigidbody2D.AddForce(_wallJumpParametr.ForceVEctor);
+        }
         if (_isGrounded)
-            Jump();
-        else if (_isWallHooked && _isWallJumpReady)
-            ActivateWallJump();
-        else if (_currentExtraJumpsCount < _extraJumpsCount)
-            ActivateDoubleJump();
+        {
+            _currentState = typeof(IdleState);
+            _stateMachine.Enter(typeof(IdleState));
+        }
+
+        if (Mathf.Abs(_motionVector.x) > Mathf.Epsilon && _currentState != typeof(SlideComponent))
+        {
+            _currentState = typeof(MoveComponent);
+            _stateMachine.Enter(_currentState, _motionVector.x);
+        }
+
+        if (_inputService.IsPressButtonJump() && _currentState != typeof(SlideComponent))
+        {
+            if (_isGrounded)
+            {
+                _currentState = typeof(JumpComponent);
+                _stateMachine.Enter(typeof(JumpComponent));
+            }
+            else if (_currentState != typeof(DoubleJumpState))
+            {
+                _currentState = typeof(DoubleJumpState);
+                _stateMachine.Enter(_currentState);
+            }
+        }
+
+        if (_isWall)
+        {
+            _currentState = typeof(SlideComponent);
+            _stateMachine.Enter(_currentState);
+
+            if (_inputService.IsPressButtonJump())
+            {
+                int direction = 0;
+                if (_transform.position.x < _collisionPosition)
+                    _wallJumpParametr.Direction = -1;
+                else
+                    _wallJumpParametr.Direction = 1;
+                
+                _currentState = typeof(WallJumpComponent);
+                _stateMachine.Enter(_currentState, _wallJumpParametr);
+            }
+        }
     }
 
-    private void Jump()
+    private void FixedUpdate() =>
+        _stateMachine.FixedUpdate(Time.fixedDeltaTime);
+
+    private void LateUpdate() =>
+        _stateMachine.Update(Time.deltaTime);
+
+    public void SetDrag(float value) =>
+        _rigidbody2D.drag = value;
+
+    private void OnGroundStatus(bool status) =>
+        _isGrounded = status;
+
+    private void SetWallStatus(bool status, Vector2 collisionPosition)
     {
-        _playerAnimationSetter.ActivateJump();
-        SetJumpVelocity(_jumpForce);
+        _isWall = status;
+        Debug.Log("_transform.position.x" +_transform.position.x);
+        Debug.Log("_collisionPosition" +_collisionPosition);
+
+        _collisionPosition = collisionPosition.x;
     }
+}
 
-    private void ActivateDoubleJump()
-    {
-        _playerAnimationSetter.ActivateDoubleJump();
-        SetJumpVelocity(_extraJumpForce);
-
-        _currentExtraJumpsCount++;
-    }
-
-    private void ActivateWallJump()
-    {
-        _playerAnimationSetter.ActivateJump();
-        SetJumpVelocity(_wallJumpForce, -5f);
-
-        _isWallJumpReady = false;
-        _currentExtraJumpsCount = 0;
-    }
-
-    private void SetJumpVelocity(float jumpForce)
-    {
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
-    }
-
-    private void SetJumpVelocity(float jumpForce, float jumpForce2)
-    {
-        _rigidbody2D.velocity = new Vector2(jumpForce2, jumpForce);
-    }
-
-    private void Flip(float direction)
-    {
-        if (direction > 0)
-            _transform.rotation = Quaternion.Euler(Vector3.zero);
-        else if (direction < 0)
-            _transform.rotation = Quaternion.Euler(0, 180, 0);
-    }
-
-    private void Slide()
-    {
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, Mathf.Clamp(_rigidbody2D.velocity.y, -_wallSlidingSpeed, float.MaxValue));
-    }
-
+[Serializable]
+public class WallJumpParametr
+{
+    [field: SerializeField]public Vector2 ForceVEctor { get; set; }
+    [field: SerializeField]public int Direction { get; set; }
 }

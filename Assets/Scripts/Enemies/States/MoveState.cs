@@ -21,9 +21,9 @@ namespace Enemies.States
         {
         }
 
-        public void Enter(RunStatePayload payload)
+        public void Enter(RunStatePayload direction)
         {
-            _payload = payload;
+            _payload = direction;
             _animator.Run();
         }
 

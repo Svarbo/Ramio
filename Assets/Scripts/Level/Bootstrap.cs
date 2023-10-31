@@ -25,13 +25,13 @@ namespace Level
             if (SceneManager.GetActiveScene().name != "MainMenu")
             {
                 boot.AppCore.StateMachine.Enter(typeof(Level1Scene));
-                Level1Initializer level1Initializer = Instantiate(Resources.Load<Level1Initializer>("ItemSceneInitializers/Level1Initializer"));
-                level1Initializer.InstantiateObjects();
+               // Level1Initializer level1Initializer = Instantiate(Resources.Load<Level1Initializer>("ItemSceneInitializers/Level1Initializer"));
+                //level1Initializer.InstantiateObjects();
                 _curtain.Hide();
             }
             else
             {
-                Instantiate(Resources.Load<MainMenuInitializer>("ItemSceneInitializers/MainMenuInitializer"));
+                //Instantiate(Resources.Load<MainMenuInitializer>("ItemSceneInitializers/MainMenuInitializer"));
                 boot.AppCore.StateMachine.Enter(typeof(MainMenuScene));
             }
         }

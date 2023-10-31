@@ -45,8 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e23c6e21940a84fbdb081a46b06c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMover: {fileID: 4885057628218746357}
-  _playerAnimationSetter: {fileID: 6095702489117381959}
 --- !u!61 &3147608513202340498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,8 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cd7cfed303f04418dd3c63f00d3384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMover: {fileID: 4885057628218746357}
-  _playerAnimationSetter: {fileID: 6095702489117381959}
 --- !u!61 &6618528701481780460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,7 +218,7 @@ Transform:
   - {fileID: 3497353927086221577}
   - {fileID: 517173401550614410}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4322990144107552616
 SpriteRenderer:
@@ -332,8 +328,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 1.8037212
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -373,12 +369,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575a9d4e67ce8f14d982fe08cd81aa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _groundChecker: {fileID: 4748682164861814523}
+  _wallHookChecker: {fileID: 8663075009608678253}
   _motionSpeed: 5
   _jumpForce: 8
   _wallJumpForce: 8
   _wallSlidingSpeed: 50
   _extraJumpForce: 9
   _extraJumpsCount: 1
+  _forceToWallJump: {x: 907.5, y: 568.3}
+  _wallJumpParametr:
+    <ForceVEctor>k__BackingField: {x: 0, y: 275.6}
+    <Direction>k__BackingField: 0
 --- !u!114 &6095702489117381959
 MonoBehaviour:
   m_ObjectHideFlags: 0

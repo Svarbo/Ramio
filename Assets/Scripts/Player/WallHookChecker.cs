@@ -1,19 +1,18 @@
+using System;
 using UnityEngine;
 
 public class WallHookChecker : MonoBehaviour
 {
-    [SerializeField] private PlayerMover _playerMover;
-    [SerializeField] private PlayerAnimationSetter _playerAnimationSetter;
-
+    public event Action<bool, Vector2> OnWalled;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _playerAnimationSetter.SetWallHookedParameter(true);
-        _playerMover.SetWallHookValues(true, true);
+        OnWalled?.Invoke(true, collision.ClosestPoint(transform.position));
+        //_playerAnimationSetter.SetWallHookedParameter(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _playerAnimationSetter.SetWallHookedParameter(false);
-        _playerMover.SetWallHookValues(false, false);
+        OnWalled?.Invoke(false, Vector2.zero);
+        //_playerAnimationSetter.SetWallHookedParameter(false);
     }
 }

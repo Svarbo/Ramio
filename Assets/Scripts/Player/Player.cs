@@ -1,4 +1,6 @@
+using System;
 using Infrastructure.Payloads;
+using Infrastructure.StateMachines;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour, IDamageable, IPayloadForState
 
     public void TakeDamage(int damage)
     {
-        _playerMover.Stop();
+        //_playerMover.Stop();
         _currentHealth -= damage;
 
         _animator.SetTrigger(_isAttackedParameter);

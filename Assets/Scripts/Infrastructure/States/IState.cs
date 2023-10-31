@@ -12,8 +12,8 @@ namespace Infrastructure.States
         void Exit();
     }
 
-    public interface IPayloadState<TPayload> : IState where TPayload : IPayloadForState
+    public interface IPayloadState<TPayload> : IState
     {
-        void Enter(TPayload payload);
+        void Enter(TPayload direction);
     }
 }
