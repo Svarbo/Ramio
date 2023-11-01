@@ -46,8 +46,6 @@ public class PlayerMover : MonoBehaviour
     {
         _isWallHooked = wallHookedValue;
         _isWallJumpReady = wallJumpReadyValue;
-
-        ResetExtraJumps();
     }
 
     public void Decelerate(float decelerationValue)
@@ -125,6 +123,7 @@ public class PlayerMover : MonoBehaviour
         SetJumpVelocity(_wallJumpForce);
 
         _isWallJumpReady = false;
+        ResetExtraJumps();
     }
 
     private void SetJumpVelocity(float jumpForce)

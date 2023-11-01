@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent (typeof(PlayerMover))]
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
 

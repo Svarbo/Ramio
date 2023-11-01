@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DamageZone : MonoBehaviour
+public class DamageZone : Trap
 {
     [SerializeField] private int _damage = 1;
 
