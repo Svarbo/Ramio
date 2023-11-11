@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class PlayerDance : MonoBehaviour
 {
-    [SerializeField] private PlayerAnimationSetter _playerAnimationSetter;
     [SerializeField] private Image _image;
     [SerializeField] private SpriteRenderer _player;
 

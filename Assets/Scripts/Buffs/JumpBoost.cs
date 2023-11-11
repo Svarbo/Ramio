@@ -13,9 +13,9 @@ public class JumpBoost : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent<PlayerMover>(out PlayerMover player))
+        if(collision.TryGetComponent<ExtraJumpChecker>(out ExtraJumpChecker extraJumpChecker))
         {
-            player.ResetExtraJumps();
+            extraJumpChecker.AddExtraJump();
             _animator.Play(_isCollectedAnimation);
         }
     }

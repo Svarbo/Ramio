@@ -2,39 +2,36 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
-[RequireComponent (typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerInfo))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth;
-
-    private PlayerMover _playerMover;
-    private Animator _animator;
+    private PlayerInfo _playerInfo;
+    private PlayerStats _playerStats;
     private int _currentHealth;
+    private int _maxHealth;
     private int _score;
-    private int _isAttackedParameter = Animator.StringToHash("IsAttacked");
     
     public int Score => _score;
     public int CurrentHealth => _currentHealth;
 
     public event UnityAction PlayerDied;
-    public event UnityAction PlayerAppeared;
     public event UnityAction FruitRaised;
 
-    private void Start()
+    private void Awake()
     {
-        _playerMover = GetComponent<PlayerMover>();
-        _animator = GetComponent<Animator>();
-        _currentHealth = _maxHealth;
+        _playerInfo = GetComponent<PlayerInfo>();
+        _playerStats = GetComponent<PlayerStats>();
 
-        PlayerAppeared?.Invoke();
+        SetHealth();
     }
 
     public void TakeDamage(int damage)
     {
-        _playerMover.Stop();
         _currentHealth -= damage;
+        _playerInfo.ActivateHit();
 
-        _animator.SetTrigger(_isAttackedParameter);
+        if (_currentHealth <= 0)
+            Die();
     }
 
     public void IncreaseScore(int reward)
@@ -43,8 +40,15 @@ public class Player : MonoBehaviour
         FruitRaised?.Invoke();
     }
 
-    public void Die()
+    private void Die()
     {
+        _playerInfo.SetDesappearing(true);
         PlayerDied?.Invoke();
+    }
+
+    private void SetHealth()
+    {
+        _maxHealth = _playerStats.Health;
+        _currentHealth = _maxHealth;
     }
 }

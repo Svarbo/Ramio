@@ -6,13 +6,13 @@ public class Mucus : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<PlayerMover>(out PlayerMover playerMover))
-            playerMover.Decelerate(_decelerateValue);
+        if (collision.gameObject.TryGetComponent<PlayerInfo>(out PlayerInfo playerInfo))
+            playerInfo.SetDecelerated(true);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<PlayerMover>(out PlayerMover playerMover))
-            playerMover.NormalizeSpeed();
+        if (collision.gameObject.TryGetComponent<PlayerInfo>(out PlayerInfo playerInfo))
+            playerInfo.SetDecelerated(false);
     }
 }
