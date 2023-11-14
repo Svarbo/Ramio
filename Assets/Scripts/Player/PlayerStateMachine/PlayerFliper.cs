@@ -32,4 +32,12 @@ public class PlayerFliper : MonoBehaviour
         else if (_directionIndicator < 0)
             _transform.rotation = Quaternion.Euler(0, 180, 0);
     }
+
+    public void SetDirectionIndicator(float motionDirection)
+    {
+        if (motionDirection > 0)
+            _playerInfo.SetDirectionIndicator(1);
+        else if (motionDirection < 0)
+            _playerInfo.SetDirectionIndicator(-1);
+    }
 }

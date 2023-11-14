@@ -6,10 +6,15 @@ public class TrapGun : MonoBehaviour
     [SerializeField] private Transform _startShellPosition;
     [SerializeField] private float _shootDelay;
 
-    private float _currentDelay;
+    private float _currentDelay = 0;
     private GameObject _currentShell;
 
     private void Update()
+    {
+        CountShootingDelay();
+    }
+
+    private void CountShootingDelay()
     {
         _currentDelay += Time.deltaTime;
 

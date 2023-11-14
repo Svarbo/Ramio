@@ -1,4 +1,4 @@
-public class TestWallHookChecker : EnvironmentChecker
+public class WallHookChecker : EnvironmentChecker
 {
     protected override void SetStatus(bool value)
     {

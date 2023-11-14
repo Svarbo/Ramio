@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerInfo))]
+[RequireComponent(typeof(PlayerStats))]
 public class Player : MonoBehaviour
 {
     private PlayerInfo _playerInfo;

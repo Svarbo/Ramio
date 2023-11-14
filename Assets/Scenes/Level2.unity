@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImportantObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 6178961983945446470, guid: a4cbc91932622bb44801fd0ee6baf71c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7815101469294149176, guid: a4cbc91932622bb44801fd0ee6baf71c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4688,7 +4692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05bf6871c752754fa91b6488dbaba99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _decelerateValue: 50
 --- !u!66 &1760052869
 CompositeCollider2D:
   m_ObjectHideFlags: 0

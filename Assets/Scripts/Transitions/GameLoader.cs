@@ -21,13 +21,16 @@ public class GameLoader : MonoBehaviour
         _sceneSwitcher.IsReadyToLoadMainMenu -= LoadMainMenu;
         _sceneSwitcher.IsReadyToLoadLevel -= LoadLevel;
     }
+
     public void SetCurrentLevelIndex(int levelIndex)
     {
-        _currentLevelIndex = levelIndex;
+        PlayerPrefs.SetInt("currentLevel", levelIndex);
     }
 
     public void TrySwitchToNextLevel()
     {
+        _currentLevelIndex = PlayerPrefs.GetInt("currentLevel");
+
         if (_currentLevelIndex + 1 < LevelsCount)
             _currentLevelIndex++;
     }
@@ -39,6 +42,7 @@ public class GameLoader : MonoBehaviour
 
     private void LoadLevel()
     {
+        _currentLevelIndex = PlayerPrefs.GetInt("currentLevel");
         SceneManager.LoadScene($"Level{_currentLevelIndex}");
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class FallingTrap : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
+    private const string _groundLayer = "Ground";
+    private const string _playerLayer = "Player";
 
     private void Start()
     {
@@ -13,7 +15,10 @@ public class FallingTrap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-         gameObject.SetActive(false);
+        int collisionLayer = collision.gameObject.layer;
+
+        if (collisionLayer == LayerMask.NameToLayer(_groundLayer) || collisionLayer == LayerMask.NameToLayer(_playerLayer))
+            gameObject.SetActive(false);
     }
 
     public void StartFalling()

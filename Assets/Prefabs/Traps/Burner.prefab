@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3447129881702199634}
   - component: {fileID: 4462914802351664437}
   - component: {fileID: 2967699240572374578}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Burner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

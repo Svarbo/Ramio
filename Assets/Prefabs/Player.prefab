@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3867270077685446763}
   - component: {fileID: 7237805040959954219}
   - component: {fileID: 5370523174536428059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0029384792, y: 0.16606927}
+  m_Offset: {x: -0.00039559603, y: 0.41162926}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8859846, y: 0.66786146}
+  m_Size: {x: 0.89107025, y: 0.17674145}
   m_EdgeRadius: 0
 --- !u!114 &5370523174536428059
 MonoBehaviour:
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3039834285372326539}
   - component: {fileID: 5415026508524895746}
   - component: {fileID: 6686339141464658070}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallHookChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0563428, y: 0.21673417}
+  m_Offset: {x: 0.4794361, y: 0.21673417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -170,7 +170,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3725765, y: 3.287013}
+  m_Size: {x: 0.21876326, y: 3.287013}
   m_EdgeRadius: 0
 --- !u!114 &6686339141464658070
 MonoBehaviour:
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 1166552085184125078}
   - component: {fileID: 2039995476957272727}
   - component: {fileID: 5991568435774440121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

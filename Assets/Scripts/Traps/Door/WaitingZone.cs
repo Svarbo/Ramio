@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaitingZone : MonoBehaviour
 {
-    [SerializeField] private Door _door;
+    [SerializeField] private List<Door> _doors;
     [SerializeField] private float _waitingTime;
 
     private bool _isPlayerInZone = false;
@@ -16,7 +17,7 @@ public class WaitingZone : MonoBehaviour
 
             if (_currentWaitingTime >= _waitingTime)
             {
-                _door.Open();
+                OpenDoors();
                 gameObject.SetActive(false);
             }
         }
@@ -35,5 +36,11 @@ public class WaitingZone : MonoBehaviour
             _isPlayerInZone = false;
             _currentWaitingTime = 0;
         }
+    }
+
+    private void OpenDoors()
+    {
+        foreach(Door door in _doors)
+            door.Open();
     }
 }
