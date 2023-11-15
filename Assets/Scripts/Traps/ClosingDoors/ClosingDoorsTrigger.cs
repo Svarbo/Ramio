@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Players;
 using UnityEngine;
 
 public class ClosingDoorsTrigger : MonoBehaviour

@@ -5,8 +5,8 @@ namespace Camera
 {
     public class TargetFollower : MonoBehaviour
     {
-        [SerializeField] private Vector3 _offset;
-        [SerializeField] private Transform _target;
+        [field: SerializeField] public Vector3 _offset { get; set; }
+        [field: SerializeField] public  Transform _target { get; set; }
         private Transform _transform;
 
         private void Awake()

@@ -1,16 +1,19 @@
+using System.Collections;
 using Infrastructure.Core;
 using UnityEngine;
 
 namespace Infrastructure
 {
-    public class GameBootstrap : MonoBehaviour
+    public class GameBootstrap : MonoBehaviour, ICoroutineRunner 
     {
-        public AppCore AppCore;
+        public AppCore AppCore { get; private set; }
 
         private void Awake()
         {
-            AppCore = new AppCore();
             DontDestroyOnLoad(this);
+
+            if (AppCore is null)
+                AppCore = new AppCore(this);
         }
 
         private void Update()
@@ -27,5 +30,12 @@ namespace Infrastructure
         {
             AppCore.StateMachine.Update(Time.deltaTime);
         }
+    }
+
+    public interface ICoroutineRunner
+    {
+        Coroutine StartCoroutine(IEnumerator coroutine);
+
+        void StopCoroutine(Coroutine coroutine);
     }
 }

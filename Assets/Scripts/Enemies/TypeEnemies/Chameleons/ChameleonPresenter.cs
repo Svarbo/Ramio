@@ -1,4 +1,5 @@
 using System;
+using Infrastructure.Factories;
 using UnityEngine;
 
 namespace Enemies.TypeEnemies.Chameleons
@@ -14,7 +15,7 @@ namespace Enemies.TypeEnemies.Chameleons
 
         public ChameleonPresenter(Vector3 chameleonPosition)
         {
-            _chameleonView = new EnemyViewFactory().Create<EnemyView>("ChameleonView", chameleonPosition);
+            _chameleonView = new AbstractFactory().Create<EnemyView>("ChameleonView", chameleonPosition);
             _chameleonTriggerView = _chameleonView.gameObject.GetComponent<ChameleonTriggerView>();
             _animationController = _chameleonView.gameObject.GetComponent<AnimationController>();
 

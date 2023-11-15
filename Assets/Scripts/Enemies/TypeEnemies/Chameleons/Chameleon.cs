@@ -27,35 +27,35 @@ namespace Enemies.TypeEnemies.Chameleons
 
         public void Attack(IDamageable damageable)
         {
-            _stateMachine.Enter<AttackStatePayload>(typeof(AttackState),new AttackStatePayload(damageable, this));
+            //_stateMachine.Enter<AttackStatePayload>(typeof(AttackState),new AttackStatePayload(damageable, this));
         }
 
         public void Idle()
         {
-            _stateMachine.Enter(typeof(IdleState));
+            //_stateMachine.Enter(typeof(IdleState));
         }
 
         public void Run(Vector2 target)
         {
-            _stateMachine.Enter<RunStatePayload>(typeof(MoveState), new RunStatePayload(_rigidbody2D, target, _speed));
+            //_stateMachine.Enter<RunStatePayload>(typeof(MoveState), new RunStatePayload(_rigidbody2D, target, _speed));
         }
 
         public void Die()
         {
-            _stateMachine.Enter(typeof(DieState));
+           // _stateMachine.Enter(typeof(DieState));
         }
 
-        protected override void CreateStateMachine()
-        {
-            Dictionary<Type, IState> states = new Dictionary<Type, IState>()
-            {
-                [typeof(IdleState)] = new Enemies.States.IdleState(_animationController),
-                [typeof(AttackState)] = new AttackState(this, _animationController),
-                [typeof(MoveState)] = new MoveState(_animationController),
-                [typeof(DieState)] = new DieState(_animationController)
-            };
-
-            _stateMachine = new StateMachine(states);
-        }
+         protected override void CreateStateMachine()
+         {
+        //     Dictionary<Observables, IState> states = new Dictionary<Observables, IState>()
+        //     {
+        //         [typeof(IdleState)] = new Enemies.States.IdleState(_animationController),
+        //         [typeof(AttackState)] = new AttackState(this, _animationController),
+        //         [typeof(MoveState)] = new MoveState(_animationController),
+        //         [typeof(DieState)] = new DieState(_animationController)
+        //     };
+        //
+        //     _stateMachine = new StateMachine(states);
+         }
     }
 }

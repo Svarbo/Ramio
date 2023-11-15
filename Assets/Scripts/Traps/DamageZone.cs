@@ -1,3 +1,5 @@
+using Data;
+using Players;
 using UnityEngine;
 
 public class DamageZone : MonoBehaviour
