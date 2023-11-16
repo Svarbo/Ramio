@@ -29,12 +29,12 @@ namespace Players
 
             if (_userInfo.IsMobile)
             {
-                player.GetComponent<InputServiceView>().gameObject.SetActive(true);
+                player.GetComponentInChildren<InputServiceView>().gameObject.SetActive(true);
                 player.PlayerInput.SetInputService(new MobileInputService());
             }
             else
             {
-                player.GetComponent<InputServiceView>().gameObject.SetActive(false);
+                player.GetComponentInChildren<InputServiceView>().gameObject.SetActive(false);
                 player.PlayerInput.SetInputService(new StandaloneInputService());
             }
 

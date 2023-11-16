@@ -4,10 +4,8 @@ using Infrastructure;
 using Level;
 using Level.Factories;
 using Players;
-using UI.Level.EndGame;
 using UI.MainMenu.Models;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelBootstrap : MonoBehaviour
 {
@@ -28,7 +26,7 @@ public class LevelBootstrap : MonoBehaviour
     {
         _startSpawnPosition = FindObjectOfType<Spawner>().position.position;
         _gameBootstrap = FindObjectOfType<GameBootstrap>();
-
+                
         _difficult = levelsInfo.CurrentDifficult;
         _levelsInfo = levelsInfo;
 

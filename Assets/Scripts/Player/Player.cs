@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     public int Score => _score;
     public int CurrentHealth => _currentHealth;
     public PlayerInput PlayerInput { get; private set; }
-
     public event UnityAction PlayerDied;
     public event UnityAction FruitRaised;
 
@@ -25,7 +24,6 @@ public class Player : MonoBehaviour
         _playerInfo = GetComponent<PlayerInfo>();
         _playerStats = GetComponent<PlayerStats>();
         PlayerInput = GetComponent<PlayerInput>();
-
         SetHealth();
     }
 

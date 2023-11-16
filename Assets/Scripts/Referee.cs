@@ -18,7 +18,7 @@ public class Referee : MonoBehaviour
 
     public void DeclairWin()
     {
-        _playerCanvasDrawer.DrawWinPanel();
+        _playerCanvasDrawer.DrawWinPanel(_player.Score);
     }
 
     public void DeclairLose()

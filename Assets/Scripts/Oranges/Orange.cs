@@ -7,22 +7,20 @@ public class Orange : MonoBehaviour
     private Animator _animator;
     private int _collectedAnimation = Animator.StringToHash("Collected");
 
-    private void Awake()
-    {
+    private void Awake() =>
         _animator = GetComponent<Animator>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent<Player>(out Player player))
+        if(collision.TryGetComponent(out Player player))
         {
             player.IncreaseScore(reward);
             _animator.Play(_collectedAnimation);
         }
+        
+        Off();
     }
 
-    private void Off()
-    {
+    private void Off() =>
         gameObject.SetActive(false);
-    }
 }

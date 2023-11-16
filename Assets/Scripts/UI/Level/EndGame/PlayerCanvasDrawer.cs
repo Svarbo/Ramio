@@ -7,17 +7,15 @@ namespace UI.Level.EndGame
     {
         [SerializeField] private OrangesCountText _orangesCountText;
         [field: SerializeField] public WinPanel WinPanel { get; private set; }
-        [field: SerializeField] public LosePanel LosePanel { get; private set;}
+        [field: SerializeField] public LosePanel LosePanel { get; private set; }
 
-        public void DrawWinPanel()
+        public void DrawWinPanel(int score)
         {
+            _orangesCountText.SetCountText(score, PlayerPrefs.GetInt("CurrentLevelOrangesCount"));
             WinPanel.gameObject.SetActive(true);
-            _orangesCountText.SetCountText();
         }
 
-        public void DrawDefeatPanel()
-        {
+        public void DrawDefeatPanel() =>
             LosePanel.gameObject.SetActive(true);
-        }
     }
 }
