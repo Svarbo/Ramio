@@ -1,6 +1,7 @@
 using Infrastructure;
 using Infrastructure.States.Scenes;
 using Players;
+using UI.Level.EndGame;
 using UI.MainMenu.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,23 +16,23 @@ namespace Level
         private GameBootstrap _gameBootstrap;
         private readonly PlayerCanvasDrawer _playerCanvasDrawer;
 
-        public MediumLevelStrategy(Player player, Vector3 startSpawnPosition, LevelsInfo levelsInfo, GameBootstrap gameBootstrap, PlayerCanvasDrawer playerCanvasDrawer)
+        public MediumLevelStrategy(Player player, Vector3 startSpawnPosition, LevelsInfo levelsInfo, GameBootstrap gameBootstrap)
         {
             _player = player;
             _startSpawnPosition = startSpawnPosition;
             _levelsInfo = levelsInfo;
             _gameBootstrap = gameBootstrap;
-            _playerCanvasDrawer = playerCanvasDrawer;
-            
+
+            _playerCanvasDrawer = _player.GetComponentInChildren<PlayerCanvasDrawer>();
             _playerCanvasDrawer.LosePanel.TryAgain += OnPlayerDied;
         }
 
         private void OnPlayerDied()
         {
+            _playerCanvasDrawer.LosePanel.gameObject.SetActive(false);
             _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
             _gameBootstrap.AppCore.StateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
         }
-
 
         public override void Execute()
         {

@@ -1,20 +1,23 @@
 using UI.Level.EndGame.Panels;
 using UnityEngine;
 
-public class PlayerCanvasDrawer : MonoBehaviour
+namespace UI.Level.EndGame
 {
-    [SerializeField] private OrangesCountText _orangesCountText;
-    [field: SerializeField] public WinPanel WinPanel { get; private set; }
-    [field: SerializeField] public LosePanel LosePanel { get; private set;}
-
-    public void DrawWinPanel()
+    public class PlayerCanvasDrawer : MonoBehaviour
     {
-        WinPanel.gameObject.SetActive(true);
-        _orangesCountText.SetCountText();
-    }
+        [SerializeField] private OrangesCountText _orangesCountText;
+        [field: SerializeField] public WinPanel WinPanel { get; private set; }
+        [field: SerializeField] public LosePanel LosePanel { get; private set;}
 
-    public void DrawDefeatPanel()
-    {
-        LosePanel.gameObject.SetActive(true);
+        public void DrawWinPanel()
+        {
+            WinPanel.gameObject.SetActive(true);
+            _orangesCountText.SetCountText();
+        }
+
+        public void DrawDefeatPanel()
+        {
+            LosePanel.gameObject.SetActive(true);
+        }
     }
 }

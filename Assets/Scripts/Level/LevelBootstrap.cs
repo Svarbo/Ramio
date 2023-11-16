@@ -2,7 +2,9 @@ using System;
 using Data;
 using Infrastructure;
 using Level;
+using Level.Factories;
 using Players;
+using UI.Level.EndGame;
 using UI.MainMenu.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +13,6 @@ public class LevelBootstrap : MonoBehaviour
 {
     [SerializeField] private LevelsProgress _levelsProgress;
     [SerializeField] private UserInfo _userInfo;
-    private PlayerCanvasDrawer _playerCanvas;
 
     private LevelsInfo _levelsInfo;
 
@@ -22,12 +23,9 @@ public class LevelBootstrap : MonoBehaviour
     private Type _difficult;
     private Player _player;
     private GameBootstrap _gameBootstrap;
-    private Referee _referee;
 
     public void Construct(LevelsInfo levelsInfo)
     {
-        // ImportantObjects /// PlayerCanvasDrawer
-        
         _startSpawnPosition = FindObjectOfType<Spawner>().position.position;
         _gameBootstrap = FindObjectOfType<GameBootstrap>();
 
@@ -36,32 +34,21 @@ public class LevelBootstrap : MonoBehaviour
 
         PlayerFactory playerFactory = new PlayerFactory(_startSpawnPosition, _userInfo);
         _player = playerFactory.Create();
-        _playerCanvas = Instantiate(Resources.Load<PlayerCanvasDrawer>("PlayerCanvas"));
-        _referee = new Referee(_player, _playerCanvas);
 
         #region DifficultLogic
-
-        LevelsProgress.Easy easy = _levelsProgress.GetDifficultLevel(typeof(LevelsProgress.Easy)) as LevelsProgress.Easy;
-
+        
         if (typeof(LevelsProgress.Easy) == _levelsInfo.CurrentDifficult)
-            _levelDifficultStrategy = new EasyLevelStrategy
-            (
-                player: _player,
-                lastCheckpoint: easy.GetSpawnPoint(SceneManager.GetActiveScene().name),
-                startCheckpoint: _startSpawnPosition
-            );
-
+            _levelDifficultStrategy = new EasyLevelFactory(_levelsInfo, _player, _startSpawnPosition, _levelsProgress).Create();
         else if (typeof(LevelsProgress.Medium) == _levelsInfo.CurrentDifficult)
-            _levelDifficultStrategy = new MediumLevelStrategy(_player, _startSpawnPosition, _levelsInfo, _gameBootstrap, _playerCanvas);
+            _levelDifficultStrategy = new MediumLevelStrategy(_player, _startSpawnPosition, _levelsInfo, _gameBootstrap);
         else
             _levelDifficultStrategy = new HardLevelStrategy(_player, _startSpawnPosition, _gameBootstrap, _levelsInfo);
 
         _levelDifficultStrategy.Execute();
 
         #endregion
-
     }
 
-    private void OnDestroy() =>
-        _referee.Dispose();
+    // private void OnDestroy() =>
+    //     _referee.Dispose();
 }

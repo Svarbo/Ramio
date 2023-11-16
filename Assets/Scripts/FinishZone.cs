@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class FinishZone : MonoBehaviour
 {
-    [SerializeField] private Referee _referee;
+    //[SerializeField] private Referee _referee;
 
     private Animator _animator;
     private int _isAchievedParameter = Animator.StringToHash("IsAchieved");
@@ -18,7 +18,7 @@ public class FinishZone : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player))
         {
             PlayWinAnimation();
-            _referee.DeclairWin();
+           // _referee.DeclairWin();
         }
     }
 

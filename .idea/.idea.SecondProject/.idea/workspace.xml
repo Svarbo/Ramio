@@ -108,7 +108,7 @@
       <workItem from="1698715084491" duration="17462000" />
       <workItem from="1699039190909" duration="53138000" />
       <workItem from="1699620111376" duration="26271000" />
-      <workItem from="1699971278542" duration="52138000" />
+      <workItem from="1699971278542" duration="60397000" />
     </task>
     <servers />
   </component>
@@ -186,19 +186,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Presenters/ButtonStartGamePresenter.cs</url>
-          <line>21</line>
-          <properties documentPath="E:\Games\2D\SecondProject\Assets\Scripts\UI\MainMenu\LevelMenu\Presenters\ButtonStartGamePresenter.cs" initialLine="21" containingFunctionPresentation="method 'StartGame'">
-            <startOffsets>
-              <option value="628" />
-            </startOffsets>
-            <endOffsets>
-              <option value="684" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

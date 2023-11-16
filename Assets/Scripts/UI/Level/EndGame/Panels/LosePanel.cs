@@ -24,8 +24,11 @@ namespace UI.Level.EndGame.Panels
             _buttonGoMenu.onClick.RemoveListener(OnClicked);
         }
 
-        private void OnClicked1() =>
+        private void OnClicked1()
+        {
             TryAgain?.Invoke();
+            gameObject.SetActive(false);
+        }
 
         private void OnClicked() =>
             GoMenu?.Invoke();

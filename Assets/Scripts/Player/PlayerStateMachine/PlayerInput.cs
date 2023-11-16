@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour
 {
     private PlayerInfo _playerInfo;
     private PlayerFliper _playerFliper;
-    private float _motionDirection;
+    private InputService _inputService;
 
     private void Awake()
     {
@@ -17,22 +17,23 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        _motionDirection = Input.GetAxis("Horizontal");
+        if (_playerFliper.enabled)
+            _playerFliper.SetDirectionIndicator(_inputService.Direction);
 
-        if(_playerFliper.enabled == true)
-            _playerFliper.SetDirectionIndicator(_motionDirection);
+        SetSpeed(_inputService.Direction);
 
-        SetSpeed(_motionDirection);
-
-        if (!_playerInfo.IsSpeedEqualZero && _motionDirection == 0)
+        if (!_playerInfo.IsSpeedEqualZero && _inputService.Direction == 0)
             _playerInfo.SetSpeedEqualZero(true);
 
-        if (_playerInfo.IsSpeedEqualZero && _motionDirection != 0)
+        if (_playerInfo.IsSpeedEqualZero && _inputService.Direction != 0)
             _playerInfo.SetSpeedEqualZero(false);
-
-        if (Input.GetKeyDown(KeyCode.W))
+        
+        if (_inputService.IsPressButtonJump())
             _playerInfo.ActivateJumpButtonPressed();
     }
+
+    public void SetInputService(InputService inputService) =>
+        _inputService = inputService;
 
     private void SetSpeed(float speed)
     {

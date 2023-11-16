@@ -1,15 +1,19 @@
-using System;
+using UI.Level.EndGame;
+using UnityEngine;
 
-public class Referee : IDisposable
+public class Referee : MonoBehaviour
 {
-    private readonly Player _player;
-    private readonly PlayerCanvasDrawer _playerCanvasDrawer;
-
-    public Referee(Player player, PlayerCanvasDrawer playerCanvasDrawer)
+    [SerializeField] private Player _player;
+    [SerializeField] PlayerCanvasDrawer _playerCanvasDrawer;
+    
+    private void OnEnable()
     {
-        _player = player;
-        _playerCanvasDrawer = playerCanvasDrawer;
         _player.PlayerDied += DeclairLose;
+    }
+
+    private void OnDisable()
+    {
+        _player.PlayerDied -= DeclairLose;
     }
 
     public void DeclairWin()
@@ -20,10 +24,5 @@ public class Referee : IDisposable
     public void DeclairLose()
     {
         _playerCanvasDrawer.DrawDefeatPanel();
-    }
-
-    public void Dispose()
-    {
-        _player.PlayerDied -= DeclairLose;
     }
 }

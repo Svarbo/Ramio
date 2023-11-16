@@ -27,10 +27,16 @@ namespace Players
             TargetFollower targetFollower = Object.FindObjectOfType<TargetFollower>();
             targetFollower.Construct(player.transform, new Vector3(0, 0, -5) );
 
-            //if (_userInfo.IsMobile)
-            //    player.PlayerMover.SetInputService(new MobileInputService());
-            //else
-            //    player.PlayerMover.SetInputService(new StandaloneInputService());
+            if (_userInfo.IsMobile)
+            {
+                player.GetComponent<InputServiceView>().gameObject.SetActive(true);
+                player.PlayerInput.SetInputService(new MobileInputService());
+            }
+            else
+            {
+                player.GetComponent<InputServiceView>().gameObject.SetActive(false);
+                player.PlayerInput.SetInputService(new StandaloneInputService());
+            }
 
             return player;
         }
