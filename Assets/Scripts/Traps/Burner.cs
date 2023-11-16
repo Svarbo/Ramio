@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class Burner : MonoBehaviour
 {
     [SerializeField] private DamageZone _damageZone;
@@ -9,6 +10,7 @@ public class Burner : MonoBehaviour
     [SerializeField] private bool _isStartActive = false;
 
     private Animator _animator;
+    private AudioSource _audioSource;
     private float _currentDelay = 0;
     private float _currentWorkTime = 0;
     private int _isActiveParameter = Animator.StringToHash("IsActive");
@@ -16,6 +18,7 @@ public class Burner : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -43,6 +46,7 @@ public class Burner : MonoBehaviour
         _damageZone.gameObject.SetActive(true);
 
         _currentDelay = 0;
+        _audioSource.Play();
     }
 
     private void Off()
@@ -52,5 +56,6 @@ public class Burner : MonoBehaviour
         _damageZone.gameObject.SetActive(false);
 
         _currentWorkTime = 0;
+        _audioSource.Play();
     }
 }
