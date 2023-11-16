@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caafa56b12ff410f80f31604405d6947, type: 3}
   m_Name: UserInfo
   m_EditorClassIdentifier: 
-  <IsMobile>k__BackingField: 1
+  <IsMobile>k__BackingField: 0

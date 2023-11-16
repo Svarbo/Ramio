@@ -17,10 +17,8 @@ public class Orange : MonoBehaviour
             player.IncreaseScore(reward);
             _animator.Play(_collectedAnimation);
         }
-        
-        Off();
     }
 
-    private void Off() =>
+    public void Off() =>
         gameObject.SetActive(false);
 }
