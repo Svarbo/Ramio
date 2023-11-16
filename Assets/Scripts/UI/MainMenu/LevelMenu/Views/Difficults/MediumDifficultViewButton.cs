@@ -15,10 +15,8 @@ namespace UI.MainMenu.Views
         private void OnDisable() =>
             _button.onClick.RemoveListener(OnClicked);
 
-        public void Construct(DifficultChooserPresenter difficultChooserPresenter)
-        {
+        public void Construct(DifficultChooserPresenter difficultChooserPresenter) =>
             _difficultChooserPresenter = difficultChooserPresenter;
-        }
 
         private void OnClicked() =>
             _difficultChooserPresenter.SetMediumDifficult();

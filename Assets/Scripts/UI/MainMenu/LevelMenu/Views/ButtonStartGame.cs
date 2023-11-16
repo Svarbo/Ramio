@@ -3,25 +3,21 @@ using UI.MainMenu.Presenters;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.MainMenu
+public class ButtonStartGame : MonoBehaviour
 {
-    public class ButtonStartGame : MonoBehaviour
-    {
-        [SerializeField] private Button _button;
+    [SerializeField] private Button _button;
 
-        private ButtonStartGamePresenter _buttonStartGamePresenter;
+    private ButtonStartGamePresenter _buttonStartGamePresenter;
 
-        private void OnDisable() =>
-            _button.onClick.RemoveListener(OnClick);
+    private void OnEnable() =>
+        _button.onClick.AddListener(OnClick);
 
-        public void Construct(ButtonStartGamePresenter buttonStartGamePresenter)
-        {
-            _buttonStartGamePresenter = buttonStartGamePresenter;
-            _button.onClick.AddListener(OnClick);
-        }
+    private void OnDisable() =>
+        _button.onClick.RemoveListener(OnClick);
 
-
-        private void OnClick() =>
-            _buttonStartGamePresenter.StartGame();
-    }
+    public void Construct(ButtonStartGamePresenter buttonStartGamePresenter) =>
+        _buttonStartGamePresenter = buttonStartGamePresenter;
+    
+    private void OnClick() =>
+        _buttonStartGamePresenter.StartGame();
 }

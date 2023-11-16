@@ -19,10 +19,8 @@ namespace UI.MainMenu.Views
         private void OnEnable() =>
             _button.onClick.AddListener(OnClicked);
 
-        public void Construct(DifficultChooserPresenter difficultChooserPresenter)
-        {
+        public void Construct(DifficultChooserPresenter difficultChooserPresenter) =>
             _difficultChooserPresenter = difficultChooserPresenter;
-        }
 
         private void OnClicked()
         {

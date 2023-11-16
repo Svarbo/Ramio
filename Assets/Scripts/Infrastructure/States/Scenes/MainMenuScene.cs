@@ -1,11 +1,9 @@
 using System.Collections;
 using Infrastructure;
 using Infrastructure.Core;
-using Infrastructure.States;
 using UI.MainMenu;
 using UI.MainMenu.Factories;
 using UI.MainMenu.LevelMenu.Builders;
-using UI.MainMenu.MenuSwitcher;
 using UI.MainMenu.Models;
 using UI.MainMenu.Presenters;
 using UI.MainMenu.Settings.Audio.Presenters;
@@ -20,7 +18,6 @@ public class MainMenuState : IState
     private DifficultChooserPresenter _difficultChooserPresenter;
     private LevelChooserPresenter _levelChooserPresenter;
     private ButtonStartGamePresenter _buttonStartGamePresenter;
-    private MenuSwitcherView _menuSwitcherView;
     private GameAudioData _gameAudioData;
     private LanguagePresenter _languagePresenter;
     private DifficultBuilder _difficultBuilder;
@@ -52,7 +49,6 @@ public class MainMenuState : IState
     public void Enter() =>
         _coroutineRunner.StartCoroutine(LoadScene());
 
-    // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator LoadScene()
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu");

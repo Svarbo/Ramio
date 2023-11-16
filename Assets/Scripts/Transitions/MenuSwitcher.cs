@@ -1,11 +1,16 @@
+using UI.MainMenu;
+using UI.MainMenu.LeaderBoard;
+using UI.MainMenu.LevelMenu;
+using UI.MainMenu.Menu;
+using UI.MainMenu.Settings;
 using UnityEngine;
 
 public class MenuSwitcher : MonoBehaviour
 {
-    [SerializeField] private Canvas _mainMenu;
-    [SerializeField] private Canvas _levelMenu;
-    [SerializeField] private Canvas _settings;
-    [SerializeField] private Canvas _leaderboard;
+    [SerializeField] private MenuView _mainMenu;
+    [SerializeField] private LevelMenuView _levelMenu;
+    [SerializeField] private SettingsView _settings;
+    [SerializeField] private LeaderboardView _leaderboard;
 
     public void EnableMainMenu()
     {

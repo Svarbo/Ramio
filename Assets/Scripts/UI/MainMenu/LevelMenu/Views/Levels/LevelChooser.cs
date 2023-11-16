@@ -1,3 +1,4 @@
+using System;
 using UI.MainMenu.Presenters;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,14 +12,14 @@ namespace UI.MainMenu.LevelMenu.Views.Levels
 
         private LevelChooserPresenter _levelChooserPresenter;
 
+        private void OnEnable() =>
+            _button.onClick.AddListener(OnClick);
+
         private void OnDisable() =>
             _button.onClick.RemoveListener(OnClick);
 
-        public void Construct(LevelChooserPresenter levelChooserPresenter)
-        {
+        public void Construct(LevelChooserPresenter levelChooserPresenter) =>
             _levelChooserPresenter = levelChooserPresenter;
-            _button.onClick.AddListener(OnClick);
-        }
 
         private void OnClick()
         {

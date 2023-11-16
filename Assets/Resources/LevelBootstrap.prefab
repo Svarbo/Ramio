@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelsProgress: {fileID: 11400000, guid: fef783a6c214c154d9dba5c249b83b22, type: 2}
   _userInfo: {fileID: 11400000, guid: f160ae49331efd84aab2e292917d5c99, type: 2}
+  _playerCanvas: {fileID: 2555317088636461194, guid: 79e6bb7cfce353b4b9e2f241462f4b43, type: 3}

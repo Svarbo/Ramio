@@ -1,60 +1,67 @@
 using System;
 using Data;
 using Infrastructure;
+using Level;
 using Players;
 using UI.MainMenu.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Level
+public class LevelBootstrap : MonoBehaviour
 {
-    public class LevelBootstrap : MonoBehaviour
+    [SerializeField] private LevelsProgress _levelsProgress;
+    [SerializeField] private UserInfo _userInfo;
+    private PlayerCanvasDrawer _playerCanvas;
+
+    private LevelsInfo _levelsInfo;
+
+    private HardLevelStrategy _hardLevelStrategy;
+    private MediumLevelStrategy _mediumLevelStrategy;
+    private LevelDifficultStrategy _levelDifficultStrategy;
+    private Vector3 _startSpawnPosition;
+    private Type _difficult;
+    private Player _player;
+    private GameBootstrap _gameBootstrap;
+    private Referee _referee;
+
+    public void Construct(LevelsInfo levelsInfo)
     {
-        [SerializeField] private LevelsProgress _levelsProgress;
-        [SerializeField] private UserInfo _userInfo;
+        // ImportantObjects /// PlayerCanvasDrawer
+        
+        _startSpawnPosition = FindObjectOfType<Spawner>().position.position;
+        _gameBootstrap = FindObjectOfType<GameBootstrap>();
 
-        private LevelsInfo _levelsInfo;
+        _difficult = levelsInfo.CurrentDifficult;
+        _levelsInfo = levelsInfo;
 
-        private HardLevelStrategy _hardLevelStrategy;
-        private MediumLevelStrategy _mediumLevelStrategy;
-        private LevelDifficultStrategy _levelDifficultStrategy;
-        private Vector3 _startSpawnPosition;
-        private Type _difficult;
-        private Player _player;
-        private GameBootstrap _gameBootstrap;
+        PlayerFactory playerFactory = new PlayerFactory(_startSpawnPosition, _userInfo);
+        _player = playerFactory.Create();
+        _playerCanvas = Instantiate(Resources.Load<PlayerCanvasDrawer>("PlayerCanvas"));
+        _referee = new Referee(_player, _playerCanvas);
 
-        public void Construct(LevelsInfo levelsInfo)
-        {
-            _startSpawnPosition = FindObjectOfType<Spawner>().position.position;
-            _gameBootstrap = FindObjectOfType<GameBootstrap>();
+        #region DifficultLogic
 
-            _difficult = levelsInfo.CurrentDifficult;
-            _levelsInfo = levelsInfo;
+        LevelsProgress.Easy easy = _levelsProgress.GetDifficultLevel(typeof(LevelsProgress.Easy)) as LevelsProgress.Easy;
 
-            PlayerFactory playerFactory = new PlayerFactory(_startSpawnPosition, _userInfo);
-            _player = playerFactory.Create();
+        if (typeof(LevelsProgress.Easy) == _levelsInfo.CurrentDifficult)
+            _levelDifficultStrategy = new EasyLevelStrategy
+            (
+                player: _player,
+                lastCheckpoint: easy.GetSpawnPoint(SceneManager.GetActiveScene().name),
+                startCheckpoint: _startSpawnPosition
+            );
 
-            #region DifficultLogic
+        else if (typeof(LevelsProgress.Medium) == _levelsInfo.CurrentDifficult)
+            _levelDifficultStrategy = new MediumLevelStrategy(_player, _startSpawnPosition, _levelsInfo, _gameBootstrap, _playerCanvas);
+        else
+            _levelDifficultStrategy = new HardLevelStrategy(_player, _startSpawnPosition, _gameBootstrap, _levelsInfo);
 
-            LevelsProgress.Easy easy = _levelsProgress.GetDifficultLevel(typeof(LevelsProgress.Easy)) as LevelsProgress.Easy;
+        _levelDifficultStrategy.Execute();
 
-            if (typeof(LevelsProgress.Easy) == _levelsInfo.CurrentDifficult)
-                _levelDifficultStrategy = new EasyLevelStrategy
-                (
-                    player: _player,
-                    lastCheckpoint: easy.GetSpawnPoint(SceneManager.GetActiveScene().name),
-                    startCheckpoint: _startSpawnPosition
-                );
+        #endregion
 
-            else if (typeof(LevelsProgress.Medium) == _levelsInfo.CurrentDifficult)
-                _levelDifficultStrategy = new MediumLevelStrategy(_player, _startSpawnPosition);
-            else
-                _levelDifficultStrategy = new HardLevelStrategy(_player, _startSpawnPosition, _gameBootstrap,levelsInfo);
-
-            _levelDifficultStrategy.Execute();
-
-            #endregion
-
-        }
     }
+
+    private void OnDestroy() =>
+        _referee.Dispose();
 }

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TargetFollower : MonoBehaviour
 {
-    public Vector3 Offset;
-    public Transform Target;
+    private Vector3 _offset;
+    private Transform _target;
 
     private Transform _transform;
 
@@ -14,6 +14,12 @@ public class TargetFollower : MonoBehaviour
 
     private void LateUpdate()
     {
-        _transform.position = Target.position + Offset;
+        _transform.position = _target.position + _offset;
+    }
+
+    public void Construct(Transform target, Vector3 offset)
+    {
+        _target = target;
+        _offset = offset;
     }
 }

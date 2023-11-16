@@ -25,8 +25,7 @@ namespace Players
             );
 
             TargetFollower targetFollower = Object.FindObjectOfType<TargetFollower>();
-            targetFollower.Target = player.transform;
-            targetFollower.Offset = new Vector3(0, 0, -5);
+            targetFollower.Construct(player.transform, new Vector3(0, 0, -5) );
 
             //if (_userInfo.IsMobile)
             //    player.PlayerMover.SetInputService(new MobileInputService());

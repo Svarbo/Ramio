@@ -2,7 +2,7 @@ namespace UI.MainMenu.Models
 {
     public enum Levels
     {
-        Training,
+        Level0,
         Level1,
         Level2,
         Level3,

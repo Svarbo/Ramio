@@ -28,11 +28,11 @@ namespace Level
 
         private void OnPlayerDied()
         {
-            if (SceneManager.GetActiveScene().name == "Training")
+            if (SceneManager.GetActiveScene().name == "Level0")
                 _player.transform.position = _startPosition;
             else
             {
-                _levelsInfo.SceneName = "Training";
+                _levelsInfo.SceneName = "Level0";
                 _gameBootstrap.AppCore.StateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
             }
         }

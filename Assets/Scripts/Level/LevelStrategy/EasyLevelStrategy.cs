@@ -29,7 +29,6 @@ namespace Level
                 _checkpointChooserView = _abstractFactory.Create<CheckpointChooserView>("UI/Level/Canvas");
                 _checkpointChooserView.CheckpointChanged += OnCheckpointChanged;
             }
-
         }
 
         private void OnCheckpointChanged(bool answer)
