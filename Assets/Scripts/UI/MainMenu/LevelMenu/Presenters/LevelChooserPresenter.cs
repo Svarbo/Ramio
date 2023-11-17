@@ -22,7 +22,7 @@ namespace UI.MainMenu.Presenters
             _levelsRow.ShowLevelChoosers(count);
 
         public void ActivateButtonToStartGame() =>
-            _playButton.gameObject.SetActive(true);
+            _playButton.Show();
 
         public void SetLevelName(string levelName) =>
             _levelsInfo.SceneName = levelName;

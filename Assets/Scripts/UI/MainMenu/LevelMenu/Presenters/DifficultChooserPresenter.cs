@@ -35,6 +35,6 @@ namespace UI.MainMenu.Presenters
         }
 
         private void ShowLevels(int countCompleteLevels) =>
-            _levelChooser.ShowLevels(3);
+            _levelChooser.ShowLevels(countCompleteLevels);
     }
 }

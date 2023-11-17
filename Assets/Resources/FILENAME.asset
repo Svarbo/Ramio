@@ -13,12 +13,8 @@ MonoBehaviour:
   m_Name: FILENAME
   m_EditorClassIdentifier: 
   _easy:
-    <SpawnPoint>k__BackingField: {x: 0, y: 0, z: 0}
-    <CountComplete>k__BackingField: 0
+    <CountComplete>k__BackingField: 1
   _difficultLevels:
-  - <SpawnPoint>k__BackingField: {x: 0, y: 0, z: 0}
-    <CountComplete>k__BackingField: 0
-  - <SpawnPoint>k__BackingField: {x: 0, y: 0, z: 0}
-    <CountComplete>k__BackingField: 0
-  - <SpawnPoint>k__BackingField: {x: 0, y: 0, z: 0}
-    <CountComplete>k__BackingField: 0
+  - <CountComplete>k__BackingField: 1
+  - <CountComplete>k__BackingField: 1
+  - <CountComplete>k__BackingField: 1

@@ -12,7 +12,7 @@ namespace UI.MainMenu.Views.Levels
         public void ShowLevelChoosers(int count)
         {
             for (int i = 0; i < count; i++)
-                _levelChoosers[i].gameObject.SetActive(true);
+                _levelChoosers[i].Show();
         }
     }
 }

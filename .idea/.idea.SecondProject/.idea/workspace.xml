@@ -108,7 +108,7 @@
       <workItem from="1698715084491" duration="17462000" />
       <workItem from="1699039190909" duration="53138000" />
       <workItem from="1699620111376" duration="26271000" />
-      <workItem from="1699971278542" duration="64114000" />
+      <workItem from="1699971278542" duration="69223000" />
     </task>
     <servers />
   </component>
@@ -186,6 +186,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Presenters/DifficultChooserPresenter.cs</url>
+          <line>20</line>
+          <properties documentPath="E:\Games\2D\SecondProject\Assets\Scripts\UI\MainMenu\LevelMenu\Presenters\DifficultChooserPresenter.cs" initialLine="20" containingFunctionPresentation="method 'SetEasyDifficult'">
+            <startOffsets>
+              <option value="630" />
+            </startOffsets>
+            <endOffsets>
+              <option value="689" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
