@@ -6,10 +6,8 @@ public class DisappearingPlatform : MonoBehaviour
     private Animator _animator;
     private int _disappearAnimation = Animator.StringToHash("Disappear");
 
-    private void Awake()
-    {
+    private void Awake() => 
         _animator = GetComponent<Animator>();
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,13 +15,9 @@ public class DisappearingPlatform : MonoBehaviour
             Disappear();
     }
 
-    private void Disappear()
-    {
+    private void Disappear() => 
         _animator.Play(_disappearAnimation);
-    }
 
-    public void Disable()
-    {
+    public void Disable() => 
         gameObject.SetActive(false);
-    }
 }

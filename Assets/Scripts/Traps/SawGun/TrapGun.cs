@@ -9,10 +9,8 @@ public class TrapGun : MonoBehaviour
     private float _currentDelay = 0;
     private GameObject _currentShell;
 
-    private void Update()
-    {
+    private void Update() => 
         CountShootingDelay();
-    }
 
     private void CountShootingDelay()
     {

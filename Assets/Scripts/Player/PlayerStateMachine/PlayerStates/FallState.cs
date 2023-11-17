@@ -4,10 +4,8 @@ public class FallState : PlayerState
 {
     private int _fallAnimation = Animator.StringToHash("Fall");
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         PlayerAnimator.Play(_fallAnimation);
-    }
 
     public override bool IsCompleted()
     {

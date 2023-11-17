@@ -30,15 +30,11 @@ public class PlayerStateMachine : MonoBehaviour
         InitializeTransitions();
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         _playerInfo.SomeParameterChanged += TryChangeState;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         _playerInfo.SomeParameterChanged -= TryChangeState;
-    }
 
     private void TryChangeState()
     {

@@ -8,10 +8,8 @@ public class AdvertisementDemonstrator : MonoBehaviour
 
     private int _attemptCount;
 
-    private void Start()
-    {
+    private void Start() => 
         TryShow();
-    }
 
     public void OnStartPlayButtonClick()
     {
@@ -34,7 +32,6 @@ public class AdvertisementDemonstrator : MonoBehaviour
         {
             _advertisementPanel.gameObject.SetActive(false);
         }
-
         //UnityEngine.PlayerPrefs.Save();
     }
 
@@ -45,8 +42,6 @@ public class AdvertisementDemonstrator : MonoBehaviour
         UnityEngine.PlayerPrefs.SetInt("AttemptCount", _attemptCount);
     }
 
-    private void Show()
-    {
+    private void Show() => 
         InterstitialAd.Show();
-    }
 }

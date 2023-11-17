@@ -15,10 +15,8 @@ public class ExtraJumpState : PlayerState
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         DoubleJump();
-    }
 
     private void DoubleJump()
     {

@@ -19,10 +19,8 @@ public class JumpBoost : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
+    private void Update() => 
         TryReload();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,8 +52,6 @@ public class JumpBoost : MonoBehaviour
         }
     }
 
-    public void Disable()
-    {
+    public void Disable() => 
         _isCollected = true;
-    }
 }

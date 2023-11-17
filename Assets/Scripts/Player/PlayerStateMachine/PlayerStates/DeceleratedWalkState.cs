@@ -9,6 +9,7 @@ public class DeceleratedWalkState : PlayerState
     protected override void Awake()
     {
         base.Awake();
+
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -18,13 +19,9 @@ public class DeceleratedWalkState : PlayerState
         _rigidbody2D.drag = PlayerStats.DecelerationValue;
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         _rigidbody2D.drag = _oldDragValue;
-    }
 
-    public override bool IsCompleted()
-    {
-        return !PlayerInfo.IsDecelerated;
-    }
+    public override bool IsCompleted() => 
+        !PlayerInfo.IsDecelerated;
 }

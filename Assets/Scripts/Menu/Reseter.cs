@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class Reseter : MonoBehaviour
 {
-    private void Start()
-    {
+    private void Start() => 
         ResetAll();
-    }
 
     private void ResetAll()
     {

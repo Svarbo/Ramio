@@ -8,20 +8,14 @@ public class PlayerFliper : MonoBehaviour
     private Transform _transform;
     private int _directionIndicator = 0;
 
-    private void Awake()
-    {
+    private void Awake() => 
         _transform = transform;
-    }
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         _playerInfo.DirectionIndicatorChanged += SetFlip;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         _playerInfo.DirectionIndicatorChanged -= SetFlip;
-    }
 
     private void SetFlip()
     {

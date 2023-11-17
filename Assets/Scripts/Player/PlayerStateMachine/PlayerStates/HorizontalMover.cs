@@ -16,13 +16,9 @@ public class HorizontalMover : MonoBehaviour
         _playerStats = GetComponent<PlayerStats>();
     }
 
-    private void Update()
-    {
+    private void Update() => 
         Move();
-    }
 
-    private void Move()
-    {
+    private void Move() => 
         _rigidbody2D.velocity = new Vector2(_playerInfo.CurrentSpeed * _playerStats.Speed, _rigidbody2D.velocity.y);
-    }
 }

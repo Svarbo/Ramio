@@ -6,8 +6,6 @@ public class WalkTransition : Transition
         PlayerInfo = playerInfo;
     }
 
-    protected override bool CheckConditions()
-    {
-        return PlayerInfo.IsGrounded && !PlayerInfo.IsSpeedEqualZero;
-    }
+    protected override bool CheckConditions() => 
+        PlayerInfo.IsGrounded && !PlayerInfo.IsSpeedEqualZero;
 }

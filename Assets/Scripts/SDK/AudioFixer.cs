@@ -3,15 +3,11 @@ using UnityEngine;
 
 public class AudioFixer : MonoBehaviour
 {
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
-    }
 
     private void OnInBackgroundChange(bool inBackground)
     {

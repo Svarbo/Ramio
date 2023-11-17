@@ -7,15 +7,11 @@ public class TargetFollower : MonoBehaviour
 
     private Transform _transform;
 
-    private void Awake()
-    {
+    private void Awake() => 
         _transform = transform;
-    }
 
-    private void LateUpdate()
-    {
+    private void LateUpdate() => 
         _transform.position = _target.position + _offset;
-    }
 
     public void Construct(Transform target, Vector3 offset)
     {

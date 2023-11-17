@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class AuthorizingBackground : MonoBehaviour
 {
-    private void Start()
-    {
+    private void Start() => 
         TryShow();
-    }
 
     private void TryShow()
     {

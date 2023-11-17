@@ -11,13 +11,12 @@ public class JumpState : PlayerState
     protected override void Awake()
     {
         base.Awake();
+
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         Jump();
-    }
 
     private void Jump()
     {

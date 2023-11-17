@@ -5,10 +5,8 @@ public class DisappearingObjectsZone : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _disappearingObjects;
 
-    private void Awake()
-    {
+    private void Awake() => 
         EnableObjects();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

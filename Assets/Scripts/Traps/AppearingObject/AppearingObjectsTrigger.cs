@@ -5,10 +5,8 @@ public class AppearingObjectsTrigger : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _appearingObjects;
 
-    private void Awake()
-    {
+    private void Awake() => 
         DisableAppearingObjects();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -9,10 +9,8 @@ public class SceneSwitcher : MonoBehaviour
     public event UnityAction IsReadyToLoadMainMenu;
     public event UnityAction IsReadyToLoadLevel;
 
-    public void LoadMainMenu()
-    {
+    public void LoadMainMenu() => 
         _fader.FadeIn(IsReadyToLoadMainMenu);
-    }
 
     public void LoadLevel(int levelIndex)
     {
@@ -20,10 +18,8 @@ public class SceneSwitcher : MonoBehaviour
         _fader.FadeIn(IsReadyToLoadLevel);
     }
 
-    public void RestartCurrentLevel()
-    {
+    public void RestartCurrentLevel() => 
         _fader.FadeIn(IsReadyToLoadLevel);
-    }
 
     public void TryLoadNextLevel()
     {

@@ -15,20 +15,14 @@ public class ExtraJumpChecker : MonoBehaviour
         _playerInfo = GetComponent<PlayerInfo>();
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         _playerInfo.SomeParameterChanged += OnSomeParameterChanged;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         _playerInfo.SomeParameterChanged -= OnSomeParameterChanged;
-    }
 
-    public void AddExtraJump()
-    {
+    public void AddExtraJump() => 
         _currentExtraJumpsCount -= 1;
-    }
 
     private void OnSomeParameterChanged()
     {
@@ -44,8 +38,6 @@ public class ExtraJumpChecker : MonoBehaviour
             _currentExtraJumpsCount = 0;
     }
 
-    private void DetermineExtraJumpReady()
-    {
+    private void DetermineExtraJumpReady() => 
         _playerInfo.SetExtraJumpReady(_currentExtraJumpsCount < _playerStats.ExtraJumpsCount);
-    }
 }

@@ -6,8 +6,6 @@ public class IdleTransition : Transition
         PlayerInfo = playerInfo;
     }
 
-    protected override bool CheckConditions()
-    {
-        return PlayerInfo.IsGrounded && PlayerInfo.IsSpeedEqualZero && PlayerInfo.IsAppearingAnimationFinished && !PlayerInfo.IsJumpButtonPressed;
-    }
+    protected override bool CheckConditions() => 
+        PlayerInfo.IsGrounded && PlayerInfo.IsSpeedEqualZero && PlayerInfo.IsAppearingAnimationFinished && !PlayerInfo.IsJumpButtonPressed;
 }

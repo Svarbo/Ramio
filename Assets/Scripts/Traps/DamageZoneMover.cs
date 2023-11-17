@@ -6,13 +6,9 @@ public class DamageZoneMover : MonoBehaviour
 
     private Transform _transform;
 
-    private void Awake()
-    {
+    private void Awake() => 
         _transform = GetComponent<Transform>();
-    }
 
-    private void Update()
-    {
+    private void Update() => 
         _transform.Translate(Vector2.right * _motionSpeed * Time.deltaTime);
-    }
 }

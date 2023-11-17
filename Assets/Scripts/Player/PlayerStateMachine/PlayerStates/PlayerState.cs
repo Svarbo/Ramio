@@ -25,15 +25,11 @@ public abstract class PlayerState : MonoBehaviour
         PlayerInfo = GetComponent<PlayerInfo>();
     }
 
-    public void Enter()
-    {
+    public void Enter() => 
         enabled = true;
-    }
 
-    public void Exit()
-    {
+    public void Exit() => 
         enabled = false;
-    }
 
     public abstract bool IsCompleted();
 }

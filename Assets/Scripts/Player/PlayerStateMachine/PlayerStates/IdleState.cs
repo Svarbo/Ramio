@@ -4,10 +4,8 @@ public class IdleState : PlayerState
 {
     private int _idleAnimation = Animator.StringToHash("Idle");
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         PlayerAnimator.Play(_idleAnimation);
-    }
 
     public override bool IsCompleted()
     {

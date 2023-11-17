@@ -6,8 +6,6 @@ public class HitTransition : Transition
         PlayerInfo = playerInfo;
     }
 
-    protected override bool CheckConditions()
-    {
-        return PlayerInfo.IsHit;
-    }
+    protected override bool CheckConditions() => 
+        PlayerInfo.IsHit;
 }

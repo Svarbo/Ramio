@@ -8,10 +8,8 @@ public class LeaderboardCanvas : MonoBehaviour
     [SerializeField] private List<LeaderPlace> _leaderPlaces = new List<LeaderPlace>();
     [SerializeField] private TMP_Text _playerTopPlaceText;
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         ShowLeaders();
-    }
 
     private void ShowLeaders()
     {
@@ -22,10 +20,8 @@ public class LeaderboardCanvas : MonoBehaviour
         });
     }
 
-    private void ShowPlayerPlace(LeaderboardGetEntriesResponse result)
-    {
+    private void ShowPlayerPlace(LeaderboardGetEntriesResponse result) => 
         _playerTopPlaceText.text = result.userRank.ToString();
-    }
 
     private void ShowFirstLeaders(LeaderboardGetEntriesResponse result)
     {
@@ -48,10 +44,8 @@ public class LeaderboardCanvas : MonoBehaviour
         }
     }
 
-    private int GetLeaderScore(LeaderboardEntryResponse entry)
-    {
-        return entry.score;
-    }
+    private int GetLeaderScore(LeaderboardEntryResponse entry) => 
+        entry.score;
 
     private string GetLeaderName(LeaderboardEntryResponse entry)
     {

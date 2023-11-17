@@ -6,8 +6,6 @@ public class DeceleratedWalkTransition : Transition
         PlayerInfo = playerInfo;
     }
 
-    protected override bool CheckConditions()
-    {
-        return PlayerInfo.IsDecelerated;
-    }
+    protected override bool CheckConditions() => 
+        PlayerInfo.IsDecelerated;
 }

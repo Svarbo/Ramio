@@ -9,13 +9,12 @@ public class SlideState : PlayerState
     protected override void Awake()
     {
         base.Awake();
+
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {
+    private void Update() => 
         Slide();
-    }
 
     private void Slide()
     {

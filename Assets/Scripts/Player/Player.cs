@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public int Score => _score;
     public int CurrentHealth => _currentHealth;
+
     public PlayerInput PlayerInput { get; private set; }
     public event UnityAction PlayerDied;
     public event UnityAction FruitRaised;

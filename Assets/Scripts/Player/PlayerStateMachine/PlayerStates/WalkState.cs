@@ -12,8 +12,6 @@ public class WalkState : PlayerState
             || PlayerInfo.IsJumpButtonPressed;
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         PlayerAnimator.Play(_walkAnimation);
-    }
 }

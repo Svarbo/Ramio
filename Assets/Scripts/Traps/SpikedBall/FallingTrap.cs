@@ -8,10 +8,8 @@ public class FallingTrap : MonoBehaviour
     private const string _groundLayer = "Ground";
     private const string _playerLayer = "Player";
 
-    private void Start()
-    {
+    private void Start() => 
         _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,8 +19,6 @@ public class FallingTrap : MonoBehaviour
             gameObject.SetActive(false);
     }
 
-    public void StartFalling()
-    {
+    public void StartFalling() => 
         _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-    }
 }

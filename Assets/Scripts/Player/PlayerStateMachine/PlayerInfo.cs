@@ -73,10 +73,8 @@ public class PlayerInfo : MonoBehaviour
         SomeParameterChanged?.Invoke();
     }
 
-    public void SetExtraJumpReady(bool value)
-    {
+    public void SetExtraJumpReady(bool value) => 
         IsExtraJumpReady = value;
-    }
 
     public void SetSpeedEqualZero(bool value)
     {
@@ -104,8 +102,6 @@ public class PlayerInfo : MonoBehaviour
         DirectionIndicatorChanged?.Invoke();
     }
 
-    public void SetSpeed(float value)
-    {
+    public void SetSpeed(float value) => 
         CurrentSpeed = value;
-    }
 }

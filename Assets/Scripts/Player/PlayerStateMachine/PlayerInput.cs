@@ -32,13 +32,9 @@ public class PlayerInput : MonoBehaviour
             _playerInfo.ActivateJumpButtonPressed();
     }
 
-    public void SetInputService(InputService inputService)
-    {
+    public void SetInputService(InputService inputService) => 
         _inputService = inputService;
-    }
 
-    private void SetSpeed(float speed)
-    {
+    private void SetSpeed(float speed) => 
         _playerInfo.SetSpeed(speed);
-    }
 }

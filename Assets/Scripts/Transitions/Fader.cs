@@ -19,10 +19,8 @@ public class Fader : MonoBehaviour
         FadeOut();
     }
 
-    public void FadeIn(UnityAction isDarken)
-    {
+    public void FadeIn(UnityAction isDarken) => 
         _currentCoroutine = StartCoroutine(Darken(isDarken));
-    }
 
     private IEnumerator Darken(UnityAction isDarken)
     {
@@ -40,10 +38,8 @@ public class Fader : MonoBehaviour
         StopCoroutine(_currentCoroutine);
     }
 
-    private void FadeOut()
-    {
+    private void FadeOut() => 
         _currentCoroutine = StartCoroutine(Lighten());
-    }
 
     private IEnumerator Lighten()
     {
