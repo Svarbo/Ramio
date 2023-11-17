@@ -1,8 +1,3 @@
-
-namespace Infrastructure.Payloads
+public interface IPayloadForState
 {
-    public interface IPayloadForState
-    {
-        
-    }
 }

@@ -1,15 +1,12 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace DefaultNamespace.Edior
+public class Tools : MonoBehaviour
 {
-    public class Tools : MonoBehaviour
+    [MenuItem("Tools/Clear Player Prefs")]
+    public static void ClearPlayerPrefs()
     {
-        [MenuItem("Tools/Clear Player Prefs")]
-        public static void ClearPlayerPrefs()
-        {
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.Save();
-        }
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 }

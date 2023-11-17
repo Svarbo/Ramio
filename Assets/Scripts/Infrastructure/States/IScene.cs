@@ -1,6 +1,3 @@
-namespace Infrastructure.States
+public interface IScene : IState
 {
-    public interface IScene : IState
-    {
-    }
 }

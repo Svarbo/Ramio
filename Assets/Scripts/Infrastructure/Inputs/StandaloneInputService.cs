@@ -1,23 +1,20 @@
 using UnityEngine;
 
-namespace Infrastructure.Inputs
+public class StandaloneInputService : InputService
 {
-    public class StandaloneInputService : InputService
+    public override float Direction
     {
-        public override float Direction
+        get
         {
-            get
-            {
-                return Input.GetAxis(Horizontal);
-            }
+            return Input.GetAxis(Horizontal);
         }
+    }
 
-        public override bool IsPressButtonJump()
-        {
-            if (Input.GetKeyDown(KeyCode.W))
-                return true;
+    public override bool IsPressButtonJump()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+            return true;
 
-            return false;
-        }
+        return false;
     }
 }

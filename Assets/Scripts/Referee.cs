@@ -1,4 +1,3 @@
-using UI.Level.EndGame;
 using UnityEngine;
 
 public class Referee : MonoBehaviour

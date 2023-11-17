@@ -1,9 +1,6 @@
-namespace Infrastructure.StateMachines
+public interface IStateMachine
 {
-    public interface IStateMachine
-    {
-        void Update(float deltaTime);
-        void FixedUpdate(float deltaTime);
-        void LateUpdate(float deltaTime);
-    }
+    void Update(float deltaTime);
+    void FixedUpdate(float deltaTime);
+    void LateUpdate(float deltaTime);
 }

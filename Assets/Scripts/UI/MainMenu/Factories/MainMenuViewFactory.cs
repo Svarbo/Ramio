@@ -1,15 +1,10 @@
-using Infrastructure.Factories;
-
-namespace UI.MainMenu.Factories
+public class MainMenuViewFactory
 {
-    public class MainMenuViewFactory
-    {
-        private readonly AbstractFactory _abstractFactory;
+    private readonly AbstractFactory _abstractFactory;
 
-        public MainMenuViewFactory() =>
-            _abstractFactory = new AbstractFactory();
+    public MainMenuViewFactory() =>
+        _abstractFactory = new AbstractFactory();
 
-        public MainMenuView Create() =>
-            _abstractFactory.Create<MainMenuView>("UI/MainMenu/MainMenuView");
-    }
+    public MainMenuView Create() =>
+        _abstractFactory.Create<MainMenuView>("UI/MainMenu/MainMenuView");
 }

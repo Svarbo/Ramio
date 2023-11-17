@@ -1,12 +1,7 @@
-namespace UI.MainMenu.Models
+public enum Levels
 {
-    public enum Levels
-    {
-        Level0,
-        Level1,
-        Level2,
-        Level3,
-        Level4,
-        Level5,
-    }
+    Level0,
+    Level1,
+    Level2,
+    Level3
 }

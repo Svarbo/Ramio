@@ -1,5 +1,3 @@
-using System;
-using UI.MainMenu.Presenters;
 using UnityEngine;
 using UnityEngine.UI;
 

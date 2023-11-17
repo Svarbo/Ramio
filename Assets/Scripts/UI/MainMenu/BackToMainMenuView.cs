@@ -1,20 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.MainMenu
+public class BackToMainMenuView : MonoBehaviour
 {
-    public class BackToMainMenuView : MonoBehaviour
-    {
-        [SerializeField] private Button _button;
-        [SerializeField] private MenuSwitcher _menuSwitcher;
-        
-        private void OnEnable() =>
-            _button.onClick.AddListener(EnableMainMenu);
+    [SerializeField] private Button _button;
+    [SerializeField] private MenuSwitcher _menuSwitcher;
 
-        private void OnDisable() =>
-            _button.onClick.RemoveListener(EnableMainMenu);
+    private void OnEnable() =>
+        _button.onClick.AddListener(EnableMainMenu);
 
-        public void EnableMainMenu() =>
-            _menuSwitcher.EnableMainMenu();
-    }
+    private void OnDisable() =>
+        _button.onClick.RemoveListener(EnableMainMenu);
+
+    public void EnableMainMenu() =>
+        _menuSwitcher.EnableMainMenu();
 }

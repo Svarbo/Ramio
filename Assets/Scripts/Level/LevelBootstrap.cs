@@ -1,10 +1,4 @@
 using System;
-using Data;
-using Infrastructure;
-using Level;
-using Level.Factories;
-using Players;
-using UI.MainMenu.Models;
 using UnityEngine;
 
 public class LevelBootstrap : MonoBehaviour

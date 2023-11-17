@@ -1,12 +1,8 @@
-namespace Level
+public abstract class LevelDifficultStrategy
 {
-    public abstract class LevelDifficultStrategy
+    public void SetStrategy()
     {
-        public void SetStrategy()
-        {
-            
-        }
-
-        public abstract void Execute();
     }
+
+    public abstract void Execute();
 }

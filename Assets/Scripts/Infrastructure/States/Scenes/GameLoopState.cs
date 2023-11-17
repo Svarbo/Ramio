@@ -1,12 +1,9 @@
-using Level;
-using UI.MainMenu.Models;
 using UnityEngine;
 
 public class GameLoopState : IPayloadState<LevelsInfo>
 {
     public void Exit()
     {
-
     }
 
     public void FixedUpdate(float deltaTime)

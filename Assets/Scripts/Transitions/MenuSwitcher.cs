@@ -1,7 +1,3 @@
-using UI.MainMenu.LeaderBoard;
-using UI.MainMenu.LevelMenu;
-using UI.MainMenu.Menu;
-using UI.MainMenu.Settings;
 using UnityEngine;
 
 public class MenuSwitcher : MonoBehaviour

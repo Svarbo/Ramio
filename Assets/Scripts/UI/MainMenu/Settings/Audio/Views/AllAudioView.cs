@@ -1,26 +1,21 @@
-using System;
-using UI.MainMenu.Settings.Audio.Presenters;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.MainMenu.Settings.Audio
+public class AllAudioView : MonoBehaviour
 {
-    public class AllAudioView : MonoBehaviour
-    {
-        [SerializeField] private Slider _slider;
-        
-        private AudioMenuPresenter _allAudioPresenter;
+    [SerializeField] private Slider _slider;
 
-        private void OnEnable() =>
-            _slider.onValueChanged.AddListener(OnValueChanged);
+    private AudioMenuPresenter _allAudioPresenter;
 
-        private void OnDisable() =>
-            _slider.onValueChanged.RemoveListener(OnValueChanged);
+    private void OnEnable() =>
+        _slider.onValueChanged.AddListener(OnValueChanged);
 
-        public void Construct(AudioMenuPresenter allAudioPresenter) =>
-            _allAudioPresenter = allAudioPresenter;
+    private void OnDisable() =>
+        _slider.onValueChanged.RemoveListener(OnValueChanged);
 
-        private void OnValueChanged(float newVolume) =>
-            _allAudioPresenter.SetAllVolume(newVolume);
-    }
+    public void Construct(AudioMenuPresenter allAudioPresenter) =>
+        _allAudioPresenter = allAudioPresenter;
+
+    private void OnValueChanged(float newVolume) =>
+        _allAudioPresenter.SetAllVolume(newVolume);
 }
