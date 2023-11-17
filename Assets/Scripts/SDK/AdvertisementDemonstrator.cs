@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class AdvertisementDemonstrator : MonoBehaviour
 {
     [SerializeField] private Image _advertisementPanel;
-    [SerializeField] private Sounds _soundsVolume;
 
     private int _attemptCount;
 
@@ -17,7 +16,6 @@ public class AdvertisementDemonstrator : MonoBehaviour
     public void OnStartPlayButtonClick()
     {
         _advertisementPanel.gameObject.SetActive(false);
-        _soundsVolume.SetVolumeValues();
 
         Time.timeScale = 1;
     }
@@ -28,7 +26,6 @@ public class AdvertisementDemonstrator : MonoBehaviour
 
         if (_attemptCount % 3 == 0)
         {
-            _soundsVolume.Stop();
             Show();
 
             Time.timeScale = 0;

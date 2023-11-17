@@ -1,11 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class JumpBoost : MonoBehaviour
 {
     [SerializeField] private float _reloadingTime;
 
     private Animator _animator;
+    private AudioSource _audioSource;
     private int _collectedAnimation = Animator.StringToHash("Collected");
     private int _idleAnimation = Animator.StringToHash("Idle");
     private float _currentReloadingTime = 0;
@@ -14,6 +16,7 @@ public class JumpBoost : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -28,7 +31,9 @@ public class JumpBoost : MonoBehaviour
             if (collision.TryGetComponent<ExtraJumpChecker>(out ExtraJumpChecker extraJumpChecker))
             {
                 extraJumpChecker.AddExtraJump();
+
                 _animator.Play(_collectedAnimation);
+                _audioSource.Play();
             }
         }
     }

@@ -1,23 +1,24 @@
-using Data;
 using UnityEngine;
 
-namespace Level.Audio
+[RequireComponent(typeof(AudioSource))]
+public class BackgroundMusic : MonoBehaviour
 {
-    public class BackgroundMusic : MonoBehaviour
+    [SerializeField] private GameAudioData _gameAudioData;
+
+    private AudioSource _audioSource;
+
+    private void Awake() => 
+        _audioSource = GetComponent<AudioSource>();
+
+    private void OnEnable() =>
+        _gameAudioData.MusicCVolumehangeed += ChangeVolume;
+
+    private void OnDisable() =>
+        _gameAudioData.MusicCVolumehangeed -= ChangeVolume;
+
+    public void ChangeVolume(float value)
     {
-        [SerializeField] private AudioSource _audioSource;
-        [SerializeField] private GameAudioData _gameAudioData;
-
-        private void OnEnable() =>
-            _gameAudioData.MusicCVolumehangeed += ChangeVolume;
-
-        private void OnDisable() =>
-            _gameAudioData.MusicCVolumehangeed -= ChangeVolume;
-
-        public void ChangeVolume(float value)
-        {
-            float volume = Mathf.Clamp01(value);
-            _audioSource.volume = volume;
-        }
+        float volume = Mathf.Clamp01(value);
+        _audioSource.volume = volume;
     }
 }
