@@ -3075,7 +3075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 1
   _isHorizontalMovable: 1
-  _extraJumpSound: {fileID: 0}
+  _extraJumpSound: {fileID: 8300000, guid: ec9da6aa7c4f3684dbf55a81cbbd8ca5, type: 3}
 --- !u!114 &5059869853096676234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,7 +3090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 0
   _isHorizontalMovable: 0
-  _wallJumpSound: {fileID: 0}
+  _wallJumpSound: {fileID: 8300000, guid: ec9da6aa7c4f3684dbf55a81cbbd8ca5, type: 3}
 --- !u!114 &7801211086210138626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3147,7 +3147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 1
   _isHorizontalMovable: 1
-  _jumpSound: {fileID: 0}
+  _jumpSound: {fileID: 8300000, guid: ec9da6aa7c4f3684dbf55a81cbbd8ca5, type: 3}
 --- !u!114 &2444277554769381506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3162,7 +3162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 0
   _isHorizontalMovable: 0
-  _hitSound: {fileID: 0}
+  _hitSound: {fileID: 8300000, guid: 8ffb1922d208d864b993bdeb0fcdc385, type: 3}
 --- !u!114 &7863940789070988851
 MonoBehaviour:
   m_ObjectHideFlags: 0

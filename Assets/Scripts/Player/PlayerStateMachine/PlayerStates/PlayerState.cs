@@ -19,6 +19,7 @@ public abstract class PlayerState : MonoBehaviour
 
     protected virtual void Awake()
     {
+        AudioSource = GetComponent<AudioSource>();
         PlayerAnimator = GetComponent<Animator>();
         PlayerStats = GetComponent<PlayerStats>();
         PlayerInfo = GetComponent<PlayerInfo>();
