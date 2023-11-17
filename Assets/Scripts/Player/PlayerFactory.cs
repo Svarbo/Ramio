@@ -20,8 +20,7 @@ public class PlayerFactory
             rotation: Quaternion.identity
         );
 
-        TargetFollower targetFollower = Object.FindObjectOfType<TargetFollower>();
-        targetFollower.Construct(player.transform, new Vector3(0, 0, -5));
+        Camera.main.GetComponent<TargetFollower>().Construct(player.transform, new Vector3(0, 0, -5));
 
         if (_userInfo.IsMobile)
         {

@@ -3,8 +3,8 @@ using UnityEngine;
 public class Referee : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] PlayerCanvasDrawer _playerCanvasDrawer;
-    
+    [SerializeField] public PlayerCanvasDrawer _playerCanvasDrawer;
+
     private void OnEnable()
     {
         _player.PlayerDied += DeclairLose;

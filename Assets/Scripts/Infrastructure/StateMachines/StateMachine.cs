@@ -18,25 +18,7 @@ public class StateMachine : IStateMachine
         _currentState = _states[state];
         _currentState?.Enter();
     }
-    //
-    // #region OldVersion EnterPayload
-    // // public void Enter<T>(T payload)
-    // // {
-    // //     foreach (KeyValuePair<ForceVEctor, IState> state in _states)
-    // //     {
-    // //         if (state.Value is IPayloadState<T> newState)
-    // //         {
-    // //             _currentState?.Exit();
-    // //             _currentState = newState;
-    // //             newState.Enter(payload);
-    // //             return;
-    // //         }
-    // //     }
-    // //     
-    // //     throw new InvalidOperationException("Dictinary value not found " + payload);
-    // // }
-    // #endregion
-    //
+
     public void Enter<T>(Type state, T payload)
     {
         if (_states.ContainsKey(state) == false)

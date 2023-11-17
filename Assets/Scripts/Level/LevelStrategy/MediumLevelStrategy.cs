@@ -17,6 +17,7 @@ public class MediumLevelStrategy : LevelDifficultStrategy
         _gameBootstrap = gameBootstrap;
 
         _playerCanvasDrawer = _player.GetComponentInChildren<PlayerCanvasDrawer>();
+        _playerCanvasDrawer.Construct(_gameBootstrap.AppCore.StateMachine);
         _playerCanvasDrawer.LosePanel.TryAgain += OnPlayerDied;
     }
 

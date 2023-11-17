@@ -6,6 +6,7 @@ public class WinPanel : MonoBehaviour
 {
     [SerializeField] private Button _buttonGoToNextLevel;
     [SerializeField] private Button _buttonGoMenu;
+    private StateMachine _stateMachine;
 
     public event Action GoToNextLevel;
     public event Action GoMenu;
@@ -21,10 +22,17 @@ public class WinPanel : MonoBehaviour
         _buttonGoToNextLevel.onClick.RemoveListener(OnClicked1);
         _buttonGoMenu.onClick.RemoveListener(OnClicked);
     }
+        
+    public void Construct(StateMachine stateMachine) =>
+        _stateMachine = stateMachine;
 
-    private void OnClicked1() =>
-        GoToNextLevel?.Invoke();
+    private void OnClicked1()
+    {
+        _stateMachine.Enter(typeof(LoadLevelState));
+    }
 
-    private void OnClicked() =>
-        GoMenu?.Invoke();
+    private void OnClicked()
+    {
+        _stateMachine.Enter(typeof(MainMenuState));
+    }
 }

@@ -30,4 +30,8 @@ public class LosePanel : MonoBehaviour
 
     private void OnClicked() =>
         GoMenu?.Invoke();
+
+    public void Construct(StateMachine stateMachine)
+    {
+    }
 }
