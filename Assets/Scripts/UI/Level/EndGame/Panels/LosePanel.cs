@@ -1,37 +1,38 @@
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LosePanel : MonoBehaviour
 {
     [SerializeField] private Button _buttonTryAgain;
     [SerializeField] private Button _buttonGoMenu;
-
-    public event Action TryAgain;
-    public event Action GoMenu;
+    private StateMachine _stateMachine;
+    private LevelsInfo _levelsInfo;
 
     private void OnEnable()
     {
-        _buttonTryAgain.onClick.AddListener(OnClicked1);
-        _buttonGoMenu.onClick.AddListener(OnClicked);
+        _buttonTryAgain.onClick.AddListener(TryAgain);
+        _buttonGoMenu.onClick.AddListener(GoToMainMenu);
     }
 
     private void OnDisable()
     {
-        _buttonTryAgain.onClick.RemoveListener(OnClicked1);
-        _buttonGoMenu.onClick.RemoveListener(OnClicked);
+        _buttonTryAgain.onClick.RemoveListener(TryAgain);
+        _buttonGoMenu.onClick.RemoveListener(GoToMainMenu);
     }
 
-    private void OnClicked1()
+    public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo)
     {
-        TryAgain?.Invoke();
-        gameObject.SetActive(false);
+        _levelsInfo = levelsInfo;
+        _stateMachine = stateMachine;
     }
 
-    private void OnClicked() =>
-        GoMenu?.Invoke();
-
-    public void Construct(StateMachine stateMachine)
+    private void TryAgain()
     {
+        _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
+        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
     }
+
+    private void GoToMainMenu() =>
+        _stateMachine.Enter(typeof(MainMenuState));
 }

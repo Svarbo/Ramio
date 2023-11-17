@@ -6,10 +6,10 @@ public class PlayerCanvasDrawer : MonoBehaviour
     [field: SerializeField] public WinPanel WinPanel { get; private set; }
     [field: SerializeField] public LosePanel LosePanel { get; private set; }
 
-    public void Construct(StateMachine stateMachine)
+    public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo)
     {
-        WinPanel.Construct(stateMachine);
-        LosePanel.Construct(stateMachine);
+        WinPanel.Construct(stateMachine, levelsInfo);
+        LosePanel.Construct(stateMachine, levelsInfo);
     }
     
     public void DrawWinPanel(int score)
