@@ -4,6 +4,8 @@
 [RequireComponent(typeof(PlayerFliper))]
 public class WallJumpState : PlayerState
 {
+    [SerializeField] private AudioClip _wallJumpSound;
+
     private Rigidbody2D _rigidbody2D;
     private PlayerFliper _playerFliper;
     private int _jumpAnimation = Animator.StringToHash("Jump");
@@ -11,6 +13,7 @@ public class WallJumpState : PlayerState
     protected override void Awake()
     {
         base.Awake();
+
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerFliper = GetComponent<PlayerFliper>();
     }
@@ -24,6 +27,8 @@ public class WallJumpState : PlayerState
     private void WallJump()
     {
         PlayerAnimator.Play(_jumpAnimation);
+        AudioSource.PlayOneShot(_wallJumpSound);
+
         _rigidbody2D.velocity = new Vector2(PlayerStats.WallJumpForce.x * -PlayerInfo.DirectionIndicator, PlayerStats.WallJumpForce.y);
     }
 

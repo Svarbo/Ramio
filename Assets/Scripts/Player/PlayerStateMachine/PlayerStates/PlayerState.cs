@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(PlayerStats))]
 [RequireComponent(typeof(PlayerInfo))]
 public abstract class PlayerState : MonoBehaviour
@@ -8,6 +9,7 @@ public abstract class PlayerState : MonoBehaviour
     [SerializeField] private bool _isFlippable;
     [SerializeField] private bool _isHorizontalMovable;
 
+    protected AudioSource AudioSource;
     protected Animator PlayerAnimator;
     protected PlayerStats PlayerStats;
     protected PlayerInfo PlayerInfo;
