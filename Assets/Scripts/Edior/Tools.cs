@@ -9,4 +9,12 @@ public class Tools : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
     }
+
+    [MenuItem("Tools/Clear Medium Difficult Saves")]
+    public static void ClearMediumDifficult()
+    {
+        PlayerPrefs.DeleteKey("MediumDifficult");
+        PlayerPrefs.DeleteKey("MediumDifficultAcceptLevels");
+        PlayerPrefs.Save();
+    }
 }

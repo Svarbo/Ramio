@@ -1,41 +1,64 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-public class LevelsProgress : ScriptableObject
+public class LevelsProgress
 {
-    [SerializeField] private Easy _easy;
+    private static LevelsProgress _instance;
 
-    [SerializeField]
-    private List<Difficult> _difficultLevels = new List<Difficult>()
-        {
-            new Easy(),
-            new Medium(),
-            new Hard()
-        };
-
-    public Difficult GetDifficultLevel(Type difficultLevel)
+    public static LevelsProgress Instance
     {
-        foreach (Difficult difficult in _difficultLevels)
+        get
         {
-            if (difficult.GetType() == difficultLevel)
-                return difficult;
+            if (_instance == null)
+                _instance = new LevelsProgress();
+
+            return _instance;
+        }
+    }
+
+    public IDifficult GetDifficultByType(Type type)
+    {
+        if (type == typeof(Medium))
+            return GetMediumDifficult();
+        else if (type == typeof(Hard))
+            return GetHardDifficult();
+
+        throw new InvalidOperationException(nameof(type));
+    } 
+    public Medium GetMediumDifficult()
+    {
+        if (PlayerPrefs.HasKey("MediumDifficult") == false)
+        {
+            PlayerPrefs.SetString("MediumDifficult", JsonUtility.ToJson(new Medium()));
+            PlayerPrefs.Save();
         }
 
-        throw new ArgumentException(nameof(difficultLevel));
-    }
-    #region MyRegion
+        string json = PlayerPrefs.GetString("MediumDifficult");
+        Debug.Log(json);
 
-    [Serializable]
-    public class Difficult
-    {
-        [field: SerializeField] public int CountComplete { get; set; }
+        Medium mediumDifficult = JsonUtility.FromJson<Medium>(json);
+        Debug.Log(mediumDifficult);
+        return mediumDifficult;
     }
 
-    [Serializable]
-    public class Easy : Difficult
+    public Hard GetHardDifficult()
     {
+        if (PlayerPrefs.HasKey("HardDifficult") == false)
+            PlayerPrefs.SetString("HardDifficult", JsonUtility.ToJson(new Hard()));
+
+        string json = PlayerPrefs.GetString("HardDifficult");
+        Debug.Log(json);
+
+        Hard hardDifficult = JsonUtility.FromJson<Hard>(json);
+        Debug.Log(hardDifficult);
+        return hardDifficult;
+    }
+
+    [Serializable]
+    public class Easy
+    {
+        [SerializeField] private int _countComplete;
+
         public void ChangeSpawnPoint(string sceneName, Vector3 position) =>
             PlayerPrefs.SetString(sceneName, JsonUtility.ToJson(position));
 
@@ -48,19 +71,63 @@ public class LevelsProgress : ScriptableObject
             return JsonUtility.FromJson<Vector3>(jsonVector);
         }
 
-        public void Save() =>
+        public void SetAcceptLevelEasyDifficult(int count)
+        {
+            PlayerPrefs.SetInt("LevelEasy", count);
+        }
+
+    }
+
+    [Serializable]
+    public class Medium : IDifficult
+    {
+        public int GetAcceptLevels()
+        {
+            if (PlayerPrefs.HasKey("MediumDifficultAcceptLevels") == false)
+                SetStartAcceptLevels();
+            return PlayerPrefs.GetInt("MediumDifficultAcceptLevels");
+        }
+
+        public void IncreaseAcceptLevels()
+        {
+            PlayerPrefs.SetInt("MediumDifficultAcceptLevels", GetAcceptLevels() + 1);
             PlayerPrefs.Save();
+        }
+        
+        private void SetStartAcceptLevels()
+        {
+            PlayerPrefs.SetInt("MediumDifficultAcceptLevels", 1);
+            PlayerPrefs.Save();
+        }
     }
 
     [Serializable]
-    public class Medium : Difficult
+    public class Hard : IDifficult
     {
-    }
+        public int GetAcceptLevels()
+        {
+            if (PlayerPrefs.HasKey("HardDifficultAcceptLevels") == false)
+                SetStartAcceptLevels();
+            return PlayerPrefs.GetInt("HardDifficultAcceptLevels");
+        }
 
-    [Serializable]
-    public class Hard : Difficult
-    {
+        public void IncreaseAcceptLevels()
+        {
+            PlayerPrefs.SetInt("HardDifficultAcceptLevels", GetAcceptLevels() + 1);
+            PlayerPrefs.Save();
+        }
+        
+        private void SetStartAcceptLevels()
+        {
+            PlayerPrefs.SetInt("HardDifficultAcceptLevels", 1);
+            PlayerPrefs.Save();
+        }
     }
+}
 
-    #endregion
+public interface IDifficult
+{
+    public int GetAcceptLevels();
+
+    public void IncreaseAcceptLevels();
 }

@@ -13,8 +13,11 @@ public class ButtonStartGame : MonoBehaviour
     private void OnEnable() =>
         _button.onClick.AddListener(OnClick);
 
-    private void OnDisable() =>
+    private void OnDisable()
+    {
+        Hide();
         _button.onClick.RemoveListener(OnClick);
+    }
 
     public void Construct(ButtonStartGamePresenter buttonStartGamePresenter) =>
         _buttonStartGamePresenter = buttonStartGamePresenter;
