@@ -15,13 +15,13 @@ public class DifficultBuilder
 
     public DifficultChooserPresenter Build()
     {
-        _difficultChooserPresenter = InitDifficultChooser(_levelChooserPresenter, _levelsInfo, _levelMenuView.LevelsProgress);
+        _difficultChooserPresenter = InitDifficultChooser(_levelChooserPresenter, _levelsInfo);
         _levelMenuView.EasyDifficultViewButton.Construct(_difficultChooserPresenter);
         _levelMenuView.MediumDifficultViewButton.Construct(_difficultChooserPresenter);
         _levelMenuView.HardDifficultViewButton.Construct(_difficultChooserPresenter);
         return _difficultChooserPresenter;
     }
 
-    private DifficultChooserPresenter InitDifficultChooser(LevelChooserPresenter levelChooserPresenter, LevelsInfo levelsInfo, LevelsProgress levelsProgress) =>
-        _difficultChooserPresenter = new DifficultChooserPresenter(levelChooserPresenter, levelsInfo, levelsProgress);
+    private DifficultChooserPresenter InitDifficultChooser(LevelChooserPresenter levelChooserPresenter, LevelsInfo levelsInfo) =>
+        _difficultChooserPresenter = new DifficultChooserPresenter(levelChooserPresenter, levelsInfo);
 }

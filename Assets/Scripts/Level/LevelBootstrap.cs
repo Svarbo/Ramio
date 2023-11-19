@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class LevelBootstrap : MonoBehaviour
 {
-    [SerializeField] private LevelsProgress _levelsProgress;
     [SerializeField] private UserInfo _userInfo;
 
     private LevelsInfo _levelsInfo;
@@ -19,15 +18,15 @@ public class LevelBootstrap : MonoBehaviour
     {
         _startSpawnPosition = FindObjectOfType<Spawner>().position.position;
         _gameBootstrap = FindObjectOfType<GameBootstrap>();
-                
+
         _levelsInfo = levelsInfo;
 
         PlayerFactory playerFactory = new PlayerFactory(_startSpawnPosition, _userInfo);
         _player = playerFactory.Create();
         
-        if (typeof(LevelsProgress.Easy) == _levelsInfo.CurrentDifficult)
-            _levelDifficultStrategy = new EasyLevelFactory(_levelsInfo, _player, _startSpawnPosition, _levelsProgress).Create();
-        else if (typeof(LevelsProgress.Medium) == _levelsInfo.CurrentDifficult)
+        if (typeof(Easy) == _levelsInfo.CurrentDifficult)
+            _levelDifficultStrategy = new EasyLevelFactory(_levelsInfo, _player, _startSpawnPosition).Create();
+        else if (typeof(Easy) == _levelsInfo.CurrentDifficult)
             _levelDifficultStrategy = new MediumLevelStrategy(_player, _levelsInfo, _gameBootstrap);
         else
             _levelDifficultStrategy = new HardLevelStrategy(_player, _startSpawnPosition, _gameBootstrap, _levelsInfo);

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameBootstrap : MonoBehaviour, ICoroutineRunner
 {
+    [SerializeField] private Fader _fader;
     public AppCore AppCore { get; private set; }
 
     private void Awake()
@@ -10,7 +11,7 @@ public class GameBootstrap : MonoBehaviour, ICoroutineRunner
         DontDestroyOnLoad(this);
 
         if (AppCore is null)
-            AppCore = new AppCore(this);
+            AppCore = new AppCore(this, _fader);
     }
 
     private void Update() => 

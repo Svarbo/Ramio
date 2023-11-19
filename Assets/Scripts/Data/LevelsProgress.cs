@@ -1,66 +1,57 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-public class LevelsProgress : ScriptableObject
+public partial class LevelsProgress
 {
-    [SerializeField] private Easy _easy;
+    private static LevelsProgress _instance;
 
-    [SerializeField]
-    private List<Difficult> _difficultLevels = new List<Difficult>()
-        {
-            new Easy(),
-            new Medium(),
-            new Hard()
-        };
-
-    public Difficult GetDifficultLevel(Type difficultLevel)
+    public static LevelsProgress Instance
     {
-        foreach (Difficult difficult in _difficultLevels)
+        get
         {
-            if (difficult.GetType() == difficultLevel)
-                return difficult;
+            if (_instance == null)
+                _instance = new LevelsProgress();
+
+            return _instance;
         }
-
-        throw new ArgumentException(nameof(difficultLevel));
-    }
-    #region MyRegion
-
-    [Serializable]
-    public class Difficult
-    {
-        [field: SerializeField] public int CountComplete { get; set; }
     }
 
-    [Serializable]
-    public class Easy : Difficult
+    public IDifficult GetDifficultByType(Type type)
     {
-        public void ChangeSpawnPoint(string sceneName, Vector3 position) =>
-            PlayerPrefs.SetString(sceneName, JsonUtility.ToJson(position));
+        if (type == typeof(Medium))
+            return GetMediumDifficult();
+        else if (type == typeof(Hard))
+            return GetHardDifficult();
 
-        public Vector3 GetSpawnPoint(string sceneName)
+        throw new InvalidOperationException(nameof(type));
+    }
+
+    public Medium GetMediumDifficult()
+    {
+        if (PlayerPrefs.HasKey("MediumDifficult") == false)
         {
-            if (PlayerPrefs.HasKey(sceneName) == false)
-                return default;
-
-            string jsonVector = PlayerPrefs.GetString(sceneName);
-            return JsonUtility.FromJson<Vector3>(jsonVector);
-        }
-
-        public void Save() =>
+            PlayerPrefs.SetString("MediumDifficult", JsonUtility.ToJson(new Medium()));
             PlayerPrefs.Save();
+        }
+
+        string json = PlayerPrefs.GetString("MediumDifficult");
+        Debug.Log(json);
+
+        Medium mediumDifficult = JsonUtility.FromJson<Medium>(json);
+        Debug.Log(mediumDifficult);
+        return mediumDifficult;
     }
 
-    [Serializable]
-    public class Medium : Difficult
+    public Hard GetHardDifficult()
     {
-    }
+        if (PlayerPrefs.HasKey("HardDifficult") == false)
+            PlayerPrefs.SetString("HardDifficult", JsonUtility.ToJson(new Hard()));
 
-    [Serializable]
-    public class Hard : Difficult
-    {
-    }
+        string json = PlayerPrefs.GetString("HardDifficult");
+        Debug.Log(json);
 
-    #endregion
+        Hard hardDifficult = JsonUtility.FromJson<Hard>(json);
+        Debug.Log(hardDifficult);
+        return hardDifficult;
+    }
 }
