@@ -614,7 +614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb7fff8462a41338760ce80300fc750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelsProgress: {fileID: 11400000, guid: fef783a6c214c154d9dba5c249b83b22, type: 2}
 --- !u!212 &97893719
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -830,6 +829,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2530941958569820395, guid: a4cbc91932622bb44801fd0ee6baf71c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5430268081755537405, guid: a4cbc91932622bb44801fd0ee6baf71c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.09
@@ -36185,7 +36188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb7fff8462a41338760ce80300fc750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelsProgress: {fileID: 11400000, guid: fef783a6c214c154d9dba5c249b83b22, type: 2}
 --- !u!212 &1847192061
 SpriteRenderer:
   m_ObjectHideFlags: 0

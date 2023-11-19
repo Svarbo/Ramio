@@ -6,9 +6,12 @@ public class LoadLevelState : IPayloadState<LevelsInfo>
 {
     private readonly AppCore _appCore;
     private readonly ICoroutineRunner _coroutineRunner;
+    private Fader _fader;
+    private LevelsInfo _levelsInfo;
 
-    public LoadLevelState(AppCore appCore, ICoroutineRunner coroutineRunner)
+    public LoadLevelState(AppCore appCore, ICoroutineRunner coroutineRunner, Fader fader)
     {
+        _fader = fader;
         _appCore = appCore;
         _coroutineRunner = coroutineRunner;
     }
@@ -29,10 +32,20 @@ public class LoadLevelState : IPayloadState<LevelsInfo>
     {
     }
 
-    public void Enter(LevelsInfo levelsInfo) => 
-        _coroutineRunner.StartCoroutine(LoadLevel(levelsInfo));
+    public void Enter()
+    {
+    }
 
-    private IEnumerator LoadLevel(LevelsInfo levelsInfo)
+    public void Enter(LevelsInfo levelsInfo)
+    {
+        _levelsInfo = levelsInfo;
+        _fader.FadeIn(LoadLevel);
+    }
+
+    private void LoadLevel() =>
+        _coroutineRunner.StartCoroutine(LoadLevelCoroutine(_levelsInfo));
+
+    private IEnumerator LoadLevelCoroutine(LevelsInfo levelsInfo)
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(levelsInfo.SceneName);
 
@@ -40,9 +53,7 @@ public class LoadLevelState : IPayloadState<LevelsInfo>
             yield return null;
 
         _appCore.StateMachine.Enter(typeof(GameLoopState), levelsInfo);
-    }
 
-    public void Enter()
-    {
+        _fader.FadeOut();
     }
 }

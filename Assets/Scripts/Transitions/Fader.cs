@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,12 +14,10 @@ public class Fader : MonoBehaviour
     private Coroutine _currentCoroutine;
     private Color _tempColor;
 
-    private void Start()
-    {
-        _image.color = _startColor;
-        FadeOut();
-    }
+    private void Awake() =>
+        DontDestroyOnLoad(this);
 
+    //Появление
     public void FadeIn(UnityAction isDarken) => 
         _currentCoroutine = StartCoroutine(Darken(isDarken));
 
@@ -38,7 +37,8 @@ public class Fader : MonoBehaviour
         StopCoroutine(_currentCoroutine);
     }
 
-    private void FadeOut() => 
+    //Исчезновение
+    public void FadeOut() => 
         _currentCoroutine = StartCoroutine(Lighten());
 
     private IEnumerator Lighten()
