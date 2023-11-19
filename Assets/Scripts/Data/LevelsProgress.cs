@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class LevelsProgress
+public partial class LevelsProgress
 {
     private static LevelsProgress _instance;
 
@@ -24,7 +24,8 @@ public class LevelsProgress
             return GetHardDifficult();
 
         throw new InvalidOperationException(nameof(type));
-    } 
+    }
+
     public Medium GetMediumDifficult()
     {
         if (PlayerPrefs.HasKey("MediumDifficult") == false)
@@ -53,81 +54,4 @@ public class LevelsProgress
         Debug.Log(hardDifficult);
         return hardDifficult;
     }
-
-    [Serializable]
-    public class Easy
-    {
-        [SerializeField] private int _countComplete;
-
-        public void ChangeSpawnPoint(string sceneName, Vector3 position) =>
-            PlayerPrefs.SetString(sceneName, JsonUtility.ToJson(position));
-
-        public Vector3 GetSpawnPoint(string sceneName)
-        {
-            if (PlayerPrefs.HasKey(sceneName) == false)
-                return default;
-
-            string jsonVector = PlayerPrefs.GetString(sceneName);
-            return JsonUtility.FromJson<Vector3>(jsonVector);
-        }
-
-        public void SetAcceptLevelEasyDifficult(int count)
-        {
-            PlayerPrefs.SetInt("LevelEasy", count);
-        }
-
-    }
-
-    [Serializable]
-    public class Medium : IDifficult
-    {
-        public int GetAcceptLevels()
-        {
-            if (PlayerPrefs.HasKey("MediumDifficultAcceptLevels") == false)
-                SetStartAcceptLevels();
-            return PlayerPrefs.GetInt("MediumDifficultAcceptLevels");
-        }
-
-        public void IncreaseAcceptLevels()
-        {
-            PlayerPrefs.SetInt("MediumDifficultAcceptLevels", GetAcceptLevels() + 1);
-            PlayerPrefs.Save();
-        }
-        
-        private void SetStartAcceptLevels()
-        {
-            PlayerPrefs.SetInt("MediumDifficultAcceptLevels", 1);
-            PlayerPrefs.Save();
-        }
-    }
-
-    [Serializable]
-    public class Hard : IDifficult
-    {
-        public int GetAcceptLevels()
-        {
-            if (PlayerPrefs.HasKey("HardDifficultAcceptLevels") == false)
-                SetStartAcceptLevels();
-            return PlayerPrefs.GetInt("HardDifficultAcceptLevels");
-        }
-
-        public void IncreaseAcceptLevels()
-        {
-            PlayerPrefs.SetInt("HardDifficultAcceptLevels", GetAcceptLevels() + 1);
-            PlayerPrefs.Save();
-        }
-        
-        private void SetStartAcceptLevels()
-        {
-            PlayerPrefs.SetInt("HardDifficultAcceptLevels", 1);
-            PlayerPrefs.Save();
-        }
-    }
-}
-
-public interface IDifficult
-{
-    public int GetAcceptLevels();
-
-    public void IncreaseAcceptLevels();
 }

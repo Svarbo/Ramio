@@ -24,9 +24,9 @@ public class LevelBootstrap : MonoBehaviour
         PlayerFactory playerFactory = new PlayerFactory(_startSpawnPosition, _userInfo);
         _player = playerFactory.Create();
         
-        if (typeof(LevelsProgress.Easy) == _levelsInfo.CurrentDifficult)
+        if (typeof(Easy) == _levelsInfo.CurrentDifficult)
             _levelDifficultStrategy = new EasyLevelFactory(_levelsInfo, _player, _startSpawnPosition).Create();
-        else if (typeof(LevelsProgress.Medium) == _levelsInfo.CurrentDifficult)
+        else if (typeof(Easy) == _levelsInfo.CurrentDifficult)
             _levelDifficultStrategy = new MediumLevelStrategy(_player, _levelsInfo, _gameBootstrap);
         else
             _levelDifficultStrategy = new HardLevelStrategy(_player, _startSpawnPosition, _gameBootstrap, _levelsInfo);

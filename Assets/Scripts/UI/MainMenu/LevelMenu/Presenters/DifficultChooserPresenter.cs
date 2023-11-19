@@ -11,20 +11,20 @@ public class DifficultChooserPresenter
 
     public void SetEasyDifficult()
     {
-        _levelsInfo.CurrentDifficult = typeof(LevelsProgress.Easy);
+        _levelsInfo.CurrentDifficult = typeof(Easy);
         //TODO PlayerPrefs для EasyDifficult  DifficultChooserPresenter
         ShowLevels(1);
     }
 
     public void SetMediumDifficult()
     {
-        _levelsInfo.CurrentDifficult = typeof(LevelsProgress.Medium);
+        _levelsInfo.CurrentDifficult = typeof(Medium);
         ShowLevels(LevelsProgress.Instance.GetMediumDifficult().GetAcceptLevels());
     }
 
     public void SetHardDifficult()
     {
-        _levelsInfo.CurrentDifficult = typeof(LevelsProgress.Hard);
+        _levelsInfo.CurrentDifficult = typeof(Hard);
         ShowLevels(LevelsProgress.Instance.GetHardDifficult().GetAcceptLevels());
     }
 
