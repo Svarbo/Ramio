@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c7558cf89ea3b0749b6ca20b25860857
+guid: f92c2f5c790a9c44e9593b9133ce65b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: New Piskel (1)_9
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 112
+        width: 252
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1282e13ea533fe64bb1b2b815486b0a6
+      internalID: 1234980661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +179,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      New Piskel (1)_0: -1169232743
+      New Piskel (1)_1: -1917727033
+      New Piskel (1)_10: 2146497866
+      New Piskel (1)_11: 2055203332
+      New Piskel (1)_12: -1220379839
+      New Piskel (1)_13: -1633803412
+      New Piskel (1)_14: -88296446
+      New Piskel (1)_15: 1472507169
+      New Piskel (1)_16: 1768200319
+      New Piskel (1)_17: 501381716
+      New Piskel (1)_18: 249210294
+      New Piskel (1)_19: -1686453276
+      New Piskel (1)_2: 1769449141
+      New Piskel (1)_20: -888355076
+      New Piskel (1)_21: -715055945
+      New Piskel (1)_22: 1393553603
+      New Piskel (1)_23: -856259956
+      New Piskel (1)_3: -102190116
+      New Piskel (1)_4: 767416456
+      New Piskel (1)_5: 1339001474
+      New Piskel (1)_6: 1335068916
+      New Piskel (1)_7: -1532203053
+      New Piskel (1)_8: -1136539467
+      New Piskel (1)_9: 1234980661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
