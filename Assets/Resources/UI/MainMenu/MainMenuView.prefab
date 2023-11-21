@@ -709,7 +709,19 @@ MonoBehaviour:
   m_Group: {fileID: 290140338808084679}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8208317407228284921}
+        m_TargetAssemblyTypeName: LanguagesChanger, Assembly-CSharp
+        m_MethodName: ChangeLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &398228883171164545
 GameObject:
@@ -2454,7 +2466,19 @@ MonoBehaviour:
   m_Group: {fileID: 290140338808084679}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8208317407228284921}
+        m_TargetAssemblyTypeName: LanguagesChanger, Assembly-CSharp
+        m_MethodName: ChangeLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1403644048411688195
 GameObject:
@@ -3368,7 +3392,19 @@ MonoBehaviour:
   m_Group: {fileID: 290140338808084679}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8208317407228284921}
+        m_TargetAssemblyTypeName: LanguagesChanger, Assembly-CSharp
+        m_MethodName: ChangeLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2008525958826472486
 GameObject:
@@ -10076,7 +10112,7 @@ GameObject:
   - component: {fileID: 290140338808084679}
   - component: {fileID: 8208317407228284921}
   m_Layer: 5
-  m_Name: LanguageChanger
+  m_Name: LanguageToggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,7 +16,7 @@ public class Reseter : MonoBehaviour
             PlayerPrefs.SetInt("OpenLevelsNumber", 1);
             PlayerPrefs.SetInt("CompletedLevelsCount", 0);
             PlayerPrefs.SetFloat("Volume", 0.7f);
-            PlayerPrefs.SetInt("AttemptCount", 0);
+            PlayerPrefs.SetInt("AttemptCount", 1);
             PlayerPrefs.SetInt("PlayerScore", 0);
             PlayerPrefs.SetInt("LanguageWasChanged", 0);
 
