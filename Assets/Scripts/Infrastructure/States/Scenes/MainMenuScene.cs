@@ -1,25 +1,16 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class MainMenuState : IState
+public class MainMenuState : IPayloadState<LevelsInfo>
 {
     private readonly AppCore _appCore;
-    private readonly ICoroutineRunner _coroutineRunner;
     private DifficultChooserPresenter _difficultChooserPresenter;
     private LevelChooserPresenter _levelChooserPresenter;
-    private ButtonStartGamePresenter _buttonStartGamePresenter;
     private GameAudioData _gameAudioData;
     private LanguagePresenter _languagePresenter;
     private DifficultBuilder _difficultBuilder;
     private LevelChooserBuilder _levelChooserBuilder;
-    private ButtonStartGameBuilder _buttonStartGameBuilder;
+    private LevelsInfo _levelsInfo;
 
-    public MainMenuState(AppCore appCore, ICoroutineRunner coroutineRunner)
-    {
+    public MainMenuState(AppCore appCore) =>
         _appCore = appCore;
-        _coroutineRunner = coroutineRunner;
-    }
 
     public void FixedUpdate(float deltaTime)
     {
@@ -37,16 +28,16 @@ public class MainMenuState : IState
     {
     }
 
-    public void Enter() =>
-        _coroutineRunner.StartCoroutine(LoadScene());
-
-    private IEnumerator LoadScene()
+    public void Enter(LevelsInfo levelsInfo)
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu");
+        _levelsInfo = levelsInfo;
+        LoadScene();
+    }
 
-        while (asyncOperation.isDone == false)
-            yield return null;
+    public void Enter() { }
 
+    private void LoadScene()
+    {
         // TODO Fill UserInfo
 
         #region Fill UserInfo
@@ -60,20 +51,22 @@ public class MainMenuState : IState
         MainMenuView mainMenuView = mainMenuViewFactory.Create();
 
         #region LevelMenuBuilders
-        LevelsInfo levelsInfo = new LevelsInfo();
 
-        _buttonStartGameBuilder = new ButtonStartGameBuilder(levelsInfo, mainMenuView.LevelMenuView.ButtonStartGame, _appCore);
-        _buttonStartGamePresenter = _buttonStartGameBuilder.Build();
-
-        _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, levelsInfo);
+        _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);
         _levelChooserPresenter = _levelChooserBuilder.Build();
 
-        _difficultBuilder = new DifficultBuilder(_levelChooserPresenter, levelsInfo, mainMenuView.LevelMenuView);
+        
+        #region Difficults
+
+        _difficultBuilder = new DifficultBuilder(_levelsInfo, mainMenuView.LevelMenuView.DifficultChooserView);
         _difficultChooserPresenter = _difficultBuilder.Build();
+
         #endregion
 
-        #region SettingsFactory
+        #endregion
 
+        #region SettingsBuilder
+        
         #region Audio
 
         _gameAudioData = mainMenuView.SettingsView.AudioMenuView.GameAudioData;

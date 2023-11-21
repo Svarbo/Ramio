@@ -1,4 +1,5 @@
 using System.Collections;
+using IJunior.TypedScenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -52,7 +53,10 @@ public class LoadLevelState : IPayloadState<LevelsInfo>
         while (asyncOperation.isDone == false)
             yield return null;
 
-        _appCore.StateMachine.Enter(typeof(GameLoopState), levelsInfo);
+        if (levelsInfo.SceneName == "MainMenu")
+            _appCore.StateMachine.Enter(typeof(MainMenuState), levelsInfo);
+        else
+            _appCore.StateMachine.Enter(typeof(GameLoopState), levelsInfo);
 
         _fader.FadeOut();
     }

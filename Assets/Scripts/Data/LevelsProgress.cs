@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public partial class LevelsProgress
+public class LevelsProgress
 {
     private static LevelsProgress _instance;
 
@@ -18,14 +18,32 @@ public partial class LevelsProgress
 
     public IDifficult GetDifficultByType(Type type)
     {
-        if (type == typeof(Medium))
+        if(type == typeof(Easy))
+            return GetEasyDifficult();
+        else if (type == typeof(Medium))
             return GetMediumDifficult();
         else if (type == typeof(Hard))
             return GetHardDifficult();
 
         throw new InvalidOperationException(nameof(type));
     }
+    
+    public Easy GetEasyDifficult()
+    {
+        if (PlayerPrefs.HasKey("EasyDifficult") == false)
+        {
+            PlayerPrefs.SetString("EasyDifficult", JsonUtility.ToJson(new Easy()));
+            PlayerPrefs.Save();
+        }
 
+        string json = PlayerPrefs.GetString("EasyDifficult");
+        Debug.Log(json);
+
+        Easy mediumDifficult = JsonUtility.FromJson<Easy>(json);
+        Debug.Log(mediumDifficult);
+        return mediumDifficult;
+    }
+    
     public Medium GetMediumDifficult()
     {
         if (PlayerPrefs.HasKey("MediumDifficult") == false)
