@@ -6,6 +6,7 @@ public class LosePanel : MonoBehaviour
 {
     [SerializeField] private Button _buttonTryAgain;
     [SerializeField] private Button _buttonGoMenu;
+
     private StateMachine _stateMachine;
     private LevelsInfo _levelsInfo;
 
