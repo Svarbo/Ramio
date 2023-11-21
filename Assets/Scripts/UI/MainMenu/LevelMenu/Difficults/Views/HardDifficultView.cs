@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HardDifficultViewButton : MonoBehaviour
+public class HardDifficultView : MonoBehaviour
 {
     [SerializeField] private Button _button;
-
     private DifficultChooserPresenter _difficultChooserPresenter;
 
     private void OnEnable() =>
@@ -15,7 +14,6 @@ public class HardDifficultViewButton : MonoBehaviour
 
     public void Construct(DifficultChooserPresenter difficultChooserPresenter) =>
         _difficultChooserPresenter = difficultChooserPresenter;
-
     private void OnClicked() =>
         _difficultChooserPresenter.SetHardDifficult();
 }

@@ -1,3 +1,5 @@
+using System;
+
 public class SdkLoadState : IState
 {
     private readonly AppCore _appCore;
@@ -30,8 +32,12 @@ public class SdkLoadState : IState
     {
         //_coroutineRunner.StartCoroutine(InitYandexSDK());
 
-
-        _appCore.StateMachine.Enter(typeof(MainMenuState));
+        LevelsInfo levelsInfo = new LevelsInfo();
+        
+        levelsInfo.CurrentDifficult = typeof(Easy);
+        levelsInfo.SceneName = "MainMenu";
+        
+        _appCore.StateMachine.Enter(typeof(LoadLevelState), levelsInfo);
     }
 
     // private IEnumerator InitYandexSDK()

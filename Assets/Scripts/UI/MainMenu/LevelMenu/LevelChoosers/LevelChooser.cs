@@ -7,10 +7,7 @@ public class LevelChooser : MonoBehaviour
     [SerializeField] private Button _button;
 
     private LevelChooserPresenter _levelChooserPresenter;
-
-    private void Awake() =>
-        Hide();
-
+    
     private void OnEnable() =>
         _button.onClick.AddListener(OnClick);
 
@@ -35,9 +32,6 @@ public class LevelChooser : MonoBehaviour
         _button.interactable = true;
     }
 
-    private void OnClick()
-    {
-        _levelChooserPresenter.ActivateButtonToStartGame();
-        _levelChooserPresenter.SetLevelName(_level.ToString());
-    }
+    private void OnClick() =>
+        _levelChooserPresenter.StartGame(_level.ToString());
 }

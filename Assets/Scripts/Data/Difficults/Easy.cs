@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class Easy
+public class Easy : IDifficult
 {
-    [SerializeField] private int _countComplete;
-
     public void ChangeSpawnPoint(string sceneName, Vector3 position) =>
         PlayerPrefs.SetString(sceneName, JsonUtility.ToJson(position));
 
@@ -18,9 +16,22 @@ public class Easy
         return JsonUtility.FromJson<Vector3>(jsonVector);
     }
 
-    public void SetAcceptLevelEasyDifficult(int count)
+    public int GetAcceptLevels()
     {
-        PlayerPrefs.SetInt("LevelEasy", count);
+        if (PlayerPrefs.HasKey("EasyDifficultAcceptLevels") == false)
+            SetStartAcceptLevels();
+        return PlayerPrefs.GetInt("EasyDifficultAcceptLevels");
     }
 
+    public void IncreaseAcceptLevels()
+    {
+        PlayerPrefs.SetInt("EasyDifficultAcceptLevels", GetAcceptLevels() + 1);
+        PlayerPrefs.Save();
+    }
+
+    private void SetStartAcceptLevels()
+    {
+        PlayerPrefs.SetInt("EasyDifficultAcceptLevels", 1);
+        PlayerPrefs.Save();
+    }
 }

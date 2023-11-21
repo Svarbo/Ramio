@@ -13,7 +13,7 @@ public class Burner : MonoBehaviour
     private AudioSource _audioSource;
     private float _currentDelay = 0;
     private float _currentWorkTime = 0;
-    private int _isActiveParameter = Animator.StringToHash("IsActive");
+    private int _isActiveParameter = Animator.StringToHash("IsOn");
 
     private void Start()
     {

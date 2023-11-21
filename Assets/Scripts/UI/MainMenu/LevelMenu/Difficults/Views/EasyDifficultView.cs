@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MediumDifficultViewButton : MonoBehaviour
+public class EasyDifficultView : MonoBehaviour
 {
     [SerializeField] private Button _button;
     private DifficultChooserPresenter _difficultChooserPresenter;
@@ -14,7 +14,6 @@ public class MediumDifficultViewButton : MonoBehaviour
 
     public void Construct(DifficultChooserPresenter difficultChooserPresenter) =>
         _difficultChooserPresenter = difficultChooserPresenter;
-
     private void OnClicked() =>
-        _difficultChooserPresenter.SetMediumDifficult();
+        _difficultChooserPresenter.SetEasyDifficult();
 }

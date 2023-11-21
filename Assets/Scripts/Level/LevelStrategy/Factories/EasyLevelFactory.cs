@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EasyLevelFactory
 {
@@ -15,5 +14,10 @@ public class EasyLevelFactory
     }
 
     public EasyLevelStrategy Create() =>
-        null;
+        new EasyLevelStrategy
+        (
+            _player,
+            LevelsProgress.Instance.GetEasyDifficult().GetSpawnPoint(_levelsInfo.SceneName),
+            _startSpawnPosition
+        );
 }

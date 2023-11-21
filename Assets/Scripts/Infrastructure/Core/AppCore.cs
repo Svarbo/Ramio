@@ -7,7 +7,7 @@ public class AppCore
     {
         Dictionary<Type, IState> scenes = new Dictionary<Type, IState>()
         {
-            [typeof(MainMenuState)] = new MainMenuState(this, coroutineRunner),
+            [typeof(MainMenuState)] = new MainMenuState(this),
             [typeof(GameLoopState)] = new GameLoopState(),
             [typeof(SdkLoadState)] = new SdkLoadState(this),
             [typeof(LoadLevelState)] = new LoadLevelState(this, coroutineRunner, fader),
