@@ -32,12 +32,12 @@ public class WinPanel : MonoBehaviour
     {
         string currentLevelName = SceneManager.GetActiveScene().name;
         string levelName = currentLevelName.Substring(currentLevelName.Length - 1);
-        
+
         if (int.TryParse(levelName, out int number))
             number++;
         else
             throw new InvalidOperationException(levelName);
-        
+
         currentLevelName = currentLevelName.Remove(currentLevelName.Length - 1);
         currentLevelName += number.ToString();
 
@@ -45,6 +45,9 @@ public class WinPanel : MonoBehaviour
         _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
     }
 
-    private void GoMenu() =>
-        _stateMachine.Enter(typeof(MainMenuState));
+    private void GoMenu()
+    {
+        _levelsInfo.SceneName = "MainMenu";
+        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+    }
 }

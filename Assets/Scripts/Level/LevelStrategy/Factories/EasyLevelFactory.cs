@@ -5,9 +5,11 @@ public class EasyLevelFactory
     private LevelsInfo _levelsInfo;
     private Player _player;
     private Vector3 _startSpawnPosition;
+    private StateMachine _stateMachine;
 
-    public EasyLevelFactory(LevelsInfo levelsInfo, Player player, Vector3 startSpawnPosition)
+    public EasyLevelFactory(LevelsInfo levelsInfo, Player player, StateMachine stateMachine, Vector3 startSpawnPosition)
     {
+        _stateMachine = stateMachine;
         _levelsInfo = levelsInfo;
         _player = player;
         _startSpawnPosition = startSpawnPosition;
@@ -17,7 +19,11 @@ public class EasyLevelFactory
         new EasyLevelStrategy
         (
             _player,
-            LevelsProgress.Instance.GetEasyDifficult().GetSpawnPoint(_levelsInfo.SceneName),
-            _startSpawnPosition
+            _stateMachine,
+            _levelsInfo,
+            lastCheckpoint: default,
+            startCheckpoint: _startSpawnPosition
         );
+    //            lastCheckpoint: LevelsProgress.Instance.GetDifficultByType(typeof(Easy)),
+
 }

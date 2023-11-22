@@ -1,18 +1,12 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class HardLevelStrategy : LevelDifficultStrategy
 {
     private Player _player;
-    private Vector3 _startPosition;
-    private readonly GameBootstrap _gameBootstrap;
     private readonly LevelsInfo _levelsInfo;
 
-    public HardLevelStrategy(Player player, Vector3 startPosition, GameBootstrap gameBootstrap, LevelsInfo levelsInfo)
+    public HardLevelStrategy(Player player,  StateMachine stateMachine, LevelsInfo levelsInfo)
+        : base(player, stateMachine, levelsInfo)
     {
         _player = player;
-        _startPosition = startPosition;
-        _gameBootstrap = gameBootstrap;
         _levelsInfo = levelsInfo;
 
         _player.PlayerDied += OnPlayerDied;
@@ -20,13 +14,8 @@ public class HardLevelStrategy : LevelDifficultStrategy
 
     private void OnPlayerDied()
     {
-        if (SceneManager.GetActiveScene().name == "Level0")
-            _player.transform.position = _startPosition;
-        else
-        {
-            _levelsInfo.SceneName = "Level0";
-            _gameBootstrap.AppCore.StateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
-        }
+        _levelsInfo.SceneName = "Level0";
+        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
     }
 
     public override void Execute()

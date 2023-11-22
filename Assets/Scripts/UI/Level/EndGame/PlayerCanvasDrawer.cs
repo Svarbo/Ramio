@@ -3,10 +3,12 @@ using UnityEngine;
 public class PlayerCanvasDrawer : MonoBehaviour
 {
     [SerializeField] private OrangesCountText _orangesCountText;
-    private LevelsInfo _levelsInfo;
+
     [field: SerializeField] public WinPanel WinPanel { get; private set; }
     [field: SerializeField] public LosePanel LosePanel { get; private set; }
 
+    private LevelsInfo _levelsInfo;
+    
     public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo)
     {
         _levelsInfo = levelsInfo;
@@ -19,8 +21,12 @@ public class PlayerCanvasDrawer : MonoBehaviour
         _orangesCountText.SetCountText(score, PlayerPrefs.GetInt("CurrentLevelOrangesCount"));
         WinPanel.gameObject.SetActive(true);
 
-        IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
-        difficult.IncreaseAcceptLevels();
+        if (_levelsInfo.CurrentDifficult != typeof(Hard))
+        {
+            IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
+            difficult.GetAcceptLevels();
+            difficult.IncreaseAcceptLevels();
+        }
     }
 
     public void DrawDefeatPanel() =>

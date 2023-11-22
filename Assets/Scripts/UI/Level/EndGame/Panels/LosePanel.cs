@@ -33,6 +33,8 @@ public class LosePanel : MonoBehaviour
         _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
     }
 
-    private void GoToMainMenu() =>
-        _stateMachine.Enter(typeof(MainMenuState));
+    private void GoToMainMenu()
+    {
+        _levelsInfo.SceneName = "MainMenu";
+        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);    }
 }

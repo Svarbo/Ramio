@@ -10,7 +10,8 @@ public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
     private AbstractFactory _abstractFactory;
     private CheckpointChooserView _checkpointChooserView;
 
-    public EasyLevelStrategy(Player player, Vector3 lastCheckpoint, Vector3 startCheckpoint)
+    public EasyLevelStrategy(Player player, StateMachine stateMachine, LevelsInfo levelsInfo, Vector3 lastCheckpoint, Vector3 startCheckpoint)
+    : base(player, stateMachine, levelsInfo)
     {
         _player = player;
         _lastCheckpoint = lastCheckpoint;
