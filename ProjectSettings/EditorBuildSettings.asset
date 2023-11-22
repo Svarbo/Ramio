@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 1be8a46b22f6c5e40bc53f24c90a16ed
   - enabled: 1
-    path: Assets/Scenes/Level4.unity
+    path: Assets/Scenes/Level3.unity
     guid: bf56d921550640a42a2e90fe113a319f
   - enabled: 0
     path: Assets/VOiD1 Gaming/Scenes/SampleScene.unity
@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Samples/Web Utility/3.0.0/Playtesting Sample/PlaytestingScene.unity
     guid: f217115a68ee0f9459dd5bd77192cdae
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/Level5.unity
     guid: 88f8bd432baa9c4478feb6fbfcbe7430
   - enabled: 1
     path: Assets/Plugins/SimpleInput/Example/ExampleScene.unity
