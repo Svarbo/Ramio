@@ -3,9 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(ToggleGroup))]
-public class LanguagesChanger : MonoBehaviour
+public class LanguageChanger : MonoBehaviour
 {
     [SerializeField] private List<Toggle> _toggles = new List<Toggle>();
+
+    [field: SerializeField] public LanguageSaveView LanguageSaveView { get; private set; }
 
     private ToggleGroup _toggleGroup;
 

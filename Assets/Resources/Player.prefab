@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 166870205814019557}
   - component: {fileID: 1301358487644132871}
   - component: {fileID: 4592148894340792775}
+  - component: {fileID: 6251908440543015774}
   m_Layer: 5
   m_Name: AttemptsNumberText
   m_TagString: Untagged
@@ -770,6 +771,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6251908440543015774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672840456932035636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24163d2553c013449958dc97bdc2f4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 7126761967768244191}
 --- !u!1 &1818198628857416157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1487,7 @@ GameObject:
   - component: {fileID: 7095434015620609170}
   - component: {fileID: 4175540433602121568}
   - component: {fileID: 6845423934862192474}
+  - component: {fileID: 101389758346959948}
   m_Layer: 5
   m_Name: AttemptsNumberText
   m_TagString: Untagged
@@ -1557,7 +1572,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 85.55
+  m_fontSize: 93.7
   m_fontSizeBase: 44.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1599,6 +1614,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &101389758346959948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3771025344221389130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24163d2553c013449958dc97bdc2f4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 7126761967768244191}
 --- !u!1 &4154795820316899296
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 1
   _isHorizontalMovable: 1
-  _extraJumpSound: {fileID: 8300000, guid: ec9da6aa7c4f3684dbf55a81cbbd8ca5, type: 3}
 --- !u!114 &5059869853096676234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3241,7 +3268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 0
   _isHorizontalMovable: 0
-  _wallJumpSound: {fileID: 8300000, guid: ec9da6aa7c4f3684dbf55a81cbbd8ca5, type: 3}
 --- !u!114 &7801211086210138626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3298,7 +3324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 1
   _isHorizontalMovable: 1
-  _jumpSound: {fileID: 8300000, guid: ec9da6aa7c4f3684dbf55a81cbbd8ca5, type: 3}
 --- !u!114 &2444277554769381506
 MonoBehaviour:
   m_ObjectHideFlags: 0

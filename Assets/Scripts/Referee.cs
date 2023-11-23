@@ -22,7 +22,7 @@ public class Referee : MonoBehaviour
 
     public void DeclairWin()
     {
-        _playerCanvasDrawer.DrawWinPanel(_player.Score);
+        _playerCanvasDrawer.DrawWinPanel(_player.FruitsCount);
         TrySetPlayerResult();
     }
 
@@ -41,7 +41,7 @@ public class Referee : MonoBehaviour
         {
             Debug.Log("Попытка обновления результата");
 
-            int playerScore = _player.Score;
+            int playerScore = _player.FruitsCount;
 
             Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
             {

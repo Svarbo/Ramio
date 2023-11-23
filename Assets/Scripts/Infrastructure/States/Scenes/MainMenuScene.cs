@@ -4,7 +4,7 @@ public class MainMenuState : IPayloadState<LevelsInfo>
     private DifficultChooserPresenter _difficultChooserPresenter;
     private LevelChooserPresenter _levelChooserPresenter;
     private GameAudioData _gameAudioData;
-    private LanguagePresenter _languagePresenter;
+    private LanguageSavePresenter _languageSavePresenter;
     private DifficultBuilder _difficultBuilder;
     private LevelChooserBuilder _levelChooserBuilder;
     private LevelsInfo _levelsInfo;
@@ -85,12 +85,9 @@ public class MainMenuState : IPayloadState<LevelsInfo>
 
         #region Language
 
-        _languagePresenter = new LanguagePresenter
-        (
-            mainMenuView.SettingsView.LanguagesMainMenuView.LanguageRUView,
-            mainMenuView.SettingsView.LanguagesMainMenuView.LanguageENView,
-            mainMenuView.SettingsView.LanguagesMainMenuView.LanguageTRView
-        );
+        LanguageChanger languageChanger = mainMenuView.SettingsView.LanguageChanger;
+        _languageSavePresenter = new LanguageSavePresenter(_appCore.StateMachine, _levelsInfo, languageChanger);
+        languageChanger.LanguageSaveView.Construct(_languageSavePresenter);
 
         #endregion
 

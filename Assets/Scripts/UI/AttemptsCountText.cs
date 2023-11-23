@@ -8,7 +8,7 @@ public class AttemptsCountText : MonoBehaviour
 
     private TMP_Text _text;
 
-    private void Awake()
+    private void Start()
     {
         _text = GetComponent<TMP_Text>();
 
@@ -17,6 +17,6 @@ public class AttemptsCountText : MonoBehaviour
 
     private void SetText()
     {
-        _text.text = _player.Score.ToString();
+        _text.text = _player.AttemptsCount.ToString();
     }
 }

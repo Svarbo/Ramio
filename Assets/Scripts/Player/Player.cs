@@ -11,9 +11,9 @@ public class Player : MonoBehaviour
     private PlayerStats _playerStats;
     private int _currentHealth;
     private int _maxHealth;
-    private int _score;
+    private int _fruitsCount;
 
-    public int Score => _score;
+    public int FruitsCount => _fruitsCount;
     public int CurrentHealth => _currentHealth;
 
     public int AttemptsCount { get; private set; }
@@ -28,9 +28,8 @@ public class Player : MonoBehaviour
         _playerStats = GetComponent<PlayerStats>();
         PlayerInput = GetComponent<PlayerInput>();
 
-        SetHealth();
-
         AttemptsCount = PlayerPrefs.GetInt("AttemptsCount");
+        SetHealth();
     }
 
     public void TakeDamage(int damage)
@@ -44,14 +43,14 @@ public class Player : MonoBehaviour
 
     public void IncreaseScore(int reward)
     {
-        _score += reward;
+        _fruitsCount += reward;
         FruitRaised?.Invoke();
     }
 
     private void Die()
     {
-        _playerInfo.SetDesappearing(true);
         IncreaseAttemptsCount();
+        _playerInfo.SetDesappearing(true);
 
         PlayerDied?.Invoke();
     }

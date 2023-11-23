@@ -10,7 +10,7 @@ public class Tools : MonoBehaviour
         PlayerPrefs.Save();
     }
     
-    [MenuItem("Tools/Clear Medium Difficult Saves")]
+    [MenuItem("Tools/Clear Easy Difficult Saves")]
     public static void ClearEasyDifficult()
     {
         PlayerPrefs.DeleteKey("EasyDifficult");

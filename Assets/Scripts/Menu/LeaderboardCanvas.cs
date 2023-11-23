@@ -9,7 +9,7 @@ public class LeaderboardCanvas : MonoBehaviour
 
     [SerializeField] private List<LeaderPlace> _leaderPlaces = new List<LeaderPlace>();
     [SerializeField] private TMP_Text _playerTopPlaceText;
-    [SerializeField] private TMP_Text _playerScoreText;
+    [SerializeField] private TMP_Text _playerAttemptionsCountText;
 
     private void OnEnable()
     {
@@ -24,12 +24,12 @@ public class LeaderboardCanvas : MonoBehaviour
             if (result == null)
             {
                 _playerTopPlaceText.text = "-";
-                _playerScoreText.text = "-";
+                _playerAttemptionsCountText.text = "-";
             }
             else
             {
                 _playerTopPlaceText.text = result.rank.ToString();
-                _playerScoreText.text = result.score.ToString();
+                _playerAttemptionsCountText.text = result.score.ToString();
             }
         });
     }
