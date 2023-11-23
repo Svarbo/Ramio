@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,7 +16,6 @@ public class Fader : MonoBehaviour
     private void Awake() =>
         DontDestroyOnLoad(this);
 
-    //Появление
     public void FadeIn(UnityAction isDarken) => 
         _currentCoroutine = StartCoroutine(Darken(isDarken));
 
@@ -37,7 +35,6 @@ public class Fader : MonoBehaviour
         StopCoroutine(_currentCoroutine);
     }
 
-    //Исчезновение
     public void FadeOut() => 
         _currentCoroutine = StartCoroutine(Lighten());
 

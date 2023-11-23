@@ -5,46 +5,60 @@ using Agava.YandexGames;
 
 public class LeaderboardCanvas : MonoBehaviour
 {
+    private const string LeaderboardName = "Leaderboard";
+
     [SerializeField] private List<LeaderPlace> _leaderPlaces = new List<LeaderPlace>();
     [SerializeField] private TMP_Text _playerTopPlaceText;
+    [SerializeField] private TMP_Text _playerScoreText;
 
-    private void OnEnable() => 
-        ShowLeaders();
-
-    private void ShowLeaders()
+    private void OnEnable()
     {
-        Leaderboard.GetEntries("Leaderboard1", (result) =>
+        ShowFirstLeaders();
+        ShowPlayerPlace();
+    }
+
+    private void ShowPlayerPlace()
+    {
+        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
         {
-            ShowPlayerPlace(result);
-            ShowFirstLeaders(result);
+            if (result == null)
+            {
+                _playerTopPlaceText.text = "-";
+                _playerScoreText.text = "-";
+            }
+            else
+            {
+                _playerTopPlaceText.text = result.rank.ToString();
+                _playerScoreText.text = result.score.ToString();
+            }
         });
     }
 
-    private void ShowPlayerPlace(LeaderboardGetEntriesResponse result) => 
-        _playerTopPlaceText.text = result.userRank.ToString();
-
-    private void ShowFirstLeaders(LeaderboardGetEntriesResponse result)
+    private void ShowFirstLeaders()
     {
-        string leaderName;
-        int leaderScore;
-        int leadersCount = _leaderPlaces.Count;
-
-        for (int i = 0; i < leadersCount; i++)
+        Leaderboard.GetEntries(LeaderboardName, (result) =>
         {
-            LeaderboardEntryResponse entry = result.entries[i];
+            string leaderName;
+            int leaderScore;
+            int leadersCount = _leaderPlaces.Count;
 
-            if(entry != null)
+            for (int i = 0; i < leadersCount; i++)
             {
-                leaderName = GetLeaderName(entry);
-                leaderScore = GetLeaderScore(entry);
+                LeaderboardEntryResponse entry = result.entries[i];
 
-                _leaderPlaces[i].SetLeaderData(leaderName, leaderScore);
-                _leaderPlaces[i].gameObject.SetActive(true);
+                if (entry != null)
+                {
+                    leaderName = GetLeaderName(entry);
+                    leaderScore = GetLeaderScore(entry);
+
+                    _leaderPlaces[i].SetLeaderData(leaderName, leaderScore);
+                    _leaderPlaces[i].gameObject.SetActive(true);
+                }
             }
-        }
+        });
     }
 
-    private int GetLeaderScore(LeaderboardEntryResponse entry) => 
+    private int GetLeaderScore(LeaderboardEntryResponse entry) =>
         entry.score;
 
     private string GetLeaderName(LeaderboardEntryResponse entry)

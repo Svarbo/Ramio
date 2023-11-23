@@ -3,8 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class JumpState : PlayerState
 {
-    [SerializeField] private AudioClip _jumpSound;
-
     private Rigidbody2D _rigidbody2D;
     private int _jumpAnimation = Animator.StringToHash("Jump");
 
@@ -21,7 +19,6 @@ public class JumpState : PlayerState
     private void Jump()
     {
         PlayerAnimator.Play(_jumpAnimation);
-        AudioSource.PlayOneShot(_jumpSound);
 
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, PlayerStats.JumpForce);
     }
