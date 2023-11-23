@@ -1,4 +1,5 @@
 using System;
+using Level.SpawnPoints;
 using UI.Level;
 using UnityEngine;
 
@@ -9,14 +10,19 @@ public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
     private readonly Vector3 _startCheckpoint;
     private AbstractFactory _abstractFactory;
     private CheckpointChooserView _checkpointChooserView;
+    private SpawnPointContainer _spawnPointContainer;
 
-    public EasyLevelStrategy(Player player, StateMachine stateMachine, LevelsInfo levelsInfo, Vector3 lastCheckpoint, Vector3 startCheckpoint)
+    public EasyLevelStrategy(Player player, StateMachine stateMachine, LevelsInfo levelsInfo, SpawnPointContainer spawnPointContainer, Vector3 lastCheckpoint, Vector3 startCheckpoint)
     : base(player, stateMachine, levelsInfo)
     {
+        _spawnPointContainer = spawnPointContainer;
         _player = player;
         _lastCheckpoint = lastCheckpoint;
         _startCheckpoint = startCheckpoint;
         _abstractFactory = new AbstractFactory();
+
+        _spawnPointContainer.gameObject.SetActive(true);
+        _spawnPointContainer.Show();
     }
 
     public override void Execute()

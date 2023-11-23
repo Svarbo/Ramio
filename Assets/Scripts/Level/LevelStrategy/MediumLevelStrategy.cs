@@ -9,7 +9,6 @@ public class MediumLevelStrategy : LevelDifficultStrategy
     {
         _player = player;
         _levelsInfo = levelsInfo;
-        _playerCanvasDrawer.Construct(_stateMachine, _levelsInfo);
     }
 
     public override void Execute()

@@ -14,6 +14,16 @@ public class HardDifficultView : MonoBehaviour
 
     public void Construct(DifficultChooserPresenter difficultChooserPresenter) =>
         _difficultChooserPresenter = difficultChooserPresenter;
+    public void Show()
+    {
+        _button.interactable = true;
+    }
+
+    public void Hide()
+    {
+        _button.interactable = false;
+    }
+
     private void OnClicked() =>
         _difficultChooserPresenter.SetHardDifficult();
 }

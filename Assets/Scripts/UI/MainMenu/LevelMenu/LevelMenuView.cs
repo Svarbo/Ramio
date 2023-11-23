@@ -10,9 +10,6 @@ public class LevelMenuView : MonoBehaviour
     {
         IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
         LevelsRow.ShowLevelChoosers(difficult.GetAcceptLevels());
-
-        // foreach (LevelChooser levelChooser in LevelsRow.LevelChoosers)
-        //     levelChooser.Construct(_levelChooserPresenter);
     }
 
     public void Construct(LevelsInfo levelsInfo) =>

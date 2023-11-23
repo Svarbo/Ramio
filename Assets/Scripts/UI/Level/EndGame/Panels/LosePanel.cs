@@ -30,12 +30,39 @@ public class LosePanel : MonoBehaviour
 
     private void TryAgain()
     {
-        _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
-        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+        if (_levelsInfo.CurrentDifficult == typeof(Hard))
+        {
+            _levelsInfo.SceneName = Levels.Level0.ToString();
+            _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+        }
+        else
+        {
+            _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
+            _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+        }
+        //OnCloseCallback(true);
+        //InterstitialAd.Show(OnStartCallBack, OnCloseCallback);
+    }
+
+    private void OnStartCallBack()
+    {
+        // Mute Music
+    }
+
+    private void OnCloseCallback(bool obj)
+    {
+        // UnMute Music
+
+        if (obj)
+        {
+            _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
+            _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+        }
     }
 
     private void GoToMainMenu()
     {
         _levelsInfo.SceneName = "MainMenu";
-        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);    }
+        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+    }
 }

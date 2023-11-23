@@ -14,7 +14,7 @@ public class LevelChooserBuilder
 
     public LevelChooserPresenter Build()
     {
-        _levelChooserPresenter = InitLevelChooser(_levelMenuView.LevelsRow, _levelsInfo);
+        _levelChooserPresenter = InitLevelChooser(_levelsInfo);
 
         foreach (LevelChooser levelChooser in _levelMenuView.LevelsRow.LevelChoosers)
             levelChooser.Construct(_levelChooserPresenter);
@@ -23,6 +23,6 @@ public class LevelChooserBuilder
         return _levelChooserPresenter;
     }
 
-    private LevelChooserPresenter InitLevelChooser(LevelsRow levelsRow, LevelsInfo levelsInfo) =>
-        _levelChooserPresenter = new LevelChooserPresenter(levelsRow, levelsInfo, _stateMachine);
+    private LevelChooserPresenter InitLevelChooser(LevelsInfo levelsInfo) =>
+        _levelChooserPresenter = new LevelChooserPresenter(_levelMenuView.LevelsRow ,levelsInfo, _stateMachine);
 }

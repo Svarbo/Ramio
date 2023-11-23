@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class Medium : IDifficult
 {
-    private List<string> _scenes = new List<string>();
+    private const string Difficult = "Medium";
 
     public int GetAcceptLevels()
     {
@@ -15,39 +15,18 @@ public class Medium : IDifficult
         return PlayerPrefs.GetInt("MediumDifficultAcceptLevels");
     }
 
-    public void IncreaseAcceptLevels()
+    public void IncreaseAcceptLevels(string sceneName)
     {
-        if (TryAddScene())
+        string key = Difficult + sceneName;
+
+        if (PlayerPrefs.HasKey(key) == false)
         {
+            PlayerPrefs.SetString(key, key);
             PlayerPrefs.SetInt("MediumDifficultAcceptLevels", GetAcceptLevels() + 1);
             PlayerPrefs.Save();
         }
     }
-
-    private bool TryAddScene()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-
-        if (PlayerPrefs.HasKey("MediumSceneComplited") == false)
-        {
-            PlayerPrefs.SetString("MediumSceneComplited", JsonUtility.ToJson(_scenes));
-            PlayerPrefs.Save();
-            return false;
-        }
-
-        _scenes = JsonUtility.FromJson<List<string>>(PlayerPrefs.GetString("MediumSceneComplited"));
-
-        if (_scenes.Contains(sceneName) == false)
-        {
-            _scenes.Add(sceneName);
-            PlayerPrefs.SetString("MediumSceneComplited", JsonUtility.ToJson(_scenes));
-            PlayerPrefs.Save();
-            return true;
-        }
-        
-        return false;
-    }
-
+    
     private void SetStartAcceptLevels()
     {
         PlayerPrefs.SetInt("MediumDifficultAcceptLevels", 1);

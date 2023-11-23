@@ -55,17 +55,16 @@ public class MainMenuState : IPayloadState<LevelsInfo>
         _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);
         _levelChooserPresenter = _levelChooserBuilder.Build();
 
-        
         #region Difficults
 
-        _difficultBuilder = new DifficultBuilder(_levelsInfo, mainMenuView.LevelMenuView.DifficultChooserView);
+        _difficultBuilder = new DifficultBuilder(_levelChooserPresenter, _levelsInfo, mainMenuView.LevelMenuView.DifficultChooserView);
         _difficultChooserPresenter = _difficultBuilder.Build();
 
         #endregion
 
         #endregion
 
-        #region SettingsBuilder
+        #region Settings
         
         #region Audio
 

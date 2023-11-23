@@ -8,14 +8,6 @@ public class HardLevelStrategy : LevelDifficultStrategy
     {
         _player = player;
         _levelsInfo = levelsInfo;
-
-        _player.PlayerDied += OnPlayerDied;
-    }
-
-    private void OnPlayerDied()
-    {
-        _levelsInfo.SceneName = "Level0";
-        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
     }
 
     public override void Execute()
