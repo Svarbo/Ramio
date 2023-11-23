@@ -1,4 +1,6 @@
+using Level.SpawnPoints;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EasyLevelFactory
 {
@@ -6,9 +8,11 @@ public class EasyLevelFactory
     private Player _player;
     private Vector3 _startSpawnPosition;
     private StateMachine _stateMachine;
+    private SpawnPointContainer _spawnPointContainer;
 
-    public EasyLevelFactory(LevelsInfo levelsInfo, Player player, StateMachine stateMachine, Vector3 startSpawnPosition)
+    public EasyLevelFactory(LevelsInfo levelsInfo, Player player, StateMachine stateMachine, Vector3 startSpawnPosition, SpawnPointContainer spawnPointContainer)
     {
+        _spawnPointContainer = spawnPointContainer;
         _stateMachine = stateMachine;
         _levelsInfo = levelsInfo;
         _player = player;
@@ -21,9 +25,14 @@ public class EasyLevelFactory
             _player,
             _stateMachine,
             _levelsInfo,
-            lastCheckpoint: default,
+            _spawnPointContainer,
+            lastCheckpoint: GetLastPosition(),
             startCheckpoint: _startSpawnPosition
         );
-    //            lastCheckpoint: LevelsProgress.Instance.GetDifficultByType(typeof(Easy)),
 
+    private Vector3 GetLastPosition()
+    {
+        Easy easy = LevelsProgress.Instance.GetDifficultByType(typeof(Easy)) as Easy;
+        return easy.GetSpawnPoint(SceneManager.GetActiveScene().name).Position;
+    }
 }

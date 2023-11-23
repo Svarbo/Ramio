@@ -5,7 +5,7 @@ public class MenuSwitcher : MonoBehaviour
     [SerializeField] private MenuView _mainMenu;
     [SerializeField] private LevelMenuView _levelMenu;
     [SerializeField] private SettingsView _settings;
-    [SerializeField] private LeaderboardView _leaderboard;
+    [SerializeField] private LeaderboardCanvas _leaderboard;
 
     public void EnableMainMenu()
     {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCanvasDrawer : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class PlayerCanvasDrawer : MonoBehaviour
         {
             IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
             difficult.GetAcceptLevels();
-            difficult.IncreaseAcceptLevels();
+            difficult.IncreaseAcceptLevels(SceneManager.GetActiveScene().name);
         }
     }
 

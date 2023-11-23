@@ -1,23 +1,29 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Easy : IDifficult
 {
-    private List<string> _scenes = new List<string>();
+    private const string Difficult = "Easy";
+    private const string SpawnPoint = "EasySpawnPoint";
 
-    public void ChangeSpawnPoint(string sceneName, Vector3 position) =>
-        PlayerPrefs.SetString(sceneName, JsonUtility.ToJson(position));
-
-    public Vector3 GetSpawnPoint(string sceneName)
+    public void ChangeSpawnPoint(string sceneName, SceneSpawnPoint sceneSpawnPoint)
     {
-        if (PlayerPrefs.HasKey(sceneName) == false)
+        string key = SpawnPoint + sceneName;
+
+        PlayerPrefs.SetString(key, JsonUtility.ToJson(sceneSpawnPoint));
+        PlayerPrefs.Save();
+    }
+
+    public SceneSpawnPoint GetSpawnPoint(string sceneName)
+    {
+        string key = SpawnPoint + sceneName;
+
+        if (PlayerPrefs.HasKey(key) == false)
             return default;
 
-        string jsonVector = PlayerPrefs.GetString(sceneName);
-        return JsonUtility.FromJson<Vector3>(jsonVector);
+        string jsonVector = PlayerPrefs.GetString(key);
+        return JsonUtility.FromJson<SceneSpawnPoint>(jsonVector);
     }
 
     public int GetAcceptLevels()
@@ -27,10 +33,13 @@ public class Easy : IDifficult
         return PlayerPrefs.GetInt("EasyDifficultAcceptLevels");
     }
 
-    public void IncreaseAcceptLevels()
+    public void IncreaseAcceptLevels(string sceneName)
     {
-        if (TryAddScene())
+        string key = Difficult + sceneName;
+
+        if (PlayerPrefs.HasKey(key) == false)
         {
+            PlayerPrefs.SetString(key, key);
             PlayerPrefs.SetInt("EasyDifficultAcceptLevels", GetAcceptLevels() + 1);
             PlayerPrefs.Save();
         }
@@ -41,28 +50,17 @@ public class Easy : IDifficult
         PlayerPrefs.SetInt("EasyDifficultAcceptLevels", 1);
         PlayerPrefs.Save();
     }
-    
-    private bool TryAddScene()
+}
+
+[Serializable]
+public struct SceneSpawnPoint
+{
+    public int Id;
+    public Vector3 Position;
+
+    public SceneSpawnPoint(int id, Vector3 position)
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-
-        if (PlayerPrefs.HasKey("EasySceneComplited") == false)
-        {
-            PlayerPrefs.SetString("EasySceneComplited", JsonUtility.ToJson(_scenes));
-            PlayerPrefs.Save();
-            return false;
-        }
-
-        _scenes = JsonUtility.FromJson<List<string>>(PlayerPrefs.GetString("EasySceneComplited"));
-
-        if (_scenes.Contains(sceneName) == false)
-        {
-            _scenes.Add(sceneName);
-            PlayerPrefs.SetString("EasySceneComplited", JsonUtility.ToJson(_scenes));
-            PlayerPrefs.Save();
-            return true;
-        }
-        
-        return false;
+        Id = id;
+        Position = position;
     }
 }
