@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2b1370a62641209c624adfa688390c, type: 3}
   m_Name: GameAudioData
   m_EditorClassIdentifier: 
-  <Effects>k__BackingField: 1
+  <Effects>k__BackingField: 0.5
   <Music>k__BackingField: 0.2

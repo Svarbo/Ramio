@@ -1903,7 +1903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -15}
+  m_AnchoredPosition: {x: -80, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652480727
@@ -37980,6 +37980,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 527816981}
     m_Modifications:
+    - target: {fileID: 1393900987251973860, guid: f35350a722506ce479234208e4a08d8d, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4893746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393900987251973860, guid: f35350a722506ce479234208e4a08d8d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1273801
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393900987251973860, guid: f35350a722506ce479234208e4a08d8d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.24468732
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393900987251973860, guid: f35350a722506ce479234208e4a08d8d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.063690096
+      objectReference: {fileID: 0}
     - target: {fileID: 7452244371209591040, guid: f35350a722506ce479234208e4a08d8d, type: 3}
       propertyPath: m_RootOrder
       value: 0

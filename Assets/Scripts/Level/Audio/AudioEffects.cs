@@ -7,10 +7,8 @@ public class AudioEffects : MonoBehaviour
 
     private AudioSource _audioSource;
 
-    private void Awake()
-    {
+    private void Awake() =>
         _audioSource = GetComponent<AudioSource>();
-    }
 
     private void OnEnable()
     {
