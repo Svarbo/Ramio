@@ -37,7 +37,7 @@ public class Referee : MonoBehaviour
 
         if (LastLevelName == currentLevelName)
         {
-            int playerScore = _player.FruitsCount;
+            int playerScore = _player.AttemptsCount;
 
             Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
             {
