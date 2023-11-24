@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using System.Collections;
 
 public class SdkLoadState : IState
@@ -27,15 +28,13 @@ public class SdkLoadState : IState
     {
     }
 
-    public void Enter()
-    {
+    public void Enter() => 
         _coroutineRunner.StartCoroutine(InitYandexSDK());
-    }
 
     private IEnumerator InitYandexSDK()
     {
-        // yield return YandexGamesSdk.Initialize();
-        yield return null;
+        yield return YandexGamesSdk.Initialize();
+
         LevelsInfo levelsInfo = new LevelsInfo();
         levelsInfo.CurrentDifficult = LevelsProgress.Instance.GetStartDifficult();
         levelsInfo.SceneName = Levels.MainMenu.ToString();

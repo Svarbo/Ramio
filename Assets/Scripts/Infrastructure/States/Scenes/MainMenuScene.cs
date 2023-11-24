@@ -40,8 +40,7 @@ public class MainMenuState : IPayloadState<LevelsInfo>
     {
         MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
         MainMenuView mainMenuView = mainMenuViewFactory.Create();
-        // mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
-        mainMenuView.UserInfo.IsMobile = false;
+        mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
         #region LevelMenuBuilders
 
         _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);
