@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private int _currentHealth;
     private int _maxHealth;
     private int _fruitsCount;
+    private bool _isDied = false;
 
     public int FruitsCount => _fruitsCount;
     public int CurrentHealth => _currentHealth;
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
         _currentHealth -= damage;
         _playerInfo.ActivateHit();
 
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 && _isDied != true)
             Die();
     }
 
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        _isDied = true;
         IncreaseAttemptsCount();
         _playerInfo.SetDesappearing(true);
 
