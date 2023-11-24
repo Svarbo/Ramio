@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using PlayerPrefs = Agava.YandexGames.PlayerPrefs;
 
 [Serializable]
 public class LevelsProgress
 {
-    private const string StartGameDifficult = "StartDifficult";
+    private const string StartGameDifficult = "GetStartDifficult";
+
     private static LevelsProgress _instance;
 
     public static LevelsProgress Instance
@@ -19,8 +19,7 @@ public class LevelsProgress
             return _instance;
         }
     }
-    
-    
+
     private List<IDifficult> _difficults = new List<IDifficult>()
     {
         new Easy(),
@@ -28,17 +27,24 @@ public class LevelsProgress
         new Hard(),
     };
 
-    public Type StartDifficult()
+    public Type GetStartDifficult()
     {
         if (PlayerPrefs.HasKey(StartGameDifficult) == false)
             return typeof(Medium);
 
-        return JsonUtility.FromJson<Type>(PlayerPrefs.GetString(StartGameDifficult));
+        string typeDifficult = PlayerPrefs.GetString(StartGameDifficult);
+
+        Type difficult = Type.GetType(typeDifficult);
+
+        GetDifficultByType(difficult);
+
+        return difficult;
     }
 
-    public void SetStartDifficult(Type type)
+    public void SetStartDifficult(string typeDifficult)
     {
-        PlayerPrefs.SetString(StartGameDifficult, JsonUtility.ToJson(type));
+        IDifficult difficult = GetDifficultByType(Type.GetType(typeDifficult));
+        PlayerPrefs.SetString(StartGameDifficult, difficult.ToString());
         PlayerPrefs.Save();
     }
 

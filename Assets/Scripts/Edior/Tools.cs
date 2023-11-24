@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Tools : MonoBehaviour
 {
-    //[MenuItem("Tools/Clear All Player Prefs")]
-    //public static void ClearPlayerPrefs()
-    //{
-    //    PlayerPrefs.DeleteAll();
-    //    PlayerPrefs.Save();
-    //}
+    [MenuItem("Tools/Clear All Player Prefs")]
+    public static void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
 
-    //[MenuItem("Tools/Clear Easy Difficult Saves")]
+    //[MenuItem("Tools/Clear Easy IDifficult Saves")]
     //public static void ClearEasyDifficult()
     //{
     //    PlayerPrefs.DeleteKey("EasyDifficult");
@@ -18,7 +18,7 @@ public class Tools : MonoBehaviour
     //    PlayerPrefs.Save();
     //}
 
-    //[MenuItem("Tools/Clear Medium Difficult Saves")]
+    //[MenuItem("Tools/Clear Medium IDifficult Saves")]
     //public static void ClearMediumDifficult()
     //{
     //    PlayerPrefs.DeleteKey("MediumDifficult");
@@ -26,7 +26,7 @@ public class Tools : MonoBehaviour
     //    PlayerPrefs.Save();
     //}
 
-    //[MenuItem("Tools/Clear Hard Difficult Saves")]
+    //[MenuItem("Tools/Clear Hard IDifficult Saves")]
     //public static void ClearHardDifficult()
     //{
     //    PlayerPrefs.DeleteKey("HardDifficult");
