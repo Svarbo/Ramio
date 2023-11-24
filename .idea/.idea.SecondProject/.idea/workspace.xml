@@ -2,40 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c330970-745d-476f-a27d-e779493fbee5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointContainer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointContainer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointTrigger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ICoroutineRunner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ICoroutineRunner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/Level/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/Level/Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/MainMenu/MainMenuView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/MainMenu/MainMenuView.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level0.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Easy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Easy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Hard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Hard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/IDifficult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/IDifficult.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Medium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Medium.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Levels.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Levels.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/LevelsProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/LevelsProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Edior/GotoMainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Edior/GotoMainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/AbstractFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/AbstractFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Payloads.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Payloads/IPayloadForState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Payloads/IPayloadForState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/GameLoopState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/GameLoopState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/LoadLevelState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/LoadLevelState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/MainMenuScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/MainMenuScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/SdkLoadState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/SdkLoadState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/EasyLevelStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/EasyLevelStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/Factories/EasyLevelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/Factories/EasyLevelFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/HardLevelStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/HardLevelStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/MediumLevelStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/MediumLevelStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPointTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPointTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/Spawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/Spawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Transitions/MenuSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Transitions/MenuSwitcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/LosePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/LosePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultChooserPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultChooserPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/EasyDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/EasyDifficultView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/HardDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/HardDifficultView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/MediumDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/MediumDifficultView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelMenuView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenuView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +143,7 @@
       <workItem from="1700245141422" duration="13577000" />
       <workItem from="1700322892074" duration="4826000" />
       <workItem from="1700404218395" duration="2534000" />
-      <workItem from="1700688083216" duration="21612000" />
+      <workItem from="1700688083216" duration="26738000" />
     </task>
     <servers />
   </component>
@@ -223,19 +214,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/LosePanel.cs</url>
-          <line>35</line>
-          <properties documentPath="E:\Games\2D\Platformer\SecondProject\Assets\Scripts\UI\Level\EndGame\Panels\LosePanel.cs" initialLine="35" containingFunctionPresentation="method 'TryAgain'">
-            <startOffsets>
-              <option value="874" />
-            </startOffsets>
-            <endOffsets>
-              <option value="923" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

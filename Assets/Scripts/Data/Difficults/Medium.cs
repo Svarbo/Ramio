@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 public class Medium : IDifficult
 {
     private const string Difficult = "Medium";
+    private const string MediumDifficultKey = "MediumDifficultAcceptLevels";
 
     public int GetAcceptLevels()
     {
-        if (PlayerPrefs.HasKey("MediumDifficultAcceptLevels") == false)
+        if (PlayerPrefs.HasKey(MediumDifficultKey) == false)
             SetStartAcceptLevels();
-        return PlayerPrefs.GetInt("MediumDifficultAcceptLevels");
+        return PlayerPrefs.GetInt(MediumDifficultKey);
     }
 
     public void IncreaseAcceptLevels(string sceneName)
@@ -22,14 +23,14 @@ public class Medium : IDifficult
         if (PlayerPrefs.HasKey(key) == false)
         {
             PlayerPrefs.SetString(key, key);
-            PlayerPrefs.SetInt("MediumDifficultAcceptLevels", GetAcceptLevels() + 1);
+            PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
             PlayerPrefs.Save();
         }
     }
     
     private void SetStartAcceptLevels()
     {
-        PlayerPrefs.SetInt("MediumDifficultAcceptLevels", 1);
+        PlayerPrefs.SetInt(MediumDifficultKey, 1);
         PlayerPrefs.Save();
     }
 }

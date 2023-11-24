@@ -6,6 +6,7 @@ public class Easy : IDifficult
 {
     private const string Difficult = "Easy";
     private const string SpawnPoint = "EasySpawnPoint";
+    private const string EasyDifficultKey = "EasyDifficultAcceptLevels";
 
     public void ChangeSpawnPoint(string sceneName, SceneSpawnPoint sceneSpawnPoint)
     {
@@ -28,9 +29,9 @@ public class Easy : IDifficult
 
     public int GetAcceptLevels()
     {
-        if (PlayerPrefs.HasKey("EasyDifficultAcceptLevels") == false)
+        if (PlayerPrefs.HasKey(EasyDifficultKey) == false)
             SetStartAcceptLevels();
-        return PlayerPrefs.GetInt("EasyDifficultAcceptLevels");
+        return PlayerPrefs.GetInt(EasyDifficultKey);
     }
 
     public void IncreaseAcceptLevels(string sceneName)
@@ -40,14 +41,14 @@ public class Easy : IDifficult
         if (PlayerPrefs.HasKey(key) == false)
         {
             PlayerPrefs.SetString(key, key);
-            PlayerPrefs.SetInt("EasyDifficultAcceptLevels", GetAcceptLevels() + 1);
+            PlayerPrefs.SetInt(EasyDifficultKey, GetAcceptLevels() + 1);
             PlayerPrefs.Save();
         }
     }
 
     private void SetStartAcceptLevels()
     {
-        PlayerPrefs.SetInt("EasyDifficultAcceptLevels", 1);
+        PlayerPrefs.SetInt(EasyDifficultKey, 1);
         PlayerPrefs.Save();
     }
 }

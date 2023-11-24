@@ -5,12 +5,13 @@ using UnityEngine;
 public class Hard : IDifficult
 {
     private const string Difficult = "Hard";
-
+    private const string MediumDifficultKey = "HardDifficultAcceptLevels";
+    
     public int GetAcceptLevels()
     {
-        if (PlayerPrefs.HasKey("HardDifficultAcceptLevels") == false)
+        if (PlayerPrefs.HasKey(MediumDifficultKey) == false)
             SetStartAcceptLevels();
-        return PlayerPrefs.GetInt("HardDifficultAcceptLevels");
+        return PlayerPrefs.GetInt(MediumDifficultKey);
     }
 
     public void IncreaseAcceptLevels(string sceneName)
@@ -20,14 +21,14 @@ public class Hard : IDifficult
         if (PlayerPrefs.HasKey(key) == false)
         {
             PlayerPrefs.SetString(key, key);
-            PlayerPrefs.SetInt("HardDifficultAcceptLevels", GetAcceptLevels() + 1);
+            PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
             PlayerPrefs.Save();
         }
     }
     
     private void SetStartAcceptLevels()
     {
-        PlayerPrefs.SetInt("HardDifficultAcceptLevels", 1);
+        PlayerPrefs.SetInt(MediumDifficultKey, 1);
         PlayerPrefs.Save();
     }
 }

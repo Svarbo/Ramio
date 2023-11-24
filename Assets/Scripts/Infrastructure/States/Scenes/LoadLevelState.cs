@@ -53,7 +53,7 @@ public class LoadLevelState : IPayloadState<LevelsInfo>
         while (asyncOperation.isDone == false)
             yield return null;
 
-        if (levelsInfo.SceneName == "MainMenu")
+        if (levelsInfo.SceneName == Levels.MainMenu.ToString())
             _appCore.StateMachine.Enter(typeof(MainMenuState), levelsInfo);
         else
             _appCore.StateMachine.Enter(typeof(GameLoopState), levelsInfo);

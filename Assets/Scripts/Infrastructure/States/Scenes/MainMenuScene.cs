@@ -8,7 +8,6 @@ public class MainMenuState : IPayloadState<LevelsInfo>
     private DifficultBuilder _difficultBuilder;
     private LevelChooserBuilder _levelChooserBuilder;
     private LevelsInfo _levelsInfo;
-    private AbstractFactory _abstractFactory;
 
     public MainMenuState(AppCore appCore) =>
         _appCore = appCore;
@@ -39,18 +38,10 @@ public class MainMenuState : IPayloadState<LevelsInfo>
 
     private void LoadScene()
     {
-        _abstractFactory = new AbstractFactory();
-
-        #region Fill UserInfo
-
-        UserInfo userInfo = _abstractFactory.Load<UserInfo>("UserInfo");
-        userInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
-
-        #endregion
-
         MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
         MainMenuView mainMenuView = mainMenuViewFactory.Create();
-
+        // mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
+        mainMenuView.UserInfo.IsMobile = false;
         #region LevelMenuBuilders
 
         _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);

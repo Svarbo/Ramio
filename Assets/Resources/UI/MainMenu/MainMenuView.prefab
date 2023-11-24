@@ -9348,6 +9348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <LevelMenuView>k__BackingField: {fileID: 2594507998141633400}
   <SettingsView>k__BackingField: {fileID: 9005167773036205779}
+  <UserInfo>k__BackingField: {fileID: 11400000, guid: f160ae49331efd84aab2e292917d5c99, type: 2}
 --- !u!1 &3752462906365605997
 GameObject:
   m_ObjectHideFlags: 0
