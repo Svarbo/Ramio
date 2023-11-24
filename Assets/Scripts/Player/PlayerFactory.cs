@@ -5,7 +5,7 @@ public class PlayerFactory
     private Vector3 _startSpawnPosition;
     private UserInfo _userInfo;
 
-    public PlayerFactory(Vector3 startSpawnPosition, UserInfo userInfo)
+    public PlayerFactory(Vector3 startSpawnPosition, UserInfo info, UserInfo userInfo)
     {
         _startSpawnPosition = startSpawnPosition;
         _userInfo = userInfo;

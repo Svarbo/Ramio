@@ -13,10 +13,12 @@ public class LevelChooserPresenter
 
     public void ShowLevels(int count) =>
         _levelsRow.ShowLevelChoosers(count);
-    
+
     public void StartGame(string levelName)
     {
         _levelsInfo.SceneName = levelName;
+
+        LevelsProgress.Instance.SetStartDifficult(_levelsInfo.CurrentDifficult.ToString());
 
         _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
     }

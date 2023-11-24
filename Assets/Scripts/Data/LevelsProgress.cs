@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class LevelsProgress
 {
+    private const string StartGameDifficult = "GetStartDifficult";
+
     private static LevelsProgress _instance;
 
     public static LevelsProgress Instance
@@ -24,6 +27,27 @@ public class LevelsProgress
         new Hard(),
     };
 
+    public Type GetStartDifficult()
+    {
+        if (PlayerPrefs.HasKey(StartGameDifficult) == false)
+            return typeof(Medium);
+
+        string typeDifficult = PlayerPrefs.GetString(StartGameDifficult);
+
+        Type difficult = Type.GetType(typeDifficult);
+
+        GetDifficultByType(difficult);
+
+        return difficult;
+    }
+
+    public void SetStartDifficult(string typeDifficult)
+    {
+        IDifficult difficult = GetDifficultByType(Type.GetType(typeDifficult));
+        PlayerPrefs.SetString(StartGameDifficult, difficult.ToString());
+        PlayerPrefs.Save();
+    }
+
     public IDifficult GetDifficultByType(Type type)
     {
         foreach (IDifficult difficult in _difficults)
@@ -31,7 +55,7 @@ public class LevelsProgress
             if (difficult.GetType() == type)
                 return difficult;
         }
-        
+
         throw new InvalidOperationException(nameof(type));
     }
 }

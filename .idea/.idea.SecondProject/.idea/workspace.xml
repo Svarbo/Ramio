@@ -2,40 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c330970-745d-476f-a27d-e779493fbee5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointContainer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointContainer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointTrigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/MainMenu/MainMenuView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/MainMenu/MainMenuView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level0.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Easy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Easy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Hard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Hard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/IDifficult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/IDifficult.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Medium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Difficults/Medium.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/LevelsProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/LevelsProgress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/MainMenuScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/MainMenuScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/EasyLevelStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/EasyLevelStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/Factories/EasyLevelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/Factories/EasyLevelFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/HardLevelStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/HardLevelStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/MediumLevelStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/MediumLevelStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPointTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPointTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/SpawnPointTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/Spawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/SpawnPoints/Spawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Transitions/MenuSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Transitions/MenuSwitcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/LosePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/LosePanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Edior/Tools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Edior/Tools.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/SdkLoadState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/SdkLoadState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Oranges/OrangesCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Oranges/OrangesCounter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultChooserPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultChooserPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/EasyDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/EasyDifficultView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/HardDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/HardDifficultView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/MediumDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/MediumDifficultView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserBuilder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelMenuView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +36,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/41914444499f4996a3e6af79cf6c1fdb574b98/82/b4a142b8/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/41914444499f4996a3e6af79cf6c1fdb574b98/97/8b978298/Math.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/41914444499f4996a3e6af79cf6c1fdb574b98/d5/d87d0a08/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/41914444499f4996a3e6af79cf6c1fdb574b98/da/23cc452c/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5952714ad2d74640b11dbdbeb258400720800/32/c456492f/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/605bf8b31fcb444b85176da963870aa746ac00/5e/81397e30/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8ad9ecbe25e14b10b6dde783af6e4aa258e00/92/155cc1c6/EditorListViewController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -71,6 +50,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/efb7e59e5c484ab286ad2daa19aa918410000/82/23f059f9/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/UserInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.agava.yandexgames@fa31f21513/Runtime/Advertising/InterstitialAd.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.agava.yandexgames@fa31f21513/Runtime/PlayerAccount/PlayerAccount.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.agava.yandexgames@fa31f21513/Runtime/YandexGamesSdk.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -152,7 +132,7 @@
       <workItem from="1700245141422" duration="13577000" />
       <workItem from="1700322892074" duration="4826000" />
       <workItem from="1700404218395" duration="2534000" />
-      <workItem from="1700688083216" duration="21612000" />
+      <workItem from="1700688083216" duration="36502000" />
     </task>
     <servers />
   </component>
@@ -223,19 +203,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/LosePanel.cs</url>
-          <line>35</line>
-          <properties documentPath="E:\Games\2D\Platformer\SecondProject\Assets\Scripts\UI\Level\EndGame\Panels\LosePanel.cs" initialLine="35" containingFunctionPresentation="method 'TryAgain'">
-            <startOffsets>
-              <option value="874" />
-            </startOffsets>
-            <endOffsets>
-              <option value="923" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

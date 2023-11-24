@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class GameBootstrap : MonoBehaviour, ICoroutineRunner
@@ -22,11 +21,4 @@ public class GameBootstrap : MonoBehaviour, ICoroutineRunner
 
     private void LateUpdate() => 
         AppCore.StateMachine.Update(Time.deltaTime);
-}
-
-public interface ICoroutineRunner
-{
-    Coroutine StartCoroutine(IEnumerator coroutine);
-
-    void StopCoroutine(Coroutine coroutine);
 }

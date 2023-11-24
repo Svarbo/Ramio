@@ -20,7 +20,8 @@ public class GameLoopState : IPayloadState<LevelsInfo>
 
     public void Enter(LevelsInfo levelsInfo)
     {
-        LevelBootstrap levelBootstrap = Object.Instantiate(Resources.Load<LevelBootstrap>("LevelBootstrap"));
+        AbstractFactory abstractFactory = new AbstractFactory();
+        LevelBootstrap levelBootstrap = abstractFactory.Create<LevelBootstrap>("LevelBootstrap");
         levelBootstrap.Construct(levelsInfo);
     }
 

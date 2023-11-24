@@ -5,12 +5,14 @@ using UnityEngine;
 public class Hard : IDifficult
 {
     private const string Difficult = "Hard";
+    private const string Orange = "Orange";
+    private const string MediumDifficultKey = "HardDifficultAcceptLevels";
 
     public int GetAcceptLevels()
     {
-        if (PlayerPrefs.HasKey("HardDifficultAcceptLevels") == false)
+        if (PlayerPrefs.HasKey(MediumDifficultKey) == false)
             SetStartAcceptLevels();
-        return PlayerPrefs.GetInt("HardDifficultAcceptLevels");
+        return PlayerPrefs.GetInt(MediumDifficultKey);
     }
 
     public void IncreaseAcceptLevels(string sceneName)
@@ -20,14 +22,39 @@ public class Hard : IDifficult
         if (PlayerPrefs.HasKey(key) == false)
         {
             PlayerPrefs.SetString(key, key);
-            PlayerPrefs.SetInt("HardDifficultAcceptLevels", GetAcceptLevels() + 1);
+            PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
             PlayerPrefs.Save();
         }
     }
+
+    public void SetOrangesCount(string sceneName, int score)
+    {
+        string key = Difficult + Orange + sceneName;
+
+        if (PlayerPrefs.GetInt(key) > score)
+            return;
+
+        PlayerPrefs.SetInt(key, score);
+        PlayerPrefs.Save();
+    }
     
+    public void ResetOrangesCount(string sceneName)
+    {
+        string key = Difficult + Orange + sceneName;
+        PlayerPrefs.SetInt(key, 0);
+        PlayerPrefs.Save();
+    }
+
+    public int GetOrangesCount(string sceneName)
+    {
+        string key = Difficult + Orange + sceneName;
+        return PlayerPrefs.GetInt(key);
+    }
+
+
     private void SetStartAcceptLevels()
     {
-        PlayerPrefs.SetInt("HardDifficultAcceptLevels", 1);
+        PlayerPrefs.SetInt(MediumDifficultKey, 1);
         PlayerPrefs.Save();
     }
 }

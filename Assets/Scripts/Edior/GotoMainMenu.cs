@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace Edior
 {
+    // TODO Переименовать класс и перенести его в UI
     public class GotoMainMenu : MonoBehaviour
     {
         [SerializeField] private Button _button;
@@ -20,9 +21,9 @@ namespace Edior
 
         private void GotoMenu()
         {
-            var s = FindObjectOfType<LevelBootstrap>()._levelsInfo;
-            s.SceneName = "MainMenu";
-            _gameBootstrap.AppCore.StateMachine.Enter(typeof(LoadLevelState), s);
+            LevelsInfo levelsInfo = FindObjectOfType<LevelBootstrap>().LevelsInfo;
+            levelsInfo.SceneName = Levels.MainMenu.ToString();
+            _gameBootstrap.AppCore.StateMachine.Enter(typeof(LoadLevelState), levelsInfo);
         }
     }
 }
