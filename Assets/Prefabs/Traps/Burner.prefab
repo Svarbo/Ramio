@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageZone: {fileID: 2350199630944718334}
+  _switchSound: {fileID: 8300000, guid: 45f843dcdc41ce64fa67b57f7899c93f, type: 3}
   _delay: 4
   _workTime: 2
   _isStartActive: 0
@@ -181,7 +182,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 45f843dcdc41ce64fa67b57f7899c93f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

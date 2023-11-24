@@ -1,11 +1,11 @@
 using Agava.YandexGames;
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Referee : MonoBehaviour
 {
     private const string LeaderboardName = "Leaderboard";
+    private const string LastLevelName = "Level3";
 
     [SerializeField] private Player _player;
     [SerializeField] private PlayerCanvasDrawer _playerCanvasDrawer;
@@ -33,14 +33,10 @@ public class Referee : MonoBehaviour
 
     private void TrySetPlayerResult()
     {
-        Array allLevels = Enum.GetValues(typeof(Levels));
-        string lastLevelName = allLevels.GetValue(allLevels.Length).ToString();
         string currentLevelName = SceneManager.GetActiveScene().name;
 
-        if (lastLevelName == currentLevelName)
+        if (LastLevelName == currentLevelName)
         {
-            Debug.Log("Попытка обновления результата");
-
             int playerScore = _player.FruitsCount;
 
             Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>

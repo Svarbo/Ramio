@@ -5,6 +5,7 @@ using UnityEngine;
 public class Burner : MonoBehaviour
 {
     [SerializeField] private DamageZone _damageZone;
+    [SerializeField] private AudioClip _switchSound;
     [SerializeField] private float _delay = 2f;
     [SerializeField] private float _workTime = 0.8f;
     [SerializeField] private bool _isStartActive = false;
@@ -46,7 +47,7 @@ public class Burner : MonoBehaviour
         _damageZone.gameObject.SetActive(true);
 
         _currentDelay = 0;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_switchSound);
     }
 
     private void Off()
@@ -56,6 +57,6 @@ public class Burner : MonoBehaviour
         _damageZone.gameObject.SetActive(false);
 
         _currentWorkTime = 0;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_switchSound);
     }
 }

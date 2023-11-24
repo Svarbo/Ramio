@@ -1,9 +1,12 @@
+using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LosePanel : MonoBehaviour
+public class DefeatPanel : MonoBehaviour
 {
+    private const int AdvertisementCounter = 3;
+
     [SerializeField] private Button _buttonTryAgain;
     [SerializeField] private Button _buttonGoMenu;
 
@@ -12,13 +15,13 @@ public class LosePanel : MonoBehaviour
 
     private void OnEnable()
     {
-        _buttonTryAgain.onClick.AddListener(TryAgain);
+        _buttonTryAgain.onClick.AddListener(TryShowAdvertisement);
         _buttonGoMenu.onClick.AddListener(GoToMainMenu);
     }
 
     private void OnDisable()
     {
-        _buttonTryAgain.onClick.RemoveListener(TryAgain);
+        _buttonTryAgain.onClick.RemoveListener(TryShowAdvertisement);
         _buttonGoMenu.onClick.RemoveListener(GoToMainMenu);
     }
 
@@ -28,7 +31,17 @@ public class LosePanel : MonoBehaviour
         _stateMachine = stateMachine;
     }
 
-    private void TryAgain()
+    private void TryShowAdvertisement()
+    {
+        int attemptsCount = UnityEngine.PlayerPrefs.GetInt("AttemptsCount");
+
+        if (attemptsCount % AdvertisementCounter == 0)
+            InterstitialAd.Show(OnStartCallBack, OnCloseCallback);
+        else
+            RestartLevel();
+    }
+
+    private void RestartLevel()
     {
         if (_levelsInfo.CurrentDifficult == typeof(Hard))
         {
@@ -40,24 +53,17 @@ public class LosePanel : MonoBehaviour
             _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
             _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
         }
-        //OnCloseCallback(true);
-        //InterstitialAd.Show(OnStartCallBack, OnCloseCallback);
     }
 
-    private void OnStartCallBack()
-    {
-        // Mute Music
-    }
+    private void OnStartCallBack() => 
+        Time.timeScale = 0;
 
-    private void OnCloseCallback(bool obj)
+    private void OnCloseCallback(bool isClosed)
     {
-        // UnMute Music
+        Time.timeScale = 1;
 
-        if (obj)
-        {
-            _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
-            _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
-        }
+        if (isClosed)
+            RestartLevel();
     }
 
     private void GoToMainMenu()

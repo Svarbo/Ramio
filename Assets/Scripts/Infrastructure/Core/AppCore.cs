@@ -9,7 +9,7 @@ public class AppCore
         {
             [typeof(MainMenuState)] = new MainMenuState(this),
             [typeof(GameLoopState)] = new GameLoopState(),
-            [typeof(SdkLoadState)] = new SdkLoadState(this),
+            [typeof(SdkLoadState)] = new SdkLoadState(this, coroutineRunner),
             [typeof(LoadLevelState)] = new LoadLevelState(this, coroutineRunner, fader),
         };
 

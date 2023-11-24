@@ -5,13 +5,18 @@ public class AppearingObjectsTrigger : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _appearingObjects;
 
+    private bool _triggerWasAchieved = false;
+
     private void Awake() => 
         DisableAppearingObjects();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Player>(out Player player))
-            EnableAppearingObjects();
+        if(_triggerWasAchieved != true)
+        {
+            if (collision.TryGetComponent<Player>(out Player player))
+                EnableAppearingObjects();
+        }
     }
 
     private void EnableAppearingObjects()

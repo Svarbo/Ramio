@@ -1,15 +1,15 @@
-using System;
+using Agava.YandexGames;
+using System.Collections;
 
 public class SdkLoadState : IState
 {
     private readonly AppCore _appCore;
     private readonly ICoroutineRunner _coroutineRunner;
-    private readonly StateMachine _stateMachine;
 
-    public SdkLoadState(AppCore appCore)
+    public SdkLoadState(AppCore appCore, ICoroutineRunner coroutineRunner)
     {
         _appCore = appCore;
-        // _coroutineRunner = coroutineRunner;
+        _coroutineRunner = coroutineRunner;
     }
 
     public void Exit()
@@ -30,19 +30,18 @@ public class SdkLoadState : IState
 
     public void Enter()
     {
-        //_coroutineRunner.StartCoroutine(InitYandexSDK());
-
-        LevelsInfo levelsInfo = new LevelsInfo();
-        
-        levelsInfo.CurrentDifficult = typeof(Easy);
-        levelsInfo.SceneName = "MainMenu";
-        
-        _appCore.StateMachine.Enter(typeof(LoadLevelState), levelsInfo);
+        _coroutineRunner.StartCoroutine(InitYandexSDK());
     }
 
-    // private IEnumerator InitYandexSDK()
-    // {
-    //     // yield return YandexGamesSdk.Initialize();
-    //     
-    // }
+    private IEnumerator InitYandexSDK()
+    {
+        yield return YandexGamesSdk.Initialize();
+
+        LevelsInfo levelsInfo = new LevelsInfo();
+
+        levelsInfo.CurrentDifficult = typeof(Easy);
+        levelsInfo.SceneName = "MainMenu";
+
+        _appCore.StateMachine.Enter(typeof(LoadLevelState), levelsInfo);
+    }
 }

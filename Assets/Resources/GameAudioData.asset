@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameAudioData
   m_EditorClassIdentifier: 
   <Effects>k__BackingField: 1
-  <Music>k__BackingField: 1
+  <Music>k__BackingField: 0.2
