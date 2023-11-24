@@ -10,8 +10,11 @@ public class BackgroundMusic : MonoBehaviour
     private void Awake() => 
         _audioSource = GetComponent<AudioSource>();
 
-    private void OnEnable() =>
+    private void OnEnable()
+    {
+        ChangeVolume(_gameAudioData.Effects);
         _gameAudioData.MusicCVolumehangeed += ChangeVolume;
+    }
 
     private void OnDisable() =>
         _gameAudioData.MusicCVolumehangeed -= ChangeVolume;

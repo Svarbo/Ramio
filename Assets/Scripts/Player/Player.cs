@@ -33,6 +33,12 @@ public class Player : MonoBehaviour
         SetHealth();
     }
 
+    public void IncreaseScore(int reward)
+    {
+        _fruitsCount += reward;
+        FruitRaised?.Invoke();
+    }
+
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
@@ -42,10 +48,10 @@ public class Player : MonoBehaviour
             Die();
     }
 
-    public void IncreaseScore(int reward)
+    private void SetHealth()
     {
-        _fruitsCount += reward;
-        FruitRaised?.Invoke();
+        _maxHealth = _playerStats.Health;
+        _currentHealth = _maxHealth;
     }
 
     private void Die()
@@ -55,12 +61,6 @@ public class Player : MonoBehaviour
         _playerInfo.SetDesappearing(true);
 
         PlayerDied?.Invoke();
-    }
-
-    private void SetHealth()
-    {
-        _maxHealth = _playerStats.Health;
-        _currentHealth = _maxHealth;
     }
 
     private void IncreaseAttemptsCount()
