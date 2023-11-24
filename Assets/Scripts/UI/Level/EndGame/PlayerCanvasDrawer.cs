@@ -23,7 +23,7 @@ public class PlayerCanvasDrawer : MonoBehaviour
         WinPanel.gameObject.SetActive(true);
 
         IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
-        difficult.SetOrangesCount(SceneManager.GetActiveScene().name, score);
+        // difficult.SetOrangesCount(SceneManager.GetActiveScene().name, score);
         
         if (_levelsInfo.CurrentDifficult != typeof(Hard))
         {
@@ -34,8 +34,8 @@ public class PlayerCanvasDrawer : MonoBehaviour
 
     public void DrawDefeatPanel()
     {
-        IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
-        difficult.ResetOrangesCount(SceneManager.GetActiveScene().name);
+        // IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
+        // difficult.ResetOrangesCount(SceneManager.GetActiveScene().name);
 
         LosePanel.gameObject.SetActive(true);
     }
