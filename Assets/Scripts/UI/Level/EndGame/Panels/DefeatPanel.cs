@@ -35,9 +35,9 @@ public class DefeatPanel : MonoBehaviour
     {
         int attemptsCount = UnityEngine.PlayerPrefs.GetInt("AttemptsCount");
 
-        if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
-            InterstitialAd.Show(OnStartCallBack, OnCloseCallback);
-        else
+        // if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
+        //     InterstitialAd.Show(OnStartCallBack, OnCloseCallback);
+        // else
             RestartLevel();
     }
 
