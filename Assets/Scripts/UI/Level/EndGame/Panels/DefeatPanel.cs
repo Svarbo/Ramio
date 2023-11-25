@@ -7,22 +7,22 @@ public class DefeatPanel : MonoBehaviour
 {
     private const int AdvertisementDemonstrationFrequency = 4;
 
-    [SerializeField] private Button _buttonTryAgain;
-    [SerializeField] private Button _buttonGoMenu;
+    [SerializeField] private Button _restartButton;
+    [SerializeField] private Button _mainMenuButton;
 
     private StateMachine _stateMachine;
     private LevelsInfo _levelsInfo;
 
     private void OnEnable()
     {
-        _buttonTryAgain.onClick.AddListener(TryShowAdvertisement);
-        _buttonGoMenu.onClick.AddListener(OpenMainMenu);
+        _restartButton.onClick.AddListener(TryShowAdvertisement);
+        _mainMenuButton.onClick.AddListener(OpenMainMenu);
     }
 
     private void OnDisable()
     {
-        _buttonTryAgain.onClick.RemoveListener(TryShowAdvertisement);
-        _buttonGoMenu.onClick.RemoveListener(OpenMainMenu);
+        _restartButton.onClick.RemoveListener(TryShowAdvertisement);
+        _mainMenuButton.onClick.RemoveListener(OpenMainMenu);
     }
 
     public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo)

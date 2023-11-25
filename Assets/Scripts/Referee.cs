@@ -10,15 +10,11 @@ public class Referee : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private PlayerCanvasDrawer _playerCanvasDrawer;
 
-    private void OnEnable()
-    {
+    private void OnEnable() =>
         _player.PlayerDesappeared += DeclairLose;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         _player.PlayerDesappeared -= DeclairLose;
-    }
 
     public void DeclairWin()
     {

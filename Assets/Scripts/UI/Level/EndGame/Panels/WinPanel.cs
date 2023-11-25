@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class WinPanel : MonoBehaviour
 {
-    [SerializeField] private Button _buttonGoToNextLevel;
-    [SerializeField] private Button _buttonGoMenu;
+    [SerializeField] private Button _nextLevelButton;
+    [SerializeField] private Button _mainMenuButton;
 
     private StateMachine _stateMachine;
     private LevelsInfo _levelsInfo;
 
     private void OnEnable()
     {
-        _buttonGoToNextLevel.onClick.AddListener(LoadNextLevel);
-        _buttonGoMenu.onClick.AddListener(LoadMainMenu);
+        _nextLevelButton.onClick.AddListener(LoadNextLevel);
+        _mainMenuButton.onClick.AddListener(LoadMainMenu);
     }
 
     private void OnDisable()
     {
-        _buttonGoToNextLevel.onClick.RemoveListener(LoadNextLevel);
-        _buttonGoMenu.onClick.RemoveListener(LoadMainMenu);
+        _nextLevelButton.onClick.RemoveListener(LoadNextLevel);
+        _mainMenuButton.onClick.RemoveListener(LoadMainMenu);
     }
 
     public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo)
