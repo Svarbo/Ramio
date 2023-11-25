@@ -13,34 +13,36 @@ public class Referee : MonoBehaviour
     private void OnEnable() =>
         _player.PlayerDesappeared += DeclairLose;
 
-    private void OnDisable() => 
+    private void OnDisable() =>
         _player.PlayerDesappeared -= DeclairLose;
 
-    public void DeclairWin()
+    public bool IsLastLevel()
     {
+        string currentLevelName = SceneManager.GetActiveScene().name;
+        return LastLevelName == currentLevelName;
+    }
+
+    public void ShowWinPanel() =>
         _playerCanvasDrawer.DrawWinPanel(_player.FruitsCount);
+
+    public void ShowFinishPanel()
+    {
+        _playerCanvasDrawer.DrawFinishPanel();
         //TODO ВКлючить
         //TrySetPlayerResult();
     }
 
-    private void DeclairLose()
-    {
+    private void DeclairLose() =>
         _playerCanvasDrawer.DrawDefeatPanel();
-    }
 
     private void TrySetPlayerResult()
     {
-        string currentLevelName = SceneManager.GetActiveScene().name;
+        int playerScore = _player.AttemptsCount;
 
-        if (LastLevelName == currentLevelName)
+        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
         {
-            int playerScore = _player.AttemptsCount;
-
-            Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-            {
-                if (playerScore < result.score)
-                    Leaderboard.SetScore(LeaderboardName, playerScore);
-            });
-        }
+            if (playerScore < result.score)
+                Leaderboard.SetScore(LeaderboardName, playerScore);
+        });
     }
 }

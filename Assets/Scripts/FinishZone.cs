@@ -16,7 +16,12 @@ public class FinishZone : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
         {
             PlayWinAnimation();
-            player.GetComponentInChildren<Referee>().DeclairWin();
+            Referee referee = player.GetComponentInChildren<Referee>();
+            
+            if (referee.IsLastLevel())
+                referee.ShowFinishPanel();
+            else
+                referee.ShowWinPanel();
         }
     }
 

@@ -1,3 +1,4 @@
+using UI.Level.EndGame.Panels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class PlayerCanvasDrawer : MonoBehaviour
 
     [field: SerializeField] public WinPanel WinPanel { get; private set; }
     [field: SerializeField] public DefeatPanel LosePanel { get; private set; }
+    [field: SerializeField] public FinishPanel FinishPanel { get; private set; }
 
     private LevelsInfo _levelsInfo;
     private InputServiceView _playerInputServiceView;
@@ -34,8 +36,9 @@ public class PlayerCanvasDrawer : MonoBehaviour
         }
     }
 
-    public void DrawDefeatPanel()
-    {
+    public void DrawDefeatPanel() =>
         LosePanel.gameObject.SetActive(true);
-    }
+
+    public void DrawFinishPanel() =>
+        FinishPanel.gameObject.SetActive(true);
 }
