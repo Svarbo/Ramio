@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,9 @@ public class LanguageChanger : MonoBehaviour
     [SerializeField] private List<Toggle> _toggles = new List<Toggle>();
 
     [field: SerializeField] public LanguageSaveView LanguageSaveView { get; private set; }
+    [field: SerializeField] public LanguageToggleView LanguageToggleRU { get; private set; }
+    [field: SerializeField] public LanguageToggleView LanguageToggleEN { get; private set; }
+    [field: SerializeField] public LanguageToggleView LanguageToggleTR { get; private set; }
 
     private ToggleGroup _toggleGroup;
 
@@ -17,11 +21,20 @@ public class LanguageChanger : MonoBehaviour
         SetCurrentToggleActive();
     }
 
+    private void OnDisable()
+    {
+        foreach (Toggle toggle in _toggles)
+            toggle.gameObject.SetActive(false);
+    }
+
     private void SetCurrentToggleActive()
     {
         int activeToggleIndex = PlayerPrefs.GetInt("LanguageIndex");
 
         _toggles[activeToggleIndex].isOn = true;
+
+        foreach (Toggle toggle in _toggles)
+            toggle.gameObject.SetActive(true);
     }
 
     public void ChangeLanguage()

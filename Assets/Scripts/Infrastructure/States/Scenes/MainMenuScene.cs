@@ -1,3 +1,5 @@
+using UI.MainMenu.Settings.Languages.Presenters;
+
 public class MainMenuState : IPayloadState<LevelsInfo>
 {
     private readonly AppCore _appCore;
@@ -8,6 +10,7 @@ public class MainMenuState : IPayloadState<LevelsInfo>
     private DifficultBuilder _difficultBuilder;
     private LevelChooserBuilder _levelChooserBuilder;
     private LevelsInfo _levelsInfo;
+    private LanguageTogglePresenter _languageTogglePresenter;
 
     public MainMenuState(AppCore appCore) =>
         _appCore = appCore;
@@ -40,7 +43,10 @@ public class MainMenuState : IPayloadState<LevelsInfo>
     {
         MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
         MainMenuView mainMenuView = mainMenuViewFactory.Create();
-        mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
+        // TODO Включить
+        //mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
+        mainMenuView.UserInfo.IsMobile = false;
+
         #region LevelMenuBuilders
 
         _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);
@@ -56,7 +62,7 @@ public class MainMenuState : IPayloadState<LevelsInfo>
         #endregion
 
         #region Settings
-        
+
         #region Audio
 
         _gameAudioData = mainMenuView.SettingsView.AudioMenuView.GameAudioData;
@@ -77,11 +83,15 @@ public class MainMenuState : IPayloadState<LevelsInfo>
         #region Language
 
         LanguageChanger languageChanger = mainMenuView.SettingsView.LanguageChanger;
-        _languageSavePresenter = new LanguageSavePresenter(_appCore.StateMachine, _levelsInfo, languageChanger);
+        
+        _languageTogglePresenter = new LanguageTogglePresenter(languageChanger.LanguageSaveView);
+        languageChanger.LanguageToggleRU.Construct(_languageTogglePresenter);
+        languageChanger.LanguageToggleEN.Construct(_languageTogglePresenter);
+        languageChanger.LanguageToggleTR.Construct(_languageTogglePresenter);
+
+        _languageSavePresenter = new LanguageSavePresenter(_appCore.StateMachine, _levelsInfo, languageChanger, languageChanger.LanguageSaveView);
         languageChanger.LanguageSaveView.Construct(_languageSavePresenter);
-
         #endregion
-
         #endregion
     }
 }

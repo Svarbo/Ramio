@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LanguagesMainMenuView : MonoBehaviour
 {
-    [field: SerializeField] public LanguageView LanguageRUView { get; }
-    [field: SerializeField] public LanguageView LanguageENView { get; }
-    [field: SerializeField] public LanguageView LanguageTRView { get; }
+    [field: SerializeField] public LanguageToggleView LanguageToggleRuView { get; }
+    [field: SerializeField] public LanguageToggleView LanguageToggleEnView { get; }
+    [field: SerializeField] public LanguageToggleView LanguageToggleTRView { get; }
 }

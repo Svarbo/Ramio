@@ -19,6 +19,12 @@ public class LanguageSaveView : MonoBehaviour
     public void Construct(LanguageSavePresenter languageSavePresenter) => 
         _languageSavePresenter = languageSavePresenter;
 
+    public void Show() =>
+        gameObject.SetActive(true);
+
+    public void Hide() =>
+        gameObject.SetActive(false);
+
     private void OnClicked()
     {
         _languageSavePresenter.SaveLanguageChanges();

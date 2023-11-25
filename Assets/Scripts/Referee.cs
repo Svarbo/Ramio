@@ -19,7 +19,8 @@ public class Referee : MonoBehaviour
     public void DeclairWin()
     {
         _playerCanvasDrawer.DrawWinPanel(_player.FruitsCount);
-        TrySetPlayerResult();
+        //TODO ВКлючить
+        //TrySetPlayerResult();
     }
 
     private void DeclairLose()

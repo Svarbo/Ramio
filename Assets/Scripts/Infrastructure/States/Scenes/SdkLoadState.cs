@@ -33,8 +33,9 @@ public class SdkLoadState : IState
 
     private IEnumerator InitYandexSDK()
     {
-        yield return YandexGamesSdk.Initialize();
-
+        // TODO Включить
+        //yield return YandexGamesSdk.Initialize();
+        yield return null;
         LevelsInfo levelsInfo = new LevelsInfo();
         levelsInfo.CurrentDifficult = LevelsProgress.Instance.GetStartDifficult();
         levelsInfo.SceneName = Levels.MainMenu.ToString();
