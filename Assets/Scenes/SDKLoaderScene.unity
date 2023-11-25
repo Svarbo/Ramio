@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fader: {fileID: 2079400247}
+  _gameAudioData: {fileID: 11400000, guid: bfbd6d8c351a263419aff4d6119d0f5d, type: 2}
 --- !u!1 &2111434977
 GameObject:
   m_ObjectHideFlags: 0

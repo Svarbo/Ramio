@@ -7,6 +7,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
+    [field: SerializeField] public InputServiceView InputServiceView { get; private set; }
+
     private PlayerInfo _playerInfo;
     private PlayerStats _playerStats;
     private int _currentHealth;

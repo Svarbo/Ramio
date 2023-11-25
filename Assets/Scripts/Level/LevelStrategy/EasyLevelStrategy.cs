@@ -45,7 +45,7 @@ public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
             _player.gameObject.transform.position = _lastCheckpoint;
         else
             _player.gameObject.transform.position = _startCheckpoint;
-        
+
         _player.PlayerInput.Activate();
     }
 

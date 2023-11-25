@@ -11,7 +11,8 @@ public abstract class LevelDifficultStrategy
         _stateMachine = stateMachine;
         _player = player;
         _playerCanvasDrawer = _player.GetComponentInChildren<PlayerCanvasDrawer>();
-        _playerCanvasDrawer.Construct(_stateMachine, _levelsInfo);
+        
+        _playerCanvasDrawer.Construct(_stateMachine, _levelsInfo, player.InputServiceView);
     }
 
     public abstract void Execute();

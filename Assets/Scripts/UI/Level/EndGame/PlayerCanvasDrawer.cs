@@ -9,10 +9,13 @@ public class PlayerCanvasDrawer : MonoBehaviour
     [field: SerializeField] public DefeatPanel LosePanel { get; private set; }
 
     private LevelsInfo _levelsInfo;
+    private InputServiceView _playerInputServiceView;
 
-    public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo)
+    public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo, InputServiceView playerInputServiceView)
     {
+        _playerInputServiceView = playerInputServiceView;
         _levelsInfo = levelsInfo;
+        
         WinPanel.Construct(stateMachine, levelsInfo);
         LosePanel.Construct(stateMachine, levelsInfo);
     }
@@ -23,7 +26,6 @@ public class PlayerCanvasDrawer : MonoBehaviour
         WinPanel.gameObject.SetActive(true);
 
         IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
-        // difficult.SetOrangesCount(SceneManager.GetActiveScene().name, score);
         
         if (_levelsInfo.CurrentDifficult != typeof(Hard))
         {
@@ -34,9 +36,6 @@ public class PlayerCanvasDrawer : MonoBehaviour
 
     public void DrawDefeatPanel()
     {
-        // IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
-        // difficult.ResetOrangesCount(SceneManager.GetActiveScene().name);
-
         LosePanel.gameObject.SetActive(true);
     }
 }
