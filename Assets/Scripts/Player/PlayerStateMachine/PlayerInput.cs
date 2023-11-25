@@ -37,4 +37,10 @@ public class PlayerInput : MonoBehaviour
 
     private void SetSpeed(float speed) => 
         _playerInfo.SetSpeed(speed);
+
+    public void Activate() =>
+        enabled = true;
+
+    public void Deactivate() =>
+        enabled = false;
 }

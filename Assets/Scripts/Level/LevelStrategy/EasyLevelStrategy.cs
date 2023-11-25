@@ -23,14 +23,19 @@ public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
 
         _spawnPointContainer.gameObject.SetActive(true);
         _spawnPointContainer.Show();
+        _player.PlayerInput.Deactivate();
     }
 
     public override void Execute()
     {
         if (_lastCheckpoint != default)
         {
-            _checkpointChooserView = _abstractFactory.Create<CheckpointChooserView>("UI/Level/Canvas");
+            _checkpointChooserView = _abstractFactory.Create<CheckpointChooserView>("UI/Level/CheckpointChooser");
             _checkpointChooserView.CheckpointChanged += OnCheckpointChanged;
+        }
+        else
+        {
+            _player.PlayerInput.Activate();
         }
     }
 
@@ -40,6 +45,8 @@ public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
             _player.gameObject.transform.position = _lastCheckpoint;
         else
             _player.gameObject.transform.position = _startCheckpoint;
+        
+        _player.PlayerInput.Activate();
     }
 
     public void Dispose() =>

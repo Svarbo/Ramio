@@ -32,7 +32,7 @@ public class PlayerFactory
             player.GetComponentInChildren<InputServiceView>().gameObject.SetActive(false);
             player.PlayerInput.SetInputService(new StandaloneInputService());
         }
-
+        
         return player;
     }
 }
