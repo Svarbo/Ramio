@@ -16867,7 +16867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.023000002, y: 0.79088897}
   m_AnchorMax: {x: 0.11316667, y: 0.93500006}
-  m_AnchoredPosition: {x: 2.9940186, y: -1.0636902}
+  m_AnchoredPosition: {x: 2.9940186, y: -1.0637207}
   m_SizeDelta: {x: -2.9221, y: -0.4496994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8492340291578838013
@@ -18542,7 +18542,7 @@ MonoBehaviour:
   - {fileID: 4689744431143000810}
   - {fileID: 3305038840288695051}
   _playerTopPlaceText: {fileID: 678385949677995159}
-  _playerAttemptionsCountText: {fileID: 0}
+  _playerAttemptionsCountText: {fileID: 8677504026845214631}
 --- !u!1 &8140445726152602687
 GameObject:
   m_ObjectHideFlags: 0

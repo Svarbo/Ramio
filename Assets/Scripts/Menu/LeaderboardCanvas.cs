@@ -5,7 +5,7 @@ using Agava.YandexGames;
 
 public class LeaderboardCanvas : MonoBehaviour
 {
-    private const string LeaderboardName = "Leaderboard";
+    private const string LeaderboardName = "Leaderboard1";
 
     [SerializeField] private List<LeaderPlace> _leaderPlaces = new List<LeaderPlace>();
     [SerializeField] private TMP_Text _playerTopPlaceText;
