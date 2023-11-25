@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public int AttemptsCount { get; private set; }
     public PlayerInput PlayerInput { get; private set; }
 
-    public event UnityAction PlayerDied;
+    public event UnityAction PlayerDesappeared;
     public event UnityAction FruitRaised;
 
     private void Awake()
@@ -59,9 +59,10 @@ public class Player : MonoBehaviour
         _isDied = true;
         IncreaseAttemptsCount();
         _playerInfo.SetDesappearing(true);
-
-        PlayerDied?.Invoke();
     }
+
+    private void CompleteDesappearing() => 
+        PlayerDesappeared?.Invoke();
 
     private void IncreaseAttemptsCount()
     {

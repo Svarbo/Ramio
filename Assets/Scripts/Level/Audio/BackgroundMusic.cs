@@ -12,7 +12,7 @@ public class BackgroundMusic : MonoBehaviour
 
     private void OnEnable()
     {
-        ChangeVolume(_gameAudioData.Effects);
+        ChangeVolume(_gameAudioData.Music);
         _gameAudioData.MusicCVolumehangeed += ChangeVolume;
     }
 

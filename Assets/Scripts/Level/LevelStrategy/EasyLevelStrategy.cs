@@ -1,6 +1,5 @@
 using System;
 using Level.SpawnPoints;
-using UI.Level;
 using UnityEngine;
 
 public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
@@ -8,6 +7,7 @@ public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
     private readonly Player _player;
     private readonly Vector3 _lastCheckpoint;
     private readonly Vector3 _startCheckpoint;
+
     private AbstractFactory _abstractFactory;
     private CheckpointChooserView _checkpointChooserView;
     private SpawnPointContainer _spawnPointContainer;

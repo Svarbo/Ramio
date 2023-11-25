@@ -12,12 +12,12 @@ public class Referee : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.PlayerDied += DeclairLose;
+        _player.PlayerDesappeared += DeclairLose;
     }
 
     private void OnDisable()
     {
-        _player.PlayerDied -= DeclairLose;
+        _player.PlayerDesappeared -= DeclairLose;
     }
 
     public void DeclairWin()

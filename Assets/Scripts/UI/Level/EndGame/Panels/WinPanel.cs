@@ -7,19 +7,20 @@ public class WinPanel : MonoBehaviour
 {
     [SerializeField] private Button _buttonGoToNextLevel;
     [SerializeField] private Button _buttonGoMenu;
+
     private StateMachine _stateMachine;
     private LevelsInfo _levelsInfo;
 
     private void OnEnable()
     {
-        _buttonGoToNextLevel.onClick.AddListener(GoToNextLevel);
-        _buttonGoMenu.onClick.AddListener(GoMenu);
+        _buttonGoToNextLevel.onClick.AddListener(LoadNextLevel);
+        _buttonGoMenu.onClick.AddListener(LoadMainMenu);
     }
 
     private void OnDisable()
     {
-        _buttonGoToNextLevel.onClick.RemoveListener(GoToNextLevel);
-        _buttonGoMenu.onClick.RemoveListener(GoMenu);
+        _buttonGoToNextLevel.onClick.RemoveListener(LoadNextLevel);
+        _buttonGoMenu.onClick.RemoveListener(LoadMainMenu);
     }
 
     public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo)
@@ -28,7 +29,7 @@ public class WinPanel : MonoBehaviour
         _stateMachine = stateMachine;
     }
 
-    private void GoToNextLevel()
+    private void LoadNextLevel()
     {
         string currentLevelName = SceneManager.GetActiveScene().name;
         string levelName = currentLevelName.Substring(currentLevelName.Length - 1);
@@ -45,7 +46,7 @@ public class WinPanel : MonoBehaviour
         _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
     }
 
-    private void GoMenu()
+    private void LoadMainMenu()
     {
         _levelsInfo.SceneName = "MainMenu";
         _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DefeatPanel : MonoBehaviour
 {
-    private const int AdvertisementDemonstrationFrequency = 3;
+    private const int AdvertisementDemonstrationFrequency = 4;
 
     [SerializeField] private Button _buttonTryAgain;
     [SerializeField] private Button _buttonGoMenu;
@@ -35,9 +35,9 @@ public class DefeatPanel : MonoBehaviour
     {
         int attemptsCount = UnityEngine.PlayerPrefs.GetInt("AttemptsCount");
 
-        // if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
-        //     InterstitialAd.Show(OnStartCallBack, OnCloseCallback);
-        // else
+        if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
+            InterstitialAd.Show(OnStartCallBack, OnCloseCallback);
+        else
             RestartLevel();
     }
 
