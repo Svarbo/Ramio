@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Oranges
+namespace CollectableObjects
 {
     public class OrangesCountText : MonoBehaviour
     {

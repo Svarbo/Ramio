@@ -1,3 +1,6 @@
+using Assets.Scripts.Data;
+using Assets.Scripts.Data.Difficults;
+
 public class DifficultChooserPresenter
 {
     private readonly LevelsInfo _levelsInfo;

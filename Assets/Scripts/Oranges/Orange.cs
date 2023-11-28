@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Oranges
+namespace CollectableObjects
 {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(AudioSource))]

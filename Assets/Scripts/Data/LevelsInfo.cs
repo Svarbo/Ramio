@@ -1,8 +1,11 @@
 using System;
 
-public class LevelsInfo
+namespace Data
 {
-    public string SceneName { get; set; }
-    public Type CurrentDifficult { get; set; }
-    public bool IsMobile { get; set; }
+    public class LevelsInfo
+    {
+        public string SceneName { get; set; }
+        public Type CurrentDifficult { get; set; }
+        public bool IsMobile { get; set; }
+    }
 }

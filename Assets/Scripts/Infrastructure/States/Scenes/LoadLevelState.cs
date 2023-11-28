@@ -1,63 +1,68 @@
+using Data;
+using Infrastructure.Core;
 using System.Collections;
-using IJunior.TypedScenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLevelState : IPayloadState<LevelsInfo>
+namespace Infrastructure.States.Scenes
 {
-    private readonly AppCore _appCore;
-    private readonly ICoroutineRunner _coroutineRunner;
-    private Fader _fader;
-    private LevelsInfo _levelsInfo;
-
-    public LoadLevelState(AppCore appCore, ICoroutineRunner coroutineRunner, Fader fader)
+    public class LoadLevelState : IPayloadState<LevelsInfo>
     {
-        _fader = fader;
-        _appCore = appCore;
-        _coroutineRunner = coroutineRunner;
-    }
+        private readonly AppCore _appCore;
+        private readonly ICoroutineRunner _coroutineRunner;
 
-    public void Exit()
-    {
-    }
+        private Fader _fader;
+        private LevelsInfo _levelsInfo;
 
-    public void FixedUpdate(float deltaTime)
-    {
-    }
+        public LoadLevelState(AppCore appCore, ICoroutineRunner coroutineRunner, Fader fader)
+        {
+            _fader = fader;
+            _appCore = appCore;
+            _coroutineRunner = coroutineRunner;
+        }
 
-    public void LateUpdate(float deltaTime)
-    {
-    }
+        public void Exit()
+        {
+        }
 
-    public void Update(float deltaTime)
-    {
-    }
+        public void FixedUpdate(float deltaTime)
+        {
+        }
 
-    public void Enter()
-    {
-    }
+        public void LateUpdate(float deltaTime)
+        {
+        }
 
-    public void Enter(LevelsInfo levelsInfo)
-    {
-        _levelsInfo = levelsInfo;
-        _fader.FadeIn(LoadLevel);
-    }
+        public void Update(float deltaTime)
+        {
+        }
 
-    private void LoadLevel() =>
-        _coroutineRunner.StartCoroutine(LoadLevelCoroutine(_levelsInfo));
+        public void Enter()
+        {
+        }
 
-    private IEnumerator LoadLevelCoroutine(LevelsInfo levelsInfo)
-    {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(levelsInfo.SceneName);
+        public void Enter(LevelsInfo levelsInfo)
+        {
+            _levelsInfo = levelsInfo;
+            _fader.FadeIn(LoadLevel);
+        }
 
-        while (asyncOperation.isDone == false)
-            yield return null;
+        private void LoadLevel() =>
+            _coroutineRunner.StartCoroutine(LoadLevelCoroutine(_levelsInfo));
 
-        if (levelsInfo.SceneName == Levels.MainMenu.ToString())
-            _appCore.StateMachine.Enter(typeof(MainMenuState), levelsInfo);
-        else
-            _appCore.StateMachine.Enter(typeof(GameLoopState), levelsInfo);
+        private IEnumerator LoadLevelCoroutine(LevelsInfo levelsInfo)
+        {
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(levelsInfo.SceneName);
 
-        _fader.FadeOut();
+            while (asyncOperation.isDone == false)
+                yield return null;
+
+            if (levelsInfo.SceneName == Levels.MainMenu.ToString())
+                _appCore.StateMachine.Enter(typeof(MainMenuState), levelsInfo);
+            else
+                _appCore.StateMachine.Enter(typeof(GameLoopState), levelsInfo);
+
+            _fader.FadeOut();
+        }
     }
 }

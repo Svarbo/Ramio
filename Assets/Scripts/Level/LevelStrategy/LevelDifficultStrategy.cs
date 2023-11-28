@@ -1,3 +1,7 @@
+using Assets.Scripts.Data;
+using Assets.Scripts.Edior;
+using Assets.Scripts.Infrastructure.StateMachines;
+
 public abstract class LevelDifficultStrategy
 {
     protected Player _player;

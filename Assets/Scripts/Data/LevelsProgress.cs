@@ -1,61 +1,65 @@
+using Data.Difficults;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class LevelsProgress
+namespace Data
 {
-    private const string StartGameDifficult = "GetStartDifficult";
-
-    private static LevelsProgress _instance;
-
-    public static LevelsProgress Instance
+    [Serializable]
+    public class LevelsProgress
     {
-        get
+        private const string StartGameDifficult = "GetStartDifficult";
+
+        private static LevelsProgress _instance;
+
+        public static LevelsProgress Instance
         {
-            if (_instance == null)
-                _instance = new LevelsProgress();
+            get
+            {
+                if (_instance == null)
+                    _instance = new LevelsProgress();
 
-            return _instance;
+                return _instance;
+            }
         }
-    }
 
-    private List<IDifficult> _difficults = new List<IDifficult>()
+        private List<IDifficult> _difficults = new List<IDifficult>()
     {
         new Easy(),
         new Medium(),
         new Hard(),
     };
 
-    public Type GetStartDifficult()
-    {
-        if (PlayerPrefs.HasKey(StartGameDifficult) == false)
-            return typeof(Medium);
-
-        string typeDifficult = PlayerPrefs.GetString(StartGameDifficult);
-
-        Type difficult = Type.GetType(typeDifficult);
-
-        GetDifficultByType(difficult);
-
-        return difficult;
-    }
-
-    public void SetStartDifficult(string typeDifficult)
-    {
-        IDifficult difficult = GetDifficultByType(Type.GetType(typeDifficult));
-        PlayerPrefs.SetString(StartGameDifficult, difficult.ToString());
-        PlayerPrefs.Save();
-    }
-
-    public IDifficult GetDifficultByType(Type type)
-    {
-        foreach (IDifficult difficult in _difficults)
+        public Type GetStartDifficult()
         {
-            if (difficult.GetType() == type)
-                return difficult;
+            if (PlayerPrefs.HasKey(StartGameDifficult) == false)
+                return typeof(Medium);
+
+            string typeDifficult = PlayerPrefs.GetString(StartGameDifficult);
+
+            Type difficult = Type.GetType(typeDifficult);
+
+            GetDifficultByType(difficult);
+
+            return difficult;
         }
 
-        throw new InvalidOperationException(nameof(type));
+        public void SetStartDifficult(string typeDifficult)
+        {
+            IDifficult difficult = GetDifficultByType(Type.GetType(typeDifficult));
+            PlayerPrefs.SetString(StartGameDifficult, difficult.ToString());
+            PlayerPrefs.Save();
+        }
+
+        public IDifficult GetDifficultByType(Type type)
+        {
+            foreach (IDifficult difficult in _difficults)
+            {
+                if (difficult.GetType() == type)
+                    return difficult;
+            }
+
+            throw new InvalidOperationException(nameof(type));
+        }
     }
 }

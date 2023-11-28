@@ -1,3 +1,5 @@
+using Assets.Scripts.Infrastructure.Factories;
+
 public class MainMenuViewFactory
 {
     private readonly AbstractFactory _abstractFactory;

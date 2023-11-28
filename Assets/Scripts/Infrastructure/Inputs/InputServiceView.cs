@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class InputServiceView : MonoBehaviour
+namespace Infrastructure.Inputs
 {
-    public void Activate() =>
-        gameObject.SetActive(true);
+    public class InputServiceView : MonoBehaviour
+    {
+        public void Activate() =>
+            gameObject.SetActive(true);
 
-    public void Deactivate() =>
-        gameObject.SetActive(false);
+        public void Deactivate() =>
+            gameObject.SetActive(false);
+    }
 }

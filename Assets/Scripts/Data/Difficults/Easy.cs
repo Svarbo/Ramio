@@ -1,79 +1,70 @@
+using Assets.Scripts.Data.Difficults;
 using System;
 using UnityEngine;
 
-[Serializable]
-public class Easy : IDifficult
+namespace Data.Difficults
 {
-    private const string Difficult = "Easy";
-    private const string CountTry = "CountTry";
-    private const string SpawnPoint = "EasySpawnPoint";
-    private const string EasyDifficultKey = "EasyDifficultAcceptLevels";
-
-    public void ChangeSpawnPoint(string sceneName, SceneSpawnPoint sceneSpawnPoint)
+    [Serializable]
+    public class Easy : IDifficult
     {
-        string key = SpawnPoint + sceneName;
+        private const string Difficult = "Easy";
+        private const string CountTry = "CountTry";
+        private const string SpawnPoint = "EasySpawnPoint";
+        private const string EasyDifficultKey = "EasyDifficultAcceptLevels";
 
-        PlayerPrefs.SetString(key, JsonUtility.ToJson(sceneSpawnPoint));
-        PlayerPrefs.Save();
-    }
+        public void ChangeSpawnPoint(string sceneName, SceneSpawnPoint sceneSpawnPoint)
+        {
+            string key = SpawnPoint + sceneName;
 
-    public int GetAcceptLevels()
-    {
-        if (PlayerPrefs.HasKey(EasyDifficultKey) == false)
-            SetStartAcceptLevels();
-        return PlayerPrefs.GetInt(EasyDifficultKey);
-    }
+            PlayerPrefs.SetString(key, JsonUtility.ToJson(sceneSpawnPoint));
+            PlayerPrefs.Save();
+        }
 
-    public void IncreaseAcceptLevels(string sceneName)
-    {
-        PlayerPrefs.SetInt(EasyDifficultKey, GetAcceptLevels() + 1);
-        PlayerPrefs.Save();
-    }
+        public int GetAcceptLevels()
+        {
+            if (PlayerPrefs.HasKey(EasyDifficultKey) == false)
+                SetStartAcceptLevels();
+            return PlayerPrefs.GetInt(EasyDifficultKey);
+        }
 
-    public SceneSpawnPoint GetSpawnPoint(string sceneName)
-    {
-        string key = SpawnPoint + sceneName;
+        public void IncreaseAcceptLevels(string sceneName)
+        {
+            PlayerPrefs.SetInt(EasyDifficultKey, GetAcceptLevels() + 1);
+            PlayerPrefs.Save();
+        }
 
-        if (PlayerPrefs.HasKey(key) == false)
-            return default;
+        public SceneSpawnPoint GetSpawnPoint(string sceneName)
+        {
+            string key = SpawnPoint + sceneName;
 
-        string sceneSpawnPoint = PlayerPrefs.GetString(key);
-        return JsonUtility.FromJson<SceneSpawnPoint>(sceneSpawnPoint);
-    }
+            if (PlayerPrefs.HasKey(key) == false)
+                return default;
 
-    public void IncreaseCountTry(string sceneName)
-    {
-        string key = CountTry + Difficult + sceneName;
+            string sceneSpawnPoint = PlayerPrefs.GetString(key);
+            return JsonUtility.FromJson<SceneSpawnPoint>(sceneSpawnPoint);
+        }
 
-        int countTry = GetCountTry(sceneName) + 1;
-        PlayerPrefs.SetInt(key, countTry);
-        PlayerPrefs.Save();
-    }
+        public void IncreaseCountTry(string sceneName)
+        {
+            string key = CountTry + Difficult + sceneName;
 
-    public int GetCountTry(string sceneName)
-    {
-        string key = CountTry + Difficult + sceneName;
-        int countTry = PlayerPrefs.GetInt(key);
+            int countTry = GetCountTry(sceneName) + 1;
+            PlayerPrefs.SetInt(key, countTry);
+            PlayerPrefs.Save();
+        }
 
-        return countTry;
-    }
+        public int GetCountTry(string sceneName)
+        {
+            string key = CountTry + Difficult + sceneName;
+            int countTry = PlayerPrefs.GetInt(key);
 
-    private void SetStartAcceptLevels()
-    {
-        PlayerPrefs.SetInt(EasyDifficultKey, 1);
-        PlayerPrefs.Save();
-    }
-}
+            return countTry;
+        }
 
-[Serializable]
-public struct SceneSpawnPoint
-{
-    public int Id;
-    public Vector3 Position;
-
-    public SceneSpawnPoint(int id, Vector3 position)
-    {
-        Id = id;
-        Position = position;
+        private void SetStartAcceptLevels()
+        {
+            PlayerPrefs.SetInt(EasyDifficultKey, 1);
+            PlayerPrefs.Save();
+        }
     }
 }

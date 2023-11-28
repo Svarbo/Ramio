@@ -1,3 +1,4 @@
+using Assets.Scripts.Data;
 using UnityEngine;
 using UnityEngine.UI;
 

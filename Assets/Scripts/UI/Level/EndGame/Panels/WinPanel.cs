@@ -1,3 +1,6 @@
+using Assets.Scripts.Data;
+using Assets.Scripts.Infrastructure.StateMachines;
+using Assets.Scripts.Infrastructure.States.Scenes;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;

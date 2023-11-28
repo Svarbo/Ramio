@@ -1,4 +1,6 @@
 using Agava.YandexGames;
+using Data;
+using Data.Difficults;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,5 +45,7 @@ public class Referee : MonoBehaviour
             if (playerScore < result.score)
                 Leaderboard.SetScore(LeaderboardName, playerScore);
         });
+
+        LevelsProgress.Instance.GetDifficultByType(typeof(Easy)).GetAllCountTry();
     }
 }

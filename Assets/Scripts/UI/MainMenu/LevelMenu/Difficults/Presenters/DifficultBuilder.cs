@@ -1,3 +1,5 @@
+using Assets.Scripts.Data;
+
 public class DifficultBuilder
 {
     private DifficultChooserPresenter _difficultChooserPresenter;

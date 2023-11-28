@@ -1,46 +1,49 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public class Medium : IDifficult
+namespace Data.Difficults
 {
-    private const string Difficult = "Medium";
-    private const string CountTry = "CountTry";
-    private const string MediumDifficultKey = "MediumDifficultAcceptLevels";
-
-    public int GetAcceptLevels()
+    [Serializable]
+    public class Medium : IDifficult
     {
-        if (PlayerPrefs.HasKey(MediumDifficultKey) == false)
-            SetStartAcceptLevels();
-        return PlayerPrefs.GetInt(MediumDifficultKey);
-    }
+        private const string Difficult = "Medium";
+        private const string CountTry = "CountTry";
+        private const string MediumDifficultKey = "MediumDifficultAcceptLevels";
 
-    public void IncreaseAcceptLevels(string sceneName)
-    {
-        PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
-        PlayerPrefs.Save();
-    }
+        public int GetAcceptLevels()
+        {
+            if (PlayerPrefs.HasKey(MediumDifficultKey) == false)
+                SetStartAcceptLevels();
+            return PlayerPrefs.GetInt(MediumDifficultKey);
+        }
 
-    public void IncreaseCountTry(string sceneName)
-    {
-        string key = CountTry + Difficult + sceneName;
+        public void IncreaseAcceptLevels(string sceneName)
+        {
+            PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
+            PlayerPrefs.Save();
+        }
 
-        int countTry = GetCountTry(sceneName) + 1;
-        PlayerPrefs.SetInt(key, countTry);
-        PlayerPrefs.Save();
-    }
+        public void IncreaseCountTry(string sceneName)
+        {
+            string key = CountTry + Difficult + sceneName;
 
-    public int GetCountTry(string sceneName)
-    {
-        string key = CountTry + Difficult + sceneName;
-        int countTry = PlayerPrefs.GetInt(key);
+            int countTry = GetCountTry(sceneName) + 1;
+            PlayerPrefs.SetInt(key, countTry);
+            PlayerPrefs.Save();
+        }
 
-        return countTry;
-    }
+        public int GetCountTry(string sceneName)
+        {
+            string key = CountTry + Difficult + sceneName;
+            int countTry = PlayerPrefs.GetInt(key);
 
-    private void SetStartAcceptLevels()
-    {
-        PlayerPrefs.SetInt(MediumDifficultKey, 1);
-        PlayerPrefs.Save();
+            return countTry;
+        }
+
+        private void SetStartAcceptLevels()
+        {
+            PlayerPrefs.SetInt(MediumDifficultKey, 1);
+            PlayerPrefs.Save();
+        }
     }
 }

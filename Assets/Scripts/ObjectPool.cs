@@ -9,10 +9,8 @@ public class ObjectPool : MonoBehaviour
 
     private List<GameObject> _pool = new List<GameObject>();
 
-    private void Awake()
-    {
+    private void Awake() =>
         Initialize();
-    }
 
     private void Initialize()
     {

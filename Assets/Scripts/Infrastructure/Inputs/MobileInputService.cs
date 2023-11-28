@@ -1,15 +1,18 @@
-public class MobileInputService : InputService
+namespace Infrastructure.Inputs
 {
-    private const string Jump = "Jump";
-    
-    public override float Direction
+    public class MobileInputService : InputService
     {
-        get
-        {
-            return SimpleInput.GetAxis(Horizontal);
-        }
-    }
+        private const string Jump = "Jump";
 
-    public override bool IsPressButtonJump() =>
-            SimpleInput.GetButtonUp(Jump);
+        public override float Direction
+        {
+            get
+            {
+                return SimpleInput.GetAxis(Horizontal);
+            }
+        }
+
+        public override bool IsPressButtonJump() =>
+                SimpleInput.GetButtonUp(Jump);
+    }
 }

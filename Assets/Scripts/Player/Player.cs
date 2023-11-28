@@ -1,3 +1,5 @@
+using Assets.Scripts.Data.Difficults;
+using Assets.Scripts.Infrastructure.Inputs;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;

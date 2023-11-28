@@ -1,3 +1,7 @@
+using Assets.Scripts.Data;
+using Assets.Scripts.Infrastructure.StateMachines;
+using Assets.Scripts.Infrastructure.States.Scenes;
+
 public class LevelChooserPresenter
 {
     private readonly StateMachine _stateMachine;

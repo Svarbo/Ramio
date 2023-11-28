@@ -1,3 +1,7 @@
+using Assets.Scripts.Data;
+using Assets.Scripts.Edior;
+using Assets.Scripts.Infrastructure.StateMachines;
+
 public class HardLevelStrategy : LevelDifficultStrategy
 {
     private Player _player;

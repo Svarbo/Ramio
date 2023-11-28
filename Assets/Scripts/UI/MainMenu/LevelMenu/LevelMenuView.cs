@@ -1,3 +1,5 @@
+using Assets.Scripts.Data;
+using Assets.Scripts.Data.Difficults;
 using UnityEngine;
 
 public class LevelMenuView : MonoBehaviour

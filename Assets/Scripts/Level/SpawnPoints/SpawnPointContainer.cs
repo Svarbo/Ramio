@@ -1,3 +1,5 @@
+using Assets.Scripts.Data;
+using Assets.Scripts.Data.Difficults;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
