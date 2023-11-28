@@ -45,7 +45,7 @@ public class Referee : MonoBehaviour
             if (playerScore < result.score)
                 Leaderboard.SetScore(LeaderboardName, playerScore);
         });
-
-        LevelsProgress.Instance.GetDifficultByType(typeof(Easy)).GetAllCountTry();
+        
+        var s = LevelsProgress.Instance.GetDifficultByType(typeof(Easy)).GetAllCountTry();
     }
 }

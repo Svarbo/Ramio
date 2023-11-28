@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Data.Difficults
@@ -27,12 +29,23 @@ namespace Data.Difficults
         {
             string key = CountTry + Difficult + sceneName;
 
-            int countTry = GetCountTry(sceneName) + 1;
+            int countTry = GetCountTryBySceneName(sceneName) + 1;
             PlayerPrefs.SetInt(key, countTry);
             PlayerPrefs.Save();
         }
+        
+        public int GetAllCountTry()
+        {
+            List<Levels> levelsNames = Enum.GetValues(typeof(Levels)).Cast<Levels>().ToList();
+            int allTry = 0;
+            
+            foreach (Levels levelName in levelsNames)
+                allTry += GetCountTryBySceneName(levelName.ToString());
 
-        public int GetCountTry(string sceneName)
+            return allTry;
+        }
+        
+        public int GetCountTryBySceneName(string sceneName)
         {
             string key = CountTry + Difficult + sceneName;
             int countTry = PlayerPrefs.GetInt(key);

@@ -5,6 +5,8 @@ namespace Data.Difficults
         public int GetAcceptLevels();
         public void IncreaseAcceptLevels(string sceneName);
         public void IncreaseCountTry(string sceneName);
-        public int GetCountTry(string sceneName);
+        public int GetCountTryBySceneName(string sceneName);
+
+        public int GetAllCountTry();
     }
 }
