@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrangesCounter : MonoBehaviour
+namespace Oranges
 {
-    [SerializeField] private List<Orange> _oranges = new List<Orange>();
-
-    private void Awake()
+    public class OrangesCounter : MonoBehaviour
     {
-        PlayerPrefs.SetInt("CurrentLevelOrangesCount", _oranges.Count);
+        [SerializeField] private List<Orange> _oranges = new List<Orange>();
+
+        private void Awake() => 
+            PlayerPrefs.SetInt("CurrentLevelOrangesCount", _oranges.Count);
     }
 }

@@ -28,14 +28,13 @@ public class Referee : MonoBehaviour
     public void ShowFinishPanel()
     {
         _playerCanvasDrawer.DrawFinishPanel();
-        //TODO ВКлючить
-        //TrySetPlayerResult();
+        SetPlayerResult();
     }
 
     private void DeclairLose() =>
         _playerCanvasDrawer.DrawDefeatPanel();
 
-    private void TrySetPlayerResult()
+    private void SetPlayerResult()
     {
         int playerScore = _player.AttemptsCount;
 
