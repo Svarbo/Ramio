@@ -3,8 +3,8 @@ using UnityEngine;
 public class InputServiceView : MonoBehaviour
 {
     public void Activate() =>
-        enabled = true;
+        gameObject.SetActive(true);
 
     public void Deactivate() =>
-        enabled = false;
+        gameObject.SetActive(false);
 }

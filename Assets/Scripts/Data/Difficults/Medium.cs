@@ -5,7 +5,7 @@ using UnityEngine;
 public class Medium : IDifficult
 {
     private const string Difficult = "Medium";
-    private const string Orange = "Orange";
+    private const string CountTry = "CountTry";
     private const string MediumDifficultKey = "MediumDifficultAcceptLevels";
 
     public int GetAcceptLevels()
@@ -17,39 +17,25 @@ public class Medium : IDifficult
 
     public void IncreaseAcceptLevels(string sceneName)
     {
-        string key = Difficult + sceneName;
-
-        if (PlayerPrefs.HasKey(key) == false)
-        {
-            PlayerPrefs.SetString(key, key);
-            PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
-            PlayerPrefs.Save();
-        }
-    }
-
-    public void SetOrangesCount(string sceneName, int score)
-    {
-        string key = Difficult + Orange + sceneName;
-
-        if (PlayerPrefs.GetInt(key) > score)
-            return;
-
-        PlayerPrefs.SetInt(key, score);
+        PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
         PlayerPrefs.Save();
     }
 
-
-    public void ResetOrangesCount(string sceneName)
+    public void IncreaseCountTry(string sceneName)
     {
-        string key = Difficult + Orange + sceneName;
-        PlayerPrefs.SetInt(key, 0);
+        string key = CountTry + Difficult + sceneName;
+
+        int countTry = GetCountTry(sceneName) + 1;
+        PlayerPrefs.SetInt(key, countTry);
         PlayerPrefs.Save();
     }
 
-    public int GetOrangesCount(string sceneName)
+    public int GetCountTry(string sceneName)
     {
-        string key = Difficult + Orange + sceneName;
-        return PlayerPrefs.GetInt(key);
+        string key = CountTry + Difficult + sceneName;
+        int countTry = PlayerPrefs.GetInt(key);
+
+        return countTry;
     }
 
     private void SetStartAcceptLevels()

@@ -9,10 +9,13 @@ public class EasyLevelFactory
     private Vector3 _startSpawnPosition;
     private StateMachine _stateMachine;
     private SpawnPointContainer _spawnPointContainer;
+    private readonly MainMenuButton _mainMenuButton;
 
-    public EasyLevelFactory(LevelsInfo levelsInfo, Player player, StateMachine stateMachine, Vector3 startSpawnPosition, SpawnPointContainer spawnPointContainer)
+    public EasyLevelFactory(LevelsInfo levelsInfo, Player player, StateMachine stateMachine, Vector3 startSpawnPosition, SpawnPointContainer spawnPointContainer,
+        MainMenuButton mainMenuButton)
     {
         _spawnPointContainer = spawnPointContainer;
+        _mainMenuButton = mainMenuButton;
         _stateMachine = stateMachine;
         _levelsInfo = levelsInfo;
         _player = player;
@@ -27,7 +30,8 @@ public class EasyLevelFactory
             _levelsInfo,
             _spawnPointContainer,
             lastCheckpoint: GetLastPosition(),
-            startCheckpoint: _startSpawnPosition
+            startCheckpoint: _startSpawnPosition,
+            _mainMenuButton
         );
 
     private Vector3 GetLastPosition()

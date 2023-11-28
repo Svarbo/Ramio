@@ -5,56 +5,42 @@ using UnityEngine;
 public class Hard : IDifficult
 {
     private const string Difficult = "Hard";
-    private const string Orange = "Orange";
-    private const string MediumDifficultKey = "HardDifficultAcceptLevels";
+    private const string CountTry = "CountTry";
+    private const string HardDifficultKey = "HardDifficultAcceptLevels";
 
     public int GetAcceptLevels()
     {
-        if (PlayerPrefs.HasKey(MediumDifficultKey) == false)
+        if (PlayerPrefs.HasKey(HardDifficultKey) == false)
             SetStartAcceptLevels();
-        return PlayerPrefs.GetInt(MediumDifficultKey);
+        return PlayerPrefs.GetInt(HardDifficultKey);
     }
 
     public void IncreaseAcceptLevels(string sceneName)
     {
-        string key = Difficult + sceneName;
-
-        if (PlayerPrefs.HasKey(key) == false)
-        {
-            PlayerPrefs.SetString(key, key);
-            PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
-            PlayerPrefs.Save();
-        }
-    }
-
-    public void SetOrangesCount(string sceneName, int score)
-    {
-        string key = Difficult + Orange + sceneName;
-
-        if (PlayerPrefs.GetInt(key) > score)
-            return;
-
-        PlayerPrefs.SetInt(key, score);
-        PlayerPrefs.Save();
-    }
-    
-    public void ResetOrangesCount(string sceneName)
-    {
-        string key = Difficult + Orange + sceneName;
-        PlayerPrefs.SetInt(key, 0);
+        PlayerPrefs.SetInt(HardDifficultKey, GetAcceptLevels() + 1);
         PlayerPrefs.Save();
     }
 
-    public int GetOrangesCount(string sceneName)
+    public void IncreaseCountTry(string sceneName)
     {
-        string key = Difficult + Orange + sceneName;
-        return PlayerPrefs.GetInt(key);
+        string key = CountTry + Difficult + sceneName;
+
+        int countTry = GetCountTry(sceneName) + 1;
+        PlayerPrefs.SetInt(key, countTry);
+        PlayerPrefs.Save();
     }
 
+    public int GetCountTry(string sceneName)
+    {
+        string key = CountTry + Difficult + sceneName;
+        int countTry = PlayerPrefs.GetInt(key);
+
+        return countTry;
+    }
 
     private void SetStartAcceptLevels()
     {
-        PlayerPrefs.SetInt(MediumDifficultKey, 1);
+        PlayerPrefs.SetInt(HardDifficultKey, 1);
         PlayerPrefs.Save();
     }
 }

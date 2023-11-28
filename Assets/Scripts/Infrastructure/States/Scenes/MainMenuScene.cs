@@ -45,7 +45,7 @@ public class MainMenuState : IPayloadState<LevelsInfo>
         MainMenuView mainMenuView = mainMenuViewFactory.Create();
         // TODO Включить
         //mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
-        mainMenuView.UserInfo.IsMobile = false;
+        _levelsInfo.IsMobile = false;
 
         #region LevelMenuBuilders
 

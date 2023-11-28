@@ -1,14 +1,18 @@
+using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class PlayerFactory
 {
     private Vector3 _startSpawnPosition;
-    private UserInfo _userInfo;
+    private readonly bool _isMobile;
+    private readonly Type _difficult;
 
-    public PlayerFactory(Vector3 startSpawnPosition, UserInfo info, UserInfo userInfo)
+    public PlayerFactory(Vector3 startSpawnPosition, bool IsMobile, Type difficult)
     {
         _startSpawnPosition = startSpawnPosition;
-        _userInfo = userInfo;
+        _isMobile = IsMobile;
+        _difficult = difficult;
     }
 
     public Player Create()
@@ -19,10 +23,10 @@ public class PlayerFactory
             position: _startSpawnPosition,
             rotation: Quaternion.identity
         );
-
+        player.SetDifficult(LevelsProgress.Instance.GetDifficultByType(_difficult));
         Camera.main.GetComponent<TargetFollower>().Construct(player.transform, new Vector3(0, 0, -5));
 
-        if (_userInfo.IsMobile)
+        if (_isMobile)
         {
             player.InputServiceView.Activate();
             player.PlayerInput.SetInputService(new MobileInputService());

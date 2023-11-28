@@ -12,9 +12,11 @@ public class PlayerCanvasDrawer : MonoBehaviour
 
     private LevelsInfo _levelsInfo;
     private InputServiceView _playerInputServiceView;
+    private MainMenuButton _mainMenuButton;
 
-    public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo, InputServiceView playerInputServiceView)
+    public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo, InputServiceView playerInputServiceView, MainMenuButton mainMenuButton)
     {
+        _mainMenuButton = mainMenuButton;
         _playerInputServiceView = playerInputServiceView;
         _levelsInfo = levelsInfo;
 
@@ -25,6 +27,7 @@ public class PlayerCanvasDrawer : MonoBehaviour
     public void DrawWinPanel(int score)
     {
         _playerInputServiceView.Deactivate();
+        _mainMenuButton.gameObject.SetActive(false);
         _orangesCountText.SetCountText(score, PlayerPrefs.GetInt("CurrentLevelOrangesCount"));
         WinPanel.gameObject.SetActive(true);
 
@@ -39,12 +42,14 @@ public class PlayerCanvasDrawer : MonoBehaviour
 
     public void DrawDefeatPanel()
     {
+        _mainMenuButton.gameObject.SetActive(false);
         _playerInputServiceView.Deactivate();
         LosePanel.gameObject.SetActive(true);
     }
 
     public void DrawFinishPanel()
     {
+        _mainMenuButton.gameObject.SetActive(false);
         _playerInputServiceView.Deactivate();
         FinishPanel.gameObject.SetActive(true);
     }

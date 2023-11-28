@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerInfo))]
@@ -15,11 +16,14 @@ public class Player : MonoBehaviour
     private int _maxHealth;
     private int _fruitsCount;
     private bool _isDied = false;
+    private IDifficult _levelDifficult;
+    private string _sceneName;
 
     public int FruitsCount => _fruitsCount;
     public int CurrentHealth => _currentHealth;
 
-    public int AttemptsCount { get; private set; }
+    public int AttemptsCount => _levelDifficult.GetCountTry(_sceneName);
+
     public PlayerInput PlayerInput { get; private set; }
 
     public event UnityAction PlayerDesappeared;
@@ -27,11 +31,10 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        _sceneName = SceneManager.GetActiveScene().name;
         _playerInfo = GetComponent<PlayerInfo>();
         _playerStats = GetComponent<PlayerStats>();
         PlayerInput = GetComponent<PlayerInput>();
-
-        AttemptsCount = PlayerPrefs.GetInt("AttemptsCount");
         SetHealth();
     }
 
@@ -63,12 +66,12 @@ public class Player : MonoBehaviour
         _playerInfo.SetDesappearing(true);
     }
 
-    private void CompleteDesappearing() => 
+    private void CompleteDesappearing() =>
         PlayerDesappeared?.Invoke();
 
-    private void IncreaseAttemptsCount()
-    {
-        AttemptsCount++;
-        PlayerPrefs.SetInt("AttemptsCount", AttemptsCount);
-    }
+    private void IncreaseAttemptsCount() =>
+        _levelDifficult.IncreaseCountTry(_sceneName);
+
+    public void SetDifficult(IDifficult levelDifficult) =>
+        _levelDifficult = levelDifficult;
 }

@@ -12,8 +12,9 @@ public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
     private CheckpointChooserView _checkpointChooserView;
     private SpawnPointContainer _spawnPointContainer;
 
-    public EasyLevelStrategy(Player player, StateMachine stateMachine, LevelsInfo levelsInfo, SpawnPointContainer spawnPointContainer, Vector3 lastCheckpoint, Vector3 startCheckpoint)
-    : base(player, stateMachine, levelsInfo)
+    public EasyLevelStrategy(Player player, StateMachine stateMachine, LevelsInfo levelsInfo, SpawnPointContainer spawnPointContainer, Vector3 lastCheckpoint,
+        Vector3 startCheckpoint, MainMenuButton mainMenuButton)
+        : base(player, stateMachine, levelsInfo, mainMenuButton)
     {
         _spawnPointContainer = spawnPointContainer;
         _player = player;
