@@ -23,9 +23,15 @@ public class PlayerFactory
         Camera.main.GetComponent<TargetFollower>().Construct(player.transform, new Vector3(0, 0, -5));
 
         if (_userInfo.IsMobile)
+        {
+            player.InputServiceView.Activate();
             player.PlayerInput.SetInputService(new MobileInputService());
+        }
         else
+        {
+            player.InputServiceView.Deactivate();
             player.PlayerInput.SetInputService(new StandaloneInputService());
+        }
 
         return player;
     }

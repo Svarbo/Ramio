@@ -17,18 +17,19 @@ public class PlayerCanvasDrawer : MonoBehaviour
     {
         _playerInputServiceView = playerInputServiceView;
         _levelsInfo = levelsInfo;
-        
+
         WinPanel.Construct(stateMachine, levelsInfo);
         LosePanel.Construct(stateMachine, levelsInfo);
     }
 
     public void DrawWinPanel(int score)
     {
+        _playerInputServiceView.Deactivate();
         _orangesCountText.SetCountText(score, PlayerPrefs.GetInt("CurrentLevelOrangesCount"));
         WinPanel.gameObject.SetActive(true);
 
         IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
-        
+
         if (_levelsInfo.CurrentDifficult != typeof(Hard))
         {
             difficult.GetAcceptLevels();
@@ -36,9 +37,15 @@ public class PlayerCanvasDrawer : MonoBehaviour
         }
     }
 
-    public void DrawDefeatPanel() =>
+    public void DrawDefeatPanel()
+    {
+        _playerInputServiceView.Deactivate();
         LosePanel.gameObject.SetActive(true);
+    }
 
-    public void DrawFinishPanel() =>
+    public void DrawFinishPanel()
+    {
+        _playerInputServiceView.Deactivate();
         FinishPanel.gameObject.SetActive(true);
+    }
 }
