@@ -172,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 411992873631749314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f24eadca844b14fb8a93a9c8301fea, type: 3}
+  m_Script: {fileID: 11500000, guid: 28849d24676f7d944abf4eb7517c3261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6871067670533262591
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acf813d43e76f846b37344072a3bda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingObject: {fileID: 7373752643178707946}
+  _fallingObject: {fileID: 7373752643178707946}
 --- !u!1 &8582938712270781795
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,5 +297,5 @@ Transform:
   - {fileID: 7917183875630588013}
   - {fileID: 7491810089220135004}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
