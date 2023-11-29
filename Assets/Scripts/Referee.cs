@@ -32,7 +32,8 @@ public class Referee : MonoBehaviour
     public void ShowFinishPanel()
     {
         _playerCanvasDrawer.DrawFinishPanel();
-        SetPlayerResult();
+        //TODO включить SetPlayerResult  
+        //SetPlayerResult();
     }
 
     private void DeclairLose() =>
