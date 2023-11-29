@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Traps
+namespace Traps.Doors
 {
     [RequireComponent(typeof(Animator))]
     public class Door : MonoBehaviour

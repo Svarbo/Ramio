@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Traps
+namespace Traps.SpikedBall
 {
     [RequireComponent(typeof(DamageZone))]
     [RequireComponent(typeof(Rigidbody2D))]

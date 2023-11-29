@@ -1,7 +1,7 @@
 using Infrastructure.Inputs;
 using UnityEngine;
 
-namespace Player
+namespace Player.PlayerStateMachine
 {
     [RequireComponent(typeof(MainHero))]
     [RequireComponent(typeof(Info))]

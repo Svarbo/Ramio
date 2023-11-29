@@ -1,7 +1,7 @@
 using Player;
 using UnityEngine;
 
-namespace Traps
+namespace Traps.SpikedBall
 {
     public class FallingObjectTriggerZone : MonoBehaviour
     {

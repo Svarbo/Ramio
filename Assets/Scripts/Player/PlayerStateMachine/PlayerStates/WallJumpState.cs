@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Player
+namespace Player.PlayerStateMachine.PlayerStates
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Fliper))]

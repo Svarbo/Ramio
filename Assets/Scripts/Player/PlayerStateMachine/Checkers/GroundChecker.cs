@@ -1,4 +1,4 @@
-namespace Player
+namespace Player.PlayerStateMachine.Checkers
 {
     public class GroundChecker : EnvironmentChecker
     {

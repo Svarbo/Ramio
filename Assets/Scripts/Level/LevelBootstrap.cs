@@ -33,6 +33,7 @@ namespace Level
             _spawnPointContainer.gameObject.SetActive(false);
 
             LevelsInfo = levelsInfo;
+            //TODO DEBUG lod удалить
             Debug.Log(LevelsInfo.CurrentDifficult);
             Debug.Log("is mobile" + LevelsInfo.IsMobile);
 

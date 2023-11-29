@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using Player.PlayerStateMachine.PlayerStates;
+using Player.PlayerStateMachine.Transitions;
 using UnityEngine;
 
-namespace Player
+namespace Player.PlayerStateMachine
 {
     [RequireComponent(typeof(MainHero))]
     public class StateMachine : MonoBehaviour

@@ -1,8 +1,10 @@
 using Data.Difficults;
 using Infrastructure.Inputs;
+using Player.PlayerStateMachine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Input = Player.PlayerStateMachine.Input;
 
 namespace Player
 {

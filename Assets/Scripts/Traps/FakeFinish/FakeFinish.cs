@@ -1,8 +1,8 @@
-using Player;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-namespace Traps
+namespace Traps.FakeFinish
 {
     public class FakeFinish : MonoBehaviour
     {

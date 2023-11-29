@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Traps
+namespace Traps.FakeFinish
 {
     public class MovableTrap : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Player.PlayerStateMachine.PlayerStates
 {
     public class WalkState : State
     {

@@ -1,7 +1,5 @@
-using Infrastructure;
 using Infrastructure.States;
 using Transitions;
-using Infrastructure.StateMachines;
 using Infrastructure.States.Scenes;
 using System;
 using System.Collections.Generic;

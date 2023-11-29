@@ -1,14 +1,17 @@
 using TMPro;
 using UnityEngine;
 
-public class LeaderPlace : MonoBehaviour
+namespace UI.MainMenu.LeaderBoard
 {
-    [SerializeField] private TMP_Text _leaderNamePlace;
-    [SerializeField] private TMP_Text _leaderScorePlace;
-
-    public void SetLeaderData(string leaderName, int leaderScore)
+    public class LeaderPlace : MonoBehaviour
     {
-        _leaderNamePlace.text = leaderName;
-        _leaderScorePlace.text = leaderScore.ToString();
+        [SerializeField] private TMP_Text _leaderNamePlace;
+        [SerializeField] private TMP_Text _leaderScorePlace;
+
+        public void SetLeaderData(string leaderName, int leaderScore)
+        {
+            _leaderNamePlace.text = leaderName;
+            _leaderScorePlace.text = leaderScore.ToString();
+        }
     }
 }

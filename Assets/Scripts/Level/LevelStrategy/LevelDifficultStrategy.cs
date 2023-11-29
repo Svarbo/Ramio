@@ -1,6 +1,7 @@
 using Data;
 using Edior;
 using Player;
+using UI.Level.EndGame;
 
 namespace Level.LevelStrategy
 {
@@ -11,9 +12,7 @@ namespace Level.LevelStrategy
         protected MainHero _player;
         protected Infrastructure.StateMachines.StateMachine _stateMachine;
         protected LevelsInfo _levelsInfo;
-
-        public abstract void Execute();
-
+        
         public LevelDifficultStrategy(MainHero player, Infrastructure.StateMachines.StateMachine stateMachine, LevelsInfo levelsInfo, MainMenuButton mainMenuButton)
         {
             _levelsInfo = levelsInfo;
@@ -24,5 +23,6 @@ namespace Level.LevelStrategy
             _playerCanvasDrawer.Construct(_stateMachine, _levelsInfo, player.InputServiceView, mainMenuButton);
         }
 
+        public abstract void Execute();
     }
 }

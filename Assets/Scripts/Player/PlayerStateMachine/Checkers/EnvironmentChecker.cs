@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Player.PlayerStateMachine.Checkers
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class EnvironmentChecker : MonoBehaviour

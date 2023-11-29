@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Player
+namespace Player.PlayerStateMachine
 {
     [RequireComponent(typeof(MainHero))]
     public class Info : MonoBehaviour

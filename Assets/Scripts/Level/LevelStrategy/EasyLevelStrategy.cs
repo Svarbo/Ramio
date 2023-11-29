@@ -6,6 +6,7 @@ using Level.SpawnPoints;
 using System;
 using UnityEngine;
 using Player;
+using UI.Level;
 
 namespace Level.LevelStrategy
 {

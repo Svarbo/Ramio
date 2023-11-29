@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class MenuView : MonoBehaviour
+namespace UI.MainMenu.Menu
 {
+    public class MenuView : MonoBehaviour
+    {
+    }
 }

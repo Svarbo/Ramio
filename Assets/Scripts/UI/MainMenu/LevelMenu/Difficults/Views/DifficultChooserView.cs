@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DifficultChooserView : MonoBehaviour
+namespace UI.MainMenu.LevelMenu.Difficults.Views
 {
-    [SerializeField] private Button _button; 
-    [field: SerializeField] public DifficultInfoPanel DifficultInfoPanel { get; private set; }
+    public class DifficultChooserView : MonoBehaviour
+    {
+        [SerializeField] private Button _button; 
+        [field: SerializeField] public DifficultInfoPanel DifficultInfoPanel { get; private set; }
 
-    private void OnEnable() =>
-        _button.onClick.AddListener(Clicked);
+        private void OnEnable() =>
+            _button.onClick.AddListener(Clicked);
 
-    private void OnDisable() =>
-        _button.onClick.RemoveListener(Clicked);
+        private void OnDisable() =>
+            _button.onClick.RemoveListener(Clicked);
 
-    private void Clicked() =>
-        DifficultInfoPanel.gameObject.SetActive(true);
+        private void Clicked() =>
+            DifficultInfoPanel.gameObject.SetActive(true);
+    }
 }

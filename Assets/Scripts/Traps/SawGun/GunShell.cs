@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Traps
+namespace Traps.SawGun
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class GunShell : DamageZone

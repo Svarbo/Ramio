@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Player.PlayerStateMachine
 {
     [RequireComponent(typeof(MainHero))]
     public class Fliper : MonoBehaviour

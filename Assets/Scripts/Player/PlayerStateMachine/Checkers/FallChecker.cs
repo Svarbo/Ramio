@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Player.PlayerStateMachine.Checkers
 {
     [RequireComponent(typeof(MainHero))]
     [RequireComponent(typeof(Rigidbody2D))]

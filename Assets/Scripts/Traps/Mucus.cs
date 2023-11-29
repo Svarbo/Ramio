@@ -1,4 +1,5 @@
 using Player;
+using Player.PlayerStateMachine;
 using UnityEngine;
 
 namespace Traps

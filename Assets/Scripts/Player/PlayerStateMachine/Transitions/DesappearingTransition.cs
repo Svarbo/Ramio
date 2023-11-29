@@ -1,4 +1,6 @@
-namespace Player
+using Player.PlayerStateMachine.PlayerStates;
+
+namespace Player.PlayerStateMachine.Transitions
 {
     public class DesappearingTransition : Transition
     {

@@ -2,21 +2,24 @@ using UI.MainMenu.Settings.Languages.Presenters;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LanguageToggleView : MonoBehaviour
+namespace UI.MainMenu.Settings.Languages.Views
 {
-    [SerializeField] private Toggle _toggle;
+    public class LanguageToggleView : MonoBehaviour
+    {
+        [SerializeField] private Toggle _toggle;
 
-    private LanguageTogglePresenter _languagePresenter;
+        private LanguageTogglePresenter _languagePresenter;
 
-    private void OnEnable() =>
-        _toggle.onValueChanged.AddListener(isActive => OnClicked(isActive));
+        private void OnEnable() =>
+            _toggle.onValueChanged.AddListener(isActive => OnClicked(isActive));
 
-    private void OnDisable() =>
-        _toggle.onValueChanged.RemoveListener(isActive => OnClicked(isActive));
+        private void OnDisable() =>
+            _toggle.onValueChanged.RemoveListener(isActive => OnClicked(isActive));
 
-    public void Construct(LanguageTogglePresenter languagePresenter) =>
-        _languagePresenter = languagePresenter;
+        public void Construct(LanguageTogglePresenter languagePresenter) =>
+            _languagePresenter = languagePresenter;
 
-    private void OnClicked(bool isActive) =>
-        _languagePresenter.ShowButtonSaveSettings();
+        private void OnClicked(bool isActive) =>
+            _languagePresenter.ShowButtonSaveSettings();
+    }
 }

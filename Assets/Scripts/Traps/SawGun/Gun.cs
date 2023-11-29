@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Traps
+namespace Traps.SawGun
 {
     public class Gun : MonoBehaviour
     {

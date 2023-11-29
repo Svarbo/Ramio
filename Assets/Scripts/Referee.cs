@@ -2,6 +2,7 @@ using Agava.YandexGames;
 using Data;
 using Data.Difficults;
 using Player;
+using UI.Level.EndGame;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

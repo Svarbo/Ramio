@@ -4,6 +4,7 @@ using Data;
 using Infrastructure.Core;
 using Infrastructure.States;
 using Localization;
+using UI.MainMenu.Factories;
 using UI.MainMenu.LevelMenu.Difficults.Presenters;
 using UI.MainMenu.LevelMenu.LevelChoosers;
 using UI.MainMenu.Menu;
@@ -54,7 +55,6 @@ namespace Infrastructure.States.Scenes
         {
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
-            mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
             _levelsInfo.IsMobile = false;
 
             #region LevelMenuBuilders

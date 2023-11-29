@@ -1,22 +1,25 @@
 using Agava.YandexGames;
 using UnityEngine;
 
-public class AuthorizingBackground : MonoBehaviour
+namespace UI.MainMenu.LeaderBoard
 {
-    private void Start() => 
-        TryShow();
-
-    private void TryShow()
+    public class AuthorizingBackground : MonoBehaviour
     {
-        if (PlayerAccount.IsAuthorized == true)
+        private void Start() => 
+            TryShow();
+
+        private void TryShow()
+        {
+            if (PlayerAccount.IsAuthorized == true)
+                gameObject.SetActive(false);
+        }
+
+        public void LogIn()
+        {
+            PlayerAccount.Authorize();
             gameObject.SetActive(false);
-    }
 
-    public void LogIn()
-    {
-        PlayerAccount.Authorize();
-        gameObject.SetActive(false);
-
-        UnityEngine.PlayerPrefs.SetInt("AccountAuthorizedIndicator", 1);
+            UnityEngine.PlayerPrefs.SetInt("AccountAuthorizedIndicator", 1);
+        }
     }
 }

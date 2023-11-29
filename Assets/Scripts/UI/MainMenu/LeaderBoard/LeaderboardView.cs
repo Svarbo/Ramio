@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class LeaderboardView : MonoBehaviour
+namespace UI.MainMenu.LeaderBoard
 {
+    public class LeaderboardView : MonoBehaviour
+    {
+    }
 }
