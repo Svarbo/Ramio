@@ -59,6 +59,7 @@ namespace UI.Level.EndGame
         {
             _mainMenuButton.gameObject.SetActive(false);
             _playerInputServiceView.Deactivate();
+            //TODO остановить игру
             FinishPanel.gameObject.SetActive(true);
         }
     }

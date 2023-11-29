@@ -3808,7 +3808,7 @@ MonoBehaviour:
   _orangesCountText: {fileID: 7740910099036607306}
   <WinPanel>k__BackingField: {fileID: 8367639862701461904}
   <LosePanel>k__BackingField: {fileID: 6186934257361486128}
-  <FinishPanel>k__BackingField: {fileID: 0}
+  <FinishPanel>k__BackingField: {fileID: 919279948176489235}
 --- !u!1 &8366919897145065579
 GameObject:
   m_ObjectHideFlags: 0

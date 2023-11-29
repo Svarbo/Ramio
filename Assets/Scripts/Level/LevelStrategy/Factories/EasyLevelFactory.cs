@@ -18,7 +18,7 @@ namespace Level.LevelStrategy.Factories
         private SpawnPointContainer _spawnPointContainer;
         private readonly MainMenuButton _mainMenuButton;
 
-        public EasyLevelFactory(LevelsInfo levelsInfo, MainHero player, Infrastructure.StateMachines.StateMachine stateMachine, Vector3 startSpawnPosition, SpawnPointContainer spawnPointContainer,
+        public EasyLevelFactory(LevelsInfo levelsInfo, MainHero player, StateMachine stateMachine, Vector3 startSpawnPosition, SpawnPointContainer spawnPointContainer,
             MainMenuButton mainMenuButton)
         {
             _spawnPointContainer = spawnPointContainer;
