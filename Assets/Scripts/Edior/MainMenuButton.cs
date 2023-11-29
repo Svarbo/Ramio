@@ -1,5 +1,7 @@
-using Assets.Scripts.Infrastructure.States.Scenes;
 using Data;
+using Infrastructure;
+using Infrastructure.States.Scenes;
+using Level;
 using UnityEngine;
 using UnityEngine.UI;
 

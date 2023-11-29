@@ -1,24 +1,27 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInfo))]
-[RequireComponent(typeof(PlayerStats))]
-public class HorizontalMover : MonoBehaviour
+namespace Player
 {
-    private Rigidbody2D _rigidbody2D;
-    private PlayerInfo _playerInfo;
-    private PlayerStats _playerStats;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Info))]
+    [RequireComponent(typeof(Stats))]
+    public class HorizontalMover : MonoBehaviour
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _playerInfo = GetComponent<PlayerInfo>();
-        _playerStats = GetComponent<PlayerStats>();
+        private Rigidbody2D _rigidbody2D;
+        private Info _playerInfo;
+        private Stats _playerStats;
+
+        private void Awake()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _playerInfo = GetComponent<Info>();
+            _playerStats = GetComponent<Stats>();
+        }
+
+        private void Update() =>
+            Move();
+
+        private void Move() =>
+            _rigidbody2D.velocity = new Vector2(_playerInfo.CurrentSpeed * _playerStats.Speed, _rigidbody2D.velocity.y);
     }
-
-    private void Update() => 
-        Move();
-
-    private void Move() => 
-        _rigidbody2D.velocity = new Vector2(_playerInfo.CurrentSpeed * _playerStats.Speed, _rigidbody2D.velocity.y);
 }

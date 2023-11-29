@@ -1,25 +1,28 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
-public abstract class EnvironmentChecker : MonoBehaviour
+namespace Player
 {
-    private const string _groundLayer = "Ground";
-
-    [SerializeField] private LayerMask _layerMask;
-
-    [SerializeField] protected PlayerInfo PlayerInfo;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    [RequireComponent(typeof(BoxCollider2D))]
+    public abstract class EnvironmentChecker : MonoBehaviour
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer(_groundLayer))
-            SetStatus(true);
-    }
+        private const string _groundLayer = "Ground";
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer(_groundLayer))
-            SetStatus(false);
-    }
+        [SerializeField] protected Info PlayerInfo;
 
-    protected abstract void SetStatus(bool value);
+        [SerializeField] private LayerMask _layerMask;
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer(_groundLayer))
+                SetStatus(true);
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer(_groundLayer))
+                SetStatus(false);
+        }
+
+        protected abstract void SetStatus(bool value);
+    }
 }

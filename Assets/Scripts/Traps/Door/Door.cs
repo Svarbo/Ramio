@@ -1,17 +1,20 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class Door : MonoBehaviour
+namespace Traps
 {
-    private Animator _animator;
-    private int _openAnimation = Animator.StringToHash("Open");
+    [RequireComponent(typeof(Animator))]
+    public class Door : MonoBehaviour
+    {
+        private Animator _animator;
+        private int _openAnimation = Animator.StringToHash("Open");
 
-    private void Start() => 
-        _animator = GetComponent<Animator>();
+        private void Start() =>
+            _animator = GetComponent<Animator>();
 
-    public void Open() => 
-        _animator.Play(_openAnimation);
+        public void Open() =>
+            _animator.Play(_openAnimation);
 
-    public void Off() => 
-        gameObject.SetActive(false);
+        public void Off() =>
+            gameObject.SetActive(false);
+    }
 }

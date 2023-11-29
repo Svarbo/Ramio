@@ -1,14 +1,17 @@
-public class DesappearingTransition : Transition
+namespace Player
 {
-    public DesappearingTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class DesappearingTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public DesappearingTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions()
-    {
-        return PlayerInfo.IsDesappearing
-            && !PlayerInfo.IsHit;
+        protected override bool CheckConditions()
+        {
+            return PlayerInfo.IsDesappearing
+                && !PlayerInfo.IsHit;
+        }
     }
 }

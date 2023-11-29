@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public abstract class Trap : MonoBehaviour
+namespace Traps
 {
+    public abstract class Trap : MonoBehaviour
+    {
+    }
 }

@@ -1,12 +1,14 @@
-using Assets.Scripts.Data;
-using Assets.Scripts.Data.Difficults;
-using Assets.Scripts.Edior;
-using Assets.Scripts.Infrastructure.Inputs;
-using Assets.Scripts.Infrastructure.StateMachines;
+using Data;
+using Data.Difficults;
+using Edior;
+using Infrastructure.Inputs;
+using Infrastructure.StateMachines;
+using Player;
 using CollectableObjects;
 using UI.Level.EndGame.Panels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using StateMachine = Infrastructure.StateMachines.StateMachine;
 
 public class PlayerCanvasDrawer : MonoBehaviour
 {

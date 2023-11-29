@@ -1,10 +1,10 @@
-using Assets.Scripts.Data;
-using Assets.Scripts.Infrastructure.StateMachines;
-using Assets.Scripts.Infrastructure.States.Scenes;
+using Data;
+using Infrastructure.States.Scenes;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using StateMachine = Infrastructure.StateMachines.StateMachine;
 
 public class WinPanel : MonoBehaviour
 {

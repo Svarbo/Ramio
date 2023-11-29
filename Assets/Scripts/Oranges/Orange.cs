@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace CollectableObjects
@@ -19,7 +20,7 @@ namespace CollectableObjects
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out Player player))
+            if (collision.TryGetComponent(out MainHero player))
             {
                 player.IncreaseScore(_reward);
 

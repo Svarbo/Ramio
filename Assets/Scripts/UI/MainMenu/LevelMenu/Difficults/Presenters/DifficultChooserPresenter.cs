@@ -1,5 +1,6 @@
-using Assets.Scripts.Data;
-using Assets.Scripts.Data.Difficults;
+using Data;
+using Data.Difficults;
+using UI.MainMenu.LevelMenu.LevelChoosers;
 
 public class DifficultChooserPresenter
 {

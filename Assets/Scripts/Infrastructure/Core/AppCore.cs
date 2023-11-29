@@ -1,5 +1,7 @@
-using Assets.Scripts.Infrastructure.StateMachines;
-using Assets.Scripts.Infrastructure.States.Scenes;
+using Infrastructure;
+using Infrastructure.States;
+using Transitions;
+using Infrastructure.StateMachines;
 using Infrastructure.States.Scenes;
 using System;
 using System.Collections.Generic;
@@ -18,10 +20,10 @@ namespace Infrastructure.Core
                 [typeof(LoadLevelState)] = new LoadLevelState(this, coroutineRunner, fader),
             };
 
-            StateMachine = new StateMachine(scenes);
+            StateMachine = new StateMachines.StateMachine(scenes);
             StateMachine.Enter(typeof(SdkLoadState));
         }
 
-        public StateMachine StateMachine { get; }
+        public StateMachines.StateMachine StateMachine { get; }
     }
 }

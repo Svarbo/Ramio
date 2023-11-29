@@ -1,7 +1,11 @@
+using UI.MainMenu.LevelMenu;
 using UnityEngine;
 
-public class MainMenuView : MonoBehaviour
+namespace UI.MainMenu.Menu
 {
-    [field: SerializeField] public LevelMenuView LevelMenuView { get; private set; }
-    [field: SerializeField] public SettingsView SettingsView { get; private set; }
+    public class MainMenuView : MonoBehaviour
+    {
+        [field: SerializeField] public LevelMenuView LevelMenuView { get; private set; }
+        [field: SerializeField] public SettingsView SettingsView { get; private set; }
+    }
 }

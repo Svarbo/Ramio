@@ -1,4 +1,5 @@
-using Assets.Scripts.Infrastructure.Factories;
+using Infrastructure.Factories;
+using UI.MainMenu.Menu;
 
 public class MainMenuViewFactory
 {

@@ -1,5 +1,8 @@
-public class WallHookChecker : EnvironmentChecker
+namespace Player
 {
-    protected override void SetStatus(bool value) => 
-        PlayerInfo.SetWallHooked(value);
+    public class WallHookChecker : EnvironmentChecker
+    {
+        protected override void SetStatus(bool value) =>
+            PlayerInfo.SetWallHooked(value);
+    }
 }

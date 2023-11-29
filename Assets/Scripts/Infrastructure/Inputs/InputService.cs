@@ -1,8 +1,11 @@
-public abstract class InputService
+namespace Infrastructure.Inputs
 {
-    protected readonly string Horizontal = "Horizontal";
+    public abstract class InputService
+    {
+        protected readonly string Horizontal = "Horizontal";
 
-    public abstract float Direction { get; }
+        public abstract float Direction { get; }
 
-    public abstract bool IsPressButtonJump();
+        public abstract bool IsPressButtonJump();
+    }
 }

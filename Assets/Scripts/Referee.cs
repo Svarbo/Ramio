@@ -1,6 +1,7 @@
 using Agava.YandexGames;
 using Data;
 using Data.Difficults;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ public class Referee : MonoBehaviour
     private const string LeaderboardName = "Leaderboard1";
     private const string LastLevelName = "Level3";
 
-    [SerializeField] private Player _player;
+    [SerializeField] private MainHero _player;
     [SerializeField] private PlayerCanvasDrawer _playerCanvasDrawer;
 
     private void OnEnable() =>

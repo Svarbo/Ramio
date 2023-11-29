@@ -1,3 +1,5 @@
+using UI.MainMenu.Settings.Languages.Views;
+
 namespace UI.MainMenu.Settings.Languages.Presenters
 {
     public class LanguageTogglePresenter

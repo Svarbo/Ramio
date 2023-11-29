@@ -1,21 +1,24 @@
-public abstract class Transition 
+namespace Player
 {
-    protected PlayerState NextState;
-    protected PlayerInfo PlayerInfo;
-
-    private bool _needTransit;
-
-    public bool TryGetNextState(out PlayerState nextState)
+    public abstract class Transition
     {
-        _needTransit = CheckConditions();
+        protected State NextState;
+        protected Info PlayerInfo;
 
-        if (_needTransit)
-            nextState = NextState;
-        else
-            nextState = null;
+        private bool _needTransit;
 
-        return _needTransit;
+        public bool TryGetNextState(out State nextState)
+        {
+            _needTransit = CheckConditions();
+
+            if (_needTransit)
+                nextState = NextState;
+            else
+                nextState = null;
+
+            return _needTransit;
+        }
+
+        protected abstract bool CheckConditions();
     }
-
-    protected abstract bool CheckConditions();
 }

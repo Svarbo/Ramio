@@ -1,33 +1,36 @@
-using UnityEngine;
 using Agava.YandexGames;
+using UnityEngine;
 
-public class LanguageDefiner : MonoBehaviour
+namespace Localization
 {
-    private const int RussianLanguageIndex = 0;
-    private const int EnglishLanguageIndex = 1;
-    private const int TurkishLanguageIndex = 2;
-
-    public bool TryDefineLanguage()
+    public class LanguageDefiner : MonoBehaviour
     {
-        bool languageWasChanged = UnityEngine.PlayerPrefs.GetInt("LanguageWasChanged") == 1;
+        private const int RussianLanguageIndex = 0;
+        private const int EnglishLanguageIndex = 1;
+        private const int TurkishLanguageIndex = 2;
 
-        if (languageWasChanged != true)
-            DefineLanguage();
+        public bool TryDefineLanguage()
+        {
+            bool languageWasChanged = UnityEngine.PlayerPrefs.GetInt("LanguageWasChanged") == 1;
 
-        return !languageWasChanged;
-    }
+            if (languageWasChanged != true)
+                DefineLanguage();
 
-    private void DefineLanguage()
-    {
-        string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
+            return !languageWasChanged;
+        }
 
-        if (languageDesignation == "ru" || languageDesignation == "be" || languageDesignation == "kk" || languageDesignation == "uk" || languageDesignation == "uz")
-            UnityEngine.PlayerPrefs.SetInt("LanguageIndex", RussianLanguageIndex);
-        else if (languageDesignation == "tr")
-            UnityEngine.PlayerPrefs.SetInt("LanguageIndex", TurkishLanguageIndex);
-        else
-            UnityEngine.PlayerPrefs.SetInt("LanguageIndex", EnglishLanguageIndex);
+        private void DefineLanguage()
+        {
+            string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
 
-        UnityEngine.PlayerPrefs.Save();
+            if (languageDesignation == "ru" || languageDesignation == "be" || languageDesignation == "kk" || languageDesignation == "uk" || languageDesignation == "uz")
+                UnityEngine.PlayerPrefs.SetInt("LanguageIndex", RussianLanguageIndex);
+            else if (languageDesignation == "tr")
+                UnityEngine.PlayerPrefs.SetInt("LanguageIndex", TurkishLanguageIndex);
+            else
+                UnityEngine.PlayerPrefs.SetInt("LanguageIndex", EnglishLanguageIndex);
+
+            UnityEngine.PlayerPrefs.Save();
+        }
     }
 }

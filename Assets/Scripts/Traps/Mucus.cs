@@ -1,16 +1,20 @@
+using Player;
 using UnityEngine;
 
-public class Mucus : MonoBehaviour
+namespace Traps
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public class Mucus : MonoBehaviour
     {
-        if (collision.gameObject.TryGetComponent<PlayerInfo>(out PlayerInfo playerInfo))
-            playerInfo.SetDecelerated(true);
-    }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent<Info>(out Info playerInfo))
+                playerInfo.SetDecelerated(true);
+        }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<PlayerInfo>(out PlayerInfo playerInfo))
-            playerInfo.SetDecelerated(false);
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent<Info>(out Info playerInfo))
+                playerInfo.SetDecelerated(false);
+        }
     }
 }

@@ -1,34 +1,37 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class JumpState : PlayerState
+namespace Player
 {
-    private Rigidbody2D _rigidbody2D;
-    private int _jumpAnimation = Animator.StringToHash("Jump");
-
-    protected override void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class JumpState : State
     {
-        base.Awake();
+        private Rigidbody2D _rigidbody2D;
+        private int _jumpAnimation = Animator.StringToHash("Jump");
 
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
+        protected override void Awake()
+        {
+            base.Awake();
 
-    private void OnEnable() => 
-        Jump();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
 
-    private void Jump()
-    {
-        PlayerAnimator.Play(_jumpAnimation);
+        private void OnEnable() =>
+            Jump();
 
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, PlayerStats.JumpForce);
-    }
+        public override bool IsCompleted()
+        {
+            return Info.IsGrounded
+                || Info.IsHit
+                || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
+                || Info.IsWallHooked
+                || Info.IsFalling;
+        }
 
-    public override bool IsCompleted()
-    {
-        return PlayerInfo.IsGrounded
-            || PlayerInfo.IsHit
-            || PlayerInfo.IsJumpButtonPressed && PlayerInfo.IsExtraJumpReady
-            || PlayerInfo.IsWallHooked
-            || PlayerInfo.IsFalling;
+        private void Jump()
+        {
+            PlayerAnimator.Play(_jumpAnimation);
+
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, PlayerStats.JumpForce);
+        }
     }
 }

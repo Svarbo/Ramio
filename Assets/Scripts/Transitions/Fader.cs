@@ -3,52 +3,55 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Fader : MonoBehaviour
+namespace Transitions
 {
-    [SerializeField] private Image _image;
-    [SerializeField] private Color _startColor;
-    [SerializeField] private float _fadeInTime;
-    [SerializeField] private float _fadeOutTime;
-
-    private Coroutine _currentCoroutine;
-    private Color _tempColor;
-
-    private void Awake() =>
-        DontDestroyOnLoad(this);
-
-    public void FadeIn(UnityAction isDarken) => 
-        _currentCoroutine = StartCoroutine(Darken(isDarken));
-
-    private IEnumerator Darken(UnityAction isDarken)
+    public class Fader : MonoBehaviour
     {
-        _image.gameObject.SetActive(true);
+        [SerializeField] private Image _image;
+        [SerializeField] private Color _startColor;
+        [SerializeField] private float _fadeInTime;
+        [SerializeField] private float _fadeOutTime;
 
-        while (_image.color.a < 1f)
+        private Coroutine _currentCoroutine;
+        private Color _tempColor;
+
+        private void Awake() =>
+            DontDestroyOnLoad(this);
+
+        public void FadeIn(UnityAction isDarken) =>
+            _currentCoroutine = StartCoroutine(Darken(isDarken));
+
+        public void FadeOut() =>
+            _currentCoroutine = StartCoroutine(Lighten());
+
+        private IEnumerator Darken(UnityAction isDarken)
         {
-            _tempColor = _image.color;
-            _tempColor.a += Time.deltaTime / _fadeInTime;
-            _image.color = _tempColor;
-            yield return null;
+            _image.gameObject.SetActive(true);
+
+            while (_image.color.a < 1f)
+            {
+                _tempColor = _image.color;
+                _tempColor.a += Time.deltaTime / _fadeInTime;
+                _image.color = _tempColor;
+                yield return null;
+            }
+
+            isDarken?.Invoke();
+            StopCoroutine(_currentCoroutine);
         }
 
-        isDarken?.Invoke();
-        StopCoroutine(_currentCoroutine);
-    }
-
-    public void FadeOut() => 
-        _currentCoroutine = StartCoroutine(Lighten());
-
-    private IEnumerator Lighten()
-    {
-        while (_image.color.a > 0.1f)
+        private IEnumerator Lighten()
         {
-            _tempColor = _image.color;
-            _tempColor.a -= Time.deltaTime / _fadeOutTime;
-            _image.color = _tempColor;
-            yield return null;
-        }
+            while (_image.color.a > 0.1f)
+            {
+                _tempColor = _image.color;
+                _tempColor.a -= Time.deltaTime / _fadeOutTime;
+                _image.color = _tempColor;
+                yield return null;
+            }
 
-        StopCoroutine(_currentCoroutine);
-        _image.gameObject.SetActive(false);
+            StopCoroutine(_currentCoroutine);
+            _image.gameObject.SetActive(false);
+        }
     }
 }

@@ -1,4 +1,5 @@
-using Assets.Scripts.Infrastructure.States.Scenes;
+using Infrastructure;
+using Infrastructure.States;
 using Data;
 using Infrastructure.Core;
 using System.Collections;

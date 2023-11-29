@@ -1,4 +1,7 @@
-public interface IFixedUpdateble
+namespace Infrastructure.States
 {
-    void FixedUpdate(float deltaTime);
+    public interface IFixedUpdateble
+    {
+        void FixedUpdate(float deltaTime);
+    }
 }

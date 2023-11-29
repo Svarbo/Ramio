@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class AppearingState : PlayerState
+namespace Player
 {
-    private int _appearingAnimation = Animator.StringToHash("Appearing");
+    public class AppearingState : State
+    {
+        private int _appearingAnimation = Animator.StringToHash("Appearing");
 
-    public override bool IsCompleted() => 
-        PlayerInfo.IsAppearingAnimationFinished;
+        public override bool IsCompleted() =>
+            Info.IsAppearingAnimationFinished;
 
-    private void OnEnable() => 
-        PlayerAnimator.Play(_appearingAnimation);
+        private void OnEnable() =>
+            PlayerAnimator.Play(_appearingAnimation);
+    }
 }

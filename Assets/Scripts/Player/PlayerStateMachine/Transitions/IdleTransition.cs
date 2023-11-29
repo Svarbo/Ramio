@@ -1,11 +1,14 @@
-public class IdleTransition : Transition
+namespace Player
 {
-    public IdleTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class IdleTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public IdleTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions() => 
-        PlayerInfo.IsGrounded && PlayerInfo.IsSpeedEqualZero && PlayerInfo.IsAppearingAnimationFinished && !PlayerInfo.IsJumpButtonPressed;
+        protected override bool CheckConditions() =>
+            PlayerInfo.IsGrounded && PlayerInfo.IsSpeedEqualZero && PlayerInfo.IsAppearingAnimationFinished && !PlayerInfo.IsJumpButtonPressed;
+    }
 }

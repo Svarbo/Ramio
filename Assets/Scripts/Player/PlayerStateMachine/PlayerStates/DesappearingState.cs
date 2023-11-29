@@ -1,18 +1,21 @@
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class DesappearingState : PlayerState
+namespace Player
 {
-    [SerializeField] private AudioClip _disappearingSound;
-
-    private int _desappearingAnimation = Animator.StringToHash("Desappearing");
-
-    private void OnEnable()
+    [RequireComponent(typeof(AudioSource))]
+    public class DesappearingState : State
     {
-        PlayerAnimator.Play(_desappearingAnimation);
-        AudioSource.PlayOneShot(_disappearingSound);
-    }
+        [SerializeField] private AudioClip _disappearingSound;
 
-    public override bool IsCompleted() => 
-        !PlayerInfo.IsDesappearing;
+        private int _desappearingAnimation = Animator.StringToHash("Desappearing");
+
+        private void OnEnable()
+        {
+            PlayerAnimator.Play(_desappearingAnimation);
+            AudioSource.PlayOneShot(_disappearingSound);
+        }
+
+        public override bool IsCompleted() =>
+            !Info.IsDesappearing;
+    }
 }

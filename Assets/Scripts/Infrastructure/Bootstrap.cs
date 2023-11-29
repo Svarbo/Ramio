@@ -1,11 +1,13 @@
+using UI;
 using UnityEngine;
 
-public class Bootstrap : MonoBehaviour
+namespace Infrastructure
 {
-    [SerializeField] private Curtain _curtain;
-
-    private void Awake()
+    public class Bootstrap : MonoBehaviour
     {
-        _curtain.Hide();
+        [SerializeField] private Curtain _curtain;
+
+        private void Awake() =>
+            _curtain.Hide();
     }
 }

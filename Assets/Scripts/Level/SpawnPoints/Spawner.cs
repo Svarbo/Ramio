@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+namespace Level.SpawnPoints
 {
-    [field: SerializeField] public Transform position { get; private set; }
+    public class Spawner : MonoBehaviour
+    {
+        [field: SerializeField] public Transform position { get; private set; }
+    }
 }

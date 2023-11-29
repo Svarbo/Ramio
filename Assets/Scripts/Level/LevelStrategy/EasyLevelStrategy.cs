@@ -1,59 +1,63 @@
-using System;
-using Assets.Scripts.Data;
-using Assets.Scripts.Edior;
-using Assets.Scripts.Infrastructure.Factories;
-using Assets.Scripts.Infrastructure.StateMachines;
+using Data;
+using Edior;
+using Infrastructure.Factories;
+using Infrastructure.StateMachines;
 using Level.SpawnPoints;
+using System;
 using UnityEngine;
+using Player;
 
-public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
+namespace Level.LevelStrategy
 {
-    private readonly Player _player;
-    private readonly Vector3 _lastCheckpoint;
-    private readonly Vector3 _startCheckpoint;
-
-    private AbstractFactory _abstractFactory;
-    private CheckpointChooserView _checkpointChooserView;
-    private SpawnPointContainer _spawnPointContainer;
-
-    public EasyLevelStrategy(Player player, StateMachine stateMachine, LevelsInfo levelsInfo, SpawnPointContainer spawnPointContainer, Vector3 lastCheckpoint,
-        Vector3 startCheckpoint, MainMenuButton mainMenuButton)
-        : base(player, stateMachine, levelsInfo, mainMenuButton)
+    public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
     {
-        _spawnPointContainer = spawnPointContainer;
-        _player = player;
-        _lastCheckpoint = lastCheckpoint;
-        _startCheckpoint = startCheckpoint;
-        _abstractFactory = new AbstractFactory();
+        private readonly MainHero _player;
+        private readonly Vector3 _lastCheckpoint;
+        private readonly Vector3 _startCheckpoint;
 
-        _spawnPointContainer.gameObject.SetActive(true);
-        _spawnPointContainer.Show();
-        _player.PlayerInput.Deactivate();
-    }
+        private AbstractFactory _abstractFactory;
+        private CheckpointChooserView _checkpointChooserView;
+        private SpawnPointContainer _spawnPointContainer;
 
-    public override void Execute()
-    {
-        if (_lastCheckpoint != default)
+        public EasyLevelStrategy(MainHero player, Infrastructure.StateMachines.StateMachine stateMachine, LevelsInfo levelsInfo, SpawnPointContainer spawnPointContainer, Vector3 lastCheckpoint,
+            Vector3 startCheckpoint, MainMenuButton mainMenuButton)
+            : base(player, stateMachine, levelsInfo, mainMenuButton)
         {
-            _checkpointChooserView = _abstractFactory.Create<CheckpointChooserView>("UI/Level/CheckpointChooser");
-            _checkpointChooserView.CheckpointChanged += OnCheckpointChanged;
+            _spawnPointContainer = spawnPointContainer;
+            _player = player;
+            _lastCheckpoint = lastCheckpoint;
+            _startCheckpoint = startCheckpoint;
+            _abstractFactory = new AbstractFactory();
+
+            _spawnPointContainer.gameObject.SetActive(true);
+            _spawnPointContainer.Show();
+            _player.Input.Deactivate();
         }
-        else
+
+        public override void Execute()
         {
-            _player.PlayerInput.Activate();
+            if (_lastCheckpoint != default)
+            {
+                _checkpointChooserView = _abstractFactory.Create<CheckpointChooserView>("UI/Level/CheckpointChooser");
+                _checkpointChooserView.CheckpointChanged += OnCheckpointChanged;
+            }
+            else
+            {
+                _player.Input.Activate();
+            }
+        }
+
+        public void Dispose() =>
+            _checkpointChooserView.CheckpointChanged -= OnCheckpointChanged;
+
+        private void OnCheckpointChanged(bool answer)
+        {
+            if (answer)
+                _player.gameObject.transform.position = _lastCheckpoint;
+            else
+                _player.gameObject.transform.position = _startCheckpoint;
+
+            _player.Input.Activate();
         }
     }
-
-    private void OnCheckpointChanged(bool answer)
-    {
-        if (answer)
-            _player.gameObject.transform.position = _lastCheckpoint;
-        else
-            _player.gameObject.transform.position = _startCheckpoint;
-
-        _player.PlayerInput.Activate();
-    }
-
-    public void Dispose() =>
-        _checkpointChooserView.CheckpointChanged -= OnCheckpointChanged;
 }

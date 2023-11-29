@@ -1,32 +1,36 @@
-using Assets.Scripts.Data;
-using Assets.Scripts.Data.Difficults;
+using Data;
+using Data.Difficults;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(AudioSource))]
-public class SpawnPointTrigger : MonoBehaviour
+namespace Level.SpawnPoints
 {
-    [field: SerializeField] public int Index { get; private set; }
-
-    [SerializeField] private AudioClip _audioClip;
-
-    private AudioSource _audioSource;
-
-    private void Awake() => 
-        _audioSource = GetComponent<AudioSource>();
-
-    private void OnTriggerEnter2D(Collider2D collider)
+    [RequireComponent(typeof(AudioSource))]
+    public class SpawnPointTrigger : MonoBehaviour
     {
-        if (collider.TryGetComponent(out Player player))
+        [field: SerializeField] public int Index { get; private set; }
+
+        [SerializeField] private AudioClip _audioClip;
+
+        private AudioSource _audioSource;
+
+        private void Awake() =>
+            _audioSource = GetComponent<AudioSource>();
+
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            Easy easy = LevelsProgress.Instance.GetDifficultByType(typeof(Easy)) as Easy;
-            easy.ChangeSpawnPoint(SceneManager.GetActiveScene().name, new SceneSpawnPoint(Index, transform.position));
-            gameObject.SetActive(false);
+            if (collider.TryGetComponent(out MainHero player))
+            {
+                Easy easy = LevelsProgress.Instance.GetDifficultByType(typeof(Easy)) as Easy;
+                easy.ChangeSpawnPoint(SceneManager.GetActiveScene().name, new SceneSpawnPoint(Index, transform.position));
+                gameObject.SetActive(false);
 
-            _audioSource.PlayOneShot(_audioClip);
+                _audioSource.PlayOneShot(_audioClip);
+            }
         }
-    }
 
-    public void Hide() =>
-        gameObject.SetActive(false);
+        public void Hide() =>
+            gameObject.SetActive(false);
+    }
 }

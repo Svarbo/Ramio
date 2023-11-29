@@ -2,24 +2,27 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
-public class Localizator : MonoBehaviour
+namespace Localization
 {
-    [SerializeField] private List<string> _translations = new List<string>();
-
-    private TMP_Text _text;
-    private int _languageIndex;
-
-    private void Start()
+    [RequireComponent(typeof(TMP_Text))]
+    public class Localizator : MonoBehaviour
     {
-        _text = GetComponent<TMP_Text>();
+        [SerializeField] private List<string> _translations = new List<string>();
 
-        SetNeededText();
-    }
+        private TMP_Text _text;
+        private int _languageIndex;
 
-    private void SetNeededText()
-    {
-        _languageIndex = PlayerPrefs.GetInt("LanguageIndex");
-        _text.text = _translations[_languageIndex];
+        private void Start()
+        {
+            _text = GetComponent<TMP_Text>();
+
+            SetNeededText();
+        }
+
+        private void SetNeededText()
+        {
+            _languageIndex = PlayerPrefs.GetInt("LanguageIndex");
+            _text.text = _translations[_languageIndex];
+        }
     }
 }

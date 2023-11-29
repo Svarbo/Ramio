@@ -1,5 +1,8 @@
-public class GroundChecker : EnvironmentChecker
+namespace Player
 {
-    protected override void SetStatus(bool value) => 
-        PlayerInfo.SetGrounded(value);
+    public class GroundChecker : EnvironmentChecker
+    {
+        protected override void SetStatus(bool value) =>
+            PlayerInfo.SetGrounded(value);
+    }
 }

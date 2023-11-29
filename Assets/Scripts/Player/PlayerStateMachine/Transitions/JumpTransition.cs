@@ -1,11 +1,14 @@
-public class JumpTransition : Transition
+namespace Player
 {
-    public JumpTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class JumpTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public JumpTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions() => 
-        PlayerInfo.IsGrounded && PlayerInfo.IsJumpButtonPressed;
+        protected override bool CheckConditions() =>
+            PlayerInfo.IsGrounded && PlayerInfo.IsJumpButtonPressed;
+    }
 }

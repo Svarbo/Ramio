@@ -1,12 +1,16 @@
+using Player;
 using UnityEngine;
 
-public class DamageZone : Trap
+namespace Traps
 {
-    [SerializeField] private int _damage = 1;
-
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    public class DamageZone : Trap
     {
-        if (collision.TryGetComponent<Player>(out Player player))
-            player.TakeDamage(_damage);
+        [SerializeField] private int _damage = 1;
+
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent<MainHero>(out MainHero player))
+                player.TakeDamage(_damage);
+        }
     }
 }

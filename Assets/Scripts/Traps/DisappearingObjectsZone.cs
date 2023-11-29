@@ -1,25 +1,29 @@
+using Player;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisappearingObjectsZone : MonoBehaviour
+namespace Traps
 {
-    [SerializeField] private List<GameObject> _disappearingObjects;
-
-    private void Awake() => 
-        EnableObjects();
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class DisappearingObjectsZone : MonoBehaviour
     {
-        if(collision.TryGetComponent<Player>(out Player player))
+        [SerializeField] private List<GameObject> _disappearingObjects;
+
+        private void Awake() =>
+            EnableObjects();
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            foreach(GameObject disappearingObject in _disappearingObjects)
-                disappearingObject.SetActive(false);
+            if (collision.TryGetComponent<MainHero>(out MainHero player))
+            {
+                foreach (GameObject disappearingObject in _disappearingObjects)
+                    disappearingObject.SetActive(false);
+            }
         }
-    }
 
-    private void EnableObjects()
-    {
-        foreach (GameObject disappearingObject in _disappearingObjects)
-            disappearingObject.SetActive(true);
+        private void EnableObjects()
+        {
+            foreach (GameObject disappearingObject in _disappearingObjects)
+                disappearingObject.SetActive(true);
+        }
     }
 }

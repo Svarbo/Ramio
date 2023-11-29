@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class FallState : PlayerState
+namespace Player
 {
-    private int _fallAnimation = Animator.StringToHash("Fall");
-
-    private void OnEnable() => 
-        PlayerAnimator.Play(_fallAnimation);
-
-    public override bool IsCompleted()
+    public class FallState : State
     {
-        return PlayerInfo.IsGrounded
-            || PlayerInfo.IsHit
-            || PlayerInfo.IsWallHooked
-            || PlayerInfo.IsJumpButtonPressed && PlayerInfo.IsExtraJumpReady
-            || !PlayerInfo.IsFalling;
+        private int _fallAnimation = Animator.StringToHash("Fall");
+
+        private void OnEnable() =>
+            PlayerAnimator.Play(_fallAnimation);
+
+        public override bool IsCompleted()
+        {
+            return Info.IsGrounded
+                || Info.IsHit
+                || Info.IsWallHooked
+                || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
+                || !Info.IsFalling;
+        }
     }
 }

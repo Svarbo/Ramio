@@ -1,23 +1,28 @@
-using Assets.Scripts.Data;
-using Assets.Scripts.Edior;
-using Assets.Scripts.Infrastructure.StateMachines;
+using Data;
+using Edior;
+using Player;
 
-public abstract class LevelDifficultStrategy
+namespace Level.LevelStrategy
 {
-    protected Player _player;
-    protected StateMachine _stateMachine;
-    protected LevelsInfo _levelsInfo;
-    protected readonly PlayerCanvasDrawer _playerCanvasDrawer;
-
-    public LevelDifficultStrategy(Player player, StateMachine stateMachine, LevelsInfo levelsInfo, MainMenuButton mainMenuButton)
+    public abstract class LevelDifficultStrategy
     {
-        _levelsInfo = levelsInfo;
-        _stateMachine = stateMachine;
-        _player = player;
-        _playerCanvasDrawer = _player.GetComponentInChildren<PlayerCanvasDrawer>();
-        
-        _playerCanvasDrawer.Construct(_stateMachine, _levelsInfo, player.InputServiceView, mainMenuButton);
-    }
+        protected readonly PlayerCanvasDrawer _playerCanvasDrawer;
 
-    public abstract void Execute();
+        protected MainHero _player;
+        protected Infrastructure.StateMachines.StateMachine _stateMachine;
+        protected LevelsInfo _levelsInfo;
+
+        public abstract void Execute();
+
+        public LevelDifficultStrategy(MainHero player, Infrastructure.StateMachines.StateMachine stateMachine, LevelsInfo levelsInfo, MainMenuButton mainMenuButton)
+        {
+            _levelsInfo = levelsInfo;
+            _stateMachine = stateMachine;
+            _player = player;
+            _playerCanvasDrawer = _player.GetComponentInChildren<PlayerCanvasDrawer>();
+
+            _playerCanvasDrawer.Construct(_stateMachine, _levelsInfo, player.InputServiceView, mainMenuButton);
+        }
+
+    }
 }

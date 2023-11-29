@@ -1,11 +1,14 @@
-public class WalkTransition : Transition
+namespace Player
 {
-    public WalkTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class WalkTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public WalkTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions() => 
-        PlayerInfo.IsGrounded && !PlayerInfo.IsSpeedEqualZero;
+        protected override bool CheckConditions() =>
+            PlayerInfo.IsGrounded && !PlayerInfo.IsSpeedEqualZero;
+    }
 }

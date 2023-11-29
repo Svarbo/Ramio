@@ -1,46 +1,50 @@
+using Player;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaitingZone : MonoBehaviour
+namespace Traps
 {
-    [SerializeField] private List<Door> _doors;
-    [SerializeField] private float _waitingTime;
-
-    private bool _isPlayerInZone = false;
-    private float _currentWaitingTime = 0;
-
-    private void Update()
+    public class WaitingZone : MonoBehaviour
     {
-        if (_isPlayerInZone)
-        {
-            _currentWaitingTime += Time.deltaTime;
+        [SerializeField] private List<Door> _doors;
+        [SerializeField] private float _waitingTime;
 
-            if (_currentWaitingTime >= _waitingTime)
+        private bool _isPlayerInZone = false;
+        private float _currentWaitingTime = 0;
+
+        private void Update()
+        {
+            if (_isPlayerInZone)
             {
-                OpenDoors();
-                gameObject.SetActive(false);
+                _currentWaitingTime += Time.deltaTime;
+
+                if (_currentWaitingTime >= _waitingTime)
+                {
+                    OpenDoors();
+                    gameObject.SetActive(false);
+                }
             }
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Player>(out Player player))
-            _isPlayerInZone = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Player>(out Player player))
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            _isPlayerInZone = false;
-            _currentWaitingTime = 0;
+            if (collision.TryGetComponent<MainHero>(out MainHero player))
+                _isPlayerInZone = true;
         }
-    }
 
-    private void OpenDoors()
-    {
-        foreach(Door door in _doors)
-            door.Open();
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent<MainHero>(out MainHero player))
+            {
+                _isPlayerInZone = false;
+                _currentWaitingTime = 0;
+            }
+        }
+
+        private void OpenDoors()
+        {
+            foreach (Door door in _doors)
+                door.Open();
+        }
     }
 }

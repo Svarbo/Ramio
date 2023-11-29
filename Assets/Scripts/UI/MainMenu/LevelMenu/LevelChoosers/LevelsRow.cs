@@ -1,22 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelsRow : MonoBehaviour
+namespace UI.MainMenu.LevelMenu.LevelChoosers
 {
-    [SerializeField] private List<LevelChooser> _levelChoosers;
-
-    public IReadOnlyList<LevelChooser> LevelChoosers => _levelChoosers;
-
-    public void ShowLevelChoosers(int count)
+    public class LevelsRow : MonoBehaviour
     {
-        for (int i = 0; i < _levelChoosers.Count; i++)
+        [SerializeField] private List<LevelChooser> _levelChoosers;
+
+        public IReadOnlyList<LevelChooser> LevelChoosers => _levelChoosers;
+
+        public void ShowLevelChoosers(int count)
         {
-            if (count > 0)
-                _levelChoosers[i].Show();
-            else
-                _levelChoosers[i].Hide();
-            
-            count--;
+            for (int i = 0; i < _levelChoosers.Count; i++)
+            {
+                if (count > 0)
+                    _levelChoosers[i].Show();
+                else
+                    _levelChoosers[i].Hide();
+
+                count--;
+            }
         }
     }
 }

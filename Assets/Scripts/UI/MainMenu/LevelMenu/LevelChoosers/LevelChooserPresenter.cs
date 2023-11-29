@@ -1,29 +1,32 @@
-using Assets.Scripts.Data;
-using Assets.Scripts.Infrastructure.StateMachines;
-using Assets.Scripts.Infrastructure.States.Scenes;
+using Data;
+using Infrastructure.States.Scenes;
+using StateMachine = Infrastructure.StateMachines.StateMachine;
 
-public class LevelChooserPresenter
+namespace UI.MainMenu.LevelMenu.LevelChoosers
 {
-    private readonly StateMachine _stateMachine;
-    private readonly LevelsRow _levelsRow;
-    private LevelsInfo _levelsInfo;
-
-    public LevelChooserPresenter(LevelsRow levelsRow, LevelsInfo levelsInfo, StateMachine stateMachine)
+    public class LevelChooserPresenter
     {
-        _levelsRow = levelsRow;
-        _levelsInfo = levelsInfo;
-        _stateMachine = stateMachine;
-    }
+        private readonly StateMachine _stateMachine;
+        private readonly LevelsRow _levelsRow;
+        private LevelsInfo _levelsInfo;
 
-    public void ShowLevels(int count) =>
-        _levelsRow.ShowLevelChoosers(count);
+        public LevelChooserPresenter(LevelsRow levelsRow, LevelsInfo levelsInfo, StateMachine stateMachine)
+        {
+            _levelsRow = levelsRow;
+            _levelsInfo = levelsInfo;
+            _stateMachine = stateMachine;
+        }
 
-    public void StartGame(string levelName)
-    {
-        _levelsInfo.SceneName = levelName;
+        public void ShowLevels(int count) =>
+            _levelsRow.ShowLevelChoosers(count);
 
-        LevelsProgress.Instance.SetStartDifficult(_levelsInfo.CurrentDifficult.ToString());
+        public void StartGame(string levelName)
+        {
+            _levelsInfo.SceneName = levelName;
 
-        _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+            LevelsProgress.Instance.SetStartDifficult(_levelsInfo.CurrentDifficult.ToString());
+
+            _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
+        }
     }
 }

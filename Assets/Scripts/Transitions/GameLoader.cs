@@ -1,44 +1,47 @@
-using UnityEngine;
 using IJunior.TypedScenes;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameLoader : MonoBehaviour
+namespace Transitions
 {
-    private const int LevelsCount = 4;
-
-    [SerializeField] private SceneSwitcher _sceneSwitcher;
-
-    private int _currentLevelIndex;
-
-    private void OnEnable()
+    public class GameLoader : MonoBehaviour
     {
-        _sceneSwitcher.IsReadyToLoadMainMenu += LoadMainMenu;
-        _sceneSwitcher.IsReadyToLoadLevel += LoadLevel;
-    }
+        private const int LevelsCount = 4;
 
-    private void OnDisable()
-    {
-        _sceneSwitcher.IsReadyToLoadMainMenu -= LoadMainMenu;
-        _sceneSwitcher.IsReadyToLoadLevel -= LoadLevel;
-    }
+        [SerializeField] private SceneSwitcher _sceneSwitcher;
 
-    public void SetCurrentLevelIndex(int levelIndex) => 
-        PlayerPrefs.SetInt("currentLevel", levelIndex);
+        private int _currentLevelIndex;
 
-    public void TrySwitchToNextLevel()
-    {
-        _currentLevelIndex = PlayerPrefs.GetInt("currentLevel");
+        private void OnEnable()
+        {
+            _sceneSwitcher.IsReadyToLoadMainMenu += LoadMainMenu;
+            _sceneSwitcher.IsReadyToLoadLevel += LoadLevel;
+        }
 
-        if (_currentLevelIndex + 1 < LevelsCount)
-            _currentLevelIndex++;
-    }
+        private void OnDisable()
+        {
+            _sceneSwitcher.IsReadyToLoadMainMenu -= LoadMainMenu;
+            _sceneSwitcher.IsReadyToLoadLevel -= LoadLevel;
+        }
 
-    private void LoadMainMenu() => 
-        MainMenu.Load();
+        public void SetCurrentLevelIndex(int levelIndex) =>
+            PlayerPrefs.SetInt("currentLevel", levelIndex);
 
-    private void LoadLevel()
-    {
-        _currentLevelIndex = PlayerPrefs.GetInt("currentLevel");
-        SceneManager.LoadScene($"Level{_currentLevelIndex}");
+        public void TrySwitchToNextLevel()
+        {
+            _currentLevelIndex = PlayerPrefs.GetInt("currentLevel");
+
+            if (_currentLevelIndex + 1 < LevelsCount)
+                _currentLevelIndex++;
+        }
+
+        private void LoadMainMenu() =>
+            MainMenu.Load();
+
+        private void LoadLevel()
+        {
+            _currentLevelIndex = PlayerPrefs.GetInt("currentLevel");
+            SceneManager.LoadScene($"Level{_currentLevelIndex}");
+        }
     }
 }

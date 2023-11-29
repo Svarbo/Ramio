@@ -1,11 +1,14 @@
-public class DeceleratedWalkTransition : Transition
+namespace Player
 {
-    public DeceleratedWalkTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class DeceleratedWalkTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public DeceleratedWalkTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions() => 
-        PlayerInfo.IsDecelerated;
+        protected override bool CheckConditions() =>
+            PlayerInfo.IsDecelerated;
+    }
 }

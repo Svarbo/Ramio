@@ -1,27 +1,30 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class IdleState : PlayerState
+namespace Player
 {
-    private Rigidbody2D _rigidbody2D;
-    private int _idleAnimation = Animator.StringToHash("Idle");
-
-    protected override void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class IdleState : State
     {
-        base.Awake();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
+        private Rigidbody2D _rigidbody2D;
+        private int _idleAnimation = Animator.StringToHash("Idle");
 
-    private void OnEnable()
-    {
-        _rigidbody2D.velocity = Vector2.zero;
-        PlayerAnimator.Play(_idleAnimation);
-}
+        protected override void Awake()
+        {
+            base.Awake();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
 
-    public override bool IsCompleted()
-    {
-        return !PlayerInfo.IsSpeedEqualZero
-            || PlayerInfo.IsHit
-            || PlayerInfo.IsJumpButtonPressed;
+        private void OnEnable()
+        {
+            _rigidbody2D.velocity = Vector2.zero;
+            PlayerAnimator.Play(_idleAnimation);
+        }
+
+        public override bool IsCompleted()
+        {
+            return !Info.IsSpeedEqualZero
+                || Info.IsHit
+                || Info.IsJumpButtonPressed;
+        }
     }
 }

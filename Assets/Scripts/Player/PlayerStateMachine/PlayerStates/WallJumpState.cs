@@ -1,50 +1,53 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerFliper))]
-public class WallJumpState : PlayerState
+namespace Player
 {
-    private Rigidbody2D _rigidbody2D;
-    private PlayerFliper _playerFliper;
-    private int _jumpAnimation = Animator.StringToHash("Jump");
-
-    protected override void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Fliper))]
+    public class WallJumpState : State
     {
-        base.Awake();
+        private Rigidbody2D _rigidbody2D;
+        private Fliper _playerFliper;
+        private int _jumpAnimation = Animator.StringToHash("Jump");
 
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _playerFliper = GetComponent<PlayerFliper>();
-    }
+        protected override void Awake()
+        {
+            base.Awake();
 
-    private void OnEnable()
-    {
-        WallJump();
-        SetFlip();
-    }
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _playerFliper = GetComponent<Fliper>();
+        }
 
-    private void WallJump()
-    {
-        PlayerAnimator.Play(_jumpAnimation);
+        private void OnEnable()
+        {
+            WallJump();
+            SetFlip();
+        }
 
-        _rigidbody2D.velocity = new Vector2(PlayerStats.WallJumpForce.x * -PlayerInfo.DirectionIndicator, PlayerStats.WallJumpForce.y);
-    }
+        public override bool IsCompleted()
+        {
+            return Info.IsWallHooked
+                || Info.IsHit
+                || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
+                || Info.IsGrounded
+                || Info.IsFalling;
+        }
 
-    private void SetFlip()
-    {
-        _playerFliper.enabled = true;
+        private void WallJump()
+        {
+            PlayerAnimator.Play(_jumpAnimation);
 
-        int currentDirectionIndicator = PlayerInfo.DirectionIndicator;
-        PlayerInfo.SetDirectionIndicator(-currentDirectionIndicator);
+            _rigidbody2D.velocity = new Vector2(PlayerStats.WallJumpForce.x * -Info.DirectionIndicator, PlayerStats.WallJumpForce.y);
+        }
 
-        _playerFliper.enabled = false;
-    }
+        private void SetFlip()
+        {
+            _playerFliper.enabled = true;
 
-    public override bool IsCompleted()
-    {
-        return PlayerInfo.IsWallHooked
-            || PlayerInfo.IsHit
-            || PlayerInfo.IsJumpButtonPressed && PlayerInfo.IsExtraJumpReady
-            || PlayerInfo.IsGrounded
-            || PlayerInfo.IsFalling;
+            int currentDirectionIndicator = Info.DirectionIndicator;
+            Info.SetDirectionIndicator(-currentDirectionIndicator);
+
+            _playerFliper.enabled = false;
+        }
     }
 }

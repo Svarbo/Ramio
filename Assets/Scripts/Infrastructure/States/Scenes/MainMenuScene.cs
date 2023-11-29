@@ -1,6 +1,12 @@
+using UI.MainMenu.Settings.Audio.Presenters;
 using Audio;
 using Data;
 using Infrastructure.Core;
+using Infrastructure.States;
+using Localization;
+using UI.MainMenu.LevelMenu.Difficults.Presenters;
+using UI.MainMenu.LevelMenu.LevelChoosers;
+using UI.MainMenu.Menu;
 using UI.MainMenu.Settings.Languages.Presenters;
 
 namespace Infrastructure.States.Scenes
@@ -48,8 +54,7 @@ namespace Infrastructure.States.Scenes
         {
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
-            // TODO Включить
-            //mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
+            mainMenuView.UserInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
             _levelsInfo.IsMobile = false;
 
             #region LevelMenuBuilders

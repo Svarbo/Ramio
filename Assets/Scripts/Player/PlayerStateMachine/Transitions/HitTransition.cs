@@ -1,11 +1,14 @@
-public class HitTransition : Transition
+namespace Player
 {
-    public HitTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class HitTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public HitTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions() => 
-        PlayerInfo.IsHit;
+        protected override bool CheckConditions() =>
+            PlayerInfo.IsHit;
+    }
 }

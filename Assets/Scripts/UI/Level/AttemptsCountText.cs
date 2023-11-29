@@ -1,22 +1,26 @@
+using Player;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
-public class AttemptsCountText : MonoBehaviour
+namespace UI.Level
 {
-    [SerializeField] private Player _player;
-
-    private TMP_Text _text;
-
-    private void Start()
+    [RequireComponent(typeof(TMP_Text))]
+    public class AttemptsCountText : MonoBehaviour
     {
-        _text = GetComponent<TMP_Text>();
+        [SerializeField] private MainHero _player;
 
-        SetText();
-    }
+        private TMP_Text _text;
 
-    private void SetText()
-    {
-        _text.text = _player.AttemptsCount.ToString();
+        private void Start()
+        {
+            _text = GetComponent<TMP_Text>();
+
+            SetText();
+        }
+
+        private void SetText()
+        {
+            _text.text = _player.AttemptsCount.ToString();
+        }
     }
 }

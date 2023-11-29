@@ -1,15 +1,18 @@
-public class WallJumpTransition : Transition
+namespace Player
 {
-    public WallJumpTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class WallJumpTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public WallJumpTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions()
-    {
-        return !PlayerInfo.IsGrounded 
-            && PlayerInfo.IsWallHooked 
-            && PlayerInfo.IsJumpButtonPressed;
+        protected override bool CheckConditions()
+        {
+            return !PlayerInfo.IsGrounded
+                && PlayerInfo.IsWallHooked
+                && PlayerInfo.IsJumpButtonPressed;
+        }
     }
 }

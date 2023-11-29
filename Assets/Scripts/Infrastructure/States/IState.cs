@@ -1,14 +1,7 @@
-public interface IState : IExitableState, IFixedUpdateble, ILateUpdateble, IUpdateble
+namespace Infrastructure.States
 {
-    void Enter();
-}
-
-public interface IExitableState
-{
-    void Exit();
-}
-
-public interface IPayloadState<TPayload> : IState
-{
-    void Enter(TPayload direction);
+    public interface IState : IExitableState, IFixedUpdateble, ILateUpdateble, IUpdateble
+    {
+        void Enter();
+    }
 }

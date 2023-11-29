@@ -1,28 +1,31 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class HitState : PlayerState
+namespace Player
 {
-    private Rigidbody2D _rigidbody2D;
-    private int _hitAnimation = Animator.StringToHash("Hit");
-
-    protected override void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class HitState : State
     {
-        base.Awake();
+        private Rigidbody2D _rigidbody2D;
+        private int _hitAnimation = Animator.StringToHash("Hit");
 
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
+        protected override void Awake()
+        {
+            base.Awake();
 
-    private void OnEnable()
-    {
-        _rigidbody2D.velocity = Vector3.zero;
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
 
-        PlayerAnimator.Play(_hitAnimation);
-    }
+        private void OnEnable()
+        {
+            _rigidbody2D.velocity = Vector3.zero;
 
-    public override bool IsCompleted()
-    {
-        return PlayerInfo.IsHit == false
-            || PlayerInfo.IsDesappearing;
+            PlayerAnimator.Play(_hitAnimation);
+        }
+
+        public override bool IsCompleted()
+        {
+            return Info.IsHit == false
+                || Info.IsDesappearing;
+        }
     }
 }

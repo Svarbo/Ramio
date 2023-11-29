@@ -1,4 +1,7 @@
-public interface IUpdateble
+namespace Infrastructure.States
 {
-    void Update(float deltaTime);
+    public interface IUpdateble
+    {
+        void Update(float deltaTime);
+    }
 }

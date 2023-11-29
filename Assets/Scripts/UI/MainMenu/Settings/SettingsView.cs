@@ -1,3 +1,5 @@
+using Localization;
+using UI.MainMenu.Settings.Audio;
 using UnityEngine;
 
 public class SettingsView : MonoBehaviour

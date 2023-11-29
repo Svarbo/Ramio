@@ -1,33 +1,36 @@
 using UnityEngine;
 
-public class SwitchablePlatform : MonoBehaviour
+namespace Traps
 {
-    [SerializeField] private float _delay;
-    [SerializeField] private bool _isStartActive;
-
-    private GameObject _gameObject;
-    private float _currentDelay = 0;
-    private bool _isActive;
-
-    private void Start()
+    public class SwitchablePlatform : MonoBehaviour
     {
-        _gameObject = gameObject;
-        _isActive = _isStartActive;
+        [SerializeField] private float _delay;
+        [SerializeField] private bool _isStartActive;
 
-        Switch(_isActive);
-    }
+        private GameObject _gameObject;
+        private float _currentDelay = 0;
+        private bool _isActive;
 
-    private void Update()
-    {
-        _currentDelay += Time.deltaTime;
+        private void Start()
+        {
+            _gameObject = gameObject;
+            _isActive = _isStartActive;
 
-        if (_currentDelay >= _delay)
-            Switch(!_isActive);
-    }
+            Switch(_isActive);
+        }
 
-    private void Switch(bool isActive)
-    {
-        _gameObject.SetActive(isActive);
-        _currentDelay = 0;
+        private void Update()
+        {
+            _currentDelay += Time.deltaTime;
+
+            if (_currentDelay >= _delay)
+                Switch(!_isActive);
+        }
+
+        private void Switch(bool isActive)
+        {
+            _gameObject.SetActive(isActive);
+            _currentDelay = 0;
+        }
     }
 }

@@ -3,47 +3,50 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Curtain : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private float _waitingTime = 2f;
-    [SerializeField] private Image _faderImage;
-
-    private WaitForSeconds _fadeInTime;
-    private Coroutine _coroutine;
-    private Color _faderColor;
-
-    private void Awake()
+    public class Curtain : MonoBehaviour
     {
-        _fadeInTime = new WaitForSeconds(_waitingTime);
-    }
+        [SerializeField] private float _waitingTime = 2f;
+        [SerializeField] private Image _faderImage;
 
-    public void Show(Action callback = null)
-    {
-        TryStopCoroutine();
+        private WaitForSeconds _fadeInTime;
+        private Coroutine _coroutine;
+        private Color _faderColor;
 
-        _coroutine = StartCoroutine(ChangeStateCoroutine(1f, callback));
-    }
+        private void Awake()
+        {
+            _fadeInTime = new WaitForSeconds(_waitingTime);
+        }
 
-    public void Hide(Action callback = null)
-    {
-        TryStopCoroutine();
+        public void Show(Action callback = null)
+        {
+            TryStopCoroutine();
 
-        _coroutine = StartCoroutine(ChangeStateCoroutine(0f, callback));
+            _coroutine = StartCoroutine(ChangeStateCoroutine(1f, callback));
+        }
 
-        callback?.Invoke();
-    }
+        public void Hide(Action callback = null)
+        {
+            TryStopCoroutine();
 
-    private void TryStopCoroutine()
-    {
-        if (_coroutine != null)
+            _coroutine = StartCoroutine(ChangeStateCoroutine(0f, callback));
+
+            callback?.Invoke();
+        }
+
+        private void TryStopCoroutine()
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+        }
+
+        private IEnumerator ChangeStateCoroutine(float endValue, Action callback)
+        {
+            yield return _fadeInTime;
+
+            callback?.Invoke();
             StopCoroutine(_coroutine);
-    }
-
-    private IEnumerator ChangeStateCoroutine(float endValue, Action callback)
-    {
-        yield return _fadeInTime;
-
-        callback?.Invoke();
-        StopCoroutine(_coroutine);
+        }
     }
 }

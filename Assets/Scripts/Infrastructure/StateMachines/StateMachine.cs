@@ -1,3 +1,4 @@
+using Infrastructure.States;
 using System;
 using System.Collections.Generic;
 
@@ -41,6 +42,5 @@ namespace Infrastructure.StateMachines
             _currentState = newState;
             newState.Enter(payload);
         }
-
     }
 }

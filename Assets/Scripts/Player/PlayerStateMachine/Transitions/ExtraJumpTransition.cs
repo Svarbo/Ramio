@@ -1,16 +1,19 @@
-public class ExtraJumpTransition : Transition
+namespace Player
 {
-    public ExtraJumpTransition(PlayerState nextState, PlayerInfo playerInfo)
+    public class ExtraJumpTransition : Transition
     {
-        NextState = nextState;
-        PlayerInfo = playerInfo;
-    }
+        public ExtraJumpTransition(State nextState, Info playerInfo)
+        {
+            NextState = nextState;
+            PlayerInfo = playerInfo;
+        }
 
-    protected override bool CheckConditions()
-    {
-        return !PlayerInfo.IsGrounded
-            && PlayerInfo.IsExtraJumpReady 
-            && PlayerInfo.IsJumpButtonPressed
-            && !PlayerInfo.IsWallHooked;
+        protected override bool CheckConditions()
+        {
+            return !PlayerInfo.IsGrounded
+                && PlayerInfo.IsExtraJumpReady
+                && PlayerInfo.IsJumpButtonPressed
+                && !PlayerInfo.IsWallHooked;
+        }
     }
 }

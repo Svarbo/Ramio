@@ -1,22 +1,25 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInfo))]
-public class FallChecker : MonoBehaviour
+namespace Player
 {
-    private Rigidbody2D _rigidbody2D;
-    private PlayerInfo _playerInfo;
-
-    private void Awake()
+    [RequireComponent(typeof(MainHero))]
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Info))]
+    public class FallChecker : MonoBehaviour
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _playerInfo = GetComponent<PlayerInfo>();
-    }
+        private Rigidbody2D _rigidbody2D;
+        private Info _playerInfo;
 
-    private void Update()
-    {
-        if(_rigidbody2D.velocity.y < 0)
-            _playerInfo.ActivateFalling();
+        private void Awake()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _playerInfo = GetComponent<Info>();
+        }
+
+        private void Update()
+        {
+            if (_rigidbody2D.velocity.y < 0)
+                _playerInfo.ActivateFalling();
+        }
     }
 }

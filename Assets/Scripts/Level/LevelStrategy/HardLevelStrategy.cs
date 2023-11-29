@@ -1,20 +1,24 @@
-using Assets.Scripts.Data;
-using Assets.Scripts.Edior;
-using Assets.Scripts.Infrastructure.StateMachines;
+using Data;
+using Edior;
+using Infrastructure.StateMachines;
+using Player;
 
-public class HardLevelStrategy : LevelDifficultStrategy
+namespace Level.LevelStrategy
 {
-    private Player _player;
-    private readonly LevelsInfo _levelsInfo;
-
-    public HardLevelStrategy(Player player,  StateMachine stateMachine, LevelsInfo levelsInfo, MainMenuButton mainMenuButton)
-        : base(player, stateMachine, levelsInfo, mainMenuButton)
+    public class HardLevelStrategy : LevelDifficultStrategy
     {
-        _player = player;
-        _levelsInfo = levelsInfo;
-    }
+        private MainHero _player;
+        private readonly LevelsInfo _levelsInfo;
 
-    public override void Execute()
-    {
+        public HardLevelStrategy(MainHero player, Infrastructure.StateMachines.StateMachine stateMachine, LevelsInfo levelsInfo, MainMenuButton mainMenuButton)
+            : base(player, stateMachine, levelsInfo, mainMenuButton)
+        {
+            _player = player;
+            _levelsInfo = levelsInfo;
+        }
+
+        public override void Execute()
+        {
+        }
     }
 }
