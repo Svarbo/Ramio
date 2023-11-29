@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UI.MainMenu.Settings.Languages.Views;
 using UnityEngine;
@@ -21,12 +22,6 @@ namespace Localization
         {
             _toggleGroup = GetComponent<ToggleGroup>();
             SetCurrentToggleActive();
-        }
-
-        private void OnDisable()
-        {
-            foreach (Toggle toggle in _toggles)
-                toggle.gameObject.SetActive(false);
         }
 
         public void ChangeLanguage()
