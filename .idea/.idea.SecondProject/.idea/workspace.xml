@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3c330970-745d-476f-a27d-e779493fbee5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AmbientDJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AmbientDJ.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/GameAudioData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/GameAudioData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level0.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AmbientDJ.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AmbientDJ.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,19 +169,6 @@
           <line>19</line>
           <properties documentPath="E:\Games\2D\Platformer\SecondProject\Assets\Scripts\UI\AttemptsCountText.cs" initialLine="19" containingFunctionPresentation="method 'SetText'" />
           <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Audio/AmbientDJ.cs</url>
-          <line>16</line>
-          <properties documentPath="E:\Games\2D\Platformer\SecondProject\Assets\Scripts\Audio\AmbientDJ.cs" initialLine="16" containingFunctionPresentation="method 'Awake'">
-            <startOffsets>
-              <option value="439" />
-            </startOffsets>
-            <endOffsets>
-              <option value="482" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Audio
 {
@@ -12,10 +14,13 @@ namespace Audio
         private AudioSource _audioSource;
         private AudioClip _currentAudioClip;
 
-        private void Awake()
-        {
+        private void Awake() =>
             _audioSource = GetComponent<AudioSource>();
 
+        private void Start()
+        {
+            AudioListener[] sAudioListener = FindObjectsOfType<AudioListener>();
+            Debug.Log(sAudioListener.Length);
             ChooseRandomAudioClip();
             PlayCurrentClip();
         }
