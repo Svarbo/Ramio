@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Referee : MonoBehaviour
 {
-    private const string LeaderboardName = "Leaderboard1";
+    private const string LeaderboardName = "Leaderboard2";
     private const string LastLevelName = "Level3";
 
     [SerializeField] private MainHero _player;
@@ -32,8 +32,7 @@ public class Referee : MonoBehaviour
     public void ShowFinishPanel()
     {
         _playerCanvasDrawer.DrawFinishPanel();
-        //TODO включить SetPlayerResult  
-        //SetPlayerResult();
+        SetPlayerResult();
     }
 
     private void DeclairLose() =>

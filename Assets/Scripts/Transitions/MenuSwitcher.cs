@@ -10,7 +10,7 @@ namespace Transitions
         [SerializeField] private MenuView _mainMenu;
         [SerializeField] private LevelMenuView _levelMenu;
         [SerializeField] private SettingsView _settings;
-        [SerializeField] private LeaderboardCanvas _leaderboard;
+        [SerializeField] private LeaderboardView _leaderboard;
 
         public void EnableMainMenu()
         {
