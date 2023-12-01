@@ -23,7 +23,9 @@ namespace Player.PlayerStateMachine.PlayerStates
             return Info.IsHit
                 || Info.IsGrounded
                 || Info.IsJumpButtonPressed
-                || !Info.IsWallHooked;
+                || !Info.IsWallHooked
+                || Info.IsDecelerated
+                || Info.IsFinished;
         }
 
         private void Slide()

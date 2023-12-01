@@ -24,7 +24,8 @@ namespace Player.PlayerStateMachine.PlayerStates
         {
             return !Info.IsSpeedEqualZero
                 || Info.IsHit
-                || Info.IsJumpButtonPressed;
+                || Info.IsJumpButtonPressed
+                || Info.IsDecelerated;
         }
     }
 }

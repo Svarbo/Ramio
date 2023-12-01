@@ -17,6 +17,7 @@ namespace Player.PlayerStateMachine
         public bool IsFalling { get; private set; }
         public bool IsDesappearing { get; private set; }
         public bool IsDecelerated { get; private set; }
+        public bool IsFinished { get; private set; }
         public int DirectionIndicator { get; private set; }
         public float CurrentSpeed { get; private set; }
 
@@ -72,6 +73,12 @@ namespace Player.PlayerStateMachine
         public void SetAppearingAnimationFinished()
         {
             IsAppearingAnimationFinished = true;
+            SomeParameterChanged?.Invoke();
+        }
+
+        public void SetIsFinished(bool value)
+        {
+            IsFinished = value;
             SomeParameterChanged?.Invoke();
         }
 

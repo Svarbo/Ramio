@@ -20,6 +20,7 @@ namespace Player.PlayerStateMachine
         [SerializeField] private HitState _hitState;
         [SerializeField] private FallState _fallState;
         [SerializeField] private DeceleratedWalkState _deceleratedWalkState;
+        [SerializeField] private FinishState _finishState;
         [SerializeField] private HorizontalMover _horizontalMover;
         [SerializeField] private Fliper _playerFliper;
 
@@ -80,6 +81,7 @@ namespace Player.PlayerStateMachine
             ExtraJumpTransition extraJumpTransition = new ExtraJumpTransition(_extraJumpState, _playerInfo);
             FallTransition fallTransition = new FallTransition(_fallState, _playerInfo);
             DeceleratedWalkTransition deceleratedWalkTransition = new DeceleratedWalkTransition(_deceleratedWalkState, _playerInfo);
+            FinishTransition finishTransition = new FinishTransition(_finishState, _playerInfo);
 
             _transitions.Add(desappearingTransition);
             _transitions.Add(hitTransition);
@@ -91,6 +93,7 @@ namespace Player.PlayerStateMachine
             _transitions.Add(walkTransition);
             _transitions.Add(fallTransition);
             _transitions.Add(deceleratedWalkTransition);
+            _transitions.Add(finishTransition);
         }
     }
 }

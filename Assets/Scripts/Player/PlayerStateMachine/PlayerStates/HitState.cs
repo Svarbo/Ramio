@@ -25,7 +25,9 @@ namespace Player.PlayerStateMachine.PlayerStates
         public override bool IsCompleted()
         {
             return Info.IsHit == false
-                || Info.IsDesappearing;
+                || Info.IsDesappearing
+                || Info.IsDecelerated
+                || Info.IsFinished;
         }
     }
 }

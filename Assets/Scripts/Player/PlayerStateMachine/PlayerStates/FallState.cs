@@ -15,7 +15,9 @@ namespace Player.PlayerStateMachine.PlayerStates
                 || Info.IsHit
                 || Info.IsWallHooked
                 || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
-                || !Info.IsFalling;
+                || !Info.IsFalling
+                || Info.IsDecelerated
+                || Info.IsFinished;
         }
     }
 }

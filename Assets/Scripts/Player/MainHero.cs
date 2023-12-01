@@ -19,7 +19,7 @@ namespace Player
         private Info _info;
         private Stats _stats;
         private int _currentHealth;
-        private int _fruitsCount;
+        private int _fruitsCount = 0;
         private bool _isDied = false;
         private IDifficult _levelDifficult;
         private string _sceneName;
