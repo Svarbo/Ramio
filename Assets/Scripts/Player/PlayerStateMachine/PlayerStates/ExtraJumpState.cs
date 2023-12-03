@@ -24,7 +24,9 @@ namespace Player.PlayerStateMachine.PlayerStates
                 || Info.IsHit
                 || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
                 || Info.IsWallHooked
-                || Info.IsFalling;
+                || Info.IsFalling
+                || Info.IsDecelerated
+                || Info.IsFinished;
         }
 
         private void DoubleJump()

@@ -14,7 +14,9 @@ namespace Player.PlayerStateMachine.PlayerStates
             return Info.IsSpeedEqualZero
                 || Info.IsHit
                 || !Info.IsGrounded
-                || Info.IsJumpButtonPressed;
+                || Info.IsJumpButtonPressed
+                || Info.IsDecelerated
+                || Info.IsFinished;
         }
     }
 }

@@ -2869,6 +2869,7 @@ GameObject:
   - component: {fileID: 4063105318697463992}
   - component: {fileID: 434949248380729181}
   - component: {fileID: 2997447780399953044}
+  - component: {fileID: 3874436717881228536}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3484,8 +3485,23 @@ MonoBehaviour:
   _hitState: {fileID: 5052385653091936123}
   _fallState: {fileID: 2260403341190364236}
   _deceleratedWalkState: {fileID: 6963219022140351846}
+  _finishState: {fileID: 3874436717881228536}
   _horizontalMover: {fileID: 3228140184127067324}
   _playerFliper: {fileID: 434949248380729181}
+--- !u!114 &3874436717881228536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828086203341674318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de93e78a6f12c1a448e37c7439ec350c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isFlippable: 0
+  _isHorizontalMovable: 0
 --- !u!1 &7134720802076713749
 GameObject:
   m_ObjectHideFlags: 0

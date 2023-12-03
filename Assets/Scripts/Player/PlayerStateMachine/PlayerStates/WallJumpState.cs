@@ -30,7 +30,9 @@ namespace Player.PlayerStateMachine.PlayerStates
                 || Info.IsHit
                 || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
                 || Info.IsGrounded
-                || Info.IsFalling;
+                || Info.IsFalling
+                || Info.IsDecelerated
+                || Info.IsFinished;
         }
 
         private void WallJump()
