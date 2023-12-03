@@ -10,19 +10,18 @@ namespace UI.MainMenu.LeaderBoard
 		[SerializeField] private GameObject _panel;
 
 		private void OnEnable() =>
-			_button.onClick.AddListener(TryShow);
+			TryShow();
 
 		private void OnDisable() =>
-			_button.onClick.RemoveListener(TryShow);
-
-		private void Start() =>
-			TryShow();
+			_button.onClick.RemoveListener(LogIn);
 
 		private void TryShow()
 		{
 			// TODO Изменить
-			if (PlayerAccount.IsAuthorized)
+			if (PlayerAccount.IsAuthorized && PlayerAccount.HasPersonalProfileDataPermission)
 				LogIn();
+			else
+				_button.onClick.AddListener(LogIn);
 		}
 
 		public void LogIn()

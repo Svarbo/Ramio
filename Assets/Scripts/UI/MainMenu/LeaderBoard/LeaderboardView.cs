@@ -31,19 +31,20 @@ namespace UI.MainMenu.LeaderBoard
 
 		private void ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
 		{
-			Leaderboard.GetPlayerEntry(leaderboardName, (result) =>
-			{
-			    if (result == null)
-			    {
-			        playerTopPlaceText.text = "-";
-			        playerAttemptionsCountText.text = "-";
-			    }
-			    else
-			    {
-			        playerTopPlaceText.text = result.rank.ToString();
-			        playerAttemptionsCountText.text = result.score.ToString();
-			    }
-			});
+			Leaderboard.GetPlayerEntry(leaderboardName,
+				(result) =>
+				{
+					if (result == null)
+					{
+						playerTopPlaceText.text = "-";
+						playerAttemptionsCountText.text = "-";
+					}
+					else
+					{
+						playerTopPlaceText.text = result.rank.ToString();
+						playerAttemptionsCountText.text = result.score.ToString();
+					}
+				});
 		}
 
 		private void ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
@@ -65,12 +66,14 @@ namespace UI.MainMenu.LeaderBoard
 							leaderScore = GetLeaderScore(entry);
 
 							leaderPlaces[i].SetLeaderData(leaderName, leaderScore);
-							leaderPlaces[i].gameObject.SetActive(true);
+							// TODO зочем?
+							//leaderPlaces[i].gameObject.SetActive(true);
 						}
 						else
 						{
 							leaderPlaces[i].SetLeaderData(entry.player.publicName, entry.score);
-							leaderPlaces[i].gameObject.SetActive(true);
+							// TODO зочем?
+							//leaderPlaces[i].gameObject.SetActive(true);
 						}
 					}
 				});
@@ -94,10 +97,10 @@ namespace UI.MainMenu.LeaderBoard
 		private string SetAnonimusName()
 		{
 			string leaderName = " ";
-			int playerLanguageIndex = UnityEngine.PlayerPrefs.GetInt("LanguageIndex");
+			int playerLanguageIndex = UnityEngine.PlayerPrefs.GetInt("LanguageIndex", 0);
 
 			if (playerLanguageIndex == 0)
-				leaderName = "������";
+				leaderName = "Неизвестный";
 			if (playerLanguageIndex == 1)
 				leaderName = "Anonymous";
 			if (playerLanguageIndex == 2)

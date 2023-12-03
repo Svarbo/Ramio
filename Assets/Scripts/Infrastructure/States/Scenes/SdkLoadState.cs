@@ -37,18 +37,18 @@ namespace Infrastructure.States.Scenes
         }
 
         public void Enter() =>
-            _coroutineRunner.StartCoroutine(LoadSdkCoroutine(LoadMainMenuScene));
+            _coroutineRunner.StartCoroutine(LoadSdkCoroutine());
         
         private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {
-            YandexGamesSdk.CallbackLogging = true;
-            yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
+            // YandexGamesSdk.CallbackLogging = true;
+            // yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
+            yield return null;
+            LoadMainMenuScene();
         }
         
         private void LoadMainMenuScene()
         {
-            Debug.Log(YandexGamesSdk.IsInitialized);
-            
             LevelsInfo levelsInfo = new LevelsInfo();
             levelsInfo.CurrentDifficult = LevelsProgress.Instance.GetStartDifficult();
             levelsInfo.SceneName = Levels.MainMenu.ToString();

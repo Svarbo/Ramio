@@ -41,8 +41,8 @@ public class Referee : MonoBehaviour
 
 	private void AddPlayerToLeaderboard()
 	{
-		if (PlayerAccount.IsAuthorized == false)
-			return;
+		// if (PlayerAccount.IsAuthorized == false)
+		// 	return;
 
 		IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_playerCanvasDrawer.LevelsInfo.CurrentDifficult);
 		int playerScore = difficult.GetAllCountTry();
@@ -54,12 +54,11 @@ public class Referee : MonoBehaviour
 			key = LeaderboardsNames.MediumLeaderboardName;
 		else
 			key = LeaderboardsNames.HardLeaderboardName;
-		
-		// TODO не записывать неавторизированных пользователей
-		Leaderboard.GetPlayerEntry(leaderboardName: key,
-			onSuccessCallback: _ =>
-			{
-				Leaderboard.SetScore(key, playerScore);
-			});
+		Debug.Log("key = " + key);
+		// Leaderboard.GetPlayerEntry(leaderboardName: key,
+		// 	onSuccessCallback: _ =>
+		// 	{
+		// 		Leaderboard.SetScore(key, playerScore);
+		// 	});
 	}
 }
