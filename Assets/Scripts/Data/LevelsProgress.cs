@@ -61,5 +61,8 @@ namespace Data
 
             throw new InvalidOperationException(nameof(type));
         }
+
+        public void ClearAllProgress() =>
+            _difficults.ForEach(difficult => difficult.ClearProgress());
     }
 }

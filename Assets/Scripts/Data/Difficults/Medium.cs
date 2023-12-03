@@ -19,7 +19,7 @@ namespace Data.Difficults
             return PlayerPrefs.GetInt(MediumDifficultKey);
         }
 
-        public void IncreaseAcceptLevels(string sceneName)
+        public void IncreaseAcceptLevels()
         {
             PlayerPrefs.SetInt(MediumDifficultKey, GetAcceptLevels() + 1);
             PlayerPrefs.Save();
@@ -52,6 +52,20 @@ namespace Data.Difficults
 
             return countTry;
         }
+        
+        public void ClearProgress()
+        {
+            List<Levels> levelsNames = Enum.GetValues(typeof(Levels)).Cast<Levels>().ToList();
+
+            foreach (Levels levelName in levelsNames)
+            {
+                if (PlayerPrefs.HasKey(CountTry + Difficult + levelName))
+                    PlayerPrefs.DeleteKey(CountTry + Difficult + levelName);
+            }
+
+            PlayerPrefs.DeleteKey(MediumDifficultKey);
+        }
+
 
         private void SetStartAcceptLevels()
         {

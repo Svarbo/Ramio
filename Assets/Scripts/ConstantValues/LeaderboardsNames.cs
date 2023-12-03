@@ -4,8 +4,8 @@ namespace ConstantValues
 {
     public class LeaderboardsNames : MonoBehaviour
     {
-        public const string EasyLeaderboardName = "EasyLeaderboard";
-        public const string MediumLeaderboardName = "MediumLeaderboard";
-        public const string HardLeaderboardName = "HardLeaderboard";
+        public const string EasyLeaderboardName = "EasyLeaderboard0";
+        public const string MediumLeaderboardName = "MediumLeaderboard0";
+        public const string HardLeaderboardName = "HardLeaderboard0";
     }
 }

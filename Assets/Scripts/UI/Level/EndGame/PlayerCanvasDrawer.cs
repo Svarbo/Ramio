@@ -25,12 +25,12 @@ namespace UI.Level.EndGame
         {
             _mainMenuButton = mainMenuButton;
             _playerInputServiceView = playerInputServiceView;
-            _levelsInfo = levelsInfo;
+            LevelsInfo = levelsInfo;
 
             WinPanel.Construct(stateMachine, levelsInfo);
             LosePanel.Construct(stateMachine, levelsInfo);
         }
-        public LevelsInfo _levelsInfo { get; private set; }
+        public LevelsInfo LevelsInfo { get; private set; }
 
         public void DrawWinPanel(int score)
         {
@@ -39,12 +39,12 @@ namespace UI.Level.EndGame
             _orangesCountText.SetCountText(score, PlayerPrefs.GetInt("CurrentLevelOrangesCount"));
             WinPanel.gameObject.SetActive(true);
 
-            IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult);
+            IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(LevelsInfo.CurrentDifficult);
 
-            if (_levelsInfo.CurrentDifficult != typeof(Hard))
+            if (LevelsInfo.CurrentDifficult != typeof(Hard))
             {
                 difficult.GetAcceptLevels();
-                difficult.IncreaseAcceptLevels(SceneManager.GetActiveScene().name);
+                difficult.IncreaseAcceptLevels();
             }
         }
 

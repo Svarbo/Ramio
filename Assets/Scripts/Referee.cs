@@ -1,4 +1,6 @@
+using System;
 using Agava.YandexGames;
+using ConstantValues;
 using Data;
 using Data.Difficults;
 using Player;
@@ -8,60 +10,56 @@ using UnityEngine.SceneManagement;
 
 public class Referee : MonoBehaviour
 {
-    private const string LastLevelName = "Level3";
+	private const string LastLevelName = "Level3";
 
-    [SerializeField] private MainHero _player;
-    [SerializeField] private PlayerCanvasDrawer _playerCanvasDrawer;
+	[SerializeField] private MainHero _player;
+	[SerializeField] private PlayerCanvasDrawer _playerCanvasDrawer;
 
-    private void OnEnable() =>
-        _player.PlayerDesappeared += DeclairLose;
+	private void OnEnable() =>
+		_player.PlayerDesappeared += DeclairLose;
 
-    private void OnDisable() =>
-        _player.PlayerDesappeared -= DeclairLose;
+	private void OnDisable() =>
+		_player.PlayerDesappeared -= DeclairLose;
 
-    public bool IsLastLevel()
-    {
-        string currentLevelName = SceneManager.GetActiveScene().name;
-        return LastLevelName == currentLevelName;
-    }
+	public bool IsLastLevel()
+	{
+		string currentLevelName = SceneManager.GetActiveScene().name;
+		return LastLevelName == currentLevelName;
+	}
 
-    public void ShowWinPanel() =>
-        _playerCanvasDrawer.DrawWinPanel(_player.FruitsCount);
+	public void ShowWinPanel() =>
+		_playerCanvasDrawer.DrawWinPanel(_player.FruitsCount);
 
-    public void ShowFinishPanel() =>
-        _playerCanvasDrawer.DrawFinishPanel();
+	public void ShowFinishPanel() =>
+		_playerCanvasDrawer.DrawFinishPanel();
 
-    private void DeclairLose()
-    {
-        _playerCanvasDrawer.DrawDefeatPanel();
-        AddPlayerToLeaderboard();
-        //SetPlayerResult();
-    }
+	private void DeclairLose()
+	{
+		_playerCanvasDrawer.DrawDefeatPanel();
+		AddPlayerToLeaderboard();
+	}
 
-    private void SetPlayerResult()
-    {
-        IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_playerCanvasDrawer._levelsInfo.CurrentDifficult);
-        int allCountTry = difficult.GetAllCountTry();
+	private void AddPlayerToLeaderboard()
+	{
+		if (PlayerAccount.IsAuthorized == false)
+			return;
 
-        Leaderboard.SetScore
-        (
-            leaderboardName: difficult.GetType().ToString(),
-            score: allCountTry
-        );
-    }
+		IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_playerCanvasDrawer.LevelsInfo.CurrentDifficult);
+		int playerScore = difficult.GetAllCountTry();
+		string key;
 
-
-    private void AddPlayerToLeaderboard()
-    {
-        IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_playerCanvasDrawer._levelsInfo.CurrentDifficult);
-        int playerScore = difficult.GetAllCountTry();
-
-        // TODO не записывать неавторизированных пользователей
-        // Leaderboard.GetPlayerEntry(
-        //     leaderboardName: difficult.GetType().ToString(),
-        //     onSuccessCallback: (result) => response = result,
-        //     onErrorCallback: (result) => Debug.LogError($"[YandexLeaderboard] Error in receiving player records: {result}"));
-
-        Leaderboard.SetScore(difficult.GetType().ToString(), playerScore);
-    }
+		if (_playerCanvasDrawer.LevelsInfo.CurrentDifficult == typeof(Easy))
+			key = LeaderboardsNames.EasyLeaderboardName;
+		else if (_playerCanvasDrawer.LevelsInfo.CurrentDifficult == typeof(Medium))
+			key = LeaderboardsNames.MediumLeaderboardName;
+		else
+			key = LeaderboardsNames.HardLeaderboardName;
+		
+		// TODO не записывать неавторизированных пользователей
+		Leaderboard.GetPlayerEntry(leaderboardName: key,
+			onSuccessCallback: _ =>
+			{
+				Leaderboard.SetScore(key, playerScore);
+			});
+	}
 }
