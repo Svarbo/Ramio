@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using UI.MainMenu.Settings.Audio.Presenters;
 using Audio;
 using Data;
@@ -55,7 +56,8 @@ namespace Infrastructure.States.Scenes
         {
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
-            _levelsInfo.IsMobile = false;
+            // TODO Agava.WebUtility.Device.IsMobile
+            _levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
 
             #region LevelMenuBuilders
 

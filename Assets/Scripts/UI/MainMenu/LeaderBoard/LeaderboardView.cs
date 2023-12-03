@@ -1,6 +1,8 @@
 using Agava.YandexGames;
 using ConstantValues;
 using System.Collections.Generic;
+using Data;
+using Data.Difficults;
 using TMPro;
 using UnityEngine;
 
@@ -20,34 +22,46 @@ namespace UI.MainMenu.LeaderBoard
 
         private void OnEnable()
         {
-            ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
-            ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
-            ShowFirstLeaders(LeaderboardsNames.HardLeaderboardName, _hardLeaderPlaces);
+            ShowPlayerPlace(null, _easyPlayerTopPlaceText, _easyPlayerAttemptionsCountText);
+            //ShowFirstLeaders(easy.GetType().ToString(), _easyLeaderPlaces);
+            // ShowFirstLeaders(medium.GetType().ToString(), _mediumLeaderPlaces);
+            // ShowFirstLeaders(hard.GetType().ToString(), _hardLeaderPlaces);
 
-            ShowPlayerPlace(LeaderboardsNames.EasyLeaderboardName, _easyPlayerTopPlaceText, _easyPlayerAttemptionsCountText);
-            ShowPlayerPlace(LeaderboardsNames.MediumLeaderboardName, _mediumPlayerTopPlaceText, _mediumPlayerAttemptionsCountText);
-            ShowPlayerPlace(LeaderboardsNames.HardLeaderboardName, _hardPlayerTopPlaceText, _hardPlayerAttemptionsCountText);
+            //ShowPlayerPlace(easy.GetType().ToString(), _easyPlayerTopPlaceText, _easyPlayerAttemptionsCountText);
+            // ShowPlayerPlace(medium.GetType().ToString(), _mediumPlayerTopPlaceText, _mediumPlayerAttemptionsCountText);
+            // ShowPlayerPlace(hard.GetType().ToString(), _hardPlayerTopPlaceText, _hardPlayerAttemptionsCountText);
         }
 
         private void ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
         {
-            Leaderboard.GetPlayerEntry(leaderboardName, (result) =>
+            #region MyRegion
+            // Leaderboard.GetPlayerEntry(leaderboardName, (result) =>
+            // {
+            //     if (result == null)
+            //     {
+            //         playerTopPlaceText.text = "-";
+            //         playerAttemptionsCountText.text = "-";
+            //     }
+            //     else
+            //     {
+            //         playerTopPlaceText.text = result.rank.ToString();
+            //         playerAttemptionsCountText.text = result.score.ToString();
+            //     }
+            // });
+            #endregion
+
+            IDifficult easy = LevelsProgress.Instance.GetDifficultByType(typeof(Easy));
+
+            Leaderboard.GetPlayerEntry(easy.GetType().ToString(), result =>
             {
-                if (result == null)
-                {
-                    playerTopPlaceText.text = "-";
-                    playerAttemptionsCountText.text = "-";
-                }
-                else
-                {
-                    playerTopPlaceText.text = result.rank.ToString();
-                    playerAttemptionsCountText.text = result.score.ToString();
-                }
+                playerAttemptionsCountText.text = result.score.ToString();
+                playerTopPlaceText.text = result.rank.ToString();
             });
         }
 
         private void ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
         {
+            //YandexGamesSdk.
             Leaderboard.GetEntries(leaderboardName, (result) =>
             {
                 string leaderName;
@@ -64,6 +78,11 @@ namespace UI.MainMenu.LeaderBoard
                         leaderScore = GetLeaderScore(entry);
 
                         leaderPlaces[i].SetLeaderData(leaderName, leaderScore);
+                        leaderPlaces[i].gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        leaderPlaces[i].SetLeaderData(entry.player.publicName, entry.score);
                         leaderPlaces[i].gameObject.SetActive(true);
                     }
                 }
@@ -91,7 +110,7 @@ namespace UI.MainMenu.LeaderBoard
             int playerLanguageIndex = UnityEngine.PlayerPrefs.GetInt("LanguageIndex");
 
             if (playerLanguageIndex == 0)
-                leaderName = "Аноним";
+                leaderName = "пїЅпїЅпїЅпїЅпїЅпїЅ";
             if (playerLanguageIndex == 1)
                 leaderName = "Anonymous";
             if (playerLanguageIndex == 2)

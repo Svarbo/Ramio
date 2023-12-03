@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class Referee : MonoBehaviour
 {
-    private const string LeaderboardName = "Leaderboard2";
     private const string LastLevelName = "Level3";
 
     [SerializeField] private MainHero _player;
@@ -29,25 +28,40 @@ public class Referee : MonoBehaviour
     public void ShowWinPanel() =>
         _playerCanvasDrawer.DrawWinPanel(_player.FruitsCount);
 
-    public void ShowFinishPanel()
-    {
+    public void ShowFinishPanel() =>
         _playerCanvasDrawer.DrawFinishPanel();
-        SetPlayerResult();
-    }
 
-    private void DeclairLose() =>
+    private void DeclairLose()
+    {
         _playerCanvasDrawer.DrawDefeatPanel();
+        AddPlayerToLeaderboard();
+        //SetPlayerResult();
+    }
 
     private void SetPlayerResult()
     {
-        int playerScore = _player.AttemptsCount;
+        IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_playerCanvasDrawer._levelsInfo.CurrentDifficult);
+        int allCountTry = difficult.GetAllCountTry();
 
-        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-        {
-            if (playerScore < result.score)
-                Leaderboard.SetScore(LeaderboardName, playerScore);
-        });
-        
-        var s = LevelsProgress.Instance.GetDifficultByType(typeof(Easy)).GetAllCountTry();
+        Leaderboard.SetScore
+        (
+            leaderboardName: difficult.GetType().ToString(),
+            score: allCountTry
+        );
+    }
+
+
+    private void AddPlayerToLeaderboard()
+    {
+        IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(_playerCanvasDrawer._levelsInfo.CurrentDifficult);
+        int playerScore = difficult.GetAllCountTry();
+
+        // TODO не записывать неавторизированных пользователей
+        // Leaderboard.GetPlayerEntry(
+        //     leaderboardName: difficult.GetType().ToString(),
+        //     onSuccessCallback: (result) => response = result,
+        //     onErrorCallback: (result) => Debug.LogError($"[YandexLeaderboard] Error in receiving player records: {result}"));
+
+        Leaderboard.SetScore(difficult.GetType().ToString(), playerScore);
     }
 }

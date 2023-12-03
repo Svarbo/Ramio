@@ -1,8 +1,11 @@
+using System;
 using Infrastructure;
 using Infrastructure.States;
 using Data;
 using Infrastructure.Core;
 using System.Collections;
+using Agava.YandexGames;
+using UnityEngine;
 
 namespace Infrastructure.States.Scenes
 {
@@ -34,13 +37,18 @@ namespace Infrastructure.States.Scenes
         }
 
         public void Enter() =>
-            _coroutineRunner.StartCoroutine(InitYandexSDK());
-
-        private IEnumerator InitYandexSDK()
+            _coroutineRunner.StartCoroutine(LoadSdkCoroutine(LoadMainMenuScene));
+        
+        private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {
-            // TODO Включить
-            //yield return YandexGamesSdk.Initialize();
-            yield return null;
+            YandexGamesSdk.CallbackLogging = true;
+            yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
+        }
+        
+        private void LoadMainMenuScene()
+        {
+            Debug.Log(YandexGamesSdk.IsInitialized);
+            
             LevelsInfo levelsInfo = new LevelsInfo();
             levelsInfo.CurrentDifficult = LevelsProgress.Instance.GetStartDifficult();
             levelsInfo.SceneName = Levels.MainMenu.ToString();

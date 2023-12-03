@@ -18,7 +18,6 @@ namespace UI.Level.EndGame
         [field: SerializeField] public DefeatPanel LosePanel { get; private set; }
         [field: SerializeField] public FinishPanel FinishPanel { get; private set; }
 
-        private LevelsInfo _levelsInfo;
         private InputServiceView _playerInputServiceView;
         private MainMenuButton _mainMenuButton;
 
@@ -31,6 +30,7 @@ namespace UI.Level.EndGame
             WinPanel.Construct(stateMachine, levelsInfo);
             LosePanel.Construct(stateMachine, levelsInfo);
         }
+        public LevelsInfo _levelsInfo { get; private set; }
 
         public void DrawWinPanel(int score)
         {
@@ -59,7 +59,6 @@ namespace UI.Level.EndGame
         {
             _mainMenuButton.gameObject.SetActive(false);
             _playerInputServiceView.Deactivate();
-            //TODO остановить игру
             FinishPanel.gameObject.SetActive(true);
         }
     }
