@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Player;
+using Players;
 using UnityEngine;
 
 namespace Traps.Doors
@@ -28,13 +28,13 @@ namespace Traps.Doors
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<MainHero>(out MainHero player))
+            if (collision.TryGetComponent<Player>(out Player player))
                 _isPlayerInZone = true;
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<MainHero>(out MainHero player))
+            if (collision.TryGetComponent<Player>(out Player player))
             {
                 _isPlayerInZone = false;
                 _currentWaitingTime = 0;

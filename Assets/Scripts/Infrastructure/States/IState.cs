@@ -1,6 +1,6 @@
 namespace Infrastructure.States
 {
-    public interface IState : IExitableState, IFixedUpdateble, ILateUpdateble, IUpdateble
+    public interface IState : IExitableState
     {
         void Enter();
     }

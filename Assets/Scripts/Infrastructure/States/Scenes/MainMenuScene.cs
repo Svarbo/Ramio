@@ -56,9 +56,9 @@ namespace Infrastructure.States.Scenes
         {
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
-            // TODO Agava.WebUtility.Device.IsMobile
-            //_levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
-            _levelsInfo.IsMobile = false;
+            // TODO
+            _levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
+            //_levelsInfo.IsMobile = false;
 
             #region LevelMenuBuilders
 

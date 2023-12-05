@@ -16,22 +16,13 @@ namespace Infrastructure
 
         private void Awake()
         {
-            _musicVolume = _gameAudioData.Music;
+            _musicVolume = _gameAudioData.MusicVolume;
 
             DontDestroyOnLoad(this);
 
             if (AppCore is null)
                 AppCore = new AppCore(this, _fader);
         }
-
-        private void Update() =>
-            AppCore.StateMachine.Update(Time.deltaTime);
-
-        private void FixedUpdate() =>
-            AppCore.StateMachine.FixedUpdate(Time.fixedDeltaTime);
-
-        private void LateUpdate() =>
-            AppCore.StateMachine.Update(Time.deltaTime);
 
         private void OnApplicationFocus(bool hasFocus)
         {
@@ -42,7 +33,7 @@ namespace Infrastructure
             }
             else
             {
-                _musicVolume = _gameAudioData.Music;
+                _musicVolume = _gameAudioData.MusicVolume;
                 _gameAudioData.SetMusicVolume(0);
                 Time.timeScale = 0f;
             }

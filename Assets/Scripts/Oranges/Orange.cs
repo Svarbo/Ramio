@@ -1,4 +1,4 @@
-using Player;
+using Players;
 using UnityEngine;
 
 namespace CollectableObjects
@@ -10,7 +10,6 @@ namespace CollectableObjects
         private AudioSource _audioSource;
         private Animator _animator;
         private int _collectedAnimation = Animator.StringToHash("Collected");
-        private int _reward = 1;
 
         private void Awake()
         {
@@ -20,9 +19,9 @@ namespace CollectableObjects
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out MainHero player))
+            if (collision.TryGetComponent(out Player player))
             {
-                player.IncreaseScore(_reward);
+                player.IncreaseFruitsCount();
 
                 _animator.Play(_collectedAnimation);
                 _audioSource.Play();

@@ -1,14 +1,12 @@
 using Data;
-using Edior;
-using Infrastructure.StateMachines;
-using Player;
+using Players;
 
 namespace Level.LevelStrategy
 {
     public class MediumLevelStrategy : LevelDifficultStrategy
     {
-        public MediumLevelStrategy(MainHero player, Infrastructure.StateMachines.StateMachine stateMachine, LevelsInfo levelsInfo, MainMenuButton mainMenuButton)
-            : base(player, stateMachine, levelsInfo, mainMenuButton)
+        public MediumLevelStrategy(Player personage, Infrastructure.StateMachines.StateMachine stateMachine, LevelsInfo levelsInfo)
+            : base(personage, stateMachine, levelsInfo)
         {
         }
 

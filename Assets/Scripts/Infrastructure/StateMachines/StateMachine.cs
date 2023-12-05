@@ -4,20 +4,11 @@ using System.Collections.Generic;
 
 namespace Infrastructure.StateMachines
 {
-    public class StateMachine : IStateMachine
+    public class StateMachine
     {
         private readonly Dictionary<Type, IState> _states;
 
         private IState _currentState;
-
-        public void Update(float deltaTime) =>
-            _currentState?.Update(deltaTime);
-
-        public void FixedUpdate(float deltaTime) =>
-            _currentState?.FixedUpdate(deltaTime);
-
-        public void LateUpdate(float deltaTime) =>
-            _currentState?.LateUpdate(deltaTime);
 
         public StateMachine(Dictionary<Type, IState> states) =>
             _states = states ?? throw new InvalidOperationException();

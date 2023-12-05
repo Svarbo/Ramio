@@ -14,12 +14,12 @@ namespace Audio
 
         private void OnEnable()
         {
-            ChangeVolume(_gameAudioData.Music);
-            _gameAudioData.MusicCVolumehangeed += ChangeVolume;
+            ChangeVolume(_gameAudioData.MusicVolume);
+            _gameAudioData.MusicCVolumeChanged += ChangeVolume;
         }
 
         private void OnDisable() =>
-            _gameAudioData.MusicCVolumehangeed -= ChangeVolume;
+            _gameAudioData.MusicCVolumeChanged -= ChangeVolume;
 
         public void ChangeVolume(float value)
         {

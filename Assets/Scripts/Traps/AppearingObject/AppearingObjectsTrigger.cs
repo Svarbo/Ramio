@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Player;
+using Players;
 using UnityEngine;
 
 namespace Traps.AppearingObject
@@ -17,7 +17,7 @@ namespace Traps.AppearingObject
         {
             if (_triggerWasAchieved != true)
             {
-                if (collision.TryGetComponent<MainHero>(out MainHero player))
+                if (collision.TryGetComponent<Player>(out Player player))
                     EnableAppearingObjects();
             }
         }

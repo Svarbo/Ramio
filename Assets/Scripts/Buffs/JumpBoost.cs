@@ -1,5 +1,4 @@
-using Player;
-using Player.PlayerStateMachine.Checkers;
+using Players.StateMachine.Checkers;
 using UnityEngine;
 
 namespace Buffs
@@ -39,6 +38,7 @@ namespace Buffs
                 }
             }
         }
+
         public void Disable() =>
             _isCollected = true;
 
@@ -57,6 +57,5 @@ namespace Buffs
                 }
             }
         }
-
     }
 }

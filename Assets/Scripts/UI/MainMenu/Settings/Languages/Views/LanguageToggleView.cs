@@ -4,11 +4,14 @@ using UnityEngine.UI;
 
 namespace UI.MainMenu.Settings.Languages.Views
 {
+    [RequireComponent(typeof(Toggle))]
     public class LanguageToggleView : MonoBehaviour
     {
-        [SerializeField] private Toggle _toggle;
-
+        private Toggle _toggle;
         private LanguageTogglePresenter _languagePresenter;
+
+        private void Awake() =>
+            _toggle = GetComponent<Toggle>();
 
         private void OnEnable() =>
             _toggle.onValueChanged.AddListener(isActive => OnClicked(isActive));

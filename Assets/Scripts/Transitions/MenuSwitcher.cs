@@ -1,4 +1,4 @@
-using UI.MainMenu.LeaderBoard;
+using UI.MainMenu.Leaderboard;
 using UI.MainMenu.LevelMenu;
 using UI.MainMenu.Menu;
 using UnityEngine;

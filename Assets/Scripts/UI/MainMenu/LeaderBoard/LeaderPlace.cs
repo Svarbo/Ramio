@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace UI.MainMenu.LeaderBoard
+namespace UI.MainMenu.Leaderboard
 {
     public class LeaderPlace : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using Data;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.MainMenu.LeaderBoard
+namespace UI.MainMenu.Leaderboard
 {
 	public class LeaderboardClearButton : MonoBehaviour
 	{
@@ -19,7 +19,7 @@ namespace UI.MainMenu.LeaderBoard
 
 		private void Clear()
 		{
-			Leaderboard.GetPlayerEntry(leaderboardName: LeaderboardsNames.EasyLeaderboardName,
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName: LeaderboardsNames.EasyLeaderboardName,
 				onSuccessCallback: _ =>
 				{
 					_ = null;

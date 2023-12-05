@@ -1,4 +1,4 @@
-using Player;
+using Players;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ namespace Traps
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<MainHero>(out MainHero player))
+            if (collision.TryGetComponent<Player>(out Player player))
             {
                 foreach (GameObject disappearingObject in _disappearingObjects)
                     disappearingObject.SetActive(false);

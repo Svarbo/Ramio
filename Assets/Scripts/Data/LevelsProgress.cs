@@ -1,3 +1,4 @@
+using ConstantValues;
 using Data.Difficults;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ namespace Data
     [Serializable]
     public class LevelsProgress
     {
-        private const string StartGameDifficult = "GetStartDifficult";
+        //Вынес тут константу
 
         private static LevelsProgress _instance;
 
@@ -32,10 +33,10 @@ namespace Data
 
         public Type GetStartDifficult()
         {
-            if (PlayerPrefs.HasKey(StartGameDifficult) == false)
+            if (PlayerPrefs.HasKey(PlayerPrefsNames.StartGameDifficult) == false)
                 return typeof(Medium);
 
-            string typeDifficult = PlayerPrefs.GetString(StartGameDifficult);
+            string typeDifficult = PlayerPrefs.GetString(PlayerPrefsNames.StartGameDifficult);
 
             Type difficult = Type.GetType(typeDifficult);
 
@@ -47,7 +48,7 @@ namespace Data
         public void SetStartDifficult(string typeDifficult)
         {
             IDifficult difficult = GetDifficultByType(Type.GetType(typeDifficult));
-            PlayerPrefs.SetString(StartGameDifficult, difficult.ToString());
+            PlayerPrefs.SetString(PlayerPrefsNames.StartGameDifficult, difficult.ToString());
             PlayerPrefs.Save();
         }
 

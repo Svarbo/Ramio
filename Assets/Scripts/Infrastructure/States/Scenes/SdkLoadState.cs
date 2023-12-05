@@ -37,14 +37,15 @@ namespace Infrastructure.States.Scenes
         }
 
         public void Enter() =>
-            _coroutineRunner.StartCoroutine(LoadSdkCoroutine());
+            _coroutineRunner.StartCoroutine(LoadSdkCoroutine(LoadMainMenuScene));
         
         private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {
-            // YandexGamesSdk.CallbackLogging = true;
-            // yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
-            yield return null;
-            LoadMainMenuScene();
+            // TODO
+            YandexGamesSdk.CallbackLogging = true;
+            yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
+            // yield return null;
+            // LoadMainMenuScene();
         }
         
         private void LoadMainMenuScene()

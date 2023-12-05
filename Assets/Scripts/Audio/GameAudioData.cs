@@ -6,22 +6,22 @@ namespace Audio
     [CreateAssetMenu(fileName = "GameAudioData", menuName = "ScriptableObject/Audio", order = 0)]
     public class GameAudioData : ScriptableObject
     {
-        [field: SerializeField] public float Effects { get; private set; }
-        [field: SerializeField] public float Music { get; private set; }
+        [field: SerializeField] public float EffectsVolume { get; private set; }
+        [field: SerializeField] public float MusicVolume { get; private set; }
 
-        public event Action<float> EffectsVolumeChangeed;
-        public event Action<float> MusicCVolumehangeed;
+        public event Action<float> EffectsVolumeChanged;
+        public event Action<float> MusicCVolumeChanged;
 
         public void SetEffectsVolume(float newVolume)
         {
-            Effects = newVolume;
-            EffectsVolumeChangeed?.Invoke(newVolume);
+            EffectsVolume = newVolume;
+            EffectsVolumeChanged?.Invoke(newVolume);
         }
 
         public void SetMusicVolume(float newVolume)
         {
-            Music = newVolume;
-            MusicCVolumehangeed?.Invoke(newVolume);
+            MusicVolume = newVolume;
+            MusicCVolumeChanged?.Invoke(newVolume);
         }
     }
 }

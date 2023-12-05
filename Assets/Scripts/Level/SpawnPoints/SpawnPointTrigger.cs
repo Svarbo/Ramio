@@ -1,6 +1,6 @@
 using Data;
 using Data.Difficults;
-using Player;
+using Players;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +20,7 @@ namespace Level.SpawnPoints
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.TryGetComponent(out MainHero player))
+            if (collider.TryGetComponent(out Player player))
             {
                 Easy easy = LevelsProgress.Instance.GetDifficultByType(typeof(Easy)) as Easy;
                 easy.ChangeSpawnPoint(SceneManager.GetActiveScene().name, new SceneSpawnPoint(Index, transform.position));

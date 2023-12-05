@@ -1,18 +1,17 @@
 using Data;
-using Edior;
 using Infrastructure.Factories;
 using Infrastructure.StateMachines;
 using Level.SpawnPoints;
 using System;
 using UnityEngine;
-using Player;
+using Players;
 using UI.Level;
 
 namespace Level.LevelStrategy
 {
     public class EasyLevelStrategy : LevelDifficultStrategy, IDisposable
     {
-        private readonly MainHero _player;
+        private readonly Player _personage;
         private readonly Vector3 _lastCheckpoint;
         private readonly Vector3 _startCheckpoint;
 
@@ -20,19 +19,18 @@ namespace Level.LevelStrategy
         private CheckpointChooserView _checkpointChooserView;
         private SpawnPointContainer _spawnPointContainer;
 
-        public EasyLevelStrategy(MainHero player, StateMachine stateMachine, LevelsInfo levelsInfo, SpawnPointContainer spawnPointContainer, Vector3 lastCheckpoint,
-            Vector3 startCheckpoint, MainMenuButton mainMenuButton)
-            : base(player, stateMachine, levelsInfo, mainMenuButton)
+        public EasyLevelStrategy(Player personage, StateMachine stateMachine, LevelsInfo levelsInfo, SpawnPointContainer spawnPointContainer, Vector3 lastCheckpoint,
+            Vector3 startCheckpoint)
+            : base(personage, stateMachine, levelsInfo)
         {
             _spawnPointContainer = spawnPointContainer;
-            _player = player;
+            _personage = personage;
             _lastCheckpoint = lastCheckpoint;
             _startCheckpoint = startCheckpoint;
             _abstractFactory = new AbstractFactory();
 
             _spawnPointContainer.gameObject.SetActive(true);
             _spawnPointContainer.Show();
-            _player.Input.Deactivate();
         }
 
         public override void Execute()
@@ -42,10 +40,6 @@ namespace Level.LevelStrategy
                 _checkpointChooserView = _abstractFactory.Create<CheckpointChooserView>("UI/Level/CheckpointChooser");
                 _checkpointChooserView.CheckpointChanged += OnCheckpointChanged;
             }
-            else
-            {
-                _player.Input.Activate();
-            }
         }
 
         public void Dispose() =>
@@ -54,11 +48,9 @@ namespace Level.LevelStrategy
         private void OnCheckpointChanged(bool answer)
         {
             if (answer)
-                _player.gameObject.transform.position = _lastCheckpoint;
+                _personage.gameObject.transform.position = _lastCheckpoint;
             else
-                _player.gameObject.transform.position = _startCheckpoint;
-
-            _player.Input.Activate();
+                _personage.gameObject.transform.position = _startCheckpoint;
         }
     }
 }

@@ -1,4 +1,4 @@
-using Player;
+using Players;
 using UnityEngine;
 
 namespace Traps
@@ -14,7 +14,7 @@ namespace Traps
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent<MainHero>(out MainHero player))
+            if (collision.gameObject.TryGetComponent<Player>(out Player player))
                 Disappear();
         }
 

@@ -1,65 +1,47 @@
-using CollectableObjects;
-using Data;
-using Data.Difficults;
-using Edior;
 using Infrastructure.Inputs;
+using Players;
 using UI.Level.EndGame.Panels;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using StateMachine = Infrastructure.StateMachines.StateMachine;
 
 namespace UI.Level.EndGame
 {
     public class PlayerCanvasDrawer : MonoBehaviour
     {
-        [SerializeField] private OrangesCountText _orangesCountText;
+        [SerializeField] private Player _player;
+        [SerializeField] private InputServiceView _playerInput;
+        [SerializeField] private WinPanel _winPanel;
+        [SerializeField] private DefeatPanel _defeatPanel;
+        [SerializeField] private GratitudePanel _gratitudePanel;
+        [SerializeField] private MainMenuButton _mainMenuButton;
 
-        [field: SerializeField] public WinPanel WinPanel { get; private set; }
-        [field: SerializeField] public DefeatPanel LosePanel { get; private set; }
-        [field: SerializeField] public FinishPanel FinishPanel { get; private set; }
+        private void OnEnable() =>
+            _player.Desappeared += ShowDefeatPanel;
 
-        private InputServiceView _playerInputServiceView;
-        private MainMenuButton _mainMenuButton;
+        private void OnDisable() =>
+            _player.Desappeared -= ShowDefeatPanel;
 
-        public void Construct(StateMachine stateMachine, LevelsInfo levelsInfo, InputServiceView playerInputServiceView, MainMenuButton mainMenuButton)
-        {
-            _mainMenuButton = mainMenuButton;
-            _playerInputServiceView = playerInputServiceView;
-            LevelsInfo = levelsInfo;
-
-            WinPanel.Construct(stateMachine, levelsInfo);
-            LosePanel.Construct(stateMachine, levelsInfo);
-        }
-        public LevelsInfo LevelsInfo { get; private set; }
-
-        public void DrawWinPanel(int score)
-        {
-            _playerInputServiceView.Deactivate();
-            _mainMenuButton.gameObject.SetActive(false);
-            _orangesCountText.SetCountText(score, PlayerPrefs.GetInt("CurrentLevelOrangesCount"));
-            WinPanel.gameObject.SetActive(true);
-
-            IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(LevelsInfo.CurrentDifficult);
-
-            if (LevelsInfo.CurrentDifficult != typeof(Hard))
-            {
-                difficult.GetAcceptLevels();
-                difficult.IncreaseAcceptLevels();
-            }
-        }
-
-        public void DrawDefeatPanel()
+        public void ShowWinPanel()
         {
             _mainMenuButton.gameObject.SetActive(false);
-            _playerInputServiceView.Deactivate();
-            LosePanel.gameObject.SetActive(true);
+            _playerInput.gameObject.SetActive(false);
+
+            _winPanel.gameObject.SetActive(true);
         }
 
-        public void DrawFinishPanel()
+        public void ShowGratitudePanel()
         {
             _mainMenuButton.gameObject.SetActive(false);
-            _playerInputServiceView.Deactivate();
-            FinishPanel.gameObject.SetActive(true);
+            _playerInput.gameObject.SetActive(false);
+
+            _gratitudePanel.gameObject.SetActive(true);
+        }
+
+        private void ShowDefeatPanel()
+        {
+            _mainMenuButton.gameObject.SetActive(false);
+            _playerInput.gameObject.SetActive(false);
+
+            _defeatPanel.gameObject.SetActive(true);
         }
     }
 }

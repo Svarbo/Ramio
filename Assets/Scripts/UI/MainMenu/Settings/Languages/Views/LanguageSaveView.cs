@@ -14,10 +14,10 @@ namespace UI.MainMenu.Settings.Languages.Views
             _button = GetComponent<Button>();
 
         private void OnEnable() =>
-            _button.onClick.AddListener(OnClicked);
+            _button.onClick.AddListener(OnClick);
 
         private void OnDisable() =>
-            _button.onClick.AddListener(OnClicked);
+            _button.onClick.AddListener(OnClick);
 
         public void Construct(LanguageSavePresenter languageSavePresenter) =>
             _languageSavePresenter = languageSavePresenter;
@@ -28,7 +28,7 @@ namespace UI.MainMenu.Settings.Languages.Views
         public void Hide() =>
             gameObject.SetActive(false);
 
-        private void OnClicked()
+        private void OnClick()
         {
             _languageSavePresenter.SaveLanguageChanges();
             _languageSavePresenter.RestartScene();

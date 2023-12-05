@@ -1,4 +1,4 @@
-using Player;
+using Players;
 using UnityEngine;
 
 namespace Traps.SpikedBall
@@ -9,7 +9,7 @@ namespace Traps.SpikedBall
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<MainHero>(out MainHero player))
+            if (collision.TryGetComponent<Player>(out Player player))
                 _fallingObject.StartFalling();
         }
     }

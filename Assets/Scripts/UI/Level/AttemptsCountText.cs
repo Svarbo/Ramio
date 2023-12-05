@@ -1,4 +1,4 @@
-using Player;
+using Players;
 using TMPro;
 using UnityEngine;
 
@@ -7,20 +7,15 @@ namespace UI.Level
     [RequireComponent(typeof(TMP_Text))]
     public class AttemptsCountText : MonoBehaviour
     {
-        [SerializeField] private MainHero _player;
+        [SerializeField] private Player _personage;
 
-        private TMP_Text _text;
-
-        private void Start()
-        {
-            _text = GetComponent<TMP_Text>();
-
+        private void Awake() =>
             SetText();
-        }
 
         private void SetText()
         {
-            _text.text = _player.AttemptsCount.ToString();
+            TMP_Text textComponent = GetComponent<TMP_Text>();
+            textComponent.text = _personage.AttemptsCount.ToString();
         }
     }
 }

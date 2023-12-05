@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace UI.MainMenu.LeaderBoard
+namespace UI.MainMenu.Leaderboard
 {
 	public class LeaderboardView : MonoBehaviour
 	{
@@ -31,7 +31,7 @@ namespace UI.MainMenu.LeaderBoard
 
 		private void ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
 		{
-			Leaderboard.GetPlayerEntry(leaderboardName,
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName,
 				(result) =>
 				{
 					if (result == null)
@@ -49,7 +49,7 @@ namespace UI.MainMenu.LeaderBoard
 
 		private void ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
 		{
-			Leaderboard.GetEntries(leaderboardName,
+            Agava.YandexGames.Leaderboard.GetEntries(leaderboardName,
 				(result) =>
 				{
 					string leaderName;
@@ -58,7 +58,7 @@ namespace UI.MainMenu.LeaderBoard
 
 					for (int i = 0; i < leadersCount; i++)
 					{
-						LeaderboardEntryResponse entry = result.entries[i];
+                        LeaderboardEntryResponse entry = result.entries[i];
 
 						if (entry != null)
 						{
@@ -66,14 +66,7 @@ namespace UI.MainMenu.LeaderBoard
 							leaderScore = GetLeaderScore(entry);
 
 							leaderPlaces[i].SetLeaderData(leaderName, leaderScore);
-							// TODO зочем?
-							//leaderPlaces[i].gameObject.SetActive(true);
-						}
-						else
-						{
-							leaderPlaces[i].SetLeaderData(entry.player.publicName, entry.score);
-							// TODO зочем?
-							//leaderPlaces[i].gameObject.SetActive(true);
+							leaderPlaces[i].gameObject.SetActive(true);
 						}
 					}
 				});
@@ -89,18 +82,18 @@ namespace UI.MainMenu.LeaderBoard
 			leaderName = entry.player.publicName;
 
 			if (string.IsNullOrEmpty(leaderName))
-				leaderName = SetAnonimusName();
+				leaderName = SetAnonymousName();
 
 			return leaderName;
 		}
 
-		private string SetAnonimusName()
+		private string SetAnonymousName()
 		{
 			string leaderName = " ";
-			int playerLanguageIndex = UnityEngine.PlayerPrefs.GetInt("LanguageIndex", 0);
+			int playerLanguageIndex = PlayerPrefs.GetInt("LanguageIndex", 0);
 
 			if (playerLanguageIndex == 0)
-				leaderName = "Неизвестный";
+				leaderName = "Аноним";
 			if (playerLanguageIndex == 1)
 				leaderName = "Anonymous";
 			if (playerLanguageIndex == 2)

@@ -16,8 +16,8 @@ namespace UI.MainMenu.Settings.Audio.Presenters
             _effectsView = effectsView;
             _musicView = musicView;
 
-            _effectsView.ChangeValue(_gameAudioData.Effects);
-            _musicView.ChangeValue(_gameAudioData.Music);
+            _effectsView.ChangeValue(_gameAudioData.EffectsVolume);
+            _musicView.ChangeValue(_gameAudioData.MusicVolume);
         }
 
         public void SetAllVolume(float newVolume)
