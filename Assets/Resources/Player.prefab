@@ -94,7 +94,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 163.15
   m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24163d2553c013449958dc97bdc2f4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _personage: {fileID: 1095799858649553498}
+  _personage: {fileID: 7637989664623092994}
 --- !u!1 &362605562264306140
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +986,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _advertisementDemonstrator: {fileID: 2583004080801739249}
   _restartButton: {fileID: 9154832125722464529}
-  _mainMenuButton: {fileID: 0}
 --- !u!1 &1414756652882994047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1721,7 @@ GameObject:
   - component: {fileID: 8261837672965662225}
   - component: {fileID: 1900202112357441331}
   - component: {fileID: 6187649731080102675}
+  - component: {fileID: 8813656318386939379}
   m_Layer: 5
   m_Name: GratitudePanel
   m_TagString: Untagged
@@ -1788,6 +1788,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8813656318386939379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635701137079325758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd0933c732b3864aaa6cd9893934b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5851304672135683859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,7 +2825,6 @@ GameObject:
   - component: {fileID: 623833986412686268}
   - component: {fileID: 6177912875531075743}
   - component: {fileID: 7975783578392002220}
-  - component: {fileID: 1095799858649553498}
   - component: {fileID: 7299815291854273114}
   - component: {fileID: 8328971407849518108}
   - component: {fileID: 6963219022140351846}
@@ -2837,6 +2848,7 @@ GameObject:
   - component: {fileID: 434949248380729181}
   - component: {fileID: 2997447780399953044}
   - component: {fileID: 3874436717881228536}
+  - component: {fileID: 7637989664623092994}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3104,19 +3116,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1095799858649553498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6828086203341674318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c9893ddc4192943a709dcdff4070df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <InputServiceView>k__BackingField: {fileID: 8060228718911761174}
 --- !u!114 &7299815291854273114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3468,6 +3467,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 0
   _isHorizontalMovable: 0
+--- !u!114 &7637989664623092994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828086203341674318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48f27bfefcfd14781f6b998a3de116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <InputServiceView>k__BackingField: {fileID: 8060228718911761174}
 --- !u!1 &7134720802076713749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,6 +3741,7 @@ GameObject:
   - component: {fileID: 3966521329155647776}
   - component: {fileID: 5725480494850422534}
   - component: {fileID: 3437922424597411889}
+  - component: {fileID: 3123768342854030}
   m_Layer: 5
   m_Name: PlayerCanvas
   m_TagString: Untagged
@@ -3824,6 +3837,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3123768342854030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347316385374276294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b76e44e2d2d674193418882a47fb9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 7637989664623092994}
+  _winPanel: {fileID: 8367639862701461904}
+  _defeatPanel: {fileID: 6186934257361486128}
+  _gratitudePanel: {fileID: 8813656318386939379}
 --- !u!1 &8366919897145065579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,10 +3943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddac42ad3fc4a4eb1ecb87d51a48ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _personage: {fileID: 1095799858649553498}
+  _personage: {fileID: 7637989664623092994}
   _orangesCountText: {fileID: 7740910099036607306}
-  _nextLevelButton: {fileID: 2383364240315554750}
-  _mainMenuButton: {fileID: 757779167632690769}
+  _button: {fileID: 2383364240315554750}
 --- !u!1 &8494267268617344366
 GameObject:
   m_ObjectHideFlags: 0

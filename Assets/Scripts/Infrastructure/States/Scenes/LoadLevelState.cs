@@ -28,18 +28,6 @@ namespace Infrastructure.States.Scenes
         {
         }
 
-        public void FixedUpdate(float deltaTime)
-        {
-        }
-
-        public void LateUpdate(float deltaTime)
-        {
-        }
-
-        public void Update(float deltaTime)
-        {
-        }
-
         public void Enter()
         {
         }

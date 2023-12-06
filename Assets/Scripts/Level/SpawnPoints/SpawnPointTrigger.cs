@@ -9,9 +9,9 @@ namespace Level.SpawnPoints
     [RequireComponent(typeof(AudioSource))]
     public class SpawnPointTrigger : MonoBehaviour
     {
-        [field: SerializeField] public int Index { get; private set; }
-
         [SerializeField] private AudioClip _audioClip;
+
+        [field: SerializeField] public int Index { get; private set; }
 
         private AudioSource _audioSource;
 

@@ -6,16 +6,12 @@ using Level.LevelStrategy;
 using Level.SpawnPoints;
 using UnityEngine;
 using Level.LevelStrategy.Factories;
-using Infrastructure.StateMachines;
 
 namespace Level
 {
     public class LevelBootstrap : MonoBehaviour
     {
-        [SerializeField] private FinishZone _finishZone;
-
         private LevelDifficultStrategy _levelDifficultStrategy;
-        private LevelLoader _levelLoader;
         private Vector3 _startSpawnPosition;
         private Player _player;
         private GameBootstrap _gameBootstrap;
@@ -24,17 +20,18 @@ namespace Level
 
         public LevelsInfo LevelsInfo { get; private set; }
 
+        private void OnDestroy() => 
+            _levelDifficultStrategy.Dispose();
+
         public void Construct(LevelsInfo levelsInfo)
         {
             LevelsInfo = levelsInfo;
 
             FindObjects();
-            CreatePersonage(levelsInfo);
-            CreateLevelLoader(levelsInfo);
-            SetDifficult();
-            CreateAcceptLevelsDeterminator();
-
             _spawnPointContainer.gameObject.SetActive(false);
+            CreatePersonage(levelsInfo);
+            CreateAcceptLevelsDeterminator();
+            SetDifficult();
         }
 
         private void FindObjects()
@@ -47,32 +44,20 @@ namespace Level
         private void SetDifficult()
         {
             if (typeof(Easy) == LevelsInfo.CurrentDifficult)
-                _levelDifficultStrategy = new EasyLevelFactory(LevelsInfo, _player, _gameBootstrap.AppCore.StateMachine, _startSpawnPosition, _spawnPointContainer).Create();
-            else if (typeof(Medium) == LevelsInfo.CurrentDifficult)
-                _levelDifficultStrategy = new MediumLevelStrategy(_player, _gameBootstrap.AppCore.StateMachine, LevelsInfo);
+                _levelDifficultStrategy = new CheckpointLevelFactory(LevelsInfo, _player, _gameBootstrap.AppCore.StateMachine, _startSpawnPosition, _spawnPointContainer, _acceptLevelsDeterminator).Create();
             else
-                _levelDifficultStrategy = new HardLevelStrategy(_player, _gameBootstrap.AppCore.StateMachine, LevelsInfo);
+                _levelDifficultStrategy = new NotCheckpointLevelStrategy(_player, _gameBootstrap.AppCore.StateMachine, LevelsInfo, _acceptLevelsDeterminator);
 
             _levelDifficultStrategy.Execute();
         }
 
-        private void CreateAcceptLevelsDeterminator()
-        {
+        private void CreateAcceptLevelsDeterminator() => 
             _acceptLevelsDeterminator = new AcceptLevelsDeterminator(LevelsInfo);
-            _finishZone.Construct(_acceptLevelsDeterminator);
-        }
 
         private void CreatePersonage(LevelsInfo levelsInfo)
         {
-            //TODO: Прокинуть LevelLoader
             PlayerFactory personageFactory = new PlayerFactory(_startSpawnPosition, levelsInfo.IsMobile, levelsInfo.CurrentDifficult);
             _player = personageFactory.Create();
-        }
-
-        private void CreateLevelLoader(LevelsInfo levelsInfo)
-        {
-            StateMachine stateMachine = _gameBootstrap.AppCore.StateMachine;
-            _levelLoader = new LevelLoader(stateMachine, levelsInfo);
         }
     }
 }

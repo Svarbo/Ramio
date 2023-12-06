@@ -1,6 +1,7 @@
 using Agava.YandexGames;
 using ConstantValues;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -18,20 +19,23 @@ namespace UI.MainMenu.Leaderboard
 		[SerializeField] private TMP_Text _mediumPlayerAttemptionsCountText;
 		[SerializeField] private TMP_Text _hardPlayerAttemptionsCountText;
 
-		private void OnEnable()
-		{
-			ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
-			ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
-			ShowFirstLeaders(LeaderboardsNames.HardLeaderboardName, _hardLeaderPlaces);
+		private void OnEnable() => 
+			ShowLeaderboards();
 
-			ShowPlayerPlace(LeaderboardsNames.EasyLeaderboardName, _easyPlayerTopPlaceText, _easyPlayerAttemptionsCountText);
-			ShowPlayerPlace(LeaderboardsNames.MediumLeaderboardName, _mediumPlayerTopPlaceText, _mediumPlayerAttemptionsCountText);
-			ShowPlayerPlace(LeaderboardsNames.HardLeaderboardName, _hardPlayerTopPlaceText, _hardPlayerAttemptionsCountText);
+		private async Task ShowLeaderboards()
+		{
+			await ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
+			await ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
+			await ShowFirstLeaders(LeaderboardsNames.HardLeaderboardName, _hardLeaderPlaces);
+
+			await ShowPlayerPlace(LeaderboardsNames.EasyLeaderboardName, _easyPlayerTopPlaceText, _easyPlayerAttemptionsCountText);
+			await ShowPlayerPlace(LeaderboardsNames.MediumLeaderboardName, _mediumPlayerTopPlaceText, _mediumPlayerAttemptionsCountText);
+			await ShowPlayerPlace(LeaderboardsNames.HardLeaderboardName, _hardPlayerTopPlaceText, _hardPlayerAttemptionsCountText);
 		}
-
-		private void ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
+		
+		private async Task ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
 		{
-            Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName,
+			await Task.Run(() => Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName,
 				(result) =>
 				{
 					if (result == null)
@@ -44,12 +48,12 @@ namespace UI.MainMenu.Leaderboard
 						playerTopPlaceText.text = result.rank.ToString();
 						playerAttemptionsCountText.text = result.score.ToString();
 					}
-				});
+				}));
 		}
 
-		private void ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
+		private async Task ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
 		{
-            Agava.YandexGames.Leaderboard.GetEntries(leaderboardName,
+			await Task.Run(() => Agava.YandexGames.Leaderboard.GetEntries(leaderboardName,
 				(result) =>
 				{
 					string leaderName;
@@ -58,7 +62,7 @@ namespace UI.MainMenu.Leaderboard
 
 					for (int i = 0; i < leadersCount; i++)
 					{
-                        LeaderboardEntryResponse entry = result.entries[i];
+						LeaderboardEntryResponse entry = result.entries[i];
 
 						if (entry != null)
 						{
@@ -69,7 +73,7 @@ namespace UI.MainMenu.Leaderboard
 							leaderPlaces[i].gameObject.SetActive(true);
 						}
 					}
-				});
+				}));
 		}
 
 		private int GetLeaderScore(LeaderboardEntryResponse entry) =>

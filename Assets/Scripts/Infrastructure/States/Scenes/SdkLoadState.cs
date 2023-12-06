@@ -1,6 +1,4 @@
 using System;
-using Infrastructure;
-using Infrastructure.States;
 using Data;
 using Infrastructure.Core;
 using System.Collections;
@@ -23,29 +21,17 @@ namespace Infrastructure.States.Scenes
         public void Exit()
         {
         }
-
-        public void FixedUpdate(float deltaTime)
-        {
-        }
-
-        public void LateUpdate(float deltaTime)
-        {
-        }
-
-        public void Update(float deltaTime)
-        {
-        }
-
+        
         public void Enter() =>
             _coroutineRunner.StartCoroutine(LoadSdkCoroutine(LoadMainMenuScene));
         
         private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {
             // TODO
-            YandexGamesSdk.CallbackLogging = true;
-            yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
-            // yield return null;
-            // LoadMainMenuScene();
+            // YandexGamesSdk.CallbackLogging = true;
+            // yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
+            yield return new WaitForSeconds(1);
+            onSuccessCallback.Invoke();
         }
         
         private void LoadMainMenuScene()

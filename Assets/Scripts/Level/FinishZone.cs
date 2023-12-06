@@ -9,7 +9,6 @@ public class FinishZone : MonoBehaviour
     private const string LastLevelName = "Level3";
 
     private PlayerCanvasDrawer _levelCanvasDrawer;
-    private AcceptLevelsDeterminator _acceptLevelsDeterminator;
     private Animator _animator;
     private int _isAchievedParameter = Animator.StringToHash("IsAchieved");
 
@@ -26,19 +25,11 @@ public class FinishZone : MonoBehaviour
             PlayWinAnimation();
 
             if (IsLastLevel())
-            {
                 _levelCanvasDrawer.ShowGratitudePanel();
-            }
             else
-            {
                 _levelCanvasDrawer.ShowWinPanel();
-                _acceptLevelsDeterminator.Determine();
-            }
         }
     }
-
-    public void Construct(AcceptLevelsDeterminator acceptLevelsDeterminator) =>
-        _acceptLevelsDeterminator = acceptLevelsDeterminator;
 
     private void PlayWinAnimation() =>
         _animator.SetBool(_isAchievedParameter, true);

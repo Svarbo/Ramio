@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -19,8 +18,6 @@ namespace Audio
 
         private void Start()
         {
-            AudioListener[] sAudioListener = FindObjectsOfType<AudioListener>();
-            Debug.Log(sAudioListener.Length);
             ChooseRandomAudioClip();
             PlayCurrentClip();
         }

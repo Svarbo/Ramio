@@ -24,6 +24,7 @@ namespace Infrastructure
                 AppCore = new AppCore(this, _fader);
         }
 
+        // TODO выключение звука
         private void OnApplicationFocus(bool hasFocus)
         {
             if (hasFocus)

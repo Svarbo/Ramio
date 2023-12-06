@@ -9,18 +9,19 @@ namespace SDK
     {
         private const int AdvertisementDemonstrationFrequency = 4;
 
-        public void TryShowAdvertisement(Action<bool> OnCloseCallback, Action<string> OnErrorCallback)
+        public void TryShowAdvertisement(Action<bool> OnCloseCallback = null, Action<string> OnErrorCallback = null)
 		{
 			int attemptsCount = PlayerPrefs.GetInt(PlayerPrefsNames.AttemptsCount);
 
             if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
                 InterstitialAd.Show(OnStartCallBack, OnCloseCallback, OnErrorCallback);
         }
-
+        
+        // TODO Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¼ÑƒÐ·Ñ‹ÐºÑƒ
         private void OnStartCallBack() =>
             Time.timeScale = 0;
 
-        //TODO: Âûíåñòè â îòäåëüíûé êëàññ
+        //TODO: Ð’Ñ‹Ð½ÐµÑÑ‚Ð¸ Ð² Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ñ‹Ð¹ ÐºÐ»Ð°ÑÑ
         //private void OnErrorCallback(string obj) =>
         //	RestartLevel();
 

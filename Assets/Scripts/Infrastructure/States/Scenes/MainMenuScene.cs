@@ -28,18 +28,6 @@ namespace Infrastructure.States.Scenes
         public MainMenuState(AppCore appCore) =>
             _appCore = appCore;
 
-        public void FixedUpdate(float deltaTime)
-        {
-        }
-
-        public void LateUpdate(float deltaTime)
-        {
-        }
-
-        public void Update(float deltaTime)
-        {
-        }
-
         public void Exit()
         {
         }
@@ -50,15 +38,17 @@ namespace Infrastructure.States.Scenes
             LoadScene();
         }
 
-        public void Enter() { }
+        public void Enter()
+        {
+        }
 
         private void LoadScene()
         {
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
             // TODO
-            _levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
-            //_levelsInfo.IsMobile = false;
+            //_levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
+            _levelsInfo.IsMobile = false;
 
             #region LevelMenuBuilders
 

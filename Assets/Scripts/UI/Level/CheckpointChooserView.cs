@@ -13,19 +13,25 @@ namespace UI.Level
 
         private void OnEnable()
         {
-            _positiveResponseButton.onClick.AddListener(() => ReceiveResponse(true));
-            _negativeResponseButton.onClick.AddListener(() => ReceiveResponse(false));
+            _positiveResponseButton.onClick.AddListener(OnPositiveResponse);
+            _negativeResponseButton.onClick.AddListener(OnNegativeResponse);
         }
 
         private void OnDisable()
         {
-            _positiveResponseButton.onClick.RemoveAllListeners();
-            _negativeResponseButton.onClick.RemoveAllListeners();
+            _positiveResponseButton.onClick.RemoveListener(OnPositiveResponse);
+            _negativeResponseButton.onClick.RemoveListener(OnNegativeResponse);
         }
 
-        private void ReceiveResponse(bool value)
+        private void OnPositiveResponse()
         {
-            CheckpointChanged?.Invoke(value);
+            CheckpointChanged?.Invoke(true);
+            gameObject.SetActive(false);
+        }
+        
+        private void OnNegativeResponse()
+        {
+            CheckpointChanged?.Invoke(false);
             gameObject.SetActive(false);
         }
     }

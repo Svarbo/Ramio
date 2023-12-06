@@ -4,6 +4,7 @@ using Data;
 using Infrastructure.Inputs;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
 namespace Players
@@ -32,7 +33,8 @@ namespace Players
                 rotation: Quaternion.identity
             );
 
-            personage.SetDifficult(LevelsProgress.Instance.GetDifficultByType(_difficult));
+            SetAttemptsCount(personage);
+
             Camera.main.GetComponent<TargetFollower>().Construct(personage.transform, _cameraOffset);
 
             SetInputService(personage);
@@ -40,7 +42,13 @@ namespace Players
             return personage;
         }
 
-        private void SetInputService(Player personage) 
+        private void SetAttemptsCount(Player personage)
+        {
+            int count = LevelsProgress.Instance.GetDifficultByType(_difficult).GetCountTryBySceneName(SceneManager.GetActiveScene().name);
+            personage.SetAttemptsCount(count);
+        }
+
+        private void SetInputService(Player personage)
         {
             if (_isMobile)
             {
@@ -53,6 +61,5 @@ namespace Players
                 personage.Input.SetInputService(new StandaloneInputService());
             }
         }
-
     }
 }

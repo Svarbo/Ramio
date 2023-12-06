@@ -3,7 +3,6 @@ using Data.Difficults;
 using Infrastructure.StateMachines;
 using Infrastructure.States.Scenes;
 using System;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure
