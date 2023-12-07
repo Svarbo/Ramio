@@ -9,6 +9,8 @@ using UI.MainMenu.Factories;
 using UI.MainMenu.LevelMenu.Difficults.Presenters;
 using UI.MainMenu.LevelMenu.LevelChoosers;
 using UI.MainMenu.Menu;
+using UI.MainMenu.Settings.Audio.Builders;
+using UI.MainMenu.Settings.Languages;
 using UI.MainMenu.Settings.Languages.Presenters;
 
 namespace Infrastructure.States.Scenes
@@ -24,6 +26,7 @@ namespace Infrastructure.States.Scenes
         private LevelChooserBuilder _levelChooserBuilder;
         private LevelsInfo _levelsInfo;
         private LanguageTogglePresenter _languageTogglePresenter;
+        private AudioMenuPresenter _audioMenuPresenter;
 
         public MainMenuState(AppCore appCore) =>
             _appCore = appCore;
@@ -50,52 +53,18 @@ namespace Infrastructure.States.Scenes
             //_levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
             _levelsInfo.IsMobile = false;
 
-            #region LevelMenuBuilders
-
             _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);
             _levelChooserPresenter = _levelChooserBuilder.Build();
-
-            #region Difficults
-
+            
             _difficultBuilder = new DifficultBuilder(_levelChooserPresenter, _levelsInfo, mainMenuView.LevelMenuView.DifficultChooserView);
             _difficultChooserPresenter = _difficultBuilder.Build();
+            
+            AudioMenuBuilder audioMenuBuilder = new AudioMenuBuilder(mainMenuView.SettingsView.AudioMenuView);
+            _audioMenuPresenter = audioMenuBuilder.Build();
 
-            #endregion
-
-            #endregion
-
-            #region Settings
-
-            #region Audio
-
-            _gameAudioData = mainMenuView.SettingsView.AudioMenuView.GameAudioData;
-
-            AudioMenuPresenter audioMenuPresenter = new AudioMenuPresenter
-            (
-                gameAudioData: _gameAudioData,
-                effectsView: mainMenuView.SettingsView.AudioMenuView.EffectsView,
-                musicView: mainMenuView.SettingsView.AudioMenuView.MusicView
-            );
-
-            mainMenuView.SettingsView.AudioMenuView.AllAudioView.Construct(audioMenuPresenter);
-            mainMenuView.SettingsView.AudioMenuView.EffectsView.Construct(audioMenuPresenter);
-            mainMenuView.SettingsView.AudioMenuView.MusicView.Construct(audioMenuPresenter);
-
-            #endregion
-
-            #region Language
-
-            LanguageChanger languageChanger = mainMenuView.SettingsView.LanguageChanger;
-
-            _languageTogglePresenter = new LanguageTogglePresenter(languageChanger.LanguageSaveView);
-            languageChanger.LanguageToggleRU.Construct(_languageTogglePresenter);
-            languageChanger.LanguageToggleEN.Construct(_languageTogglePresenter);
-            languageChanger.LanguageToggleTR.Construct(_languageTogglePresenter);
-
-            _languageSavePresenter = new LanguageSavePresenter(_appCore.StateMachine, _levelsInfo, languageChanger, languageChanger.LanguageSaveView);
-            languageChanger.LanguageSaveView.Construct(_languageSavePresenter);
-            #endregion
-            #endregion
+            LanguageMenuBuilder languageMenuBuilder = new LanguageMenuBuilder(mainMenuView.SettingsView.LanguageChanger, _appCore.StateMachine, _levelsInfo);
+            _languageSavePresenter = languageMenuBuilder.BuildLanguageSavePresenter();
+            _languageTogglePresenter = languageMenuBuilder.BuildLanguageTogglePresenter();
         }
     }
 }

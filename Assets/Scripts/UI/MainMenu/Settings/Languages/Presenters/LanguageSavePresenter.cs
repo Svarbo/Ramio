@@ -2,7 +2,6 @@ using Data;
 using Infrastructure.States.Scenes;
 using Localization;
 using UI.MainMenu.Settings.Languages.Views;
-using UnityEngine.SceneManagement;
 using StateMachine = Infrastructure.StateMachines.StateMachine;
 
 namespace UI.MainMenu.Settings.Languages.Presenters
@@ -29,7 +28,7 @@ namespace UI.MainMenu.Settings.Languages.Presenters
 
         public void RestartScene()
         {
-            _levelsInfo.SceneName = SceneManager.GetActiveScene().name;
+            _levelsInfo.SceneName = Levels.MainMenu.ToString();
             _languageSaveView.Hide();
             _stateMachine.Enter(typeof(LoadLevelState), _levelsInfo);
         }

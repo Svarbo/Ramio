@@ -1,7 +1,5 @@
-using Infrastructure;
-using Infrastructure.States;
-using Transitions;
 using Data;
+using Transitions;
 using Infrastructure.Core;
 using System.Collections;
 using UnityEngine;

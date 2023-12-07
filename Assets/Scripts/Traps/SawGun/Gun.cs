@@ -13,7 +13,8 @@ namespace Traps.SawGun
 
         private void Update() =>
             CountShootingDelay();
-
+            
+        // TODO методы начинаются с глагола
         private void CountShootingDelay()
         {
             _currentDelay += Time.deltaTime;
