@@ -7,7 +7,7 @@ namespace UI.MainMenu.Leaderboard
     public class AuthorizingBackground : MonoBehaviour
     {
         [SerializeField] private Button _authorizeButton;
-        [SerializeField] private LeaderboardView _leaderboardView;
+        [SerializeField] private GameObject _leaderboardView;
 
         private void OnEnable() =>
             TryShow();
