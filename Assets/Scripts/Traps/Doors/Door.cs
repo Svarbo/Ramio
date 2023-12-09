@@ -13,7 +13,8 @@ namespace Traps.Doors
 
         public void Open() =>
             _animator.Play(_openAnimation);
-
+        
+        // TODO не используется
         public void Off() =>
             gameObject.SetActive(false);
     }

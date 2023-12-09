@@ -8,13 +8,13 @@ namespace Infrastructure.Inputs
         {
             get
             {
-                return UnityEngine.Input.GetAxis(Horizontal);
+                return Input.GetAxis(Horizontal);
             }
         }
 
         public override bool IsPressButtonJump()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W))
                 return true;
 
             return false;

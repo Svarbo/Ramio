@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ConstantValues;
 using UI.MainMenu.Settings.Languages.Views;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,13 +30,13 @@ namespace Localization
             Toggle activeToggle = _toggleGroup.GetFirstActiveToggle();
             int languageIndex = activeToggle.transform.GetSiblingIndex();
 
-            PlayerPrefs.SetInt("LanguageIndex", languageIndex);
-            PlayerPrefs.SetInt("LanguageWasChanged", 1);
+            PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, languageIndex);
+            PlayerPrefs.SetInt(PlayerPrefsNames.LanguageWasChanged, 1);
         }
 
         private void SetCurrentToggleActive()
         {
-            int activeToggleIndex = PlayerPrefs.GetInt("LanguageIndex");
+            int activeToggleIndex = PlayerPrefs.GetInt(PlayerPrefsNames.LanguageIndex);
 
             _toggles[activeToggleIndex].isOn = true;
 

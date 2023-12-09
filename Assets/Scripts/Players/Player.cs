@@ -19,14 +19,17 @@ namespace Players
         private int _fruitsCount = 0;
         private bool _isDied = false;
         private string _sceneName;
-        
+
         public event Action Desappeared;
+        
+        //TODO не используется
         public event Action FruitRaised;
 
         public PlayerInput Input { get; private set; }
 
         public int FruitsCount => _fruitsCount;
-        public int AttemptsCount { get;private set; }
+
+        public int AttemptsCount { get; private set; }
 
         private void Awake()
         {
@@ -37,7 +40,7 @@ namespace Players
             SetHealth();
         }
 
-        public void SetAttemptsCount(int attemptsCount) => 
+        public void SetAttemptsCount(int attemptsCount) =>
             AttemptsCount = attemptsCount;
 
         public void IncreaseFruitsCount()
@@ -54,7 +57,7 @@ namespace Players
             if (_currentHealth <= 0 && _isDied != true)
                 Die();
         }
-        
+
         private void SetHealth() =>
             _currentHealth = _stats.Health;
 

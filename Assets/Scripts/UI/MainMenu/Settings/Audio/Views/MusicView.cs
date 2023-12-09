@@ -10,6 +10,7 @@ namespace UI.MainMenu.Settings.Audio.Views
 
         private AudioMenuPresenter _allAudioPresenter;
 
+        // TODO не используется
         public float Value => _slider.value;
 
         private void OnEnable() =>

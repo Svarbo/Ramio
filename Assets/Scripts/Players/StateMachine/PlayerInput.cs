@@ -38,9 +38,11 @@ namespace Players.StateMachine
         public void SetInputService(InputService inputService) =>
             _inputService = inputService;
 
+        // TODO не используется
         public void Activate() =>
             enabled = true;
 
+        // TODO не используется
         public void Deactivate() =>
             enabled = false;
 

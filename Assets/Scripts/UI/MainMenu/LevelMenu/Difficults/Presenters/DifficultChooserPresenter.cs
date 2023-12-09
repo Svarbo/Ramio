@@ -13,7 +13,11 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
         private readonly LevelChooserPresenter _levelChooserPresenter;
         private readonly HardDifficultView _hardDifficultView;
 
-        public DifficultChooserPresenter(LevelChooserPresenter levelChooserPresenter, LevelsInfo levelsInfo, EasyDifficultView easyDifficultView, MediumDifficultView mediumDifficultView,
+        public DifficultChooserPresenter(
+            LevelChooserPresenter levelChooserPresenter, 
+            LevelsInfo levelsInfo,
+            EasyDifficultView easyDifficultView, 
+            MediumDifficultView mediumDifficultView,
             HardDifficultView hardDifficultView)
         {
             _levelChooserPresenter = levelChooserPresenter;
@@ -30,14 +34,14 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
                 SetHardDifficult();
         }
 
-
         public void SetEasyDifficult()
         {
             _levelsInfo.CurrentDifficult = typeof(Easy);
             _easyDifficultView.Hide();
             _mediumDifficultView.Show();
             _hardDifficultView.Show();
-            _levelChooserPresenter.ShowLevels(LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult).GetAcceptLevels());
+            _levelChooserPresenter.ShowLevels(LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult)
+                .GetAcceptLevels());
         }
 
         public void SetMediumDifficult()
@@ -46,7 +50,8 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
             _easyDifficultView.Show();
             _mediumDifficultView.Hide();
             _hardDifficultView.Show();
-            _levelChooserPresenter.ShowLevels(LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult).GetAcceptLevels());
+            _levelChooserPresenter.ShowLevels(LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult)
+                .GetAcceptLevels());
         }
 
         public void SetHardDifficult()
@@ -55,7 +60,8 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
             _easyDifficultView.Show();
             _mediumDifficultView.Show();
             _hardDifficultView.Hide();
-            _levelChooserPresenter.ShowLevels(LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult).GetAcceptLevels());
+            _levelChooserPresenter.ShowLevels(LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult)
+                .GetAcceptLevels());
         }
     }
 }

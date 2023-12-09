@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ConstantValues;
 using TMPro;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace Localization
 
         private void SetNeededText()
         {
-            _languageIndex = PlayerPrefs.GetInt("LanguageIndex");
+            _languageIndex = PlayerPrefs.GetInt(PlayerPrefsNames.LanguageIndex);
             _text.text = _translations[_languageIndex];
         }
     }

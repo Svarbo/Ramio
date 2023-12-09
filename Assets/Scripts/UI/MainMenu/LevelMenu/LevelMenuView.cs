@@ -9,7 +9,9 @@ namespace UI.MainMenu.LevelMenu
     public class LevelMenuView : MonoBehaviour
     {
         private LevelsInfo _levelsInfo;
+
         [field: SerializeField] public LevelsRow LevelsRow { get; private set; }
+
         [field: SerializeField] public DifficultChooserView DifficultChooserView { get; private set; }
 
         private void OnEnable()

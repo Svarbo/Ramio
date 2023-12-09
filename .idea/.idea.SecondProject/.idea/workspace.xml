@@ -2,21 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c330970-745d-476f-a27d-e779493fbee5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/Builders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/Builders/AudioMenuBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/Builders/AudioMenuBuilder.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Languages/LanguageMenuBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Languages/LanguageMenuBuilder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Bootstrap.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Bootstrap.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/LoadLevelState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/LoadLevelState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ConstantValues/PlayerPrefsNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ConstantValues/PlayerPrefsNames.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ConstantValues/ResourcesPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ConstantValues/ResourcesPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/LevelsProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/LevelsProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Core/AppCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Core/AppCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/AbstractFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/AbstractFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Inputs/StandaloneInputService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Inputs/StandaloneInputService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/GameLoopState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/GameLoopState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/MainMenuScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/States/Scenes/MainMenuScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Traps/SawGun/Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Traps/SawGun/Gun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Curtain.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Curtain.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenuButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenuButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Languages/Presenters/LanguageSavePresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Languages/Presenters/LanguageSavePresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localization/LanguageChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localization/LanguageChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localization/LanguageDefiner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localization/LanguageDefiner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localization/Localizator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localization/Localizator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ObjectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Oranges/OrangesCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Oranges/OrangesCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Players/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Players/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/Checkers/EnvironmentChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/Checkers/EnvironmentChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/PlayerInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/PlayerInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/Transitions/DesappearingTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Players/StateMachine/Transitions/DesappearingTransition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Transitions/Fader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Transitions/Fader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Transitions/MenuSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Transitions/MenuSwitcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Traps/DisappearingPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Traps/DisappearingPlatform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Traps/Doors/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Traps/Doors/Door.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/AttemptsCountText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/AttemptsCountText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/DefeatPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/DefeatPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/WinPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/Panels/WinPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Factories/MainMenuViewFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Factories/MainMenuViewFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LeaderBoard/LeaderboardView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LeaderBoard/LeaderboardView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultChooserPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Presenters/DifficultChooserPresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/DifficultChooserView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/DifficultChooserView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/DifficultInfoPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/DifficultInfoPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/EasyDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/EasyDifficultView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/HardDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/HardDifficultView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/MediumDifficultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/Difficults/Views/MediumDifficultView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelButtons.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelChoosers/LevelChooserBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LevelMenu/LevelMenuView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Menu/MainMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Menu/MainMenuView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Menu/MenuSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Menu/MenuSwitcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/AudioMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/AudioMenuView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/Views/EffectsView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/Views/EffectsView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/Views/MusicView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Audio/Views/MusicView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Languages/LanguagesMainMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/Languages/LanguagesMainMenuView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/SettingsView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Settings/SettingsView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +86,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.50074965" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -112,7 +147,8 @@
       <workItem from="1701003020770" duration="2911000" />
       <workItem from="1701197416300" duration="4774000" />
       <workItem from="1701866161505" duration="14572000" />
-      <workItem from="1701960720504" duration="2457000" />
+      <workItem from="1701960720504" duration="2869000" />
+      <workItem from="1702105145240" duration="4139000" />
     </task>
     <servers />
   </component>
@@ -140,12 +176,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Players/Player.cs</url>
-          <line>41</line>
-          <properties documentPath="E:\Games\2D\SecondProject\Assets\Scripts\Players\Player.cs" initialLine="41" containingFunctionPresentation="method 'TakeDamage'" />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/UI/AttemptsCountText.cs</url>
           <line>19</line>
           <properties documentPath="E:\Games\2D\Platformer\SecondProject\Assets\Scripts\UI\AttemptsCountText.cs" initialLine="19" containingFunctionPresentation="method 'SetText'" />
@@ -156,19 +186,6 @@
           <line>50</line>
           <properties documentPath="E:\Games\2D\Platformer\SecondProject\Assets\Scripts\Referee.cs" initialLine="50" containingFunctionPresentation="method 'AddPlayerToLeaderboard'" />
           <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/Factories/CheckpointLevelFactory.cs</url>
-          <line>23</line>
-          <properties documentPath="D:\UnityProject\SecondProject\SecondProject\Assets\Scripts\Level\LevelStrategy\Factories\CheckpointLevelFactory.cs" initialLine="23" containingFunctionPresentation="constructor 'CheckpointLevelFactory'">
-            <startOffsets>
-              <option value="868" />
-            </startOffsets>
-            <endOffsets>
-              <option value="911" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

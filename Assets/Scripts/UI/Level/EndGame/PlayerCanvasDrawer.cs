@@ -13,8 +13,9 @@ namespace UI.Level.EndGame
         [SerializeField] private GratitudePanel _gratitudePanel;
 
         public event Action FinishZoneTrigerred;
-        
+
         public WinPanel WinPanel => _winPanel;
+
         public DefeatPanel DefeatPanel => _defeatPanel;
 
         private void OnEnable() =>
@@ -29,14 +30,10 @@ namespace UI.Level.EndGame
             _winPanel.gameObject.SetActive(true);
         }
 
-        public void ShowGratitudePanel()
-        {
+        public void ShowGratitudePanel() => 
             _gratitudePanel.gameObject.SetActive(true);
-        }
 
-        private void ShowDefeatPanel()
-        {
+        private void ShowDefeatPanel() => 
             _defeatPanel.gameObject.SetActive(true);
-        }
     }
 }

@@ -1,5 +1,4 @@
 using Data;
-using UI.MainMenu.LevelMenu;
 using StateMachine = Infrastructure.StateMachines.StateMachine;
 
 namespace UI.MainMenu.LevelMenu.LevelChoosers

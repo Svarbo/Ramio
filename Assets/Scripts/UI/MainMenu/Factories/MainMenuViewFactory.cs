@@ -1,3 +1,4 @@
+using ConstantValues;
 using Infrastructure.Factories;
 using UI.MainMenu.Menu;
 
@@ -11,6 +12,6 @@ namespace UI.MainMenu.Factories
             _abstractFactory = new AbstractFactory();
 
         public MainMenuView Create() =>
-            _abstractFactory.Create<MainMenuView>("UI/MainMenu/MainMenuView");
+            _abstractFactory.Create<MainMenuView>(ResourcesPath.MainMenuView);
     }
 }

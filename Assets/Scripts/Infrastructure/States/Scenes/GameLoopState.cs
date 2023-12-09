@@ -1,3 +1,4 @@
+using ConstantValues;
 using Infrastructure.States;
 using Level;
 using Data;
@@ -11,22 +12,10 @@ namespace Infrastructure.States.Scenes
         {
         }
 
-        public void FixedUpdate(float deltaTime)
-        {
-        }
-
-        public void LateUpdate(float deltaTime)
-        {
-        }
-
-        public void Update(float deltaTime)
-        {
-        }
-
         public void Enter(LevelsInfo levelsInfo)
         {
             AbstractFactory abstractFactory = new AbstractFactory();
-            LevelBootstrap levelBootstrap = abstractFactory.Create<LevelBootstrap>("LevelBootstrap");
+            LevelBootstrap levelBootstrap = abstractFactory.Create<LevelBootstrap>(ResourcesPath.LevelBootstrap);
             levelBootstrap.Construct(levelsInfo);
         }
 

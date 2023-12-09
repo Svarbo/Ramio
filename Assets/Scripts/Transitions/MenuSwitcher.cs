@@ -12,6 +12,7 @@ namespace Transitions
         [SerializeField] private SettingsView _settings;
         [SerializeField] private LeaderboardView _leaderboard;
 
+        // TODO не используется
         public void EnableMainMenu()
         {
             _mainMenu.gameObject.SetActive(true);

@@ -94,7 +94,7 @@ namespace UI.MainMenu.Leaderboard
 		private string SetAnonymousName()
 		{
 			string leaderName = " ";
-			int playerLanguageIndex = PlayerPrefs.GetInt("LanguageIndex", 0);
+			int playerLanguageIndex = PlayerPrefs.GetInt(PlayerPrefsNames.LanguageIndex, 0);
 
 			if (playerLanguageIndex == 0)
 				leaderName = "Аноним";

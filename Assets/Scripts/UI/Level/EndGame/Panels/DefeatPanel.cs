@@ -18,6 +18,7 @@ namespace UI.Level.EndGame.Panels
         private void OnDisable() =>
             _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
 
+        // TODO  комментарий решить проблему
         private void OnRestartButtonClicked()
         {
             //_advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);

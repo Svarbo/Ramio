@@ -9,6 +9,7 @@ namespace Players.StateMachine.Checkers
 
         [SerializeField] protected PlayerInfo PlayerInfo;
 
+        // TODO не используется
         [SerializeField] private LayerMask _layerMask;
 
         private void OnTriggerEnter2D(Collider2D collision)

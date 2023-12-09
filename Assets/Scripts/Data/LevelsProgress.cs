@@ -9,8 +9,6 @@ namespace Data
     [Serializable]
     public class LevelsProgress
     {
-        //Вынес тут константу
-
         private static LevelsProgress _instance;
 
         public static LevelsProgress Instance
@@ -25,11 +23,11 @@ namespace Data
         }
 
         private List<IDifficult> _difficults = new List<IDifficult>()
-    {
-        new Easy(),
-        new Medium(),
-        new Hard(),
-    };
+        {
+            new Easy(),
+            new Medium(),
+            new Hard(),
+        };
 
         public Type GetStartDifficult()
         {

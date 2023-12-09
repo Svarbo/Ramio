@@ -27,6 +27,8 @@ namespace Infrastructure.States.Scenes
         private LevelsInfo _levelsInfo;
         private LanguageTogglePresenter _languageTogglePresenter;
         private AudioMenuPresenter _audioMenuPresenter;
+        private AudioMenuBuilder _audioMenuBuilder;
+        private LanguageMenuBuilder _languageMenuBuilder;
 
         public MainMenuState(AppCore appCore) =>
             _appCore = appCore;
@@ -49,7 +51,7 @@ namespace Infrastructure.States.Scenes
         {
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
-            // TODO
+            // TODO при билде раскоментить 
             //_levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
             _levelsInfo.IsMobile = false;
 
@@ -59,12 +61,12 @@ namespace Infrastructure.States.Scenes
             _difficultBuilder = new DifficultBuilder(_levelChooserPresenter, _levelsInfo, mainMenuView.LevelMenuView.DifficultChooserView);
             _difficultChooserPresenter = _difficultBuilder.Build();
             
-            AudioMenuBuilder audioMenuBuilder = new AudioMenuBuilder(mainMenuView.SettingsView.AudioMenuView);
-            _audioMenuPresenter = audioMenuBuilder.Build();
+            _audioMenuBuilder = new AudioMenuBuilder(mainMenuView.SettingsView.AudioMenuView);
+            _audioMenuPresenter = _audioMenuBuilder.Build();
 
-            LanguageMenuBuilder languageMenuBuilder = new LanguageMenuBuilder(mainMenuView.SettingsView.LanguageChanger, _appCore.StateMachine, _levelsInfo);
-            _languageSavePresenter = languageMenuBuilder.BuildLanguageSavePresenter();
-            _languageTogglePresenter = languageMenuBuilder.BuildLanguageTogglePresenter();
+            _languageMenuBuilder = new LanguageMenuBuilder(mainMenuView.SettingsView.LanguageChanger, _appCore.StateMachine, _levelsInfo);
+            _languageSavePresenter = _languageMenuBuilder.BuildLanguageSavePresenter();
+            _languageTogglePresenter = _languageMenuBuilder.BuildLanguageTogglePresenter();
         }
     }
 }

@@ -6,23 +6,38 @@ namespace Players.StateMachine
     [RequireComponent(typeof(Player))]
     public class PlayerInfo : MonoBehaviour
     {
-        public int CurrentHealth { get; private set; }
-        public bool IsGrounded { get; private set; }
-        public bool IsWallHooked { get; private set; }
-        public bool IsJumpButtonPressed { get; private set; }
-        public bool IsHit { get; private set; }
-        public bool IsAppearingAnimationFinished { get; private set; }
-        public bool IsExtraJumpReady { get; private set; }
-        public bool IsSpeedEqualZero { get; private set; }
-        public bool IsFalling { get; private set; }
-        public bool IsDesappearing { get; private set; }
-        public bool IsDecelerated { get; private set; }
-        public bool IsFinished { get; private set; }
-        public int DirectionIndicator { get; private set; }
-        public float CurrentSpeed { get; private set; }
-
         public event UnityAction SomeParameterChanged;
+
         public event UnityAction DirectionIndicatorChanged;
+
+        // TODO не используется
+        public int CurrentHealth { get; private set; }
+
+        public bool IsGrounded { get; private set; }
+
+        public bool IsWallHooked { get; private set; }
+
+        public bool IsJumpButtonPressed { get; private set; }
+
+        public bool IsHit { get; private set; }
+
+        public bool IsAppearingAnimationFinished { get; private set; }
+
+        public bool IsExtraJumpReady { get; private set; }
+
+        public bool IsSpeedEqualZero { get; private set; }
+
+        public bool IsFalling { get; private set; }
+
+        public bool IsDesappearing { get; private set; }
+
+        public bool IsDecelerated { get; private set; }
+
+        public bool IsFinished { get; private set; }
+
+        public int DirectionIndicator { get; private set; }
+
+        public float CurrentSpeed { get; private set; }
 
         private void Awake()
         {
@@ -58,6 +73,7 @@ namespace Players.StateMachine
             SomeParameterChanged?.Invoke();
         }
 
+        // TODO не используется
         public void DeactivateHit()
         {
             IsHit = false;
@@ -70,6 +86,7 @@ namespace Players.StateMachine
             SomeParameterChanged?.Invoke();
         }
 
+        // TODO не используется
         public void SetAppearingAnimationFinished()
         {
             IsAppearingAnimationFinished = true;

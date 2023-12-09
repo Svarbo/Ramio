@@ -14,19 +14,21 @@ namespace UI.Level.EndGame.Panels
         [SerializeField] private Button _button;
 
         public event Action NextLevelLoader;
+
         private void OnEnable()
         {
             _button.onClick.AddListener(LoadNextLevel);
             SetScoreText();
         }
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             _button.onClick.RemoveListener(LoadNextLevel);
 
-        private void LoadNextLevel() => 
+        private void LoadNextLevel() =>
             NextLevelLoader?.Invoke();
 
         private void SetScoreText() =>
-            _orangesCountText.SetCountText(_personage.FruitsCount, PlayerPrefs.GetInt(PlayerPrefsNames.CurrentLevelOrangesCount));
+            _orangesCountText.SetCountText(_personage.FruitsCount,
+                PlayerPrefs.GetInt(PlayerPrefsNames.CurrentLevelOrangesCount));
     }
 }

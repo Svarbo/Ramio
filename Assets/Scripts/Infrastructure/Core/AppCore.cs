@@ -3,6 +3,7 @@ using Transitions;
 using Infrastructure.States.Scenes;
 using System;
 using System.Collections.Generic;
+using Infrastructure.StateMachines;
 
 namespace Infrastructure.Core
 {
@@ -18,10 +19,10 @@ namespace Infrastructure.Core
                 [typeof(LoadLevelState)] = new LoadLevelState(this, coroutineRunner, fader),
             };
 
-            StateMachine = new StateMachines.StateMachine(scenes);
+            StateMachine = new StateMachine(scenes);
             StateMachine.Enter(typeof(SdkLoadState));
         }
 
-        public StateMachines.StateMachine StateMachine { get; }
+        public StateMachine StateMachine { get; }
     }
 }

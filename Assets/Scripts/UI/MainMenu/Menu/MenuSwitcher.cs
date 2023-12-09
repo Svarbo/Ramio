@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace UI.MainMenu.Menu
 {
+    // Не используются класс
     public class MenuSwitcherView : MonoBehaviour
     {
         [SerializeField] private MenuView _menuView;

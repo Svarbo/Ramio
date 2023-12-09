@@ -10,10 +10,7 @@ namespace Players.StateMachine.Transitions
             PlayerInfo = playerInfo;
         }
 
-        protected override bool CheckConditions()
-        {
-            return PlayerInfo.IsDesappearing
-                && !PlayerInfo.IsHit;
-        }
+        protected override bool CheckConditions() => 
+            PlayerInfo.IsDesappearing && !PlayerInfo.IsHit;
     }
 }

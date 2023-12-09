@@ -10,6 +10,7 @@ public class LevelButtons : MonoBehaviour
 
     private void Start()
     {
+        // TODO не понятно где устонавливается значени. Сделать OpenLevelsNumber константой 
         _openLevelsNumber = PlayerPrefs.GetInt("OpenLevelsNumber");
         ShowOpenLevels();
     }

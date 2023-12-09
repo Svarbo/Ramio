@@ -8,6 +8,8 @@ namespace Transitions
     public class Fader : MonoBehaviour
     {
         [SerializeField] private Image _image;
+
+        // TODO не используется
         [SerializeField] private Color _startColor;
         [SerializeField] private float _fadeInTime;
         [SerializeField] private float _fadeOutTime;

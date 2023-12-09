@@ -9,7 +9,7 @@ namespace UI.Level
     {
         [SerializeField] private Player _personage;
 
-        private void Awake() =>
+        private void Awake() => 
             SetText();
 
         private void SetText()
