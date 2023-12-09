@@ -29,13 +29,7 @@ namespace Infrastructure.States.Scenes
         {
             // TODO
             // YandexGamesSdk.CallbackLogging = true;
-            while (YandexGamesSdk.IsInitialized == false)
-            {
-                YandexGamesSdk.Initialize();
-                yield return null; 
-            }
-
-            onSuccessCallback?.Invoke();
+            yield return YandexGamesSdk.Initialize(onSuccessCallback);
             //yield return new WaitForSeconds(1);
         }
 

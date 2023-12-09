@@ -26,7 +26,6 @@ namespace UI.MainMenu.Leaderboard
 
 		private async UniTask ShowLeaderboards()
 		{
-			IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(typeof(Easy));
 			await ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
 			await ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
 			await ShowFirstLeaders(LeaderboardsNames.HardLeaderboardName, _hardLeaderPlaces);
