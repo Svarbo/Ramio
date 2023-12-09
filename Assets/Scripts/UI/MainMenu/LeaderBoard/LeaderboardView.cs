@@ -26,7 +26,7 @@ namespace UI.MainMenu.Leaderboard
 
         private void OnEnable()
         {
-            if (_coroutine == null) 
+            if (_coroutine != null) 
                 StopCoroutine(_coroutine);
 
             _coroutine = StartCoroutine(ShowLeaderboards()) ;
