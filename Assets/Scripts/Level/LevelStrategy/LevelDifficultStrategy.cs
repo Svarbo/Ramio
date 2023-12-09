@@ -1,5 +1,6 @@
 using System;
 using Data;
+using GameLeaderboard;
 using Infrastructure;
 using Players;
 using UI.Level.EndGame;
@@ -15,6 +16,7 @@ namespace Level.LevelStrategy
         private readonly AcceptLevelsDeterminator _acceptLevelsDeterminator;
         private LevelLoader _levelLoader;
         private PlayerCanvasDrawer _playerCanvasDrawer;
+        private LeaderboardAdder _leaderboardAdder;
 
         public LevelDifficultStrategy(
             Player player,
@@ -22,6 +24,7 @@ namespace Level.LevelStrategy
             LevelsInfo levelsInfo,
             AcceptLevelsDeterminator acceptLevelsDeterminator)
         {
+            _leaderboardAdder = new LeaderboardAdder();
             _levelsInfo = levelsInfo;
             _acceptLevelsDeterminator = acceptLevelsDeterminator;
             _stateMachine = stateMachine;
@@ -57,8 +60,12 @@ namespace Level.LevelStrategy
         {
         }
 
-        private void IncreaseAttemptsCount() =>
+        private void IncreaseAttemptsCount()
+        {
             LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult)
                 .IncreaseCountTry(SceneManager.GetActiveScene().name);
+            
+            _leaderboardAdder.SetCountTryByDifficult(_levelsInfo.CurrentDifficult);
+        }
     }
 }

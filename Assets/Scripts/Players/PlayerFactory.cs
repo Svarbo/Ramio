@@ -32,11 +32,10 @@ namespace Players
                 position: _startSpawnPosition,
                 rotation: Quaternion.identity
             );
-
-            SetAttemptsCount(personage);
-
+            
             Camera.main.GetComponent<TargetFollower>().Construct(personage.transform, _cameraOffset);
 
+            SetAttemptsCount(personage);
             SetInputService(personage);
 
             return personage;

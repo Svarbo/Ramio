@@ -21,19 +21,24 @@ namespace Infrastructure.States.Scenes
         public void Exit()
         {
         }
-        
+
         public void Enter() =>
             _coroutineRunner.StartCoroutine(LoadSdkCoroutine(LoadMainMenuScene));
-        
+
         private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {
             // TODO
             // YandexGamesSdk.CallbackLogging = true;
-            // yield return YandexGamesSdk.Initialize(() => onSuccessCallback?.Invoke());
-            yield return new WaitForSeconds(1);
-            onSuccessCallback.Invoke();
+            while (YandexGamesSdk.IsInitialized == false)
+            {
+                YandexGamesSdk.Initialize();
+                yield return null; 
+            }
+
+            onSuccessCallback?.Invoke();
+            //yield return new WaitForSeconds(1);
         }
-        
+
         private void LoadMainMenuScene()
         {
             LevelsInfo levelsInfo = new LevelsInfo();

@@ -1,8 +1,9 @@
 using Agava.YandexGames;
 using ConstantValues;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using Data;
+using Data.Difficults;
 using TMPro;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ namespace UI.MainMenu.Leaderboard
 
 		private async UniTask ShowLeaderboards()
 		{
+			IDifficult difficult = LevelsProgress.Instance.GetDifficultByType(typeof(Easy));
 			await ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
 			await ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
 			await ShowFirstLeaders(LeaderboardsNames.HardLeaderboardName, _hardLeaderPlaces);

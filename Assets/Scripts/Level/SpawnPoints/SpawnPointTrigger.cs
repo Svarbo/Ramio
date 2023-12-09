@@ -16,13 +16,13 @@ namespace Level.SpawnPoints
 
         [field: SerializeField] public int Index { get; private set; }
 
-        private Collider _collider;
+        private BoxCollider2D _collider;
         private AudioSource _audioSource;
         private SpriteRenderer _spriteRenderer;
 
         private void Awake()
         {
-            _collider = GetComponent<Collider>();
+            _collider = GetComponent<BoxCollider2D>();
             _audioSource = GetComponent<AudioSource>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }

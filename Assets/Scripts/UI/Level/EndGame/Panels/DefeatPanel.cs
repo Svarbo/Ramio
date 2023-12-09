@@ -9,7 +9,6 @@ namespace UI.Level.EndGame.Panels
     {
         [SerializeField] private AdvertisementDemonstrator _advertisementDemonstrator;
         [SerializeField] private Button _restartButton;
-
         public event Action LevelRestarted;
 
         private void OnEnable() =>
@@ -21,9 +20,9 @@ namespace UI.Level.EndGame.Panels
         // TODO  комментарий решить проблему
         private void OnRestartButtonClicked()
         {
-            //_advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
+            _advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
             // Реклама для editor режима
-            InvokeButtonLevelRestarter();
+            //InvokeButtonLevelRestarter();
         }
 
         private void InvokeButtonLevelRestarter()
