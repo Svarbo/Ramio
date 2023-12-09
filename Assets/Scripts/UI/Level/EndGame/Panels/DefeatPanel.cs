@@ -22,10 +22,11 @@ namespace UI.Level.EndGame.Panels
         private void OnRestartButtonClicked()
         {
             //_advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
-            InvokeButtonLevelRestarter(true);
+            // Реклама для editor режима
+            InvokeButtonLevelRestarter();
         }
 
-        private void InvokeButtonLevelRestarter(bool obj)
+        private void InvokeButtonLevelRestarter()
         {
             LevelRestarted?.Invoke();
         }

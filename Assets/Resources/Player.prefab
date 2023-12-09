@@ -94,7 +94,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 163.15
   m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bed777f81388fd41b39c9ea5ccad7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerInfo: {fileID: 0}
+  PlayerInfo: {fileID: 56245227297329169}
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2847,7 +2847,6 @@ GameObject:
   - component: {fileID: 434949248380729181}
   - component: {fileID: 2997447780399953044}
   - component: {fileID: 3874436717881228536}
-  - component: {fileID: 971688424072238861}
   - component: {fileID: 7637989664623092994}
   - component: {fileID: 56245227297329169}
   m_Layer: 6
@@ -3414,7 +3413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67495906472953744b49aa0fd7618195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInfo: {fileID: 0}
+  _playerInfo: {fileID: 56245227297329169}
 --- !u!114 &2997447780399953044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3456,18 +3455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 0
   _isHorizontalMovable: 0
---- !u!114 &971688424072238861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6828086203341674318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd1271214b3071b489d1e88771128636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7637989664623092994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3620,6 +3607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c69940e61b543469527ed79fe89350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameAudioData: {fileID: 0}
 --- !u!1 &7742564204749373808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,7 +4037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9734c7cc55f1a2141abd72d424f6148c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerInfo: {fileID: 0}
+  PlayerInfo: {fileID: 56245227297329169}
   _layerMask:
     serializedVersion: 2
     m_Bits: 8

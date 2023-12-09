@@ -2,6 +2,7 @@ using Agava.YandexGames;
 using ConstantValues;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace UI.MainMenu.Leaderboard
 		private void OnEnable() => 
 			ShowLeaderboards();
 
-		private async Task ShowLeaderboards()
+		private async UniTask ShowLeaderboards()
 		{
 			await ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
 			await ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
@@ -33,9 +34,9 @@ namespace UI.MainMenu.Leaderboard
 			await ShowPlayerPlace(LeaderboardsNames.HardLeaderboardName, _hardPlayerTopPlaceText, _hardPlayerAttemptionsCountText);
 		}
 		
-		private async Task ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
+		private async UniTask ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
 		{
-			await Task.Run(() => Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName,
+			await UniTask.Run(() => Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName,
 				(result) =>
 				{
 					if (result == null)
@@ -51,9 +52,9 @@ namespace UI.MainMenu.Leaderboard
 				}));
 		}
 
-		private async Task ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
+		private async UniTask ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
 		{
-			await Task.Run(() => Agava.YandexGames.Leaderboard.GetEntries(leaderboardName,
+			await UniTask.Run(() => Agava.YandexGames.Leaderboard.GetEntries(leaderboardName,
 				(result) =>
 				{
 					string leaderName;

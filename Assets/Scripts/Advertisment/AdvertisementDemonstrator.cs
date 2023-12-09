@@ -1,6 +1,7 @@
 using Agava.YandexGames;
 using ConstantValues;
 using System;
+using Audio;
 using UnityEngine;
 
 namespace SDK
@@ -9,28 +10,43 @@ namespace SDK
     {
         private const int AdvertisementDemonstrationFrequency = 4;
 
-        public void TryShowAdvertisement(Action<bool> OnCloseCallback = null, Action<string> OnErrorCallback = null)
-		{
-			int attemptsCount = PlayerPrefs.GetInt(PlayerPrefsNames.AttemptsCount);
+        [SerializeField] private GameAudioData _gameAudioData;
+
+        private Action Callback;
+        private float _musicVolume;
+
+        private void Awake() => 
+            _musicVolume = _gameAudioData.MusicVolume;
+
+        public void TryShowAdvertisement(Action OnSuccesCallback)
+        {
+            Callback += OnSuccesCallback;
+
+            int attemptsCount = PlayerPrefs.GetInt(PlayerPrefsNames.AttemptsCount);
 
             if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
                 InterstitialAd.Show(OnStartCallBack, OnCloseCallback, OnErrorCallback);
         }
-        
-        // TODO выключить музыку
-        private void OnStartCallBack() =>
+
+        private void OnCloseCallback(bool obj)
+        {
+            Callback?.Invoke();
+            _gameAudioData.SetMusicVolume(_musicVolume);
+            Time.timeScale = 1;
+        }
+
+        private void OnStartCallBack()
+        {
             Time.timeScale = 0;
+            _musicVolume = _gameAudioData.MusicVolume;
+            _gameAudioData.SetMusicVolume(0); 
+        }
 
-        //TODO: Вынести в отдельный класс
-        //private void OnErrorCallback(string obj) =>
-        //	RestartLevel();
-
-        //private void OnCloseCallback(bool isClosed)
-        //{
-        //	Time.timeScale = 1;
-
-        //	if (isClosed)
-        //		RestartLevel();
-        //}
+        private void OnErrorCallback(string obj)
+        {
+            Callback?.Invoke();
+            _gameAudioData.SetMusicVolume(_musicVolume);
+            Time.timeScale = 1;
+        }
     }
 }
