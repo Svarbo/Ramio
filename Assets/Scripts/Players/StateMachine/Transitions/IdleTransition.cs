@@ -4,7 +4,7 @@ namespace Players.StateMachine.Transitions
 {
     public class IdleTransition : Transition
     {
-        public IdleTransition(State nextState, Info playerInfo)
+        public IdleTransition(State nextState, PlayerInfo playerInfo)
         {
             NextState = nextState;
             PlayerInfo = playerInfo;

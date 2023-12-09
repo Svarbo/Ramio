@@ -1,4 +1,5 @@
 using Players;
+using Players.StateMachine;
 using UI.Level.EndGame;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,10 +18,10 @@ public class FinishZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player personage))
+        if (collision.TryGetComponent(out Player player))
         {
             if (_levelCanvasDrawer == null)
-                _levelCanvasDrawer = personage.GetComponentInChildren<PlayerCanvasDrawer>();
+                _levelCanvasDrawer = player.GetComponentInChildren<PlayerCanvasDrawer>();
 
             PlayWinAnimation();
 
@@ -29,6 +30,9 @@ public class FinishZone : MonoBehaviour
             else
                 _levelCanvasDrawer.ShowWinPanel();
         }
+
+        if(collision.TryGetComponent(out PlayerInfo playerInfo))
+            playerInfo.SetIsFinished(true);
     }
 
     private void PlayWinAnimation() =>

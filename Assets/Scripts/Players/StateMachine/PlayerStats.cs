@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Players.StateMachine
 {
     [RequireComponent(typeof(Player))]
-    public class Stats : MonoBehaviour
+    public class PlayerStats : MonoBehaviour
     {
         [SerializeField] private int _health;
         [SerializeField] private int _extraJumpsCount;

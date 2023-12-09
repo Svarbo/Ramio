@@ -4,7 +4,7 @@ namespace Players.StateMachine.Transitions
 {
     public class DesappearingTransition : Transition
     {
-        public DesappearingTransition(State nextState, Info playerInfo)
+        public DesappearingTransition(State nextState, PlayerInfo playerInfo)
         {
             NextState = nextState;
             PlayerInfo = playerInfo;

@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace Players.StateMachine
 {
     [RequireComponent(typeof(Player))]
-    public class Info : MonoBehaviour
+    public class PlayerInfo : MonoBehaviour
     {
         public int CurrentHealth { get; private set; }
         public bool IsGrounded { get; private set; }

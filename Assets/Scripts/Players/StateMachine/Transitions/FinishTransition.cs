@@ -4,7 +4,7 @@ namespace Players.StateMachine.Transitions
 {
     public class FinishTransition : Transition
     {
-        public FinishTransition(State nextState, Info playerInfo)
+        public FinishTransition(State nextState, PlayerInfo playerInfo)
         {
             NextState = nextState;
             PlayerInfo = playerInfo;

@@ -5,7 +5,7 @@ namespace Players.StateMachine.Transitions
     public abstract class Transition
     {
         protected State NextState;
-        protected Info PlayerInfo;
+        protected PlayerInfo PlayerInfo;
 
         private bool _needTransit;
 

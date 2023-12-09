@@ -2,9 +2,9 @@ using Players.StateMachine.PlayerStates;
 
 namespace Players.StateMachine.Transitions
 {
-    public class WallJumpTransition : Transition
+    public class ExtraJumpTransition : Transition
     {
-        public WallJumpTransition(State nextState, Info playerInfo)
+        public ExtraJumpTransition(State nextState, PlayerInfo playerInfo)
         {
             NextState = nextState;
             PlayerInfo = playerInfo;
@@ -13,8 +13,9 @@ namespace Players.StateMachine.Transitions
         protected override bool CheckConditions()
         {
             return !PlayerInfo.IsGrounded
-                && PlayerInfo.IsWallHooked
-                && PlayerInfo.IsJumpButtonPressed;
+                && PlayerInfo.IsExtraJumpReady
+                && PlayerInfo.IsJumpButtonPressed
+                && !PlayerInfo.IsWallHooked;
         }
     }
 }

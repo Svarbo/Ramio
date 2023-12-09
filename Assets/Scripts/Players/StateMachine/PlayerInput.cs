@@ -4,17 +4,17 @@ using UnityEngine;
 namespace Players.StateMachine
 {
     [RequireComponent(typeof(Player))]
-    [RequireComponent(typeof(Info))]
+    [RequireComponent(typeof(PlayerInfo))]
     [RequireComponent(typeof(Fliper))]
-    public class Input : MonoBehaviour
+    public class PlayerInput : MonoBehaviour
     {
-        private Info _info;
+        private PlayerInfo _info;
         private Fliper _fliper;
         private InputService _inputService;
 
         private void Awake()
         {
-            _info = GetComponent<Info>();
+            _info = GetComponent<PlayerInfo>();
             _fliper = GetComponent<Fliper>();
         }
 

@@ -3,18 +3,18 @@ using UnityEngine;
 namespace Players.StateMachine.Checkers
 {
     [RequireComponent(typeof(Player))]
-    [RequireComponent(typeof(Stats))]
-    [RequireComponent(typeof(Info))]
+    [RequireComponent(typeof(PlayerStats))]
+    [RequireComponent(typeof(PlayerInfo))]
     public class ExtraJumpChecker : MonoBehaviour
     {
-        private Stats _playerStats;
-        private Info _playerInfo;
+        private PlayerStats _playerStats;
+        private PlayerInfo _playerInfo;
         private int _currentExtraJumpsCount = 0;
 
         private void Awake()
         {
-            _playerStats = GetComponent<Stats>();
-            _playerInfo = GetComponent<Info>();
+            _playerStats = GetComponent<PlayerStats>();
+            _playerInfo = GetComponent<PlayerInfo>();
         }
 
         private void OnEnable() =>

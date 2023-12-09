@@ -7,7 +7,7 @@ namespace Players.StateMachine.Checkers
     {
         private const string _groundLayer = "Ground";
 
-        [SerializeField] protected Info PlayerInfo;
+        [SerializeField] protected PlayerInfo PlayerInfo;
 
         [SerializeField] private LayerMask _layerMask;
 

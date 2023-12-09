@@ -2,20 +2,19 @@ using Infrastructure.Inputs;
 using Players.StateMachine;
 using System;
 using UnityEngine;
-using Input = Players.StateMachine.Input;
 
 namespace Players
 {
     [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(Info))]
-    [RequireComponent(typeof(Stats))]
-    [RequireComponent(typeof(Input))]
+    [RequireComponent(typeof(PlayerInfo))]
+    [RequireComponent(typeof(PlayerStats))]
+    [RequireComponent(typeof(PlayerInput))]
     public class Player : MonoBehaviour
     {
         [field: SerializeField] public InputServiceView InputServiceView { get; private set; }
 
-        private Info _info;
-        private Stats _stats;
+        private PlayerInfo _info;
+        private PlayerStats _stats;
         private int _currentHealth;
         private int _fruitsCount = 0;
         private bool _isDied = false;
@@ -24,16 +23,16 @@ namespace Players
         public event Action Desappeared;
         public event Action FruitRaised;
 
-        public Input Input { get; private set; }
+        public PlayerInput Input { get; private set; }
 
         public int FruitsCount => _fruitsCount;
         public int AttemptsCount { get;private set; }
 
         private void Awake()
         {
-            _info = GetComponent<Info>();
-            _stats = GetComponent<Stats>();
-            Input = GetComponent<Input>();
+            _info = GetComponent<PlayerInfo>();
+            _stats = GetComponent<PlayerStats>();
+            Input = GetComponent<PlayerInput>();
 
             SetHealth();
         }
@@ -64,8 +63,5 @@ namespace Players
             _isDied = true;
             _info.SetDesappearing(true);
         }
-
-        private void CompleteDesappearing() =>
-            Desappeared?.Invoke();
     }
 }

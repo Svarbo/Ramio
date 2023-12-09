@@ -2,15 +2,15 @@ using Players.StateMachine.PlayerStates;
 
 namespace Players.StateMachine.Transitions
 {
-    public class DeceleratedWalkTransition : Transition
+    public class HitTransition : Transition
     {
-        public DeceleratedWalkTransition(State nextState, Info playerInfo)
+        public HitTransition(State nextState, PlayerInfo playerInfo)
         {
             NextState = nextState;
             PlayerInfo = playerInfo;
         }
 
         protected override bool CheckConditions() =>
-            PlayerInfo.IsDecelerated;
+            PlayerInfo.IsHit;
     }
 }

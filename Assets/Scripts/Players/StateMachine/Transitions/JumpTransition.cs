@@ -2,15 +2,15 @@ using Players.StateMachine.PlayerStates;
 
 namespace Players.StateMachine.Transitions
 {
-    public class WalkTransition : Transition
+    public class JumpTransition : Transition
     {
-        public WalkTransition(State nextState, Info playerInfo)
+        public JumpTransition(State nextState, PlayerInfo playerInfo)
         {
             NextState = nextState;
             PlayerInfo = playerInfo;
         }
 
         protected override bool CheckConditions() =>
-            PlayerInfo.IsGrounded && !PlayerInfo.IsSpeedEqualZero;
+            PlayerInfo.IsGrounded && PlayerInfo.IsJumpButtonPressed;
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine;
 namespace Players.StateMachine
 {
     [RequireComponent(typeof(Player))]
-    public class StateMachine : MonoBehaviour
+    public class PlayerStateMachine : MonoBehaviour
     {
-        [SerializeField] private Info _playerInfo;
+        [SerializeField] private PlayerInfo _playerInfo;
         [SerializeField] private AppearingState _appearingState;
         [SerializeField] private DesappearingState _desappearingState;
         [SerializeField] private ExtraJumpState _extraJumpState;

@@ -5,7 +5,7 @@ namespace Players.StateMachine
     [RequireComponent(typeof(Player))]
     public class Fliper : MonoBehaviour
     {
-        [SerializeField] private Info _playerInfo;
+        [SerializeField] private PlayerInfo _playerInfo;
 
         private Transform _transform;
         private int _directionIndicator = 0;

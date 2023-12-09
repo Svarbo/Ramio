@@ -2,9 +2,9 @@ using Players.StateMachine.PlayerStates;
 
 namespace Players.StateMachine.Transitions
 {
-    public class SlideTransition : Transition
+    public class WallJumpTransition : Transition
     {
-        public SlideTransition(State nextState, Info playerInfo)
+        public WallJumpTransition(State nextState, PlayerInfo playerInfo)
         {
             NextState = nextState;
             PlayerInfo = playerInfo;
@@ -14,7 +14,7 @@ namespace Players.StateMachine.Transitions
         {
             return !PlayerInfo.IsGrounded
                 && PlayerInfo.IsWallHooked
-                && !PlayerInfo.IsJumpButtonPressed;
+                && PlayerInfo.IsJumpButtonPressed;
         }
     }
 }
