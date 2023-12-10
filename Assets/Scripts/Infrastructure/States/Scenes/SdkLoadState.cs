@@ -27,7 +27,7 @@ namespace Infrastructure.States.Scenes
 
         private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {
-            // TODO
+            // TODO Ж: так, не понял, что ты хотел чтобы я сделал, ну если последняя строка должна быть раскоменчена, то нужно сначала создать объект, чтобы не создавать его каждый кадр
             YandexGamesSdk.CallbackLogging = true;
             yield return YandexGamesSdk.Initialize(onSuccessCallback);
             //yield return new WaitForSeconds(1);

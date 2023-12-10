@@ -10,8 +10,6 @@ namespace Players.StateMachine
 
         public event UnityAction DirectionIndicatorChanged;
 
-        // TODO не используется
-        public int CurrentHealth { get; private set; }
 
         public bool IsGrounded { get; private set; }
 
@@ -73,20 +71,13 @@ namespace Players.StateMachine
             SomeParameterChanged?.Invoke();
         }
 
-        // TODO не используется
-        public void DeactivateHit()
-        {
-            IsHit = false;
-            SomeParameterChanged?.Invoke();
-        }
-
         public void SetDesappearing(bool value)
         {
             IsDesappearing = value;
             SomeParameterChanged?.Invoke();
         }
 
-        // TODO не используется
+        // TODO не используется (используется в аниматоре)
         public void SetAppearingAnimationFinished()
         {
             IsAppearingAnimationFinished = true;

@@ -21,9 +21,6 @@ namespace Players
         private string _sceneName;
 
         public event Action Desappeared;
-        
-        //TODO не используется
-        public event Action FruitRaised;
 
         public PlayerInput Input { get; private set; }
 

@@ -9,6 +9,7 @@ namespace UI.Level.EndGame.Panels
     {
         [SerializeField] private AdvertisementDemonstrator _advertisementDemonstrator;
         [SerializeField] private Button _restartButton;
+
         public event Action LevelRestarted;
 
         private void OnEnable() =>
@@ -17,7 +18,7 @@ namespace UI.Level.EndGame.Panels
         private void OnDisable() =>
             _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
 
-        // TODO  комментарий решить проблему
+        // TODO  комментарий решить проблему Ж: это ты оставил для себя, чтобы перед билдом удалить код для эдитора?
         private void OnRestartButtonClicked()
         {
             _advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);

@@ -21,7 +21,7 @@ namespace Traps
         private void Disappear() =>
             _animator.Play(_disappearAnimation);
 
-        // TODO не используется
+        // TODO не используется Ж: используется в анимации
         public void Disable() =>
             gameObject.SetActive(false);
     }
