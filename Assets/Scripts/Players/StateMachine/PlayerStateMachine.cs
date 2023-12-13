@@ -15,12 +15,13 @@ namespace Players.StateMachine
         [SerializeField] private ExtraJumpState _extraJumpState;
         [SerializeField] private WallJumpState _wallJumpState;
         [SerializeField] private SlideState _slideState;
+        [SerializeField] private DeceleratedWalkState _deceleratedWalkState;
+        [SerializeField] private DeceleratedIdleState _deceleratedIdleState;
         [SerializeField] private IdleState _idleState;
         [SerializeField] private WalkState _walkState;
         [SerializeField] private JumpState _jumpState;
         [SerializeField] private HitState _hitState;
         [SerializeField] private FallState _fallState;
-        [SerializeField] private DeceleratedWalkState _deceleratedWalkState;
         [SerializeField] private HorizontalMover _horizontalMover;
         [SerializeField] private Fliper _playerFliper;
 
@@ -74,6 +75,8 @@ namespace Players.StateMachine
             DesappearingTransition desappearingTransition = new DesappearingTransition(_desappearingState, _playerInfo);
             FinishTransition finishTransition = new FinishTransition(_finishState, _playerInfo);
             HitTransition hitTransition = new HitTransition(_hitState, _playerInfo);
+            DeceleratedWalkTransition deceleratedWalkTransition = new DeceleratedWalkTransition(_deceleratedWalkState, _playerInfo);
+            DeceleratedIdleTransition deceleratedIdleTransition = new DeceleratedIdleTransition(_deceleratedIdleState, _playerInfo);
             JumpTransition jumpTransition = new JumpTransition(_jumpState, _playerInfo);
             WallJumpTransition wallJumpTransition = new WallJumpTransition(_wallJumpState, _playerInfo);
             SlideTransition slideTransition = new SlideTransition(_slideState, _playerInfo);
@@ -81,11 +84,12 @@ namespace Players.StateMachine
             WalkTransition walkTransition = new WalkTransition(_walkState, _playerInfo);
             ExtraJumpTransition extraJumpTransition = new ExtraJumpTransition(_extraJumpState, _playerInfo);
             FallTransition fallTransition = new FallTransition(_fallState, _playerInfo);
-            DeceleratedWalkTransition deceleratedWalkTransition = new DeceleratedWalkTransition(_deceleratedWalkState, _playerInfo);
 
             _transitions.Add(desappearingTransition);
             _transitions.Add(finishTransition);
             _transitions.Add(hitTransition);
+            _transitions.Add(deceleratedWalkTransition);
+            _transitions.Add(deceleratedIdleTransition);
             _transitions.Add(jumpTransition);
             _transitions.Add(extraJumpTransition);
             _transitions.Add(wallJumpTransition);
@@ -93,7 +97,6 @@ namespace Players.StateMachine
             _transitions.Add(idleTransition);
             _transitions.Add(walkTransition);
             _transitions.Add(fallTransition);
-            _transitions.Add(deceleratedWalkTransition);
         }
     }
 }

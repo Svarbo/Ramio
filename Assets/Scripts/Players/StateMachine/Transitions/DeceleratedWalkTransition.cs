@@ -10,7 +10,11 @@ namespace Players.StateMachine.Transitions
             PlayerInfo = playerInfo;
         }
 
-        protected override bool CheckConditions() =>
-            PlayerInfo.IsDecelerated;
+        protected override bool CheckConditions()
+        {
+            return PlayerInfo.IsDecelerated
+                && PlayerInfo.IsGrounded
+                && !PlayerInfo.IsSpeedEqualZero;
+        }
     }
 }

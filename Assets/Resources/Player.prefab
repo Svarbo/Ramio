@@ -2822,9 +2822,11 @@ GameObject:
   - component: {fileID: 623833986412686268}
   - component: {fileID: 6177912875531075743}
   - component: {fileID: 7975783578392002220}
+  - component: {fileID: 2997447780399953044}
   - component: {fileID: 7299815291854273114}
   - component: {fileID: 8328971407849518108}
   - component: {fileID: 6963219022140351846}
+  - component: {fileID: 544299776946825117}
   - component: {fileID: 7969862404324323344}
   - component: {fileID: 6974136095882261447}
   - component: {fileID: 7592240663475281162}
@@ -2835,14 +2837,12 @@ GameObject:
   - component: {fileID: 4287164693793759625}
   - component: {fileID: 5052385653091936123}
   - component: {fileID: 2260403341190364236}
-  - component: {fileID: 7863430294284971674}
   - component: {fileID: 3228140184127067324}
   - component: {fileID: 777040372287816706}
   - component: {fileID: 8070440033354802037}
   - component: {fileID: 364827175168681985}
   - component: {fileID: 4063105318697463992}
   - component: {fileID: 434949248380729181}
-  - component: {fileID: 2997447780399953044}
   - component: {fileID: 3874436717881228536}
   - component: {fileID: 7637989664623092994}
   - component: {fileID: 56245227297329169}
@@ -3113,6 +3113,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2997447780399953044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828086203341674318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa035571f831f849bfa803c24430d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInfo: {fileID: 56245227297329169}
+  _appearingState: {fileID: 7969862404324323344}
+  _desappearingState: {fileID: 6974136095882261447}
+  _finishState: {fileID: 3874436717881228536}
+  _extraJumpState: {fileID: 7592240663475281162}
+  _wallJumpState: {fileID: 8230489297688508024}
+  _slideState: {fileID: 5745687496584396559}
+  _deceleratedWalkState: {fileID: 6963219022140351846}
+  _deceleratedIdleState: {fileID: 544299776946825117}
+  _idleState: {fileID: 3218930880009668078}
+  _walkState: {fileID: 412431420468287014}
+  _jumpState: {fileID: 4287164693793759625}
+  _hitState: {fileID: 5052385653091936123}
+  _fallState: {fileID: 2260403341190364236}
+  _horizontalMover: {fileID: 3228140184127067324}
+  _playerFliper: {fileID: 434949248380729181}
 --- !u!114 &7299815291854273114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3155,6 +3183,20 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e94d234aca81d9946a8c31c090ed4c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isFlippable: 1
+  _isHorizontalMovable: 1
+--- !u!114 &544299776946825117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828086203341674318}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892bbd972041c584389cc2b796df040b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isFlippable: 0
@@ -3300,20 +3342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFlippable: 1
   _isHorizontalMovable: 1
---- !u!114 &7863430294284971674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6828086203341674318}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e94d234aca81d9946a8c31c090ed4c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isFlippable: 1
-  _isHorizontalMovable: 1
 --- !u!114 &3228140184127067324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3411,33 +3439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInfo: {fileID: 56245227297329169}
---- !u!114 &2997447780399953044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6828086203341674318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa035571f831f849bfa803c24430d24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerInfo: {fileID: 56245227297329169}
-  _appearingState: {fileID: 7969862404324323344}
-  _desappearingState: {fileID: 6974136095882261447}
-  _extraJumpState: {fileID: 7592240663475281162}
-  _wallJumpState: {fileID: 8230489297688508024}
-  _slideState: {fileID: 5745687496584396559}
-  _idleState: {fileID: 3218930880009668078}
-  _walkState: {fileID: 412431420468287014}
-  _jumpState: {fileID: 4287164693793759625}
-  _hitState: {fileID: 5052385653091936123}
-  _fallState: {fileID: 2260403341190364236}
-  _deceleratedWalkState: {fileID: 6963219022140351846}
-  _finishState: {fileID: 3874436717881228536}
-  _horizontalMover: {fileID: 3228140184127067324}
-  _playerFliper: {fileID: 434949248380729181}
 --- !u!114 &3874436717881228536
 MonoBehaviour:
   m_ObjectHideFlags: 0
