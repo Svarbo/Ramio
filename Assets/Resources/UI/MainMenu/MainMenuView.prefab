@@ -7063,7 +7063,6 @@ GameObject:
   - component: {fileID: 2404912845847492841}
   - component: {fileID: 646845162944109916}
   - component: {fileID: 3348621861903906192}
-  - component: {fileID: 5339721707901140975}
   m_Layer: 5
   m_Name: LanguageChanger
   m_TagString: Untagged
@@ -7132,18 +7131,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5339721707901140975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2289103302311312207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9740cd9bdf4e51977de44ea6f2c2b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2348030039473751437
 GameObject:
   m_ObjectHideFlags: 0
@@ -28235,6 +28222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0c12d246b243a686e2cf39d3dc368f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _menuSwitcher: {fileID: 2668727897439647758}
+  _levelMenuButton: {fileID: 1149640485678497383}
+  _settingsButton: {fileID: 6412243881559012033}
+  _leaderboardButton: {fileID: 5921610143539563089}
 --- !u!114 &5774504426593677575
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,15 +18,13 @@ namespace Players
         private int _currentHealth;
         private int _fruitsCount = 0;
         private bool _isDied = false;
-        private string _sceneName;
 
         public event Action Desappeared;
 
         public PlayerInput Input { get; private set; }
+        public int AttemptsCount { get; private set; }
 
         public int FruitsCount => _fruitsCount;
-
-        public int AttemptsCount { get; private set; }
 
         private void Awake()
         {
@@ -34,17 +32,14 @@ namespace Players
             _stats = GetComponent<PlayerStats>();
             Input = GetComponent<PlayerInput>();
 
-            SetHealth();
+            _currentHealth = _stats.Health;
         }
 
         public void SetAttemptsCount(int attemptsCount) =>
             AttemptsCount = attemptsCount;
 
-        public void IncreaseFruitsCount()
-        {
+        public void IncreaseFruitsCount() =>
             _fruitsCount++;
-            FruitRaised?.Invoke();
-        }
 
         public void TakeDamage(int damage)
         {
@@ -55,13 +50,14 @@ namespace Players
                 Die();
         }
 
-        private void SetHealth() =>
-            _currentHealth = _stats.Health;
-
         private void Die()
         {
             _isDied = true;
             _info.SetDesappearing(true);
+        }
+
+        private void InvokeDesappearing()
+        {
             Desappeared?.Invoke();
         }
     }

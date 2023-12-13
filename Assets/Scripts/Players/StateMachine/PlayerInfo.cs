@@ -71,13 +71,18 @@ namespace Players.StateMachine
             SomeParameterChanged?.Invoke();
         }
 
+        public void DeactivateHit()
+        {
+            IsHit = false;
+            SomeParameterChanged?.Invoke();
+        }
+
         public void SetDesappearing(bool value)
         {
             IsDesappearing = value;
             SomeParameterChanged?.Invoke();
         }
 
-        // TODO не используется (используется в аниматоре)
         public void SetAppearingAnimationFinished()
         {
             IsAppearingAnimationFinished = true;

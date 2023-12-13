@@ -13,8 +13,7 @@ namespace Traps.SawGun
 
         private void Update() =>
             CountShootingDelay();
-            
-        // TODO методы начинаются с глагола Ж: Count - не только существительное "счёт", но и глагол "считать", "отсчитать"
+
         private void CountShootingDelay()
         {
             _currentDelay += Time.deltaTime;

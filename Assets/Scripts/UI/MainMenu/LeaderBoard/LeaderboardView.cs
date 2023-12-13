@@ -1,10 +1,7 @@
-using System.Collections;
 using Agava.YandexGames;
 using ConstantValues;
+using System.Collections;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using Data;
-using Data.Difficults;
 using TMPro;
 using UnityEngine;
 

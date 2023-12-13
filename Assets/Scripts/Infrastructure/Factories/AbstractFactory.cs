@@ -6,9 +6,5 @@ namespace Infrastructure.Factories
     {
         public T Create<T>(string prefabName) where T : Object =>
             Object.Instantiate(Resources.Load<T>(prefabName));
-
-        // TODO метод не используется  Ж: это не мой метод, можешь удалить
-        public T Create<T>(string prefabName, Vector3 position) where T : Object =>
-            Object.Instantiate(Resources.Load<T>(prefabName), position, Quaternion.identity);
     }
 }

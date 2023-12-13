@@ -37,7 +37,7 @@ namespace Level.LevelStrategy
         {
             _playerCanvasDrawer.DefeatPanel.LevelRestarted += _levelLoader.RestartLevel;
             _playerCanvasDrawer.WinPanel.NextLevelLoader += _levelLoader.LoadNextLevel;
-            _playerCanvasDrawer.FinishZoneTrigerred += _acceptLevelsDeterminator.Determine;
+            _playerCanvasDrawer.FinishZoneAchieved += _acceptLevelsDeterminator.Determine;
             _personage.Desappeared += IncreaseAttemptsCount;
             OnExecute();
         }
@@ -46,7 +46,7 @@ namespace Level.LevelStrategy
         {
             _playerCanvasDrawer.DefeatPanel.LevelRestarted -= _levelLoader.RestartLevel;
             _playerCanvasDrawer.WinPanel.NextLevelLoader -= _levelLoader.LoadNextLevel;
-            _playerCanvasDrawer.FinishZoneTrigerred -= _acceptLevelsDeterminator.Determine;
+            _playerCanvasDrawer.FinishZoneAchieved -= _acceptLevelsDeterminator.Determine;
             _personage.Desappeared -= IncreaseAttemptsCount;
 
             OnDispose();
@@ -65,7 +65,8 @@ namespace Level.LevelStrategy
             LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult)
                 .IncreaseCountTry(SceneManager.GetActiveScene().name);
             
-            _leaderboardAdder.SetCountTryByDifficult(_levelsInfo.CurrentDifficult);
+            //TODO: убрать отсюда
+            //_leaderboardAdder.SetCountTryByDifficult(_levelsInfo.CurrentDifficult);
         }
     }
 }

@@ -18,17 +18,15 @@ namespace UI.Level.EndGame.Panels
         private void OnDisable() =>
             _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
 
-        // TODO  комментарий решить проблему Ж: это ты оставил для себя, чтобы перед билдом удалить код для эдитора?
         private void OnRestartButtonClicked()
         {
-            _advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
-            // Реклама для editor режима
-            //InvokeButtonLevelRestarter();
+            //TODO: �������
+            //_advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
+            //TODO:�������
+            InvokeButtonLevelRestarter();
         }
 
-        private void InvokeButtonLevelRestarter()
-        {
+        private void InvokeButtonLevelRestarter() =>
             LevelRestarted?.Invoke();
-        }
     }
 }
