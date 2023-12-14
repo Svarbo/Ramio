@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3c330970-745d-476f-a27d-e779493fbee5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/LevelDifficultStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/LevelDifficultStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +70,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11512">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="11512" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -108,7 +110,8 @@
       <workItem from="1701197416300" duration="4774000" />
       <workItem from="1701866161505" duration="14572000" />
       <workItem from="1701960720504" duration="2869000" />
-      <workItem from="1702105145240" duration="23700000" />
+      <workItem from="1702105145240" duration="25502000" />
+      <workItem from="1702563402709" duration="1902000" />
     </task>
     <servers />
   </component>
@@ -185,19 +188,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Players/Player.cs</url>
-          <line>43</line>
-          <properties documentPath="D:\UnityProject\SecondProject\SecondProject\Assets\Scripts\Players\Player.cs" initialLine="43" containingFunctionPresentation="method 'SetAttemptsCount'">
-            <startOffsets>
-              <option value="1221" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1250" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -14,6 +14,8 @@ namespace UI.Level.EndGame
 
         public event Action FinishZoneAchieved;
 
+        public event Action GratitudeZoneEntered;
+
         public WinPanel WinPanel => _winPanel;
         public DefeatPanel DefeatPanel => _defeatPanel;
 
@@ -29,8 +31,11 @@ namespace UI.Level.EndGame
             _winPanel.gameObject.SetActive(true);
         }
 
-        public void ShowGratitudePanel() =>
+        public void ShowGratitudePanel()
+        {
+            GratitudeZoneEntered?.Invoke();
             _gratitudePanel.gameObject.SetActive(true);
+        }
 
         private void ShowDefeatPanel() =>
             _defeatPanel.gameObject.SetActive(true);
