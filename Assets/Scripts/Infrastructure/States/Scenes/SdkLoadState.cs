@@ -27,12 +27,12 @@ namespace Infrastructure.States.Scenes
 
         private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {
-            //YandexGamesSdk.CallbackLogging = true;
-            //yield return YandexGamesSdk.Initialize(onSuccessCallback);
+            YandexGamesSdk.CallbackLogging = true;
+            yield return YandexGamesSdk.Initialize(onSuccessCallback);
 
             //TODO: Удалить перед код ревью, раскоментить перед работой в эдиторе
-            yield return new WaitForSeconds(1);
-            onSuccessCallback?.Invoke();
+            //yield return new WaitForSeconds(1);
+            //onSuccessCallback?.Invoke();
         }
 
         private void LoadMainMenuScene()

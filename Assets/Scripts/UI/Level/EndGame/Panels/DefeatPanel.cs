@@ -21,9 +21,9 @@ namespace UI.Level.EndGame.Panels
         private void OnRestartButtonClicked()
         {
             //TODO: Вернуть
-            //_advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
+            _advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
             //TODO:Удалить
-            InvokeButtonLevelRestarter();
+            //InvokeButtonLevelRestarter();
         }
 
         private void InvokeButtonLevelRestarter() =>

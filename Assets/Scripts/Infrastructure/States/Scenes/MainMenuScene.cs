@@ -52,9 +52,9 @@ namespace Infrastructure.States.Scenes
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
             // TODO при билде раскоментить 
-            //_levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
+            _levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
             //TODO: Удалить перед релизом
-            _levelsInfo.IsMobile = false;
+            //_levelsInfo.IsMobile = false;
 
             _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);
             _levelChooserPresenter = _levelChooserBuilder.Build();
