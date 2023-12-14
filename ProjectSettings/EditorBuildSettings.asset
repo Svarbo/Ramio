@@ -30,9 +30,6 @@ EditorBuildSettings:
     path: Assets/Samples/Yandex Games/13.2.0/Playtesting Sample/PlaytestingScene.unity
     guid: 6aee2e9aa35b5a24eb78cbe94d477705
   - enabled: 0
-    path: Assets/Scenes/Level5.unity
-    guid: 88f8bd432baa9c4478feb6fbfcbe7430
-  - enabled: 0
     path: Assets/Samples/Web Utility/3.0.0/Playtesting Sample/PlaytestingScene.unity
     guid: f217115a68ee0f9459dd5bd77192cdae
   - enabled: 0

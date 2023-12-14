@@ -14,7 +14,8 @@ namespace Players.StateMachine.Transitions
         {
             return PlayerInfo.IsGrounded
                 && PlayerInfo.IsDecelerated
-                && PlayerInfo.IsSpeedEqualZero;
+                && PlayerInfo.IsSpeedEqualZero
+                && !PlayerInfo.IsHit;
         }
     }
 }

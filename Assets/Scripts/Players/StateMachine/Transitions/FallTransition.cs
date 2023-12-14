@@ -14,7 +14,9 @@ namespace Players.StateMachine.Transitions
         {
             return !PlayerInfo.IsGrounded
                 && !PlayerInfo.IsJumpButtonPressed
-                && !PlayerInfo.IsWallHooked;
+                && !PlayerInfo.IsWallHooked
+                && !PlayerInfo.IsHit
+                && !PlayerInfo.IsDecelerated;
         }
     }
 }

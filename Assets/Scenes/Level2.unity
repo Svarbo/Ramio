@@ -1033,6 +1033,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 417026849}
     m_Modifications:
+    - target: {fileID: 1503589287900277606, guid: 1b21c362f61208e4782c013536eec102, type: 3}
+      propertyPath: _appearingObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 315064493}
     - target: {fileID: 3381901003398482186, guid: 1b21c362f61208e4782c013536eec102, type: 3}
       propertyPath: m_Size.x
       value: 0.74461365
@@ -1104,6 +1108,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b21c362f61208e4782c013536eec102, type: 3}
+--- !u!1 &315064493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1339209219524984201, guid: 1b21c362f61208e4782c013536eec102, type: 3}
+  m_PrefabInstance: {fileID: 315064492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &325933952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2876,7 +2885,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppearingSaw
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7095032089770003491, guid: f35350a722506ce479234208e4a08d8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3752,7 +3762,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppearingSaw
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7095032089770003491, guid: f35350a722506ce479234208e4a08d8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4439,7 +4450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685829651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110.12, y: -5.25, z: -0.4233099}
+  m_LocalPosition: {x: 109.93, y: -5.21, z: -0.4233099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4621,7 +4632,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppearingSaw
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7095032089770003491, guid: f35350a722506ce479234208e4a08d8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -29762,7 +29774,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppearingSaw
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7095032089770003491, guid: f35350a722506ce479234208e4a08d8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
