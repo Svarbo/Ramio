@@ -26,6 +26,8 @@ namespace SDK
 
             if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
                 InterstitialAd.Show(OnStartCallBack, OnCloseCallback, OnErrorCallback);
+            else
+                OnSuccesCallback?.Invoke();
         }
 
         private void OnCloseCallback(bool obj)

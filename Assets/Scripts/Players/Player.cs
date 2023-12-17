@@ -1,3 +1,4 @@
+using ConstantValues;
 using Infrastructure.Inputs;
 using Players.StateMachine;
 using System;
@@ -35,8 +36,11 @@ namespace Players
             _currentHealth = _stats.Health;
         }
 
-        public void SetAttemptsCount(int attemptsCount) =>
+        public void SetAttemptsCount(int attemptsCount)
+        {
             AttemptsCount = attemptsCount;
+            PlayerPrefs.SetInt(PlayerPrefsNames.AttemptsCount, attemptsCount);
+        }
 
         public void IncreaseFruitsCount() =>
             _fruitsCount++;
