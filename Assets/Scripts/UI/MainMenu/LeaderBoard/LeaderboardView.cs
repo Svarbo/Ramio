@@ -31,15 +31,17 @@ namespace UI.MainMenu.Leaderboard
 
         private IEnumerator ShowLeaderboards()
         {
+            WaitForSeconds waitForSeconds = new WaitForSeconds(2);
+
             ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
             ShowPlayerPlace(LeaderboardsNames.EasyLeaderboardName, _easyPlayerTopPlaceText,
                 _easyPlayerAttemptionsCountText);
-            yield return new WaitForSeconds(2);
+            yield return waitForSeconds;
 
             ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
             ShowPlayerPlace(LeaderboardsNames.MediumLeaderboardName, _mediumPlayerTopPlaceText,
                 _mediumPlayerAttemptionsCountText);
-            yield return new WaitForSeconds(2);
+            yield return waitForSeconds;
 
             ShowFirstLeaders(LeaderboardsNames.HardLeaderboardName, _hardLeaderPlaces);
             ShowPlayerPlace(LeaderboardsNames.HardLeaderboardName, _hardPlayerTopPlaceText,

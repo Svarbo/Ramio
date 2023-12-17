@@ -26,25 +26,25 @@ namespace Players
 
         public Player Create()
         {
-            Player personage = Object.Instantiate
+            Player player = Object.Instantiate
             (
                 original: Resources.Load<Player>(ResourcesPath.PlayerPath),
                 position: _startSpawnPosition,
                 rotation: Quaternion.identity
             );
             
-            Camera.main.GetComponent<TargetFollower>().Construct(personage.transform, _cameraOffset);
+            Camera.main.GetComponent<TargetFollower>().Construct(player.transform, _cameraOffset);
 
-            SetAttemptsCount(personage);
-            SetInputService(personage);
+            SetAttemptsCount(player);
+            SetInputService(player);
 
-            return personage;
+            return player;
         }
 
-        private void SetAttemptsCount(Player personage)
+        private void SetAttemptsCount(Player player)
         {
             int count = LevelsProgress.Instance.GetDifficultByType(_difficult).GetCountTryBySceneName(SceneManager.GetActiveScene().name);
-            personage.SetAttemptsCount(count);
+            player.SetAttemptsCount(count);
         }
 
         private void SetInputService(Player personage)

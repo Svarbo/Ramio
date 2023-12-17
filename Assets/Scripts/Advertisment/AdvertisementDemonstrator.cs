@@ -8,7 +8,7 @@ namespace SDK
 {
     public class AdvertisementDemonstrator : MonoBehaviour
     {
-        private const int AdvertisementDemonstrationFrequency = 4;
+        private const int AdvertisementDemonstrationFrequency = 3;
 
         [SerializeField] private GameAudioData _gameAudioData;
 
