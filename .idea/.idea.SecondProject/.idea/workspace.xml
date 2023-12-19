@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c330970-745d-476f-a27d-e779493fbee5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SecondProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/LevelDifficultStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelStrategy/LevelDifficultStrategy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Level/EndGame/PlayerCanvasDrawer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +109,8 @@
       <workItem from="1701866161505" duration="14572000" />
       <workItem from="1701960720504" duration="2869000" />
       <workItem from="1702105145240" duration="25502000" />
-      <workItem from="1702563402709" duration="1902000" />
+      <workItem from="1702563402709" duration="2001000" />
+      <workItem from="1702984942360" duration="1438000" />
     </task>
     <servers />
   </component>
@@ -151,19 +150,6 @@
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Players/PlayerFactory.cs</url>
-          <line>45</line>
-          <properties documentPath="D:\UnityProject\SecondProject\SecondProject\Assets\Scripts\Players\PlayerFactory.cs" initialLine="46" containingFunctionPresentation="method 'SetAttemptsCount'">
-            <startOffsets>
-              <option value="1279" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1405" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Level/LevelBootstrap.cs</url>
           <line>58</line>
           <properties documentPath="D:\UnityProject\SecondProject\SecondProject\Assets\Scripts\Level\LevelBootstrap.cs" initialLine="58" containingFunctionPresentation="method 'CreatePersonage'">
@@ -175,19 +161,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Players/PlayerFactory.cs</url>
-          <line>37</line>
-          <properties documentPath="D:\UnityProject\SecondProject\SecondProject\Assets\Scripts\Players\PlayerFactory.cs" initialLine="37" containingFunctionPresentation="method 'Create'">
-            <startOffsets>
-              <option value="1090" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1118" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,10 +1,9 @@
 using Agava.YandexGames;
 using ConstantValues;
-using UnityEngine;
 
 namespace Localization
 {
-    public class LanguageDefiner : MonoBehaviour
+    public class LanguageDefiner
     {
         private const int RussianLanguageIndex = 0;
         private const int EnglishLanguageIndex = 1;
@@ -20,7 +19,7 @@ namespace Localization
             return !languageWasChanged;
         }
 
-        private void DefineLanguage()
+        public void DefineLanguage()
         {
             string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
 

@@ -3,6 +3,7 @@ using Data;
 using Infrastructure.Core;
 using System.Collections;
 using Agava.YandexGames;
+using Localization;
 using UnityEngine;
 
 namespace Infrastructure.States.Scenes
@@ -30,7 +31,7 @@ namespace Infrastructure.States.Scenes
             YandexGamesSdk.CallbackLogging = true;
             yield return YandexGamesSdk.Initialize(onSuccessCallback);
 
-            //TODO: Удалить перед код ревью, раскоментить перед работой в эдиторе
+            //TODO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             //yield return new WaitForSeconds(1);
             //onSuccessCallback?.Invoke();
         }
@@ -40,7 +41,9 @@ namespace Infrastructure.States.Scenes
             LevelsInfo levelsInfo = new LevelsInfo();
             levelsInfo.CurrentDifficult = LevelsProgress.Instance.GetStartDifficult();
             levelsInfo.SceneName = Levels.MainMenu.ToString();
-
+            LanguageDefiner languageDefiner = new LanguageDefiner();
+            languageDefiner.DefineLanguage();
+            
             _appCore.StateMachine.Enter(typeof(LoadLevelState), levelsInfo);
         }
     }
