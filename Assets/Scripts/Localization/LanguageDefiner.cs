@@ -1,5 +1,6 @@
 using Agava.YandexGames;
 using ConstantValues;
+using UnityEngine;
 
 namespace Localization
 {
@@ -11,7 +12,7 @@ namespace Localization
 
         public bool TryDefineLanguage()
         {
-            bool languageWasChanged = UnityEngine.PlayerPrefs.GetInt(PlayerPrefsNames.LanguageWasChanged) == 1;
+            bool languageWasChanged = PlayerPrefs.GetInt(PlayerPrefsNames.LanguageWasChanged) == 1;
 
             if (languageWasChanged != true)
                 DefineLanguage();
@@ -24,13 +25,13 @@ namespace Localization
             string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
 
             if (languageDesignation == "ru" || languageDesignation == "be" || languageDesignation == "kk" || languageDesignation == "uk" || languageDesignation == "uz")
-                UnityEngine.PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, RussianLanguageIndex);
+                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, RussianLanguageIndex);
             else if (languageDesignation == "tr")
-                UnityEngine.PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, TurkishLanguageIndex);
+                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, TurkishLanguageIndex);
             else
-                UnityEngine.PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, EnglishLanguageIndex);
+                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, EnglishLanguageIndex);
 
-            UnityEngine.PlayerPrefs.Save();
+            PlayerPrefs.Save();
         }
     }
 }

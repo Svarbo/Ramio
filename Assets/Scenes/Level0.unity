@@ -344,9 +344,9 @@ MonoBehaviour:
   - "\u0417\u043D\u0430\u043A\u043E\u043C\u044C\u0442\u0435\u0441\u044C, \u044D\u0442\u043E
     \u0442\u043E\u0447\u043A\u0430 \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F,
     \u0442\u043E\u0447\u043A\u0430 \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F,
-    \u044D\u0442\u043E \u043D\u0435 \u041C\u0430\u0440\u0438\u043E"
-  - Meet this is a save point, save point, it's not Mario
-  - "Bu bir koruma noktas\u0131, bir koruma noktas\u0131, bu Mario de\u011Fil, tan\u0131\u015F\u0131n"
+    \u044D\u0442\u043E \u0420\u0430\u043C\u0438\u043E"
+  - Meet me, this is a save point, a save point, this is Ramio
+  - "Bu koruma noktas\u0131, koruma noktas\u0131, bu Ramio ile tan\u0131\u015F\u0131n"
 --- !u!114 &33261488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_text: "\u0417\u043D\u0430\u043A\u043E\u043C\u044C\u0442\u0435\u0441\u044C, \u044D\u0442\u043E
     \u0442\u043E\u0447\u043A\u0430 \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F,
     \u0442\u043E\u0447\u043A\u0430 \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F,
-    \u044D\u0442\u043E \u043D\u0435 \u041C\u0430\u0440\u0438\u043E"
+    \u044D\u0442\u043E \u0420\u0430\u043C\u0438\u043E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87fe675325e60fd4883e635b883a3739, type: 2}
   m_sharedMaterial: {fileID: 6748405037036321155, guid: 87fe675325e60fd4883e635b883a3739, type: 2}
