@@ -7,15 +7,15 @@ namespace UI.Level
     [RequireComponent(typeof(TMP_Text))]
     public class AttemptsCountText : MonoBehaviour
     {
-        [SerializeField] private Player _personage;
+        [SerializeField] private Player _player;
 
-        private void Start() => 
+        private void Start() =>
             SetText();
 
         private void SetText()
         {
             TMP_Text textComponent = GetComponent<TMP_Text>();
-            textComponent.text = _personage.AttemptsCount.ToString();
+            textComponent.text = _player.AttemptsCount.ToString();
         }
     }
 }

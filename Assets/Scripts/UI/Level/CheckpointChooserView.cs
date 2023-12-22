@@ -28,7 +28,7 @@ namespace UI.Level
             CheckpointChanged?.Invoke(true);
             gameObject.SetActive(false);
         }
-        
+
         private void OnNegativeResponse()
         {
             CheckpointChanged?.Invoke(false);

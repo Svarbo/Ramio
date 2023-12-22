@@ -39,9 +39,6 @@ namespace Buffs
             }
         }
 
-        public void Disable() =>
-            _isCollected = true;
-
         private void TryReload()
         {
             if (_isCollected == true)

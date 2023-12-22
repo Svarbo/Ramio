@@ -13,8 +13,5 @@ namespace Traps.Doors
 
         public void Open() =>
             _animator.Play(_openAnimation);
-
-        public void Off() =>
-            gameObject.SetActive(false);
     }
 }

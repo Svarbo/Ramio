@@ -27,8 +27,5 @@ namespace CollectableObjects
                 _audioSource.Play();
             }
         }
-
-        public void Off() =>
-            gameObject.SetActive(false);
     }
 }

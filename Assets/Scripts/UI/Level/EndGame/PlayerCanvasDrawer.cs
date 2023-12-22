@@ -1,5 +1,5 @@
-using System;
 using Players;
+using System;
 using UI.Level.EndGame.Panels;
 using UnityEngine;
 
@@ -13,7 +13,6 @@ namespace UI.Level.EndGame
         [SerializeField] private GratitudePanel _gratitudePanel;
 
         public event Action FinishZoneAchieved;
-
         public event Action GratitudeZoneEntered;
 
         public WinPanel WinPanel => _winPanel;

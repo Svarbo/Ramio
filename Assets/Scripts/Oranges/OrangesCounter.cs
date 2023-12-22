@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using ConstantValues;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CollectableObjects
@@ -8,7 +8,7 @@ namespace CollectableObjects
     {
         [SerializeField] private List<Orange> _oranges = new List<Orange>();
 
-        private void Awake() => 
+        private void Awake() =>
             PlayerPrefs.SetInt(PlayerPrefsNames.CurrentLevelOrangesCount, _oranges.Count);
     }
 }

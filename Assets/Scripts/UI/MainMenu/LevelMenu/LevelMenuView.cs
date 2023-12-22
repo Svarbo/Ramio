@@ -11,7 +11,6 @@ namespace UI.MainMenu.LevelMenu
         private LevelsInfo _levelsInfo;
 
         [field: SerializeField] public LevelsRow LevelsRow { get; private set; }
-
         [field: SerializeField] public DifficultChooserView DifficultChooserView { get; private set; }
 
         private void OnEnable()

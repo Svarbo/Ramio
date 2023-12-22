@@ -6,30 +6,16 @@ namespace Localization
 {
     public class LanguageDefiner
     {
-        private const int RussianLanguageIndex = 0;
-        private const int EnglishLanguageIndex = 1;
-        private const int TurkishLanguageIndex = 2;
-
-        public bool TryDefineLanguage()
-        {
-            bool languageWasChanged = PlayerPrefs.GetInt(PlayerPrefsNames.LanguageWasChanged) == 1;
-
-            if (languageWasChanged != true)
-                DefineLanguage();
-
-            return !languageWasChanged;
-        }
-
         public void DefineLanguage()
         {
             string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
 
-            if (languageDesignation == "ru" || languageDesignation == "be" || languageDesignation == "kk" || languageDesignation == "uk" || languageDesignation == "uz")
-                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, RussianLanguageIndex);
-            else if (languageDesignation == "tr")
-                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, TurkishLanguageIndex);
+            if (languageDesignation == LanguageInfo.RussianDesignation || languageDesignation == LanguageInfo.BelarusianDesignation || languageDesignation == LanguageInfo.KazakhDesignation || languageDesignation == LanguageInfo.UkrainianDesignation || languageDesignation == LanguageInfo.UzbekDesignation)
+                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, LanguageInfo.RussianLanguageIndex);
+            else if (languageDesignation == LanguageInfo.TurkishDesignation)
+                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, LanguageInfo.TurkishLanguageIndex);
             else
-                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, EnglishLanguageIndex);
+                PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, LanguageInfo.EnglishLanguageIndex);
 
             PlayerPrefs.Save();
         }

@@ -6,11 +6,11 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
 {
     public class DifficultBuilder
     {
-        private DifficultChooserPresenter _difficultChooserPresenter;
-
         private readonly LevelsInfo _levelsInfo;
         private readonly LevelChooserPresenter _levelChooserPresenter;
         private readonly DifficultChooserView _difficultChooserView;
+
+        private DifficultChooserPresenter _difficultChooserPresenter;
 
         public DifficultBuilder(LevelChooserPresenter levelChooserPresenter, LevelsInfo levelsInfo, DifficultChooserView difficultChooserView)
         {

@@ -9,7 +9,7 @@ namespace Level.SpawnPoints
     public class SpawnPointContainer : MonoBehaviour
     {
         [SerializeField] private List<SpawnPointTrigger> _spawnPointTriggers;
-        
+
         public void Show()
         {
             Easy easy = LevelsProgress.Instance.GetDifficultByType(typeof(Easy)) as Easy;

@@ -9,16 +9,16 @@ namespace Infrastructure
 {
     public class LevelLoader
     {
-		private StateMachine _stateMachine;
-		private LevelsInfo _levelsInfo;
+        private StateMachine _stateMachine;
+        private LevelsInfo _levelsInfo;
 
-		public LevelLoader(StateMachine stateMachine, LevelsInfo levelsInfo)
-		{
-			_levelsInfo = levelsInfo;
-			_stateMachine = stateMachine;
-		}
+        public LevelLoader(StateMachine stateMachine, LevelsInfo levelsInfo)
+        {
+            _levelsInfo = levelsInfo;
+            _stateMachine = stateMachine;
+        }
 
-		public void RestartLevel()
+        public void RestartLevel()
         {
             if (_levelsInfo.CurrentDifficult == typeof(Hard))
             {

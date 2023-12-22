@@ -20,8 +20,5 @@ namespace Traps
 
         private void Disappear() =>
             _animator.Play(_disappearAnimation);
-
-        public void Disable() =>
-            gameObject.SetActive(false);
     }
 }

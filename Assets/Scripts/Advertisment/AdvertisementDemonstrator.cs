@@ -1,7 +1,7 @@
 using Agava.YandexGames;
+using Audio;
 using ConstantValues;
 using System;
-using Audio;
 using UnityEngine;
 
 namespace SDK
@@ -12,10 +12,10 @@ namespace SDK
 
         [SerializeField] private GameAudioData _gameAudioData;
 
-        private Action Callback;
         private float _musicVolume;
+        private Action Callback;
 
-        private void Awake() => 
+        private void Awake() =>
             _musicVolume = _gameAudioData.MusicVolume;
 
         public void TryShowAdvertisement(Action OnSuccesCallback)
@@ -41,7 +41,7 @@ namespace SDK
         {
             Time.timeScale = 0;
             _musicVolume = _gameAudioData.MusicVolume;
-            _gameAudioData.SetMusicVolume(0); 
+            _gameAudioData.SetMusicVolume(0);
         }
 
         private void OnErrorCallback(string obj)

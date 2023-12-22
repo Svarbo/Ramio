@@ -19,10 +19,10 @@ namespace UI.MainMenu.LevelMenu.Difficults.Views
         public void Construct(DifficultChooserPresenter difficultChooserPresenter) =>
             _difficultChooserPresenter = difficultChooserPresenter;
 
-        public void Show() => 
+        public void Show() =>
             _button.interactable = true;
 
-        public void Hide() => 
+        public void Hide() =>
             _button.interactable = false;
 
         private void OnClicked() =>

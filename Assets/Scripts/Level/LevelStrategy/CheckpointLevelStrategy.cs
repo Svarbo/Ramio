@@ -3,15 +3,15 @@ using Data;
 using Infrastructure.Factories;
 using Infrastructure.StateMachines;
 using Level.SpawnPoints;
-using UnityEngine;
 using Players;
 using UI.Level;
+using UnityEngine;
 
 namespace Level.LevelStrategy
 {
     public class CheckpointLevelStrategy : LevelDifficultStrategy
     {
-        private readonly Player _personage;
+        private readonly Player _player;
         private readonly Vector3 _lastCheckpoint;
         private readonly Vector3 _startCheckpoint;
         private readonly AbstractFactory _abstractFactory;
@@ -20,17 +20,17 @@ namespace Level.LevelStrategy
         private CheckpointChooserView _checkpointChooserView;
 
         public CheckpointLevelStrategy(
-            Player personage, 
-            StateMachine stateMachine, 
+            Player personage,
+            StateMachine stateMachine,
             LevelsInfo levelsInfo,
-            SpawnPointContainer spawnPointContainer, 
+            SpawnPointContainer spawnPointContainer,
             Vector3 lastCheckpoint,
-            Vector3 startCheckpoint, 
+            Vector3 startCheckpoint,
             AcceptLevelsDeterminator acceptLevelsDeterminator)
             : base(personage, stateMachine, levelsInfo, acceptLevelsDeterminator)
         {
             _spawnPointContainer = spawnPointContainer;
-            _personage = personage;
+            _player = personage;
             _lastCheckpoint = lastCheckpoint;
             _startCheckpoint = startCheckpoint;
             _abstractFactory = new AbstractFactory();
@@ -40,7 +40,7 @@ namespace Level.LevelStrategy
         {
             _spawnPointContainer.gameObject.SetActive(true);
             _spawnPointContainer.Show();
-    
+
             if (_lastCheckpoint != default || _lastCheckpoint != Vector3.zero)
             {
                 _checkpointChooserView = _abstractFactory.Create<CheckpointChooserView>(ResourcesPath.CheckpointChooserView);
@@ -57,9 +57,9 @@ namespace Level.LevelStrategy
         private void OnCheckpointChanged(bool answer)
         {
             if (answer)
-                _personage.gameObject.transform.position = _lastCheckpoint;
+                _player.gameObject.transform.position = _lastCheckpoint;
             else
-                _personage.gameObject.transform.position = _startCheckpoint;
+                _player.gameObject.transform.position = _startCheckpoint;
         }
     }
 }

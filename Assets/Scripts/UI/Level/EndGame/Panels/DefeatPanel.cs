@@ -1,5 +1,5 @@
-using System;
 using SDK;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,13 +18,8 @@ namespace UI.Level.EndGame.Panels
         private void OnDisable() =>
             _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
 
-        private void OnRestartButtonClicked()
-        {
-            //TODO: Вернуть
+        private void OnRestartButtonClicked() =>
             _advertisementDemonstrator.TryShowAdvertisement(InvokeButtonLevelRestarter);
-            //TODO:Удалить
-            //InvokeButtonLevelRestarter();
-        }
 
         private void InvokeButtonLevelRestarter() =>
             LevelRestarted?.Invoke();

@@ -1,10 +1,9 @@
-using System;
+using Agava.YandexGames;
 using Data;
 using Infrastructure.Core;
-using System.Collections;
-using Agava.YandexGames;
 using Localization;
-using UnityEngine;
+using System;
+using System.Collections;
 
 namespace Infrastructure.States.Scenes
 {
@@ -30,10 +29,6 @@ namespace Infrastructure.States.Scenes
         {
             YandexGamesSdk.CallbackLogging = true;
             yield return YandexGamesSdk.Initialize(onSuccessCallback);
-
-            //TODO: ������� ����� ��� �����, ������������ ����� ������� � �������
-            //yield return new WaitForSeconds(1);
-            //onSuccessCallback?.Invoke();
         }
 
         private void LoadMainMenuScene()
@@ -43,7 +38,7 @@ namespace Infrastructure.States.Scenes
             levelsInfo.SceneName = Levels.MainMenu.ToString();
             LanguageDefiner languageDefiner = new LanguageDefiner();
             languageDefiner.DefineLanguage();
-            
+
             _appCore.StateMachine.Enter(typeof(LoadLevelState), levelsInfo);
         }
     }

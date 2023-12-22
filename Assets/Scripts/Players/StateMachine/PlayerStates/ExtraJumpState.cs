@@ -16,7 +16,7 @@ namespace Players.StateMachine.PlayerStates
         }
 
         private void OnEnable() =>
-            DoubleJump();
+            Jump();
 
         public override bool IsCompleted()
         {
@@ -29,7 +29,7 @@ namespace Players.StateMachine.PlayerStates
                 || Info.IsFinished;
         }
 
-        private void DoubleJump()
+        private void Jump()
         {
             PlayerAnimator.Play(_extraJumpAnimation);
 

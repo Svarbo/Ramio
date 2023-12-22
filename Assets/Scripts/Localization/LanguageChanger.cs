@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using ConstantValues;
+using System.Collections.Generic;
 using UI.MainMenu.Settings.Languages.Views;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +9,7 @@ namespace Localization
     [RequireComponent(typeof(ToggleGroup))]
     public class LanguageChanger : MonoBehaviour
     {
+        //Исправить! тут постарался Сеня
         [SerializeField] private List<Toggle> _toggles = new List<Toggle>();
 
         [field: SerializeField] public LanguageSaveView LanguageSaveView { get; private set; }

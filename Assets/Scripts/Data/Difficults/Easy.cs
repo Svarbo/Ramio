@@ -1,3 +1,4 @@
+using ConstantValues;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,94 +6,91 @@ using UnityEngine;
 
 namespace Data.Difficults
 {
-	[Serializable]
-	public class Easy : IDifficult
-	{
-		private const string Difficult = "Easy";
-		private const string CountTry = "CountTry";
-		private const string SpawnPoint = "EasySpawnPoint";
-		private const string EasyDifficultKey = "EasyDifficultAcceptLevels";
+    [Serializable]
+    public class Easy : IDifficult
+    {
+        public void ChangeSpawnPoint(string sceneName, SceneSpawnPoint sceneSpawnPoint)
+        {
+            string key = DifficultNames.EasySpawnPoint + sceneName;
 
-		public void ChangeSpawnPoint(string sceneName, SceneSpawnPoint sceneSpawnPoint)
-		{
-			string key = SpawnPoint + sceneName;
+            PlayerPrefs.SetString(key, JsonUtility.ToJson(sceneSpawnPoint));
+            PlayerPrefs.Save();
+        }
 
-			PlayerPrefs.SetString(key, JsonUtility.ToJson(sceneSpawnPoint));
-			PlayerPrefs.Save();
-		}
+        public int GetAcceptLevels()
+        {
+            if (PlayerPrefs.HasKey(DifficultNames.EasyDifficultKey) == false)
+                SetStartAcceptLevels();
 
-		public int GetAcceptLevels()
-		{
-			if (PlayerPrefs.HasKey(EasyDifficultKey) == false)
-				SetStartAcceptLevels();
-			return PlayerPrefs.GetInt(EasyDifficultKey);
-		}
+            return PlayerPrefs.GetInt(DifficultNames.EasyDifficultKey);
+        }
 
-		public void IncreaseAcceptLevels()
-		{
-			PlayerPrefs.SetInt(EasyDifficultKey, GetAcceptLevels() + 1);
-			PlayerPrefs.Save();
-		}
+        public void IncreaseAcceptLevels()
+        {
+            PlayerPrefs.SetInt(DifficultNames.EasyDifficultKey, GetAcceptLevels() + 1);
+            PlayerPrefs.Save();
+        }
 
-		public SceneSpawnPoint GetSpawnPoint(string sceneName)
-		{
-			string key = SpawnPoint + sceneName;
+        public SceneSpawnPoint GetSpawnPoint(string sceneName)
+        {
+            string key = DifficultNames.EasySpawnPoint + sceneName;
 
-			if (PlayerPrefs.HasKey(key) == false)
-				return default;
+            if (PlayerPrefs.HasKey(key) == false)
+                return default;
 
-			string sceneSpawnPoint = PlayerPrefs.GetString(key);
-			return JsonUtility.FromJson<SceneSpawnPoint>(sceneSpawnPoint);
-		}
+            string sceneSpawnPoint = PlayerPrefs.GetString(key);
 
-		public void IncreaseCountTry(string sceneName)
-		{
-			string key = CountTry + Difficult + sceneName;
+            return JsonUtility.FromJson<SceneSpawnPoint>(sceneSpawnPoint);
+        }
 
-			int countTry = GetCountTryBySceneName(sceneName) + 1;
-			PlayerPrefs.SetInt(key, countTry);
-			PlayerPrefs.Save();
-		}
+        public void IncreaseCountTry(string sceneName)
+        {
+            string key = DifficultNames.CountTry + DifficultNames.EasyDifficult + sceneName;
 
-		public int GetCountTryBySceneName(string sceneName)
-		{
-			string key = CountTry + Difficult + sceneName;
-			int countTry = PlayerPrefs.GetInt(key, 0);
+            int countTry = GetCountTryBySceneName(sceneName) + 1;
+            PlayerPrefs.SetInt(key, countTry);
+            PlayerPrefs.Save();
+        }
 
-			return countTry;
-		}
+        public int GetCountTryBySceneName(string sceneName)
+        {
+            string key = DifficultNames.CountTry + DifficultNames.EasyDifficult + sceneName;
+            int countTry = PlayerPrefs.GetInt(key, 0);
 
-		public int GetAllCountTry()
-		{
-			List<Levels> levelsNames = Enum.GetValues(typeof(Levels)).Cast<Levels>().ToList();
-			int allTry = 0;
+            return countTry;
+        }
 
-			foreach (Levels levelName in levelsNames)
-				allTry += GetCountTryBySceneName(levelName.ToString());
+        public int GetAllCountTry()
+        {
+            List<Levels> levelsNames = Enum.GetValues(typeof(Levels)).Cast<Levels>().ToList();
+            int allTry = 0;
 
-			return allTry;
-		}
+            foreach (Levels levelName in levelsNames)
+                allTry += GetCountTryBySceneName(levelName.ToString());
 
-		public void ClearProgress()
-		{
-			List<Levels> levelsNames = Enum.GetValues(typeof(Levels)).Cast<Levels>().ToList();
+            return allTry;
+        }
 
-			foreach (Levels levelName in levelsNames)
-			{
-				if (PlayerPrefs.HasKey(CountTry + Difficult + levelName))
-					PlayerPrefs.DeleteKey(CountTry + Difficult + levelName);
+        public void ClearProgress()
+        {
+            List<Levels> levelsNames = Enum.GetValues(typeof(Levels)).Cast<Levels>().ToList();
 
-				if (PlayerPrefs.HasKey(SpawnPoint + levelName))
-					PlayerPrefs.DeleteKey(SpawnPoint + levelName);
-			}
+            foreach (Levels levelName in levelsNames)
+            {
+                if (PlayerPrefs.HasKey(DifficultNames.CountTry + DifficultNames.EasyDifficult + levelName))
+                    PlayerPrefs.DeleteKey(DifficultNames.CountTry + DifficultNames.EasyDifficult + levelName);
 
-			PlayerPrefs.DeleteKey(EasyDifficultKey);
-		}
+                if (PlayerPrefs.HasKey(DifficultNames.EasySpawnPoint + levelName))
+                    PlayerPrefs.DeleteKey(DifficultNames.EasySpawnPoint + levelName);
+            }
 
-		private void SetStartAcceptLevels()
-		{
-			PlayerPrefs.SetInt(EasyDifficultKey, 1);
-			PlayerPrefs.Save();
-		}
-	}
+            PlayerPrefs.DeleteKey(DifficultNames.EasyDifficultKey);
+        }
+
+        private void SetStartAcceptLevels()
+        {
+            PlayerPrefs.SetInt(DifficultNames.EasyDifficultKey, 1);
+            PlayerPrefs.Save();
+        }
+    }
 }

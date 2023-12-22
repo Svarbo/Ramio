@@ -15,19 +15,12 @@ namespace Players.StateMachine
         [SerializeField] private Vector2 _wallJumpForce;
 
         public int Health => _health;
-
         public int ExtraJumpsCount => _extraJumpsCount;
-
         public float DecelerationValue => _decelerationValue;
-
         public float Speed => _speed;
-
         public float JumpForce => _jumpForce;
-
         public float ExtraJumpForce => _extraJumpForce;
-
         public float WallSlidingSpeed => _wallSlidingSpeed;
-
         public Vector2 WallJumpForce => _wallJumpForce;
     }
 }

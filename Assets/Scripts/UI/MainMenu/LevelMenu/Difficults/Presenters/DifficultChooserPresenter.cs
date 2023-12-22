@@ -14,9 +14,9 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
         private readonly HardDifficultView _hardDifficultView;
 
         public DifficultChooserPresenter(
-            LevelChooserPresenter levelChooserPresenter, 
+            LevelChooserPresenter levelChooserPresenter,
             LevelsInfo levelsInfo,
-            EasyDifficultView easyDifficultView, 
+            EasyDifficultView easyDifficultView,
             MediumDifficultView mediumDifficultView,
             HardDifficultView hardDifficultView)
         {

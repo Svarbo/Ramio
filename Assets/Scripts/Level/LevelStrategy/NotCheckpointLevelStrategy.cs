@@ -8,7 +8,7 @@ namespace Level.LevelStrategy
     {
         public NotCheckpointLevelStrategy(Player personage
             , StateMachine stateMachine, LevelsInfo levelsInfo, AcceptLevelsDeterminator acceptLevelsDeterminator)
-            : base(personage, stateMachine, levelsInfo,acceptLevelsDeterminator)
+            : base(personage, stateMachine, levelsInfo, acceptLevelsDeterminator)
         {
         }
     }

@@ -20,13 +20,16 @@ namespace UI.MainMenu.Leaderboard
         [SerializeField] private TMP_Text _hardPlayerAttemptionsCountText;
 
         private Coroutine _coroutine;
+        private string RussianAnonimName = "Аноним";
+        private string EnglishAnonimName = "Anonymous";
+        private string TurkishAnonimName = "Anonim";
 
         private void OnEnable()
         {
-            if (_coroutine != null) 
+            if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
-            _coroutine = StartCoroutine(ShowLeaderboards()) ;
+            _coroutine = StartCoroutine(ShowLeaderboards());
         }
 
         private IEnumerator ShowLeaderboards()
@@ -113,11 +116,11 @@ namespace UI.MainMenu.Leaderboard
             int playerLanguageIndex = PlayerPrefs.GetInt(PlayerPrefsNames.LanguageIndex, 0);
 
             if (playerLanguageIndex == 0)
-                leaderName = "Аноним";
+                leaderName = RussianAnonimName;
             if (playerLanguageIndex == 1)
-                leaderName = "Anonymous";
+                leaderName = EnglishAnonimName;
             if (playerLanguageIndex == 2)
-                leaderName = "Anonim";
+                leaderName = TurkishAnonimName;
 
             return leaderName;
         }

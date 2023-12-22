@@ -59,10 +59,5 @@ namespace Players
             _isDied = true;
             _info.SetDesappearing(true);
         }
-
-        private void InvokeDesappearing()
-        {
-            Desappeared?.Invoke();
-        }
     }
 }

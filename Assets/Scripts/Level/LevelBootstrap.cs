@@ -1,11 +1,11 @@
-using Players;
 using Data;
 using Data.Difficults;
 using Infrastructure;
 using Level.LevelStrategy;
-using Level.SpawnPoints;
-using UnityEngine;
 using Level.LevelStrategy.Factories;
+using Level.SpawnPoints;
+using Players;
+using UnityEngine;
 
 namespace Level
 {
@@ -20,7 +20,7 @@ namespace Level
 
         public LevelsInfo LevelsInfo { get; private set; }
 
-        private void OnDestroy() => 
+        private void OnDestroy() =>
             _levelDifficultStrategy.Dispose();
 
         public void Construct(LevelsInfo levelsInfo)
@@ -51,7 +51,7 @@ namespace Level
             _levelDifficultStrategy.Execute();
         }
 
-        private void CreateAcceptLevelsDeterminator() => 
+        private void CreateAcceptLevelsDeterminator() =>
             _acceptLevelsDeterminator = new AcceptLevelsDeterminator(LevelsInfo);
 
         private void CreatePersonage(LevelsInfo levelsInfo)

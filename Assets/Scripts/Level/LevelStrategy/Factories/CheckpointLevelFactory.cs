@@ -1,8 +1,8 @@
 using Data;
-using Players;
 using Data.Difficults;
 using Infrastructure.StateMachines;
 using Level.SpawnPoints;
+using Players;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +11,7 @@ namespace Level.LevelStrategy.Factories
     public class CheckpointLevelFactory
     {
         private readonly LevelsInfo _levelsInfo;
-        private readonly Player _personage;
+        private readonly Player _player;
         private readonly Vector3 _startSpawnPosition;
         private readonly StateMachine _stateMachine;
         private readonly SpawnPointContainer _spawnPointContainer;
@@ -25,20 +25,23 @@ namespace Level.LevelStrategy.Factories
             _acceptLevelsDeterminator = acceptLevelsDeterminator;
             _stateMachine = stateMachine;
             _levelsInfo = levelsInfo;
-            _personage = player;
+            _player = player;
             _startSpawnPosition = startSpawnPosition;
         }
 
-        public CheckpointLevelStrategy Create() =>
-            new CheckpointLevelStrategy
+        public CheckpointLevelStrategy Create()
+        {
+            return new CheckpointLevelStrategy
             (
-                _personage,
+                _player,
                 _stateMachine,
                 _levelsInfo,
                 _spawnPointContainer,
                 lastCheckpoint: GetLastPosition(),
                 startCheckpoint: _startSpawnPosition,
-                _acceptLevelsDeterminator);
+                _acceptLevelsDeterminator
+                );
+        }
 
         private Vector3 GetLastPosition()
         {

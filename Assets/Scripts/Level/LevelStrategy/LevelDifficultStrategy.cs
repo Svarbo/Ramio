@@ -1,8 +1,8 @@
-using System;
 using Data;
 using GameLeaderboard;
 using Infrastructure;
 using Players;
+using System;
 using UI.Level.EndGame;
 using UnityEngine.SceneManagement;
 
@@ -43,7 +43,7 @@ namespace Level.LevelStrategy
 
             OnExecute();
         }
-        
+
         public void Dispose()
         {
             _playerCanvasDrawer.DefeatPanel.LevelRestarted -= _levelLoader.RestartLevel;
@@ -68,8 +68,8 @@ namespace Level.LevelStrategy
             LevelsProgress.Instance.GetDifficultByType(_levelsInfo.CurrentDifficult)
                 .IncreaseCountTry(SceneManager.GetActiveScene().name);
         }
-        
-        private void OnGratitudeZoneEntered() => 
+
+        private void OnGratitudeZoneEntered() =>
             _leaderboardAdder.SetCountTryByDifficult(_levelsInfo.CurrentDifficult);
     }
 }

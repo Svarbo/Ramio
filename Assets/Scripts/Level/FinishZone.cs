@@ -31,7 +31,7 @@ public class FinishZone : MonoBehaviour
                 _levelCanvasDrawer.ShowWinPanel();
         }
 
-        if(collision.TryGetComponent(out PlayerInfo playerInfo))
+        if (collision.TryGetComponent(out PlayerInfo playerInfo))
             playerInfo.SetIsFinished(true);
     }
 

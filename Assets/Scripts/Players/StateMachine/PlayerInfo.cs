@@ -7,34 +7,20 @@ namespace Players.StateMachine
     public class PlayerInfo : MonoBehaviour
     {
         public event UnityAction SomeParameterChanged;
-
         public event UnityAction DirectionIndicatorChanged;
 
-
         public bool IsGrounded { get; private set; }
-
         public bool IsWallHooked { get; private set; }
-
         public bool IsJumpButtonPressed { get; private set; }
-
         public bool IsHit { get; private set; }
-
         public bool IsAppearingAnimationFinished { get; private set; }
-
         public bool IsExtraJumpReady { get; private set; }
-
         public bool IsSpeedEqualZero { get; private set; }
-
         public bool IsFalling { get; private set; }
-
         public bool IsDesappearing { get; private set; }
-
         public bool IsDecelerated { get; private set; }
-
         public bool IsFinished { get; private set; }
-
         public int DirectionIndicator { get; private set; }
-
         public float CurrentSpeed { get; private set; }
 
         private void Awake()

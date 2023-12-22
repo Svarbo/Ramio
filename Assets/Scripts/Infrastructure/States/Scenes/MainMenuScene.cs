@@ -1,15 +1,12 @@
-using Agava.YandexGames;
-using UI.MainMenu.Settings.Audio.Presenters;
 using Audio;
 using Data;
 using Infrastructure.Core;
-using Infrastructure.States;
-using Localization;
 using UI.MainMenu.Factories;
 using UI.MainMenu.LevelMenu.Difficults.Presenters;
 using UI.MainMenu.LevelMenu.LevelChoosers;
 using UI.MainMenu.Menu;
 using UI.MainMenu.Settings.Audio.Builders;
+using UI.MainMenu.Settings.Audio.Presenters;
 using UI.MainMenu.Settings.Languages;
 using UI.MainMenu.Settings.Languages.Presenters;
 
@@ -51,17 +48,15 @@ namespace Infrastructure.States.Scenes
         {
             MainMenuViewFactory mainMenuViewFactory = new MainMenuViewFactory();
             MainMenuView mainMenuView = mainMenuViewFactory.Create();
-            // TODO при билде раскоментить 
+
             _levelsInfo.IsMobile = Agava.WebUtility.Device.IsMobile;
-            //TODO: Удалить перед релизом
-            //_levelsInfo.IsMobile = false;
 
             _levelChooserBuilder = new LevelChooserBuilder(mainMenuView.LevelMenuView, _levelsInfo, _appCore.StateMachine);
             _levelChooserPresenter = _levelChooserBuilder.Build();
-            
+
             _difficultBuilder = new DifficultBuilder(_levelChooserPresenter, _levelsInfo, mainMenuView.LevelMenuView.DifficultChooserView);
             _difficultChooserPresenter = _difficultBuilder.Build();
-            
+
             _audioMenuBuilder = new AudioMenuBuilder(mainMenuView.SettingsView.AudioMenuView);
             _audioMenuPresenter = _audioMenuBuilder.Build();
 

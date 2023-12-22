@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using Players.StateMachine.PlayerStates;
 using Players.StateMachine.Transitions;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Players.StateMachine
@@ -23,7 +23,7 @@ namespace Players.StateMachine
         [SerializeField] private HitState _hitState;
         [SerializeField] private FallState _fallState;
         [SerializeField] private HorizontalMover _horizontalMover;
-        [SerializeField] private Fliper _playerFliper;
+        [SerializeField] private Fliper _fliper;
 
         private List<Transition> _transitions = new List<Transition>();
         private State _currentState;
@@ -67,7 +67,7 @@ namespace Players.StateMachine
             _currentState.Enter();
 
             _horizontalMover.enabled = nextState.IsMovable;
-            _playerFliper.enabled = nextState.IsFlippable;
+            _fliper.enabled = nextState.IsFlippable;
         }
 
         private void InitializeTransitions()

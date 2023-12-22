@@ -1,5 +1,5 @@
-using UI.MainMenu.Settings.Audio.Views;
 using Audio;
+using UI.MainMenu.Settings.Audio.Views;
 using UnityEngine;
 
 namespace UI.MainMenu.Settings.Audio.Presenters

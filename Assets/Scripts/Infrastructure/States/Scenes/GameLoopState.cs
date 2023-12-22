@@ -1,8 +1,7 @@
 using ConstantValues;
-using Infrastructure.States;
-using Level;
 using Data;
 using Infrastructure.Factories;
+using Level;
 
 namespace Infrastructure.States.Scenes
 {

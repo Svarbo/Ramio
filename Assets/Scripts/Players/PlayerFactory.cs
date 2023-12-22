@@ -32,7 +32,7 @@ namespace Players
                 position: _startSpawnPosition,
                 rotation: Quaternion.identity
             );
-            
+
             Camera.main.GetComponent<TargetFollower>().Construct(player.transform, _cameraOffset);
 
             SetAttemptsCount(player);

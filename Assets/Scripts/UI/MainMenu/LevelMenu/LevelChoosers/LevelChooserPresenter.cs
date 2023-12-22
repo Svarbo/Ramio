@@ -8,6 +8,7 @@ namespace UI.MainMenu.LevelMenu.LevelChoosers
     {
         private readonly StateMachine _stateMachine;
         private readonly LevelsRow _levelsRow;
+
         private LevelsInfo _levelsInfo;
 
         public LevelChooserPresenter(LevelsRow levelsRow, LevelsInfo levelsInfo, StateMachine stateMachine)

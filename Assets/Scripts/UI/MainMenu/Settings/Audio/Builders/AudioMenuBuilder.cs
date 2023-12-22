@@ -1,4 +1,3 @@
-using Audio;
 using UI.MainMenu.Settings.Audio.Presenters;
 
 namespace UI.MainMenu.Settings.Audio.Builders
@@ -9,7 +8,7 @@ namespace UI.MainMenu.Settings.Audio.Builders
 
         private AudioMenuPresenter _audioMenuPresenter;
 
-        public AudioMenuBuilder(AudioMenuView audioMenuView) => 
+        public AudioMenuBuilder(AudioMenuView audioMenuView) =>
             _audioMenuView = audioMenuView;
 
         public AudioMenuPresenter Build()
