@@ -13,6 +13,5 @@ namespace ConstantValues
         public const string UkrainianDesignation = "uk";
         public const string UzbekDesignation = "uz";
         public const string TurkishDesignation = "tr";
-        public const string EnglishDesignation = "en";
     }
 }

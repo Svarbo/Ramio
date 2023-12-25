@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace Data
 {
-    [Serializable]
     public class LevelsProgress
     {
         private static LevelsProgress _instance;

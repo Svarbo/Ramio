@@ -41,7 +41,7 @@ namespace Buffs
 
         private void TryReload()
         {
-            if (_isCollected == true)
+            if (_isCollected)
             {
                 _currentReloadingTime += Time.deltaTime;
 

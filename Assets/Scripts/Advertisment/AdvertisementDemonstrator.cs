@@ -1,10 +1,10 @@
+using System;
 using Agava.YandexGames;
 using Audio;
 using ConstantValues;
-using System;
 using UnityEngine;
 
-namespace SDK
+namespace Advertisment
 {
     public class AdvertisementDemonstrator : MonoBehaviour
     {
@@ -13,6 +13,7 @@ namespace SDK
         [SerializeField] private GameAudioData _gameAudioData;
 
         private float _musicVolume;
+        private float _effectVolume;
         private Action Callback;
 
         private void Awake() =>
@@ -33,21 +34,31 @@ namespace SDK
         private void OnCloseCallback(bool obj)
         {
             Callback?.Invoke();
+            
             _gameAudioData.SetMusicVolume(_musicVolume);
+            _gameAudioData.SetEffectsVolume(_effectVolume);
+            
             Time.timeScale = 1;
         }
 
         private void OnStartCallBack()
         {
             Time.timeScale = 0;
+            
             _musicVolume = _gameAudioData.MusicVolume;
             _gameAudioData.SetMusicVolume(0);
+            
+            _effectVolume = _gameAudioData.EffectsVolume;
+            _gameAudioData.SetEffectsVolume(0);
         }
 
         private void OnErrorCallback(string obj)
         {
             Callback?.Invoke();
+
             _gameAudioData.SetMusicVolume(_musicVolume);
+            _gameAudioData.SetEffectsVolume(_effectVolume);
+            
             Time.timeScale = 1;
         }
     }

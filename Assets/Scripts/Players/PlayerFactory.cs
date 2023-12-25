@@ -1,8 +1,8 @@
-using CameraFollowing;
 using ConstantValues;
 using Data;
 using Infrastructure.Inputs;
 using System;
+using Camera;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -33,7 +33,7 @@ namespace Players
                 rotation: Quaternion.identity
             );
 
-            Camera.main.GetComponent<TargetFollower>().Construct(player.transform, _cameraOffset);
+            UnityEngine.Camera.main.GetComponent<TargetFollower>().Construct(player.transform, _cameraOffset);
 
             SetAttemptsCount(player);
             SetInputService(player);

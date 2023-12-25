@@ -1,8 +1,8 @@
-using ConstantValues;
 using System.Collections.Generic;
+using ConstantValues;
 using UnityEngine;
 
-namespace CollectableObjects
+namespace Oranges
 {
     public class OrangesCounter : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-using CollectableObjects;
 using ConstantValues;
 using Players;
 using System;
+using Oranges;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +28,6 @@ namespace UI.Level.EndGame.Panels
             NextLevelLoader?.Invoke();
 
         private void SetScoreText() =>
-            _orangesCountText.SetCountText(_player.FruitsCount,
-                PlayerPrefs.GetInt(PlayerPrefsNames.CurrentLevelOrangesCount));
+            _orangesCountText.SetCountText(_player.FruitsCount,PlayerPrefs.GetInt(PlayerPrefsNames.CurrentLevelOrangesCount));
     }
 }
