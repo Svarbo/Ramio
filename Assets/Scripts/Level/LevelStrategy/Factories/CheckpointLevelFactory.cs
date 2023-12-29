@@ -18,10 +18,10 @@ namespace Level.LevelStrategy.Factories
         private readonly AcceptLevelsDeterminator _acceptLevelsDeterminator;
 
         public CheckpointLevelFactory(
-            LevelsInfo levelsInfo, 
-            Player player, 
+            LevelsInfo levelsInfo,
+            Player player,
             StateMachine stateMachine,
-            Vector3 startSpawnPosition, 
+            Vector3 startSpawnPosition,
             SpawnPointContainer spawnPointContainer,
             AcceptLevelsDeterminator acceptLevelsDeterminator)
         {

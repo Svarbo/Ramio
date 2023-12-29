@@ -1,6 +1,6 @@
+using System.Collections;
 using Data;
 using Infrastructure.Core;
-using System.Collections;
 using Transitions;
 using UnityEngine;
 using UnityEngine.SceneManagement;

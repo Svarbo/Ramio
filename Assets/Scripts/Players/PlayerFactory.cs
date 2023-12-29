@@ -1,7 +1,7 @@
+using System;
 using Camera;
 using ConstantValues;
 using Data;
-using System;
 using Infrastructure.Inputs;
 using UnityEngine;
 using UnityEngine.SceneManagement;

@@ -1,5 +1,5 @@
-using Players;
 using System;
+using Players;
 using UI.Level.EndGame.Panels;
 using UnityEngine;
 

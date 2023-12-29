@@ -1,9 +1,9 @@
+using System;
+using System.Collections;
 using Agava.YandexGames;
 using Data;
 using Infrastructure.Core;
 using Localization;
-using System;
-using System.Collections;
 
 namespace Infrastructure.States.Scenes
 {

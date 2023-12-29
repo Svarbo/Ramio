@@ -34,7 +34,6 @@ namespace Advertisment
         private void OnCloseCallback(bool obj)
         {
             Callback?.Invoke();
-            
             _gameAudioData.SetMusicVolume(_musicVolume);
             _gameAudioData.SetEffectsVolume(_effectVolume);
             Time.timeScale = 1;
@@ -45,7 +44,6 @@ namespace Advertisment
             Time.timeScale = 0;
             _musicVolume = _gameAudioData.MusicVolume;
             _gameAudioData.SetMusicVolume(0);
-            
             _effectVolume = _gameAudioData.EffectsVolume;
             _gameAudioData.SetEffectsVolume(0);
         }

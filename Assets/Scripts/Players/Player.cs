@@ -1,7 +1,7 @@
+using System;
 using ConstantValues;
 using Infrastructure.Inputs;
 using Players.StateMachine;
-using System;
 using UnityEngine;
 
 namespace Players

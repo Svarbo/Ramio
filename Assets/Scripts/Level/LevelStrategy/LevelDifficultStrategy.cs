@@ -1,7 +1,7 @@
+using System;
 using Data;
 using GameLeaderboard;
 using Infrastructure;
-using System;
 using Players;
 using UI.Level.EndGame;
 using UnityEngine.SceneManagement;

@@ -1,8 +1,8 @@
+using System;
 using Agava.YandexGames;
 using ConstantValues;
 using Data;
 using Data.Difficults;
-using System;
 
 namespace GameLeaderboard
 {
