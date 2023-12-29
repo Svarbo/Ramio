@@ -17,8 +17,12 @@ namespace Level.LevelStrategy.Factories
         private readonly SpawnPointContainer _spawnPointContainer;
         private readonly AcceptLevelsDeterminator _acceptLevelsDeterminator;
 
-        public CheckpointLevelFactory(LevelsInfo levelsInfo, Player player, StateMachine stateMachine,
-            Vector3 startSpawnPosition, SpawnPointContainer spawnPointContainer,
+        public CheckpointLevelFactory(
+            LevelsInfo levelsInfo, 
+            Player player, 
+            StateMachine stateMachine,
+            Vector3 startSpawnPosition, 
+            SpawnPointContainer spawnPointContainer,
             AcceptLevelsDeterminator acceptLevelsDeterminator)
         {
             _spawnPointContainer = spawnPointContainer;
@@ -31,16 +35,14 @@ namespace Level.LevelStrategy.Factories
 
         public CheckpointLevelStrategy Create()
         {
-            return new CheckpointLevelStrategy
-            (
+            return new CheckpointLevelStrategy(
                 _player,
                 _stateMachine,
                 _levelsInfo,
                 _spawnPointContainer,
                 lastCheckpoint: GetLastPosition(),
                 startCheckpoint: _startSpawnPosition,
-                _acceptLevelsDeterminator
-                );
+                _acceptLevelsDeterminator);
         }
 
         private Vector3 GetLastPosition()

@@ -1,7 +1,7 @@
 using ConstantValues;
-using Data.Difficults;
 using System;
 using System.Collections.Generic;
+using Data.Difficults;
 using UnityEngine;
 
 namespace Data

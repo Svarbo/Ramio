@@ -13,12 +13,10 @@ namespace UI.MainMenu.Settings.Audio.Builders
 
         public AudioMenuPresenter Build()
         {
-            _audioMenuPresenter = new AudioMenuPresenter
-            (
+            _audioMenuPresenter = new AudioMenuPresenter(
                 gameAudioData: _audioMenuView.GameAudioData,
                 effectsView: _audioMenuView.EffectsView,
-                musicView: _audioMenuView.MusicView
-            );
+                musicView: _audioMenuView.MusicView);
 
             _audioMenuView.AllAudioView.Construct(_audioMenuPresenter);
             _audioMenuView.EffectsView.Construct(_audioMenuPresenter);

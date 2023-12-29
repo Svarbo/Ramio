@@ -36,7 +36,7 @@ namespace Level
 
         private void FindObjects()
         {
-            _startSpawnPosition = FindObjectOfType<Spawner>().position.position;
+            _startSpawnPosition = FindObjectOfType<Spawner>().Position.position;
             _gameBootstrap = FindObjectOfType<GameBootstrap>();
             _spawnPointContainer = FindObjectOfType<SpawnPointContainer>();
         }

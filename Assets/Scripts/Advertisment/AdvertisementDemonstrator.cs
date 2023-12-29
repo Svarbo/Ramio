@@ -19,16 +19,16 @@ namespace Advertisment
         private void Awake() =>
             _musicVolume = _gameAudioData.MusicVolume;
 
-        public void TryShowAdvertisement(Action OnSuccesCallback)
+        public void TryShowAdvertisement(Action onSuccesCallback)
         {
-            Callback += OnSuccesCallback;
+            Callback += onSuccesCallback;
 
             int attemptsCount = PlayerPrefs.GetInt(PlayerPrefsNames.AttemptsCount);
 
             if (attemptsCount % AdvertisementDemonstrationFrequency == 0)
                 InterstitialAd.Show(OnStartCallBack, OnCloseCallback, OnErrorCallback);
             else
-                OnSuccesCallback?.Invoke();
+                onSuccesCallback?.Invoke();
         }
 
         private void OnCloseCallback(bool obj)
@@ -37,14 +37,12 @@ namespace Advertisment
             
             _gameAudioData.SetMusicVolume(_musicVolume);
             _gameAudioData.SetEffectsVolume(_effectVolume);
-            
             Time.timeScale = 1;
         }
 
         private void OnStartCallBack()
         {
             Time.timeScale = 0;
-            
             _musicVolume = _gameAudioData.MusicVolume;
             _gameAudioData.SetMusicVolume(0);
             
@@ -55,10 +53,8 @@ namespace Advertisment
         private void OnErrorCallback(string obj)
         {
             Callback?.Invoke();
-
             _gameAudioData.SetMusicVolume(_musicVolume);
             _gameAudioData.SetEffectsVolume(_effectVolume);
-            
             Time.timeScale = 1;
         }
     }

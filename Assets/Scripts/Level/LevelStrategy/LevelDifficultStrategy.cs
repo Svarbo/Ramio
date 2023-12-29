@@ -1,8 +1,8 @@
 using Data;
 using GameLeaderboard;
 using Infrastructure;
-using Players;
 using System;
+using Players;
 using UI.Level.EndGame;
 using UnityEngine.SceneManagement;
 
@@ -10,13 +10,13 @@ namespace Level.LevelStrategy
 {
     public abstract class LevelDifficultStrategy : IDisposable
     {
-        private Player _personage;
-        private Infrastructure.StateMachines.StateMachine _stateMachine;
-        private LevelsInfo _levelsInfo;
+        private readonly Player _personage;
+        private readonly Infrastructure.StateMachines.StateMachine _stateMachine;
+        private readonly LevelsInfo _levelsInfo;
         private readonly AcceptLevelsDeterminator _acceptLevelsDeterminator;
-        private LevelLoader _levelLoader;
-        private PlayerCanvasDrawer _playerCanvasDrawer;
-        private LeaderboardAdder _leaderboardAdder;
+        private readonly LevelLoader _levelLoader;
+        private readonly PlayerCanvasDrawer _playerCanvasDrawer;
+        private readonly LeaderboardAdder _leaderboardAdder;
 
         public LevelDifficultStrategy(
             Player player,

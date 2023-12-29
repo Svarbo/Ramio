@@ -1,6 +1,6 @@
-using Infrastructure.States;
 using System;
 using System.Collections.Generic;
+using Infrastructure.States;
 
 namespace Infrastructure.StateMachines
 {

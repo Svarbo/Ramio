@@ -21,8 +21,12 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
 
         public DifficultChooserPresenter Build()
         {
-            _difficultChooserPresenter = InitDifficultChooser(_levelChooserPresenter, _levelsInfo, _difficultChooserView.DifficultInfoPanel.EasyDifficultView,
-                _difficultChooserView.DifficultInfoPanel.MediumDifficultView, _difficultChooserView.DifficultInfoPanel.HardDifficultView);
+            _difficultChooserPresenter = InitDifficultChooser(
+                _levelChooserPresenter, 
+                _levelsInfo, 
+                _difficultChooserView.DifficultInfoPanel.EasyDifficultView,
+                _difficultChooserView.DifficultInfoPanel.MediumDifficultView, 
+                _difficultChooserView.DifficultInfoPanel.HardDifficultView);
 
             _difficultChooserView.DifficultInfoPanel.EasyDifficultView.Construct(_difficultChooserPresenter);
             _difficultChooserView.DifficultInfoPanel.MediumDifficultView.Construct(_difficultChooserPresenter);
@@ -30,8 +34,12 @@ namespace UI.MainMenu.LevelMenu.Difficults.Presenters
             return _difficultChooserPresenter;
         }
 
-        private DifficultChooserPresenter InitDifficultChooser(LevelChooserPresenter levelChooserPresenter, LevelsInfo levelsInfo, EasyDifficultView easyDifficultView,
-            MediumDifficultView mediumDifficultView, HardDifficultView hardDifficultView) =>
+        private DifficultChooserPresenter InitDifficultChooser(
+            LevelChooserPresenter levelChooserPresenter, 
+            LevelsInfo levelsInfo, 
+            EasyDifficultView easyDifficultView,
+            MediumDifficultView mediumDifficultView, 
+            HardDifficultView hardDifficultView) =>
             _difficultChooserPresenter = new DifficultChooserPresenter(levelChooserPresenter, levelsInfo, easyDifficultView, mediumDifficultView, hardDifficultView);
     }
 }

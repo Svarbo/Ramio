@@ -28,7 +28,7 @@ namespace Players.StateMachine.PlayerStates
         {
             return Info.IsWallHooked
                 || Info.IsHit
-                || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
+                || (Info.IsJumpButtonPressed && Info.IsExtraJumpReady)
                 || Info.IsGrounded
                 || Info.IsFalling
                 || Info.IsDecelerated

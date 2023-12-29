@@ -6,9 +6,10 @@ namespace Traps.SpikedBall
     [RequireComponent(typeof(Rigidbody2D))]
     public class FallingObject : MonoBehaviour
     {
-        private Rigidbody2D _rigidbody2D;
         private const string _groundLayer = "Ground";
         private const string _playerLayer = "Player";
+
+        private Rigidbody2D _rigidbody2D;
 
         private void Start() =>
             _rigidbody2D = GetComponent<Rigidbody2D>();

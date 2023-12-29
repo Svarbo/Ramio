@@ -22,7 +22,7 @@ namespace Players.StateMachine.PlayerStates
         {
             return Info.IsGrounded
                 || Info.IsHit
-                || Info.IsJumpButtonPressed && Info.IsExtraJumpReady
+                || (Info.IsJumpButtonPressed && Info.IsExtraJumpReady)
                 || Info.IsWallHooked
                 || Info.IsFalling
                 || Info.IsDecelerated

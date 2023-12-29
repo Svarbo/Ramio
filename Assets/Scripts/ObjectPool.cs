@@ -14,7 +14,7 @@ public class ObjectPool : MonoBehaviour
 
     private void Initialize()
     {
-        for(int i = 0; i < _capacity; i++)
+        for (int i = 0; i < _capacity; i++)
         {
             GameObject spawned = Instantiate(_prefab, transform);
             spawned.SetActive(false);

@@ -17,7 +17,8 @@ namespace UI.MainMenu.Leaderboard
 
         private void Clear()
         {
-            Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName: LeaderboardsNames.EasyLeaderboardName,
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(
+                leaderboardName: LeaderboardsNames.EasyLeaderboardName,
                 onSuccessCallback: _ =>
                 {
                     _ = null;

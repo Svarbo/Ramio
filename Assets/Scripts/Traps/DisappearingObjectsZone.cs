@@ -1,5 +1,5 @@
-using Players;
 using System.Collections.Generic;
+using Players;
 using UnityEngine;
 
 namespace Traps

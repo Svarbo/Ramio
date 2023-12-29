@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using Players.StateMachine.PlayerStates;
 using Players.StateMachine.Transitions;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Players.StateMachine

@@ -1,8 +1,8 @@
+using Camera;
 using ConstantValues;
 using Data;
-using Infrastructure.Inputs;
 using System;
-using Camera;
+using Infrastructure.Inputs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -17,21 +17,19 @@ namespace Players
         private Vector3 _startSpawnPosition;
         private Vector3 _cameraOffset = new Vector3(0, 0, -5);
 
-        public PlayerFactory(Vector3 startSpawnPosition, bool IsMobile, Type difficult)
+        public PlayerFactory(Vector3 startSpawnPosition, bool isMobile, Type difficult)
         {
             _startSpawnPosition = startSpawnPosition;
-            _isMobile = IsMobile;
+            _isMobile = isMobile;
             _difficult = difficult;
         }
 
         public Player Create()
         {
-            Player player = Object.Instantiate
-            (
+            Player player = Object.Instantiate(
                 original: Resources.Load<Player>(ResourcesPath.PlayerPath),
                 position: _startSpawnPosition,
-                rotation: Quaternion.identity
-            );
+                rotation: Quaternion.identity);
 
             UnityEngine.Camera.main.GetComponent<TargetFollower>().Construct(player.transform, _cameraOffset);
 

@@ -1,7 +1,7 @@
 using Agava.YandexGames;
-using ConstantValues;
 using System.Collections;
 using System.Collections.Generic;
+using ConstantValues;
 using TMPro;
 using UnityEngine;
 
@@ -37,24 +37,21 @@ namespace UI.MainMenu.Leaderboard
             WaitForSeconds waitForSeconds = new WaitForSeconds(2);
 
             ShowFirstLeaders(LeaderboardsNames.EasyLeaderboardName, _easyLeaderPlaces);
-            ShowPlayerPlace(LeaderboardsNames.EasyLeaderboardName, _easyPlayerTopPlaceText,
-                _easyPlayerAttemptionsCountText);
+            ShowPlayerPlace(LeaderboardsNames.EasyLeaderboardName, _easyPlayerTopPlaceText, _easyPlayerAttemptionsCountText);
             yield return waitForSeconds;
 
             ShowFirstLeaders(LeaderboardsNames.MediumLeaderboardName, _mediumLeaderPlaces);
-            ShowPlayerPlace(LeaderboardsNames.MediumLeaderboardName, _mediumPlayerTopPlaceText,
-                _mediumPlayerAttemptionsCountText);
+            ShowPlayerPlace(LeaderboardsNames.MediumLeaderboardName, _mediumPlayerTopPlaceText, _mediumPlayerAttemptionsCountText);
             yield return waitForSeconds;
 
             ShowFirstLeaders(LeaderboardsNames.HardLeaderboardName, _hardLeaderPlaces);
-            ShowPlayerPlace(LeaderboardsNames.HardLeaderboardName, _hardPlayerTopPlaceText,
-                _hardPlayerAttemptionsCountText);
+            ShowPlayerPlace(LeaderboardsNames.HardLeaderboardName, _hardPlayerTopPlaceText, _hardPlayerAttemptionsCountText);
         }
 
-        private void ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText,
-            TMP_Text playerAttemptionsCountText)
+        private void ShowPlayerPlace(string leaderboardName, TMP_Text playerTopPlaceText, TMP_Text playerAttemptionsCountText)
         {
-            Agava.YandexGames.Leaderboard.GetPlayerEntry(leaderboardName,
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(
+                leaderboardName,
                 (result) =>
                 {
                     if (result == null)
@@ -72,7 +69,8 @@ namespace UI.MainMenu.Leaderboard
 
         private void ShowFirstLeaders(string leaderboardName, List<LeaderPlace> leaderPlaces)
         {
-            Agava.YandexGames.Leaderboard.GetEntries(leaderboardName,
+            Agava.YandexGames.Leaderboard.GetEntries(
+                leaderboardName,
                 (result) =>
                 {
                     string leaderName;

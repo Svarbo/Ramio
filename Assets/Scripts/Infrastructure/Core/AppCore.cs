@@ -1,8 +1,8 @@
-using Infrastructure.StateMachines;
-using Infrastructure.States;
-using Infrastructure.States.Scenes;
 using System;
 using System.Collections.Generic;
+using Infrastructure.States;
+using Infrastructure.StateMachines;
+using Infrastructure.States.Scenes;
 using Transitions;
 
 namespace Infrastructure.Core
