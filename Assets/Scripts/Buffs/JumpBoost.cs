@@ -54,5 +54,8 @@ namespace Buffs
                 }
             }
         }
+
+        public void Disable() =>
+            _isCollected = true;
     }
 }
