@@ -4,6 +4,9 @@ namespace Level.SpawnPoints
 {
     public class Spawner : MonoBehaviour
     {
-        [field: SerializeField] public Transform Position { get; private set; }
+        public Vector3 Position { get; private set; }
+
+        private void Awake() =>
+            Position = transform.position;
     }
 }

@@ -94,7 +94,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 184.2
   m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24163d2553c013449958dc97bdc2f4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _personage: {fileID: 7637989664623092994}
+  _player: {fileID: 7637989664623092994}
 --- !u!1 &362605562264306140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,7 +3140,7 @@ MonoBehaviour:
   _hitState: {fileID: 5052385653091936123}
   _fallState: {fileID: 2260403341190364236}
   _horizontalMover: {fileID: 3228140184127067324}
-  _playerFliper: {fileID: 434949248380729181}
+  _fliper: {fileID: 434949248380729181}
 --- !u!114 &7299815291854273114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3942,7 +3942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddac42ad3fc4a4eb1ecb87d51a48ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _personage: {fileID: 7637989664623092994}
+  _player: {fileID: 7637989664623092994}
   _orangesCountText: {fileID: 7740910099036607306}
   _button: {fileID: 2383364240315554750}
 --- !u!1 &8494267268617344366

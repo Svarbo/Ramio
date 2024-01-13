@@ -22,8 +22,11 @@ namespace Infrastructure.States.Scenes
         {
         }
 
-        public void Enter() =>
-            _coroutineRunner.StartCoroutine(LoadSdkCoroutine(LoadMainMenuScene));
+        public void Enter()
+        {
+            //_coroutineRunner.StartCoroutine(LoadSdkCoroutine(LoadMainMenuScene));
+            LoadMainMenuScene();
+        }
 
         private IEnumerator LoadSdkCoroutine(Action onSuccessCallback = null)
         {

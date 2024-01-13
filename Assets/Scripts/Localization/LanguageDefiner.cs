@@ -8,7 +8,8 @@ namespace Localization
     {
         public void DefineLanguage()
         {
-            string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
+            string languageDesignation = "ru"; 
+            //YandexGamesSdk.Environment.i18n.lang;
 
             if (languageDesignation == LanguageInfo.RussianDesignation || languageDesignation == LanguageInfo.BelarusianDesignation || languageDesignation == LanguageInfo.KazakhDesignation || languageDesignation == LanguageInfo.UkrainianDesignation || languageDesignation == LanguageInfo.UzbekDesignation)
                 PlayerPrefs.SetInt(PlayerPrefsNames.LanguageIndex, LanguageInfo.RussianLanguageIndex);
